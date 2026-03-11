@@ -2,8 +2,8 @@ from .DQNEncoder import DQNEncoder
 from .AlphaEncoder import AlphaEncoder
 from .BetaEncoder import BetaEncoder
 from .GammaEncoder import GammaEncoder
-from .EtaEncoder import EtaEncoder
-from .ZetaEncoder import ZetaEncoder
-from .ThetaEncoder import ThetaEncoder
 from .DeltaEncoder import DeltaEncoder
 from .EpsilonEncoder import EpsilonEncoder
+from .ZetaEncoder import ZetaEncoder
+from .EtaEncoder import EtaEncoder
+from .ThetaEncoder import ThetaEncoder
