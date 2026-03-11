@@ -2,7 +2,7 @@ import torch
 from ..common import LayerNorm2d
 
 
-class Gamma(torch.nn.Module):
+class GammaEncoder(torch.nn.Module):
     def __init__(self, *, activation=torch.nn.ReLU):
         super().__init__()
         self.stream = torch.nn.Sequential(
