@@ -2,7 +2,7 @@ import torch
 from ..common import LayerNorm2d
 
 
-class DeltaFeatureExtractor(torch.nn.Module):
+class DeltaEncoder(torch.nn.Module):
     def __init__(self, *, activation=torch.nn.ReLU):
         super().__init__()
         self.stream = torch.nn.Sequential(
