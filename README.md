@@ -38,11 +38,23 @@ from baloot import seed_everything
 seed_everything(10000)
 ```
 
-We used the following numbers as our seeds:
-- 475284
-- 219842
-- 525975
-- 909314
+The following numbers were used as our seeds for experiments. 
+
+```py
+from baloot import seed_everything
+
+# first set of experiments
+seed_everything(475284)
+
+# second set of experiments
+seed_everything(219842)
+
+# third set of experiments
+seed_everything(525975)
+
+# fourth set of experiments
+seed_everything(909314)
+```
 
 ## Citation
 
