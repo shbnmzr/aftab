@@ -25,28 +25,28 @@ agent.save("pong.model")
 ## Architectures
 
 ### Alpha
-<img src="/figures/archs/alpha.svg" />
+<img src="/figures/archs/alpha.png" />
 
 ### Beta
-<img src="/figures/archs/beta.svg" />
+<img src="/figures/archs/beta.png" />
 
 ### Gamma
-<img src="/figures/archs/gamma.svg" />
+<img src="/figures/archs/gamma.png" />
 
 ### Delta
-<img src="/figures/archs/delta.svg" />
+<img src="/figures/archs/delta.png" />
 
 ### Epsilon
-<img src="/figures/archs/epsilon.svg" />
+<img src="/figures/archs/epsilon.png" />
 
 ### Zeta
-<img src="/figures/archs/zeta.svg" />
+<img src="/figures/archs/zeta.png" />
 
 ### Eta
-<img src="/figures/archs/eta.svg" />
+<img src="/figures/archs/eta.png" />
 
 ### Theta
-<img src="/figures/archs/theta.svg" />
+<img src="/figures/archs/theta.png" />
 
 
 ## Statistical Significance
