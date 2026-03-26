@@ -25,6 +25,7 @@ agent.save("pong.model")
 ## Architectures
 
 ### Alpha
+
 <img src="/figures/archs/alpha.png" />
 
 ```py
@@ -34,6 +35,7 @@ print(AlphaEncoder)
 ```
 
 ### Beta
+
 <img src="/figures/archs/beta.png" />
 
 ```py
@@ -42,6 +44,7 @@ from aftab import BetaEncoder
 print(BetaEncoder)
 ```
 ### Gamma
+
 <img src="/figures/archs/gamma.png" />
 
 ```py
@@ -51,19 +54,55 @@ print(GammaEncoder)
 ```
 
 ### Delta
+
 <img src="/figures/archs/delta.png" />
 
+```py
+from aftab import DeltaEncoder
+
+print(DeltaEncoder)
+```
+
 ### Epsilon
+
 <img src="/figures/archs/epsilon.png" />
 
+```py
+from aftab import EpsilonEncoder
+
+print(EpsilonEncoder)
+```
+
+
 ### Zeta
+
 <img src="/figures/archs/zeta.png" />
 
+```py
+from aftab import ZetaEncoder
+
+print(ZetaEncoder)
+```
+
 ### Eta
+
 <img src="/figures/archs/eta.png" />
 
+```py
+from aftab import EtaEncoder
+
+print(EtaEncoder)
+```
+
 ### Theta
+
 <img src="/figures/archs/theta.png" />
+
+```py
+from aftab import ThetaEncoder
+
+print(ThetaEncoder)
+```
 
 
 ## Statistical Significance
