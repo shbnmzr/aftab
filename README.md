@@ -28,6 +28,8 @@ agent.save("pong.model")
 
 ## Results
 
+**Note:** In interpreting the results bear in mind that the Eta version has significantly more parameters compared to other variants, mainly because the the encoder yields out a large number of features.
+
 |                      | PQN        | Alpha      | Beta       | Gamma      | Delta      | Epsilon    | Zeta       | Eta         | Theta      |
 |:---------------------|:-----------|:-----------|:-----------|:-----------|:-----------|:-----------|:-----------|:------------|:-----------|
 | Alien                | 0.542      | 1.785      | 2.408      | **2.845**  | 0.381      | 2.262      | 1.840      | 1.675       | 0.411      |
