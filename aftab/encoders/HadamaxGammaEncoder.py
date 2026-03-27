@@ -77,8 +77,8 @@ class HadamaxGammaEncoder(torch.nn.Module):
     def __init__(self, activation: Type[torch.nn.Module] = torch.nn.ReLU):
         super().__init__()
 
-        self.a = HadamardGammaHadamardGammaBlockA(activation=activation)
-        self.a_prime = HadamardGammaHadamardGammaBlockA(activation=activation)
+        self.a = HadamardGammaBlockA(activation=activation)
+        self.a_prime = HadamardGammaBlockA(activation=activation)
 
         self.b = HadamardGammaBlockB(activation=activation)
         self.b_prime = HadamardGammaBlockB(activation=activation)
