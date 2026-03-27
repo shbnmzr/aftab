@@ -1,6 +1,10 @@
 import torch
 import numpy as np
 from baloot import acceleration_device
+from typing import Type
+
+
+ModuleType = Type[torch.nn.Module]
 
 
 class LayerNorm2d(torch.nn.Module):
