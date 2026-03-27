@@ -1,10 +1,9 @@
 import torch
-from ..common import LayerNorm2d
-from typing import Type
+from ..common import LayerNorm2d, ModuleType
 
 
 class HadamardGammaBlockA(torch.nn.Module):
-    def __init__(self, activation: Type[torch.nn.Module]):
+    def __init__(self, activation: ModuleType):
         super().__init__()
         self.convolutional = torch.nn.Conv2d(4, 32, kernel_size=3, stride=2, padding=1)
         self.normalization = LayerNorm2d(32)
