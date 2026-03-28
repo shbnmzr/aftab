@@ -3,7 +3,7 @@ from baloot import acceleration_device
 from .helpers import panic_if_encoder_identifier_is_illegal
 
 
-class Agent:
+class Aftab:
     def __init__(self, encoder_identifier: str = "gamma"):
         self.device = acceleration_device()
         torch.set_float32_matmul_precision("high")
