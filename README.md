@@ -22,8 +22,8 @@ You can import the agent and configure all the hyperparameters based on followin
 from aftab import Aftab
 
 agent = Aftab(environment="pong", encoder="gamma")
-agent.train()
-agent.save("pong.model")
+agent.train(frames=200_000_000)
+agent.save("pong.gamma.model")
 ```
 
 ## Results
