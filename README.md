@@ -19,9 +19,9 @@ pip install aftab
 You can import the agent and configure all the hyperparameters based on following guide.
 
 ```python
-from aftab import Agent as AftabAgent
+from aftab import Aftab
 
-agent = AftabAgent(environment="pong")
+agent = Aftab(environment="pong", encoder="gamma")
 agent.train()
 agent.save("pong.model")
 ```
