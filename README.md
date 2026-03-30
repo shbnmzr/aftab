@@ -1,6 +1,6 @@
 <p align="center">
 
-| Performance | Performance (Last 50M Frames) |
+| IQM HNS | IQM HNS (Last 50M Frames) |
 | :---: | :---: |
 | ![Global Performance](figures/global.png) | ![Last 50M Frames](figures/global_zoomed.png) |
 
