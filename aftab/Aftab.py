@@ -1,13 +1,27 @@
 import torch
 from baloot import acceleration_device
-from .helpers import panic_if_encoder_identifier_is_illegal
 
 
 class Aftab:
-    def __init__(self, encoder_identifier: str = "gamma"):
+    def __init__(
+        self,
+        encoder_identifier: str = "gamma",
+        frameskip: int = 4,
+        num_minibatches: int = 32,
+        epochs: int = 2,
+        gamma: float = 0.99,
+        lmbda: float = 0.65,
+        lr: float = 0.00025,
+        logging_interval: int = 10,
+    ):
         self.device = acceleration_device()
-        torch.set_float32_matmul_precision("high")
-        panic_if_encoder_identifier_is_illegal(encoder_identifier)
+        self.frameskip = frameskip
+        self.lr = lr
+        self.lmbda = lmbda
+        self.gamma = gamma
+        self.epochs = epochs
+        self.num_minibatches = num_minibatches
+        self.logging_interval = logging_interval
 
     def train(self, environment):
-        pass
+        torch.set_float32_matmul_precision("high")
