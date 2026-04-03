@@ -19,6 +19,7 @@ class Aftab:
         logging_interval: int = 10,
         num_train_environments: int = 128,
         num_test_environments: int = 8,
+        steps_per_update: int = 32,
     ):
         self.device = acceleration_device()
         self.frameskip = frameskip
@@ -33,6 +34,8 @@ class Aftab:
         self.num_test_environments = num_test_environments
         self.total_environments = int(num_train_environments + num_test_environments)
         self.cpu_count = os.cpu_count()
+        self.steps_per_update = steps_per_update
+        self.batch_size = int(num_train_environments * steps_per_update)
 
         if isinstance(encoder, str):
             module = AftabMapEncoder.get(encoder)
