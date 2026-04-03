@@ -1,5 +1,6 @@
 import torch
 import numpy
+import os
 from baloot import acceleration_device
 from typing import Type
 from .maps import AftabMapEncoder
@@ -31,6 +32,7 @@ class Aftab:
         self.num_train_environments = num_train_environments
         self.num_test_environments = num_test_environments
         self.total_environments = int(num_train_environments + num_test_environments)
+        self.cpu_count = os.cpu_count()
 
         if isinstance(encoder, str):
             module = AftabMapEncoder.get(encoder)
