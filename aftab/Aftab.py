@@ -24,8 +24,10 @@ class Aftab:
         steps_per_update: int = 32,
         total_frames: int = 200_000_000,
         seed: int = 42,
-        episodic_life: bool = True,
-        reward_clip: bool = True,
+        train_episodic_life: bool = True,
+        train_reward_clip: bool = True,
+        test_episodic_life: bool = False,
+        test_reward_clip: bool = True,
     ):
         self.device = acceleration_device()
         self.frameskip = frameskip
@@ -45,8 +47,10 @@ class Aftab:
         self.actual_frames = int(total_frames / frameskip)
         self.total_updates = math.ceil(self.actual_frames / self.batch_size)
         self.seed = seed
-        self.reward_clip = reward_clip
-        self.episodic_life = episodic_life
+        self.train_reward_clip = train_reward_clip
+        self.train_episodic_life = train_episodic_life
+        self.test_reward_clip = test_reward_clip
+        self.test_episodic_life = test_episodic_life
 
         ######
         # This line ensures users can pass a string (predefined) or their defined encoder to the system.
@@ -74,4 +78,16 @@ class Aftab:
             noop_max=30,
             reward_clip=self.reward_clip,
             episodic_life=self.episodic_life,
+        )
+
+        test_env = envpool.make(
+            environment,
+            env_type="gymnasium",
+            num_envs=self.num_test_environments,
+            seed=self.seed + 1000,
+            num_threads=min(4, self.cpu_count),
+            thread_affinity_offset=0,
+            noop_max=30,
+            reward_clip=self.test_reward_clip,
+            episodic_life=self.test_episodic_life,
         )
