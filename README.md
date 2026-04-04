@@ -28,7 +28,7 @@ for environment in environments:
   agent = Aftab(environment="pong", encoder="gamma")
   for seed in seeds:
     agent.train(frames=200_000_000)
-    agent.save(environment=environment, seed=seed)
+    agent.save(environment=environment, seed=seed, name="MyCustomAftabTests")
 ```
 
 ## Results
