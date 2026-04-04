@@ -68,7 +68,14 @@ class Aftab:
         self.verbose = verbose
 
         ######
-        # This line ensures users can pass a string (predefined) or their defined encoder to the system.
+        # these will be filled right after the training is completed
+        ######
+        self.final_training_rewards = None
+        self.final_test_rewards = None
+        self.final_loss_evolution = None
+
+        ######
+        # this line ensures users can pass a string (predefined) or their defined encoder to the system.
         ######
         if isinstance(encoder, str):
             module = AftabMapEncoder.get(encoder)
@@ -334,6 +341,10 @@ class Aftab:
 
         train_environment.close()
         test_environment.close()
+
+        self.final_training_rewards = all_train_rewards
+        self.final_test_rewards = all_test_rewards
+        self.final_loss_evolution = all_loss
 
     def save(name: str):
         pass
