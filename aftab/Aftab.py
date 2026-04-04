@@ -46,7 +46,7 @@ class Aftab:
         self.cpu_count = os.cpu_count()
         self.steps_per_update = steps_per_update
         self.batch_size = int(num_train_environments * steps_per_update)
-        self.actual_frames = int(total_frames / frameskip)
+        self.actual_frames = int(total_frames / self.frame_skip)
         self.total_updates = math.ceil(self.actual_frames / self.batch_size)
         self.seed = seed
         self.train_reward_clip = train_reward_clip
@@ -63,9 +63,15 @@ class Aftab:
             module = AftabMapEncoder.get(encoder)
             self.encoder = module
 
-    def train(self, environment):
-        seed_everything(self.seed)
+    def set_precision(self):
         torch.set_float32_matmul_precision("high")
+
+    def set_seed(self):
+        seed_everything(self.seed)
+
+    def train(self, environment):
+        self.set_precision()
+        self.set_seed()
 
         all_train_rewards = []
         all_test_rewards = []
