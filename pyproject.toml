@@ -20,13 +20,13 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["numpy==1.26.4", "envpool==0.8.4", "baloot", "torch"]
-keywords = ["reinforcement learning", "dqn", "aftab", "drl", "pqn", "deep reinforcement learning"]
+keywords = ["reinforcement learning", "dqn", "aftab", "drl", "pqn", "deep reinforcement learning", "cnn"]
 license = { file = "LICENSE" }
 urls = { Homepage="https://github.com/tahashieenavaz/aftab", Repository="https://github.com/tahashieenavaz/aftab", Documentation="https://github.com/tahashieenavaz/aftab#readme" }
 
 [tool.setuptools.packages.find]
 where = ["."]
-exclude = ["tests*", "docs*"]
+exclude = ["tests*", "docs*", "figures*", "mermaid*"]
 
 [tool.setuptools.package-data]
 aftab = ["*.md", "*.txt"]
