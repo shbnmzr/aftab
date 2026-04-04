@@ -345,5 +345,10 @@ class Aftab:
         if self.verbose:
             flush(f"Training finished.")
 
+    def make_filename(arguments_namespace):
+        raw = "_".join(f"{k}-{v}" for k, v in vars(arguments_namespace).items())
+        filename = raw.replace("/", "-").replace(" ", "")
+        return filename.lower()
+
     def save(name: str):
         pass
