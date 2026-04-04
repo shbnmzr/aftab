@@ -135,7 +135,6 @@ class Aftab:
         optimizer = torch.optim.RAdam(
             self._network.parameters(), lr=self.lr, eps=self.optimizer_epsilon
         )
-        # minibatch_size = int(batch_size // num_minibatches)
 
     def save(name: str):
         pass
