@@ -20,7 +20,6 @@ class Aftab:
         gamma: float = 0.99,
         lmbda: float = 0.65,
         lr: float = 0.00025,
-        logging_interval: int = 10,
         num_train_environments: int = 128,
         num_test_environments: int = 8,
         steps_per_update: int = 32,
@@ -43,7 +42,6 @@ class Aftab:
         self.gamma = gamma
         self.epochs = epochs
         self.num_minibatches = num_minibatches
-        self.logging_interval = logging_interval
         self.encoder = encoder
         self.num_train_environments = num_train_environments
         self.num_test_environments = num_test_environments
