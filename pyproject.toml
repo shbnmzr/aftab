@@ -8,7 +8,7 @@ version = "0.0.1"
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
-description = "Implementation of Aftab paper"
+description = "A highly configurable implementation of our approach in the Aftab paper, benchmarking different convolutional neural networks and their effects on the final results."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -19,8 +19,8 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["numpy==1.26.4", "torch"]
-keywords = ["reinforcement learning", "dqn", "aftab", "drl"]
+dependencies = ["numpy==1.26.4", "torch", "envpool"]
+keywords = ["reinforcement learning", "dqn", "aftab", "drl", "pqn", "deep reinforcement learning"]
 license = { file = "LICENSE" }
 urls = { Homepage="https://github.com/tahashieenavaz/aftab", Repository="https://github.com/tahashieenavaz/aftab", Documentation="https://github.com/tahashieenavaz/aftab#readme" }
 
