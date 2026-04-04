@@ -127,7 +127,7 @@ class Aftab:
         all_train_rewards = []
         all_test_rewards = []
         all_loss = []
-        episode_returns = numpy.zeros(self.total_envs, dtype=numpy.float32)
+        episode_returns = numpy.zeros(self.total_environments, dtype=numpy.float32)
         train_environment, test_environment = self.make_environments(environment)
         action_dimension = train_environment.action_space.n
         self._network = self.make_network(action_dimension, self.encoder)
@@ -150,7 +150,7 @@ class Aftab:
         frame_count = 0
         observation_shape = train_environment.observation_space.shape
         b_obs = torch.empty(
-            (self.steps_per_update, self.total_envs) + observation_shape,
+            (self.steps_per_update, self.total_environments) + observation_shape,
             dtype=torch.uint8,
             device=self._device,
         )
