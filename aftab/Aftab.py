@@ -66,18 +66,18 @@ class Aftab:
         self.verbose = verbose
 
         ######
-        # these will be filled right after the training is completed
-        ######
-        self.final_training_rewards = None
-        self.final_test_rewards = None
-        self.final_loss_evolution = None
-
-        ######
         # this line ensures users can pass a string (predefined) or their defined encoder to the system.
         ######
         if isinstance(encoder, str):
             module = AftabMapEncoder.get(encoder)
             self.encoder = module
+
+        ######
+        # these will be filled right after the training is completed
+        ######
+        self.final_training_rewards = None
+        self.final_test_rewards = None
+        self.final_loss_evolution = None
 
     def make_network(
         action_dimension: int, encoder_instance: Type[torch.nn.Module]
