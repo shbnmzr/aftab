@@ -10,7 +10,7 @@
 
 We have composed the whole project inside an installable Python library. You can install the package using pip.
 
-```terminal
+```
 pip install aftab
 ```
 
@@ -30,6 +30,7 @@ for environment in environments:
     agent.train(frames=200_000_000)
     agent.save(environment=environment, seed=seed, name="MyCustomAftabTests")
 ```
+
 
 ## Results
 
