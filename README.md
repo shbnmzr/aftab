@@ -21,7 +21,7 @@ You can import the agent and configure all the hyper-parameters based on followi
 ```python
 from aftab import Aftab
 
-seeds = [1,2,3,4]
+seeds = [1, 2, 3, 4]
 environments = ["Pong-v5", "IceHockey-v5"]
 
 for environment in environments:
