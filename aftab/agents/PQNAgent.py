@@ -6,11 +6,11 @@ from ..common import LinearEpsilon, Stream, mse_loss
 
 class PQNAgent(torch.nn.Module):
     def __init__(
-        self, action_dim, encoder_instance: Type[torch.nn.Module] = DQNEncoder
+        self, action_dimension, encoder_instance: Type[torch.nn.Module] = DQNEncoder
     ):
         super().__init__()
         self.phi = encoder_instance()
-        self.q = Stream(output_dim=action_dim)
+        self.q = Stream(output_dim=action_dimension)
         self.epsilon = LinearEpsilon()
         self.epsilon_greedy = True
 
