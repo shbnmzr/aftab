@@ -25,7 +25,6 @@ class Aftab:
         num_test_environments: int = 8,
         steps_per_update: int = 32,
         total_frames: int = 200_000_000,
-        seed: int = 42,
         min_test_cpu_count: int = 4,
         noop: int = 30,
         gradient_norm: float = 10.0,
@@ -91,8 +90,8 @@ class Aftab:
     def set_precision(self):
         torch.set_float32_matmul_precision("high")
 
-    def set_seed(self):
-        seed_everything(self.seed)
+    def set_seed(self, seed: int):
+        seed_everything(seed)
 
     def make_environments(self, environment: str):
         train_environment = envpool.make(
@@ -123,9 +122,9 @@ class Aftab:
 
         return train_environment, test_environment
 
-    def train(self, environment):
+    def train(self, environment, seed: int = 42):
         self.set_precision()
-        self.set_seed()
+        self.set_seed(seed)
         all_train_rewards = []
         all_test_rewards = []
         all_loss = []
