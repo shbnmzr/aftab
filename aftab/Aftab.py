@@ -100,3 +100,6 @@ class Aftab:
 
         action_dimension = train_env.action_space.n
         # net = model(action_dimension).to(self.device)
+
+    def save(name: str):
+        pass
