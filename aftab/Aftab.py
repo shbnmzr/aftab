@@ -3,7 +3,7 @@ import numpy
 import os
 import math
 import envpool
-from baloot import acceleration_device, seed_everything
+from baloot import acceleration_device, seed_everything, funnel
 from typing import Type
 from .maps import AftabMapEncoder
 from .agents import PQNAgent
@@ -349,5 +349,12 @@ class Aftab:
         static_part = f"environment-{self.environment}"
         return f"{static_part}_{dynamic_part}"
 
-    def save():
-        pass
+    def save(self, **arguments) -> None:
+        funnel(
+            self.make_filename(**arguments),
+            {
+                "training_reward": self.final_training_rewards,
+                "test_reward": self.final_test_rewards,
+                "loss": self.final_loss_evolution,
+            },
+        )
