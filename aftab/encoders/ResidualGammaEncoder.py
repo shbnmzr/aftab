@@ -57,14 +57,14 @@ class ResidualGammaEncoder(torch.nn.Module):
 
         r = x
         pe_output = self.pe(x)
-        x = pe_output + self.crop(self.pe_projection(r), pe_output)
+        x = pe_output + self._crop(self.pe_projection(r), pe_output)
 
         r = x
         te_output = self.te(x)
-        x = te_output + self.crop(self.te_output(r), te_output)
+        x = te_output + self._crop(self.te_output(r), te_output)
 
         r = x
         se_output = self.se(x)
-        x = se_output + self.crop(self.se_projection(r), se_output)
+        x = se_output + self._crop(self.se_projection(r), se_output)
 
         return torch.flatten(x, 1)
