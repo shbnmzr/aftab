@@ -6,6 +6,7 @@ import envpool
 from baloot import acceleration_device, seed_everything
 from typing import Type
 from .maps import AftabMapEncoder
+from .agents import PQNAgent
 
 
 class Aftab:
@@ -63,6 +64,13 @@ class Aftab:
             module = AftabMapEncoder.get(encoder)
             self.encoder = module
 
+    def make_network(
+        action_dimension: int, encoder_instance: Type[torch.nn.Module]
+    ) -> Type[torch.nn.Module]:
+        return PQNAgent(
+            action_dimension=action_dimension, encoder_instance=encoder_instance
+        )
+
     def set_precision(self):
         torch.set_float32_matmul_precision("high")
 
@@ -105,6 +113,8 @@ class Aftab:
         )
 
         action_dimension = train_env.action_space.n
+        self._network = self.make_network(action_dimension, self.encoder)
+
         # net = model(action_dimension).to(self.device)
 
     def save(name: str):

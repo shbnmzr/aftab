@@ -1,12 +1,15 @@
 import torch
+from typing import Type
 from ..encoders import DQNEncoder
 from ..common import LinearEpsilon, Stream, mse_loss
 
 
 class PQNAgent(torch.nn.Module):
-    def __init__(self, action_dim):
+    def __init__(
+        self, action_dim, encoder_instance: Type[torch.nn.Module] = DQNEncoder
+    ):
         super().__init__()
-        self.phi = DQNEncoder()
+        self.phi = encoder_instance()
         self.q = Stream(output_dim=action_dim)
         self.epsilon = LinearEpsilon()
         self.epsilon_greedy = True
