@@ -189,6 +189,13 @@ seed_everything(525975)
 seed_everything(909314)
 ```
 
+## Available Atari Environments
+
+A comprehensive set of Atari environments has been developed by the ingenious maintainer of the library EnvPool which could be found [here](https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks). 
+
+Aftab takes the input environment variable and passes it directly to EvnPool library. Therefore, feel free to refer to the aforementioned list as your project necessitates.
+
+
 ## Citation
 
 Please cite this work should you find that useful.
