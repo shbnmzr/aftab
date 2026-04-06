@@ -410,6 +410,7 @@ class Aftab:
                 "training_reward": self.final_training_rewards,
                 "test_reward": self.final_test_rewards,
                 "loss": self.final_loss_evolution,
-                "duration": self.final_duration,
+                "duration_seconds": self.final_duration,
+                "duration_hours": self.final_duration / 3600,
             },
         )
