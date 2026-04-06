@@ -2,7 +2,7 @@ import torch
 from ..common import LayerNorm2d, ModuleType
 
 
-class ResBlock(torch.nn.Module):
+class GammaResidualBlock(torch.nn.Module):
     def __init__(
         self,
         in_channels: int,
