@@ -1,4 +1,5 @@
 import torch
+from typing import Type
 from ..common import LayerNorm2d, ModuleType
 
 
@@ -8,11 +9,11 @@ class GammaResidualBlock(torch.nn.Module):
         in_channels: int,
         out_channels: int,
         stride: int,
-        first_convolutional: torch.nn.Module,
-        first_normalization: torch.nn.Module,
-        first_activation: torch.nn.Module,
-        second_convolutional: torch.nn.Module,
-        second_normalization: torch.nn.Module,
+        first_convolutional: Type[torch.nn.Module],
+        first_normalization: Type[torch.nn.Module],
+        first_activation: Type[torch.nn.Module],
+        second_convolutional: Type[torch.nn.Module],
+        second_normalization: Type[torch.nn.Module],
     ):
         super().__init__()
         self.first_convolutional = first_convolutional
@@ -58,7 +59,7 @@ class ResidualGammaEncoder(torch.nn.Module):
     def __init__(self, *, activation: ModuleType = torch.nn.ReLU):
         super().__init__()
         self.alef = torch.nn.Sequential(
-            torch.nn.Conv2d(4, 32, kernel_size=3, stride=2, padding=1, bias=False),
+            torch.nn.Conv2d(4, 32, kernel_size=3, stride=2, padding=1),
             LayerNorm2d(32),
             activation(),
         )
@@ -68,28 +69,28 @@ class ResidualGammaEncoder(torch.nn.Module):
             out_channels=64,
             stride=2,
             first_convolutional=torch.nn.Conv2d(
-                32, 48, kernel_size=3, stride=2, padding=1, bias=False
+                32, 48, kernel_size=3, stride=2, padding=1
             ),
             first_normalization=LayerNorm2d(48),
             first_activation=activation(),
             second_convolutional=torch.nn.Conv2d(
-                48, 64, kernel_size=3, stride=1, padding=0, bias=False
+                48, 64, kernel_size=3, stride=1, padding=0
             ),
             second_normalization=LayerNorm2d(64),
         )
         self.be_activation = activation()
 
-        self.pe = ResBlock(
+        self.pe = GammaResidualBlock(
             in_channels=64,
             out_channels=64,
             stride=2,
             first_convolutional=torch.nn.Conv2d(
-                64, 64, kernel_size=3, stride=2, padding=0, bias=False
+                64, 64, kernel_size=3, stride=2, padding=0
             ),
             first_normalization=LayerNorm2d(64),
             first_activation=activation(),
             second_convolutional=torch.nn.Conv2d(
-                64, 64, kernel_size=3, stride=1, padding=0, bias=False
+                64, 64, kernel_size=3, stride=1, padding=0
             ),
             second_normalization=LayerNorm2d(64),
         )
