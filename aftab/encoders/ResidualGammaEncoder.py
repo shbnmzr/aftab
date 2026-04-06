@@ -63,7 +63,7 @@ class ResidualGammaEncoder(torch.nn.Module):
             activation(),
         )
 
-        self.be = ResBlock(
+        self.be = GammaResidualBlock(
             in_channels=32,
             out_channels=64,
             stride=2,
