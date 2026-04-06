@@ -3,6 +3,7 @@ import numpy
 import os
 import math
 import envpool
+import time
 from baloot import acceleration_device, seed_everything, funnel
 from typing import Type
 from .maps import AftabMapEncoder
@@ -80,6 +81,7 @@ class Aftab:
         self.final_training_rewards = None
         self.final_test_rewards = None
         self.final_loss_evolution = None
+        self.final_duration = None
 
     def make_network(
         action_dimension: int, encoder_instance: Type[torch.nn.Module]
@@ -205,6 +207,8 @@ class Aftab:
         )
 
         scaler = torch.amp.GradScaler("cuda")
+
+        training_start_time = time.time()
 
         for update in range(1, self.total_updates + 1):
             self._network.eval()
@@ -391,6 +395,9 @@ class Aftab:
         if self.verbose:
             flush(f"Training finished.")
 
+        training_finish_time = time.time()
+        self.final_duration = training_finish_time - training_start_time
+
     def make_filename(self, **arguments):
         dynamic_part = "_".join(f"{k}-{v}" for k, v in arguments.items())
         static_part = f"environment-{self.environment}"
@@ -403,5 +410,6 @@ class Aftab:
                 "training_reward": self.final_training_rewards,
                 "test_reward": self.final_test_rewards,
                 "loss": self.final_loss_evolution,
+                "duration": self.final_duration,
             },
         )
