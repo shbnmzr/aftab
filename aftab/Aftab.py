@@ -158,9 +158,13 @@ class Aftab:
             batch_q,
         )
 
+    def get_dummy_sample(self):
+        return torch.randn(1, 4, 84, 84).to(self.device)
+
     @torch.no_grad()
-    def _perform_dummy_pass(self):
-        self._network(torch.randn(1, 4, 84, 84).to(self.device))
+    def perform_dummy_pass(self):
+        dummy_input = self.get_dummy_sample()
+        self._network(dummy_input)
 
     def train(self, environment, seed: int = 42):
         self.set_precision()
@@ -176,7 +180,7 @@ class Aftab:
         if self.should_compile:
             self._network = torch.compile(self._network)
 
-        self._perform_dummy_pass()
+        self.perform_dummy_pass()
 
         observation_train, _ = train_environment.reset()
         observation_test, _ = test_environment.reset()
