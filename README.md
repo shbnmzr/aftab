@@ -145,6 +145,8 @@ for environment in environments:
     <img src="./figures/statistical_significance.png" />
 </p> -->
 
+<div align="center">
+
 |         |   PQN |   Alpha |   Beta |   Gamma |   Delta |   Epsilon |   Zeta |   Eta |   Theta |
 |:--------|------:|--------:|-------:|--------:|--------:|----------:|-------:|------:|--------:|
 | PQN     | 1     |   0     |  0     |   0     |   0     |     0     |  0     | 0.001 |   0.431 |
@@ -156,6 +158,8 @@ for environment in environments:
 | Zeta    | 0     |   0.145 |  0.293 |   0.024 |   0     |     0.552 |  1     | 0.967 |   0.001 |
 | Eta     | 0.001 |   0.337 |  0.757 |   0.221 |   0     |     0.819 |  0.967 | 1     |   0.002 |
 | Theta   | 0.431 |   0     |  0.004 |   0     |   0.046 |     0.001 |  0.001 | 0.002 |   1     |
+
+</div>
 
 ## Reproducibility
 
