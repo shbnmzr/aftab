@@ -173,9 +173,9 @@ class Aftab:
         with torch.no_grad():
             self._network(torch.randn(1, 4, 84, 84).to(self.device))
 
-        obs_train, _ = train_environment.reset()
-        obs_test, _ = test_environment.reset()
-        observation = numpy.concatenate([obs_train, obs_test], axis=0)
+        observation_train, _ = train_environment.reset()
+        observation_test, _ = test_environment.reset()
+        observation = numpy.concatenate([observation_train, observation_test], axis=0)
         observation = torch.as_tensor(
             observation, dtype=torch.uint8, device=self.device
         )
@@ -308,7 +308,7 @@ class Aftab:
                 torch.no_grad(),
                 torch.autocast(device_type=self.device.type, dtype=torch.float16),
             ):
-                next_q = self._network(obs.float()).max(dim=-1).values
+                next_q = self._network(observation.float()).max(dim=-1).values
                 max_q_seq = batch_q.max(dim=-1).values
                 q_seq_for_lambda = torch.cat([max_q_seq, next_q.unsqueeze(0)])
                 targets = lambda_returns(
