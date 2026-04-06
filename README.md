@@ -125,7 +125,7 @@ for environment in environments:
 | Learning rate | $2.5 \times 10^{-4}$ |
 | Training environments | 128 |
 | Test environments | 8 |
-| Optimizer | Rectified Adam |
+| Optimizer | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
 | Weight decay | 0 |
 | Adam $\epsilon$ | $1 \times 10^{-5}$ |
 | Total Frames | 200,000,000 |
