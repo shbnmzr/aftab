@@ -1,2 +1,2 @@
 from .Aftab import Aftab
-from .common import default_seeds
+from .common import aftab_seeds

@@ -6,7 +6,7 @@ from typing import Type
 
 ModuleType = Type[torch.nn.Module]
 
-default_seeds = [475284, 219842, 525975, 909314]
+aftab_seeds = [475284, 219842, 525975, 909314]
 
 
 class LayerNorm2d(torch.nn.Module):
