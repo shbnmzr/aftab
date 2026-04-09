@@ -20,11 +20,6 @@ class LayerNorm2d(torch.nn.Module):
         return x.permute(0, 3, 1, 2)
 
 
-def flush(message: str, **kwargs):
-    kwargs["flush"] = True
-    print(message, **kwargs)
-
-
 class LinearEpsilon:
     def __init__(self, ratio: float = 0.1, target=0.001):
         self.top = 1.0
