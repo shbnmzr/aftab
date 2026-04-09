@@ -1,5 +1,5 @@
 import torch
-from ..common import LayerNorm2d
+from ..modules import LayerNorm2d
 
 
 class HadamaxLayer(torch.nn.Module):
