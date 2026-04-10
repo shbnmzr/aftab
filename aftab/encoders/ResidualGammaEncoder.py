@@ -1,5 +1,4 @@
 import torch
-from typing import Type
 from ..modules import LayerNorm2d
 from ..constants import ModuleType
 
