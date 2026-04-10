@@ -4,9 +4,8 @@ import os
 import math
 import envpool
 import time
-from typing import Tuple
+from typing import Tuple, Type
 from baloot import acceleration_device, seed_everything, funnel
-from typing import Type
 from .maps import AftabMapEncoder
 from .agents import PQNAgent
 from .functions import lambda_returns, epsilon_greedy_vectorized, flush
