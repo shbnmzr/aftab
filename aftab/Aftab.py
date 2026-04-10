@@ -231,7 +231,6 @@ class Aftab:
         )
         frame_count = 0
         observation_shape = train_environment.observation_space.shape
-
         (
             batch_observations,
             batch_actions,
@@ -241,9 +240,7 @@ class Aftab:
         ) = self.make_batches(
             observation_shape=observation_shape, action_dimension=action_dimension
         )
-
         scaler = torch.amp.GradScaler("cuda")
-
         training_start_time = time.time()
 
         for update in range(1, self.total_updates + 1):
