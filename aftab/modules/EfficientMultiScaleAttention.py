@@ -2,7 +2,7 @@ import torch
 
 
 class EfficientMultiScaleAttention(torch.nn.Module):
-    def __init__(self, channels, factor=32):
+    def __init__(self, channels, factor: int = 16):
         super().__init__()
         self.groups = factor
         assert channels // self.groups > 0

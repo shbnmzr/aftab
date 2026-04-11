@@ -13,6 +13,7 @@ class CoordinatedGammaEncoder(torch.nn.Module):
             torch.nn.Conv2d(32, 48, kernel_size=3, stride=2, padding=1),
             LayerNorm2d(48),
             activation(),
+            CoordinateAttention(48, 48),
             torch.nn.Conv2d(48, 64, kernel_size=3, stride=1, padding=0),
             LayerNorm2d(64),
             activation(),
