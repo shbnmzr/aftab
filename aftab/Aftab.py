@@ -195,19 +195,24 @@ class Aftab:
         dummy_input = self.get_dummy_sample()
         self._network(dummy_input)
 
-    @torch.no_grad()
-    def get_actions(
-        self, float_observations, epsilon_value
-    ) -> Tuple[torch.Tensor, torch.Tensor]:
-        with torch.autocast(device_type=self.device.type, dtype=torch.float16):
+    def get_q_values(self, float_observations, no_grad: bool = False):
+        if no_grad:
+            with torch.no_grad():
+                q_values = self._network(float_observations)
+        else:
             q_values = self._network(float_observations)
+
+        return q_values
+
+    @torch.no_grad()
+    def get_actions(self, q_values, epsilon_value):
+        with torch.autocast(device_type=self.device.type, dtype=torch.float16):
             if self._network.epsilon_greedy:
                 actions = epsilon_greedy_vectorized(
                     q_values, self.get_epsilons(epsilon_value)
                 )
             else:
                 actions = q_values.argmax(dim=-1).cpu().numpy()
-
         return actions
 
     def split_actions(self, actions):
@@ -282,7 +287,12 @@ class Aftab:
                     all_train_rewards,
                     episode_returns[: self.num_train_environments],
                 )
-                actions = self.get_actions(float_observations, epsilon_value)
+                q_values = self.get_q_values(
+                    float_observations=float_observations, no_grad=True
+                )
+                actions = self.get_actions(
+                    q_values=q_values, epsilon_value=epsilon_value
+                )
                 actions_train, actions_test = self.split_actions(actions)
 
                 (
@@ -391,7 +401,10 @@ class Aftab:
                     with torch.autocast(
                         device_type=self.device.type, dtype=torch.float16
                     ):
-                        q_values = self._network(mini_batch_observations.float())
+                        q_values = self.get_q_values(
+                            float_observations=mini_batch_observations.float(),
+                            no_grad=False,
+                        )
                         q_taken = q_values.gather(1, mb_act.unsqueeze(1)).squeeze()
                         loss = self._network.loss(q_taken, mb_tgt)
 
