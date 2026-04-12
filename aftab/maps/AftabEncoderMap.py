@@ -7,7 +7,9 @@ from ..encoders import EtaEncoder
 from ..encoders import ZetaEncoder
 from ..encoders import ThetaEncoder
 from ..encoders import HadamaxGammaEncoder
-from ..encoders import ResidualGammaEncoder
+from ..encoders import SimpleAttentionGammaEncoder
+from ..encoders import EMAGammaEncoder
+from ..encoders import CoordinatedGammaEncoder
 
 
 AftabMapEncoder = {
@@ -21,6 +23,11 @@ AftabMapEncoder = {
     "theta": ThetaEncoder,
     "gammahadamax": HadamaxGammaEncoder,
     "hadamaxgamma": HadamaxGammaEncoder,
-    "gammaresidual": ResidualGammaEncoder,
-    "residualgamma": ResidualGammaEncoder,
+    "simple": SimpleAttentionGammaEncoder,
+    "simplegamma": SimpleAttentionGammaEncoder,
+    "simpleattention": SimpleAttentionGammaEncoder,
+    "coordinated": CoordinatedGammaEncoder,
+    "coodinatedgamma": CoordinatedGammaEncoder,
+    "ema": EMAGammaEncoder,
+    "emagamma": EMAGammaEncoder,
 }
