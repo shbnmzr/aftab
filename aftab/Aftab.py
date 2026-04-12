@@ -240,7 +240,9 @@ class Aftab:
             environment=environment, seed=seed
         )
         action_dimension = train_environment.action_space.n
-        self._network = self.make_network(action_dimension, self.encoder)
+        self._network = self.make_network(
+            action_dimension=action_dimension, encoder_instance=self.encoder
+        )
 
         if self.should_compile:
             self._network = torch.compile(self._network)
