@@ -18,3 +18,6 @@ class Stream(torch.nn.Module):
             activation(),
             torch.nn.Linear(hidden_dim, output_dim),
         )
+
+    def forward(self, features):
+        return self.stream(features)
