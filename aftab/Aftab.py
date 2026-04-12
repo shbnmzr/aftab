@@ -36,7 +36,7 @@ class Aftab:
         train_reward_clip: bool = True,
         test_episodic_life: bool = False,
         test_reward_clip: bool = True,
-        should_compile: bool = False,
+        should_compile: bool = True,
         stack_number: int = 4,
     ):
         self.device = acceleration_device()
