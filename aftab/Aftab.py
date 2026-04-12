@@ -204,9 +204,11 @@ class Aftab:
             else:
                 actions = q_values.argmax(dim=-1).cpu().numpy()
 
+        return actions
+
+    def split_actions(self, actions):
         actions_train = actions[: self.num_train_environments]
         actions_test = actions[self.num_train_environments :]
-
         return actions_train, actions_test
 
     def get_epsilons(self, epsilon_value) -> torch.Tensor:
@@ -272,10 +274,8 @@ class Aftab:
                     all_train_rewards,
                     episode_returns[: self.num_train_environments],
                 )
-
-                actions_train, actions_test = self.get_actions(
-                    float_observations, epsilon_value
-                )
+                actions = self.get_actions(float_observations, epsilon_value)
+                actions_train, actions_test = self.split_actions(actions)
 
                 (
                     next_observation_train,
