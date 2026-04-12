@@ -25,7 +25,7 @@ class Aftab:
         num_train_environments: int = 128,
         num_test_environments: int = 8,
         steps_per_update: int = 32,
-        total_frames: int | Literal["pilot", "full", "ablation"] = "pilot",
+        frames: int | Literal["pilot", "full", "ablation"] = "pilot",
         min_test_cpu_count: int = 4,
         noop: int = 30,
         gradient_norm: float = 10.0,
@@ -54,9 +54,9 @@ class Aftab:
         self.steps_per_update = steps_per_update
         self.batch_size = int(num_train_environments * steps_per_update)
         self.minibatch_size = int(self.batch_size // num_minibatches)
-        self.total_frames = total_frames
-        self.check_total_frames()
-        self.actual_frames = int(self.total_frames / self.frame_skip)
+        self.frames = frames
+        self.check_frames()
+        self.actual_frames = int(self.frames / self.frame_skip)
         self.total_updates = math.ceil(self.actual_frames / self.batch_size)
         self.train_reward_clip = train_reward_clip
         self.train_episodic_life = train_episodic_life
@@ -94,22 +94,23 @@ class Aftab:
             action_dimension=action_dimension, encoder_instance=encoder_instance
         )
 
-    def check_total_frames(self):
-        acceptable_total_frames_idx = {
+    def check_frames(self):
+        acceptable_frames_idx = {
             "pilot": 50_000_000,
             "ablation": 50_000_000,
             "full": 200_000_000,
         }
 
-        if not isinstance(self.total_frames, str):
+        if not isinstance(self.frames, str):
             return
 
-        if self.total_frames not in acceptable_total_frames_idx:
+        if self.frames not in acceptable_frames_idx:
             raise ValueError(
-                f"Total frames was passed a wrong value of `{total_frames}`. Acceptable values are `pilot`, `ablation`, `full`."
+                f"Total frames was passed a wrong value of `{self.frames}`. Acceptable values are `pilot`, `ablation`, `full`."
             )
-        fetched_total_frames = acceptable_total_frames_idx.get(self.total_frames)
-        self.total_frames = fetched_total_frames
+
+        fetched_frames = acceptable_frames_idx.get(self.frames)
+        self.frames = fetched_frames
 
     def set_precision(self):
         torch.set_float32_matmul_precision("high")
