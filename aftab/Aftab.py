@@ -153,7 +153,7 @@ class Aftab:
         batch_observations = torch.empty(
             (self.steps_per_update, self.total_environments) + observation_shape,
             dtype=torch.uint8,
-            device=self._device,
+            device=self.device,
         )
         batch_actions = torch.empty(
             (self.steps_per_update, self.total_environments),
