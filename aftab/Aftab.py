@@ -118,12 +118,12 @@ class Aftab:
     def set_seed(self, seed: int):
         seed_everything(seed)
 
-    def make_environments(self, environment: str):
+    def make_environments(self, environment: str, seed: int):
         train_environment = envpool.make(
             environment,
             env_type="gymnasium",
             num_envs=self.num_train_environments,
-            seed=self.seed,
+            seed=seed,
             num_threads=self.cpu_count,
             thread_affinity_offset=0,
             noop_max=self.noop,
@@ -137,7 +137,7 @@ class Aftab:
             environment,
             env_type="gymnasium",
             num_envs=self.num_test_environments,
-            seed=self.seed + 1000,
+            seed=seed + 1000,
             num_threads=min(self.min_test_cpu_count, self.cpu_count),
             thread_affinity_offset=0,
             noop_max=self.noop,
