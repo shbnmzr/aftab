@@ -88,7 +88,7 @@ class Aftab:
         self.final_duration = None
 
     def make_network(
-        action_dimension: int, encoder_instance: Type[torch.nn.Module]
+        self, action_dimension: int, encoder_instance: Type[torch.nn.Module]
     ) -> Type[torch.nn.Module]:
         return PQNAgent(
             action_dimension=action_dimension, encoder_instance=encoder_instance
