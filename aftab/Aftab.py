@@ -16,6 +16,7 @@ from .mixins import (
     ReproducibilityMixin,
     EnvironmentSetupMixin,
     ActionsMixin,
+    CompileNetworkMixin,
 )
 
 
@@ -28,6 +29,7 @@ class Aftab(
     ReproducibilityMixin,
     MatrixPrecisionMixin,
     ActionsMixin,
+    CompileNetworkMixin,
 ):
     def __init__(
         self,
@@ -215,9 +217,7 @@ class Aftab(
             action_dimension=action_dimension, encoder_instance=self.encoder
         )
 
-        if self.should_compile:
-            self._network = torch.compile(self._network)
-
+        self.compile_network()
         self.perform_dummy_pass()
 
         observation_train, _ = train_environment.reset()

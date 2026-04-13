@@ -6,3 +6,4 @@ from .EnvironmentSetupMixin import EnvironmentSetupMixin
 from .AccelerationDeviceMixin import AccelerationDeviceMixin
 from .CPUCountMixin import CPUCountMixin
 from .ActionsMixin import ActionsMixin
+from .CompileNetworkMixin import CompileNetworkMixin
