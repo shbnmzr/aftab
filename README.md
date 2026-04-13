@@ -31,6 +31,23 @@ for environment in environments:
     agent.save(environment=environment, seed=seed, name="MyCustomAftabTests")
 ```
 
+## Defining Custom Encoder
+
+```py
+import torch
+from aftab import Aftab
+
+class CustomImageEncoder(torch.nn.Module):
+  def __init__(self):
+    super().__init__()
+  
+  def forward(self, x):
+    pass
+
+agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
+# ...
+```
+
 
 ## Results
 
