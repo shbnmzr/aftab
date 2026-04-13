@@ -6,7 +6,7 @@ class LinearEpsilon:
         self.minimum = minimum
         self.ratio = ratio
 
-    def get(self, frames, total_frames, all_rewards, episode_returns):
+    def get(self, frames, total_frames):
         minimum = self.minimum
         maximum = self.maximum
         decay_duration = total_frames * self.ratio

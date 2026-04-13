@@ -247,8 +247,6 @@ class Aftab(
                 epsilon_value = self._network.epsilon.get(
                     frame_count,
                     self.actual_frames,
-                    all_train_rewards,
-                    episode_returns[: self.num_train_environments],
                 )
                 q_values = self.get_q_values(
                     float_observations=float_observations, no_grad=True
