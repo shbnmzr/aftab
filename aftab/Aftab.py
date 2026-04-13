@@ -30,7 +30,6 @@ class Aftab(
     def __init__(
         self,
         encoder: str | Type[torch.nn.Module] = "gamma",
-        optimizer_instance: Type[torch.nn.Module] = torch.optim.RAdam,
         frame_skip: int = 4,
         num_minibatches: int = 32,
         epochs: int = 2,
@@ -46,7 +45,11 @@ class Aftab(
         gradient_norm: float = 10.0,
         log_interval: int = 10,
         verbose: bool = False,
+        optimizer_instance: Type[torch.nn.Module] = torch.optim.RAdam,
         optimizer_epsilon: float = 1e-5,
+        optimizer_weight_decay: float = 0.0,
+        optimizer_first_beta: float = 0.9,
+        optimizer_second_beta: float = 0.999,
         train_episodic_life: bool = True,
         train_reward_clip: bool = True,
         test_episodic_life: bool = False,
@@ -77,13 +80,16 @@ class Aftab(
         self.test_episodic_life = test_episodic_life
         self.min_test_cpu_count = min_test_cpu_count
         self.noop = noop
-        self.optimizer_epsilon = optimizer_epsilon
         self.gradient_norm = gradient_norm
         self.log_interval = log_interval
         self.verbose = verbose
-        self.optimizer_instance = optimizer_instance
         self.should_compile = should_compile
         self.stack_number = stack_number
+        self.optimizer_instance = optimizer_instance
+        self.optimizer_epsilon = optimizer_epsilon
+        self.optimizer_first_beta = optimizer_first_beta
+        self.optimizer_second_beta = optimizer_second_beta
+        self.optimizer_weight_decay = optimizer_weight_decay
 
         ######
         # this line ensures users can pass a string (predefined) or their defined encoder to the system.
@@ -199,6 +205,15 @@ class Aftab(
         )
         return torch.cat([training_epsilon_vector, test_epsilon_vector])
 
+    def make_optimizer(self):
+        return self.optimizer_instance(
+            self._network.parameters(),
+            lr=self.lr,
+            eps=self.optimizer_epsilon,
+            betas=(self.optimizer_first_beta, self.optimizer_second_beta),
+            weight_decay=self.optimizer_weight_decay,
+        )
+
     def train(self, environment, seed: int = 42):
         self.set_precision()
         self.set_seed(seed)
@@ -225,10 +240,7 @@ class Aftab(
         observation = torch.as_tensor(
             observation, dtype=torch.uint8, device=self.device
         )
-        optimizer = self.optimizer_instance(
-            self._network.parameters(), lr=self.lr, eps=self.optimizer_epsilon
-        )
-        frame_count = 0
+        optimizer = self.make_optimizer()
         observation_shape = train_environment.observation_space.shape
         (
             batch_observations,
