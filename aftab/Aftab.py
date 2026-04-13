@@ -9,9 +9,10 @@ from baloot import acceleration_device, seed_everything, funnel
 from .maps import encoders_map
 from .agents import PQNAgent
 from .functions import lambda_returns, epsilon_greedy_vectorized, flush
+from .mixins import SavesTrainingResults
 
 
-class Aftab:
+class Aftab(SavesTrainingResults):
     def __init__(
         self,
         encoder: str | Type[torch.nn.Module] = "gamma",
