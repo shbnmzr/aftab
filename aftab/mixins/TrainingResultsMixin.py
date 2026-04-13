@@ -1,7 +1,7 @@
 from baloot import funnel
 
 
-class SavesTrainingResults:
+class TrainingResultsMixin:
     def __init__(self):
         super().__init__()
 

@@ -9,7 +9,7 @@ from .maps import encoders_map
 from .agents import PQNAgent
 from .functions import lambda_returns, epsilon_greedy_vectorized, flush
 from .mixins import (
-    SavesTrainingResults,
+    TrainingResultsMixin,
     SetsMatrixMultiplicationPrecision,
     SetsReproducibilitySeeds,
     PerformsDummyPass,
@@ -18,7 +18,7 @@ from .mixins import (
 
 
 class Aftab(
-    SavesTrainingResults,
+    TrainingResultsMixin,
     SetsMatrixMultiplicationPrecision,
     SetsReproducibilitySeeds,
     PerformsDummyPass,

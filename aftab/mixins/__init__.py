@@ -1,4 +1,4 @@
-from .SavesTrainingResults import SavesTrainingResults
+from .TrainingResultsMixin import TrainingResultsMixin
 from .SetsMatrixMultiplicationPrecision import SetsMatrixMultiplicationPrecision
 from .SetsReproducibilitySeeds import SetsReproducibilitySeeds
 from .PerformsDummyPass import PerformsDummyPass
