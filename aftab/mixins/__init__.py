@@ -3,3 +3,4 @@ from .MatrixPrecisionMixin import MatrixPrecisionMixin
 from .ReproducibilityMixin import ReproducibilityMixin
 from .DummyPassMixin import DummyPassMixin
 from .EnvironmentSetupMixin import EnvironmentSetupMixin
+from .AccelerationDeviceMixin import AccelerationDeviceMixin

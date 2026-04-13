@@ -4,11 +4,11 @@ import os
 import math
 import time
 from typing import Type, Literal
-from baloot import acceleration_device
 from .maps import encoders_map
 from .agents import PQNAgent
 from .functions import lambda_returns, epsilon_greedy_vectorized, flush
 from .mixins import (
+    AccelerationDeviceMixin,
     TrainingResultsMixin,
     MatrixPrecisionMixin,
     DummyPassMixin,
@@ -18,6 +18,7 @@ from .mixins import (
 
 
 class Aftab(
+    AccelerationDeviceMixin,
     TrainingResultsMixin,
     EnvironmentSetupMixin,
     DummyPassMixin,
@@ -51,7 +52,6 @@ class Aftab(
         should_compile: bool = True,
         stack_number: int = 4,
     ):
-        self.device = acceleration_device()
         self.frame_skip = frame_skip
         self.lr = lr
         self.lmbda = lmbda
