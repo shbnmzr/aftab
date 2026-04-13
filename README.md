@@ -33,6 +33,8 @@ for environment in environments:
 
 ## Defining Custom Encoder
 
+You can simply define your custom encoders as a PyTorch module and pass it to the agent when initializing it. Aftab recognizes this and runs the experiments using your custom module.
+
 ```py
 import torch
 from aftab import Aftab
