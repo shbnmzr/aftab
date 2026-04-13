@@ -9,6 +9,7 @@ from .agents import PQNAgent
 from .functions import lambda_returns, epsilon_greedy_vectorized, flush
 from .mixins import (
     AccelerationDeviceMixin,
+    CPUCountMixin,
     TrainingResultsMixin,
     MatrixPrecisionMixin,
     DummyPassMixin,
@@ -19,6 +20,7 @@ from .mixins import (
 
 class Aftab(
     AccelerationDeviceMixin,
+    CPUCountMixin,
     TrainingResultsMixin,
     EnvironmentSetupMixin,
     DummyPassMixin,
@@ -62,7 +64,6 @@ class Aftab(
         self.num_train_environments = num_train_environments
         self.num_test_environments = num_test_environments
         self.total_environments = int(num_train_environments + num_test_environments)
-        self.cpu_count = os.cpu_count()
         self.steps_per_update = steps_per_update
         self.batch_size = int(num_train_environments * steps_per_update)
         self.minibatch_size = int(self.batch_size // num_minibatches)
