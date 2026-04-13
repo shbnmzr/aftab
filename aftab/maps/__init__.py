@@ -1,1 +1,1 @@
-from .AftabEncoderMap import AftabMapEncoder
+from .encoders import encoders_map

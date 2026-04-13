@@ -12,7 +12,7 @@ from ..encoders import EMAGammaEncoder
 from ..encoders import CoordinatedGammaEncoder
 
 
-AftabMapEncoder = {
+encoders_map = {
     "alpha": AlphaEncoder,
     "beta": BetaEncoder,
     "gamma": GammaEncoder,

@@ -6,7 +6,7 @@ import envpool
 import time
 from typing import Tuple, Type, Literal
 from baloot import acceleration_device, seed_everything, funnel
-from .maps import AftabMapEncoder
+from .maps import encoders_map
 from .agents import PQNAgent
 from .functions import lambda_returns, epsilon_greedy_vectorized, flush
 
@@ -76,7 +76,7 @@ class Aftab:
         # this line ensures users can pass a string (predefined) or their defined encoder to the system.
         ######
         if isinstance(encoder, str):
-            module = AftabMapEncoder.get(encoder)
+            module = encoders_map.get(encoder)
             self.encoder = module
 
         ######
