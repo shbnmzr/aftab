@@ -29,4 +29,4 @@ where = ["."]
 exclude = ["tests*", "docs*", "figures*", "mermaid*"]
 
 [tool.setuptools.package-data]
-aftab = ["*.md", "*.txt"]
+aftab = ["*.md", "*.txt", "*.png"]
