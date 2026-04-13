@@ -126,8 +126,10 @@ for environment in environments:
 | Training environments | 128 |
 | Test environments | 8 |
 | Optimizer | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Weight decay | 0 |
+| Adam Weight decay | 0 |
 | Adam $\epsilon$ | $1 \times 10^{-5}$ |
+| Adam $\beta_{1}$ | 0.9 |
+| Adam $\beta_{2}$ | 0.999 |
 | Total Frames | 200,000,000 |
 | Loss function | Mean Squared Error |
 | Scheduler | Linear Annealing |
@@ -136,8 +138,6 @@ for environment in environments:
 | GAE parameter ($\lambda$) | 0.65 |
 | Epochs | 2 |
 | Batch size | 4096 |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
 
 </div>
 
