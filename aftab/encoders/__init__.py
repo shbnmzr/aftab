@@ -1,4 +1,4 @@
-from .DQNEncoder import DQNEncoder
+from .NatureDQNEncoder import NatureDQNEncoder
 from .AlphaEncoder import AlphaEncoder
 from .BetaEncoder import BetaEncoder
 from .GammaEncoder import GammaEncoder

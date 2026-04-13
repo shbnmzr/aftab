@@ -1,6 +1,6 @@
 import torch
 from typing import Type
-from ..encoders import DQNEncoder
+from ..encoders import NatureDQNEncoder
 from ..common import LinearEpsilon
 from ..modules import Stream
 from ..functions import mse_loss
@@ -8,7 +8,9 @@ from ..functions import mse_loss
 
 class PQNAgent(torch.nn.Module):
     def __init__(
-        self, action_dimension, encoder_instance: Type[torch.nn.Module] = DQNEncoder
+        self,
+        action_dimension,
+        encoder_instance: Type[torch.nn.Module] = NatureDQNEncoder,
     ):
         super().__init__()
         self.phi = encoder_instance()
