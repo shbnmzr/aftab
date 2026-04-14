@@ -256,23 +256,16 @@ class Aftab(
                 for start in range(0, self.batch_size, self.minibatch_size):
                     end = start + self.minibatch_size
                     mb_idx = indices[start:end]
-
                     mini_batch_observations = flat_obs[mb_idx]
-                    mb_act = flat_act[mb_idx]
-                    mb_tgt = flat_tgt[mb_idx]
+                    mini_batch_actions = flat_act[mb_idx]
+                    mini_batch_targets = flat_tgt[mb_idx]
 
                     optimizer.zero_grad(set_to_none=True)
-
-                    with torch.autocast(
-                        device_type=self.device.type, dtype=torch.float16
-                    ):
-                        q_values = self.get_q_values(
-                            float_observations=mini_batch_observations.float(),
-                            gradient=True,
-                        )
-                        q_taken = q_values.gather(1, mb_act.unsqueeze(1)).squeeze()
-                        loss = self._network.loss(q_taken, mb_tgt)
-
+                    loss = self.get_loss(
+                        mini_batch_observations=mini_batch_observations,
+                        mini_batch_targets=mini_batch_targets,
+                        mini_batch_actions=mini_batch_actions,
+                    )
                     scaler.scale(loss).backward()
                     scaler.unscale_(optimizer)
                     torch.nn.utils.clip_grad_norm_(
@@ -309,3 +302,15 @@ class Aftab(
 
         training_finish_time = time.time()
         self.final_duration = training_finish_time - training_start_time
+
+    def get_loss(
+        self, mini_batch_observations, mini_batch_actions, mini_batch_targets
+    ) -> torch.Tensor:
+        with torch.autocast(device_type=self.device.type, dtype=torch.float16):
+            q_values = self.get_q_values(
+                float_observations=mini_batch_observations.float(),
+                gradient=True,
+            )
+            q_taken = q_values.gather(1, mini_batch_actions.unsqueeze(1)).squeeze()
+            loss = self._network.loss(q_taken, mini_batch_targets)
+        return loss
