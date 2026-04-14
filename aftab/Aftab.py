@@ -18,6 +18,7 @@ from .mixins import (
     CompileNetworkMixin,
     MakeBatchesMixin,
     EpsilonMixin,
+    NetworkMixin,
 )
 
 
@@ -34,6 +35,7 @@ class Aftab(
     CompileNetworkMixin,
     MakeBatchesMixin,
     EpsilonMixin,
+    NetworkMixin,
 ):
     def __init__(
         self,
@@ -98,13 +100,6 @@ class Aftab(
         self.optimizer_first_beta = optimizer_first_beta
         self.optimizer_second_beta = optimizer_second_beta
         self.optimizer_weight_decay = optimizer_weight_decay
-
-    def make_network(
-        self, action_dimension: int, encoder_instance: Type[torch.nn.Module]
-    ) -> Type[torch.nn.Module]:
-        return PQNAgent(
-            action_dimension=action_dimension, encoder_instance=encoder_instance
-        )
 
     def check_frames(self):
         acceptable_frames_idx = {

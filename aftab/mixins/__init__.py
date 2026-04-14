@@ -10,3 +10,4 @@ from .CompileNetworkMixin import CompileNetworkMixin
 from .EncoderRefinementMixin import EncoderRefinementMixin
 from .MakeBatchesMixin import MakeBatchesMixin
 from .EpsilonMixin import EpsilonMixin
+from .NetworkMixin import NetworkMixin
