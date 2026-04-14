@@ -19,6 +19,7 @@ from .mixins import (
     MakeBatchesMixin,
     EpsilonMixin,
     NetworkMixin,
+    OptimizerMixin,
 )
 
 
@@ -36,6 +37,7 @@ class Aftab(
     MakeBatchesMixin,
     EpsilonMixin,
     NetworkMixin,
+    OptimizerMixin,
 ):
     def __init__(
         self,
@@ -127,15 +129,6 @@ class Aftab(
             q_values = self._network(float_observations)
 
         return q_values
-
-    def make_optimizer(self):
-        return self.optimizer_instance(
-            self._network.parameters(),
-            lr=self.lr,
-            eps=self.optimizer_epsilon,
-            betas=(self.optimizer_first_beta, self.optimizer_second_beta),
-            weight_decay=self.optimizer_weight_decay,
-        )
 
     def train(self, environment, seed: int = 42):
         self.flush_final_properties()
