@@ -1,10 +1,8 @@
 import torch
 import numpy
-import os
 import math
 import time
 from typing import Type, Literal
-from .maps import encoders_map
 from .agents import PQNAgent
 from .functions import lambda_returns, flush
 from .mixins import (
