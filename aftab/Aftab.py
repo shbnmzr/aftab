@@ -19,6 +19,7 @@ from .mixins import (
     EpsilonMixin,
     NetworkMixin,
     OptimizerMixin,
+    QValueMixin,
 )
 
 
@@ -37,6 +38,7 @@ class Aftab(
     EpsilonMixin,
     NetworkMixin,
     OptimizerMixin,
+    QValueMixin,
 ):
     def __init__(
         self,
@@ -119,15 +121,6 @@ class Aftab(
 
         fetched_frames = acceptable_frames_idx.get(self.frames)
         self.frames = fetched_frames
-
-    def get_q_values(self, float_observations, no_grad: bool = False):
-        if no_grad:
-            with torch.no_grad():
-                q_values = self._network(float_observations)
-        else:
-            q_values = self._network(float_observations)
-
-        return q_values
 
     def train(self, environment, seed: int = 42):
         self.flush_final_properties()
