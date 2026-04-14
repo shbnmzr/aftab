@@ -3,7 +3,6 @@ import numpy
 import math
 import time
 from typing import Type, Literal
-from .agents import PQNAgent
 from .functions import lambda_returns, flush
 from .mixins import (
     EncoderRefinementMixin,
