@@ -4,7 +4,7 @@ from .ReproducibilityMixin import ReproducibilityMixin
 from .DummyPassMixin import DummyPassMixin
 from .EnvironmentSetupMixin import EnvironmentSetupMixin
 from .AccelerationDeviceMixin import AccelerationDeviceMixin
-from .CPUCountMixin import CPUCountMixin
+from .CPUMixin import CPUMixin
 from .ActionsMixin import ActionsMixin
 from .CompileNetworkMixin import CompileNetworkMixin
 from .EncoderRefinementMixin import EncoderRefinementMixin

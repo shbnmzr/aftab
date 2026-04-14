@@ -8,7 +8,7 @@ from .functions import lambda_returns, flush
 from .mixins import (
     EncoderRefinementMixin,
     AccelerationDeviceMixin,
-    CPUCountMixin,
+    CPUMixin,
     TrainingResultsMixin,
     MatrixPrecisionMixin,
     DummyPassMixin,
@@ -24,7 +24,7 @@ from .mixins import (
 class Aftab(
     EncoderRefinementMixin,
     AccelerationDeviceMixin,
-    CPUCountMixin,
+    CPUMixin,
     TrainingResultsMixin,
     EnvironmentSetupMixin,
     DummyPassMixin,
