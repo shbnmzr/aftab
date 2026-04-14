@@ -1,10 +1,13 @@
+from .InvokableMixin import InvokableMixin
 from ..maps import encoders_map
 
 
-class EncoderRefinementMixin:
+class EncoderRefinementMixin(InvokableMixin):
     def __init__(self):
         super().__init__()
 
-        if isinstance(self.encoder, str):
-            module = encoders_map.get(self.encoder)
-            self.encoder = module
+        if not isinstance(self.encoder, str):
+            return
+
+        module = encoders_map.get(self.encoder)
+        self.encoder = module
