@@ -9,5 +9,10 @@ class EncoderRefinementMixin(InvokableMixin):
         if not isinstance(self.encoder, str):
             return
 
-        module = encoders_map.get(self.encoder)
-        self.encoder = module
+        try:
+            self.encoder = encoders_map[self.encoder]
+        except KeyError as exc:
+            raise ValueError(
+                f"Unknown encoder key: {self.encoder!r}. "
+                f"Expected one of: {tuple(encoders_map.keys())}"
+            ) from exc
