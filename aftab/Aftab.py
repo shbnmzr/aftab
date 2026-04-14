@@ -18,6 +18,7 @@ from .mixins import (
     EnvironmentSetupMixin,
     ActionsMixin,
     CompileNetworkMixin,
+    MakeBatchesMixin,
 )
 
 
@@ -32,6 +33,7 @@ class Aftab(
     MatrixPrecisionMixin,
     ActionsMixin,
     CompileNetworkMixin,
+    MakeBatchesMixin,
 ):
     def __init__(
         self,
@@ -121,41 +123,6 @@ class Aftab(
 
         fetched_frames = acceptable_frames_idx.get(self.frames)
         self.frames = fetched_frames
-
-    def make_batches(self, observation_shape, action_dimension):
-        batch_observations = torch.empty(
-            (self.steps_per_update, self.total_environments) + observation_shape,
-            dtype=torch.uint8,
-            device=self.device,
-        )
-        batch_actions = torch.empty(
-            (self.steps_per_update, self.total_environments),
-            dtype=torch.int64,
-            device=self.device,
-        )
-        batch_rewards = torch.empty(
-            (self.steps_per_update, self.total_environments),
-            dtype=torch.float32,
-            device=self.device,
-        )
-        batch_terminations = torch.empty(
-            (self.steps_per_update, self.total_environments),
-            dtype=torch.float32,
-            device=self.device,
-        )
-        batch_q = torch.empty(
-            (self.steps_per_update, self.total_environments, action_dimension),
-            dtype=torch.float32,
-            device=self.device,
-        )
-
-        return (
-            batch_observations,
-            batch_actions,
-            batch_rewards,
-            batch_terminations,
-            batch_q,
-        )
 
     def get_q_values(self, float_observations, no_grad: bool = False):
         if no_grad:
