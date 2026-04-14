@@ -17,6 +17,7 @@ from .mixins import (
     ActionsMixin,
     CompileNetworkMixin,
     MakeBatchesMixin,
+    EpsilonMixin,
 )
 
 
@@ -32,6 +33,7 @@ class Aftab(
     ActionsMixin,
     CompileNetworkMixin,
     MakeBatchesMixin,
+    EpsilonMixin,
 ):
     def __init__(
         self,
@@ -130,20 +132,6 @@ class Aftab(
             q_values = self._network(float_observations)
 
         return q_values
-
-    def get_epsilons(self, epsilon_value) -> torch.Tensor:
-        training_epsilon_vector = torch.full(
-            (self.num_train_environments,),
-            epsilon_value,
-            device=self.device,
-            dtype=torch.float32,
-        )
-        test_epsilon_vector = torch.zeros(
-            (self.num_test_environments,),
-            device=self.device,
-            dtype=torch.float32,
-        )
-        return torch.cat([training_epsilon_vector, test_epsilon_vector])
 
     def make_optimizer(self):
         return self.optimizer_instance(
