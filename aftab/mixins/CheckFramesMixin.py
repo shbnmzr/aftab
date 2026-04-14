@@ -2,7 +2,7 @@ from .InvokableMixin import InvokableMixin
 
 
 class CheckFramesMixin(InvokableMixin):
-    acceptable_frames_idx = {
+    ACCEPTABLE_FRAMES_IDX = {
         "pilot": 50_000_000,
         "ablation": 50_000_000,
         "full": 200_000_000,
@@ -14,10 +14,10 @@ class CheckFramesMixin(InvokableMixin):
         if not isinstance(self.frames, str):
             return
 
-        if self.frames not in CheckFramesMixin.acceptable_frames_idx:
+        try:
+            self.frames = self.ACCEPTABLE_FRAMES_IDX[self.frames]
+        except KeyError as exc:
             raise ValueError(
-                f"Total frames was passed a wrong value of `{self.frames}`. Acceptable values are `pilot`, `ablation`, `full`."
-            )
-
-        fetched_frames = CheckFramesMixin.acceptable_frames_idx.get(self.frames)
-        self.frames = fetched_frames
+                f"Invalid value for `frames`: {self.frames!r}. "
+                f"Expected one of {tuple(self.ACCEPTABLE_FRAMES_IDX)}."
+            ) from exc
