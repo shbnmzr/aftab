@@ -8,6 +8,7 @@ from .maps import encoders_map
 from .agents import PQNAgent
 from .functions import lambda_returns, flush
 from .mixins import (
+    EncoderRefinementMixin,
     AccelerationDeviceMixin,
     CPUCountMixin,
     TrainingResultsMixin,
@@ -21,6 +22,7 @@ from .mixins import (
 
 
 class Aftab(
+    EncoderRefinementMixin,
     AccelerationDeviceMixin,
     CPUCountMixin,
     TrainingResultsMixin,
@@ -94,13 +96,6 @@ class Aftab(
         self.optimizer_first_beta = optimizer_first_beta
         self.optimizer_second_beta = optimizer_second_beta
         self.optimizer_weight_decay = optimizer_weight_decay
-
-        ######
-        # this line ensures users can pass a string (predefined) or their defined encoder to the system.
-        ######
-        if isinstance(encoder, str):
-            module = encoders_map.get(encoder)
-            self.encoder = module
 
     def make_network(
         self, action_dimension: int, encoder_instance: Type[torch.nn.Module]
