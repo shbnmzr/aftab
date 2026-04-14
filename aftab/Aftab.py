@@ -153,7 +153,7 @@ class Aftab(
                     self.actual_frames,
                 )
                 q_values = self.get_q_values(
-                    float_observations=float_observations, no_grad=True
+                    float_observations=float_observations, gradient=False
                 )
                 actions = self.get_actions(
                     q_values=q_values, epsilon_value=epsilon_value
@@ -268,7 +268,7 @@ class Aftab(
                     ):
                         q_values = self.get_q_values(
                             float_observations=mini_batch_observations.float(),
-                            no_grad=False,
+                            gradient=True,
                         )
                         q_taken = q_values.gather(1, mb_act.unsqueeze(1)).squeeze()
                         loss = self._network.loss(q_taken, mb_tgt)
