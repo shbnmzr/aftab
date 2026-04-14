@@ -6,7 +6,7 @@ from .EnvironmentSetupMixin import EnvironmentSetupMixin
 from .AccelerationDeviceMixin import AccelerationDeviceMixin
 from .CPUMixin import CPUMixin
 from .ActionsMixin import ActionsMixin
-from .CompileNetworkMixin import CompileNetworkMixin
+from .CompilationMixin import CompilationMixin
 from .EncoderRefinementMixin import EncoderRefinementMixin
 from .MakeBatchesMixin import MakeBatchesMixin
 from .EpsilonMixin import EpsilonMixin

@@ -1,7 +1,7 @@
 import torch
 
 
-class CompileNetworkMixin:
+class CompilationMixin:
     def __init__(self):
         super().__init__()
 
