@@ -5,6 +5,7 @@ class TrainingResultsMixin:
     def __init__(self):
         super().__init__()
 
+    # TODO: change this to use simple namespace of self.results
     def flush_final_properties(self):
         self.final_training_rewards = None
         self.final_test_rewards = None
