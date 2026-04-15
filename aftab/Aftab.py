@@ -107,6 +107,25 @@ class Aftab(
         self.optimizer_second_beta = optimizer_second_beta
         self.optimizer_weight_decay = optimizer_weight_decay
 
+    def get_returns(
+        self, float_observations, batch_q, batch_rewards, batch_terminations
+    ):
+        with (
+            torch.no_grad(),
+            torch.autocast(device_type=self.device.type, dtype=torch.float16),
+        ):
+            next_q = self._network(float_observations).max(dim=-1).values
+            max_q_seq = batch_q.max(dim=-1).values
+            q_seq_for_lambda = torch.cat([max_q_seq, next_q.unsqueeze(0)])
+            targets = lambda_returns(
+                batch_rewards,
+                batch_terminations,
+                q_seq_for_lambda[1:],
+                self.gamma,
+                self.lmbda,
+            )
+        return targets
+
     def train(self, environment, seed: int = 42):
         self.flush_final_properties()
         self.set_precision()
@@ -229,20 +248,12 @@ class Aftab(
                 )
                 frame_count += self.num_train_environments
 
-            with (
-                torch.no_grad(),
-                torch.autocast(device_type=self.device.type, dtype=torch.float16),
-            ):
-                next_q = self._network(observation.float()).max(dim=-1).values
-                max_q_seq = batch_q.max(dim=-1).values
-                q_seq_for_lambda = torch.cat([max_q_seq, next_q.unsqueeze(0)])
-                targets = lambda_returns(
-                    batch_rewards,
-                    batch_terminations,
-                    q_seq_for_lambda[1:],
-                    self.gamma,
-                    self.lmbda,
-                )
+            targets = self.get_returns(
+                float_observations=observation.float(),
+                batch_q=batch_q,
+                batch_rewards=batch_rewards,
+                batch_terminations=batch_terminations,
+            )
             flat_obs = batch_observations[:, : self.num_train_environments].reshape(
                 (-1,) + observation_shape
             )
