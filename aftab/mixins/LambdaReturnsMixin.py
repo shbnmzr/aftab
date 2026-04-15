@@ -2,7 +2,7 @@ import torch
 from ..functions import lambda_returns
 
 
-class TargetMixin:
+class LambdaReturnsMixin:
     def __init__(self):
         super().__init__()
 
@@ -16,11 +16,11 @@ class TargetMixin:
             next_q = self._network(float_observations).max(dim=-1).values
             max_q_seq = batch_q.max(dim=-1).values
             q_seq_for_lambda = torch.cat([max_q_seq, next_q.unsqueeze(0)])
-            targets = lambda_returns(
+            returns = lambda_returns(
                 batch_rewards,
                 batch_terminations,
                 q_seq_for_lambda[1:],
                 self.gamma,
                 self.lmbda,
             )
-        return targets
+        return returns

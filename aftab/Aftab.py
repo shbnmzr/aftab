@@ -22,7 +22,7 @@ from .mixins import (
     QValueMixin,
     CheckFramesMixin,
     LossMixin,
-    TargetMixin,
+    LambdaReturnsMixin,
 )
 
 
@@ -44,7 +44,7 @@ class Aftab(
     QValueMixin,
     CheckFramesMixin,
     LossMixin,
-    TargetMixin,
+    LambdaReturnsMixin,
 ):
     def __init__(
         self,
