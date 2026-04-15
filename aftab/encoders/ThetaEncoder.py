@@ -1,5 +1,5 @@
 import torch
-from ..modules import LayerNorm2d
+from ..modules import EncoderBlock
 from ..constants import ModuleType
 
 
@@ -7,15 +7,15 @@ class ThetaEncoder(torch.nn.Module):
     def __init__(self, *, activation: ModuleType = torch.nn.ReLU):
         super().__init__()
         self.stream = torch.nn.Sequential(
-            torch.nn.Conv2d(4, 32, 7, 4, 2),
-            LayerNorm2d(32),
-            activation(),
-            torch.nn.Conv2d(32, 64, 5, 2, 1),
-            LayerNorm2d(64),
-            activation(),
-            torch.nn.Conv2d(64, 32, 3, 1, 0),
-            LayerNorm2d(32),
-            activation(),
+            EncoderBlock(
+                4, 32, kernel_size=7, stride=4, padding=2, activation=activation
+            ),
+            EncoderBlock(
+                32, 64, kernel_size=5, stride=2, padding=1, activation=activation
+            ),
+            EncoderBlock(
+                64, 32, kernel_size=3, stride=1, padding=0, activation=activation
+            ),
             torch.nn.Flatten(),
         )
 
