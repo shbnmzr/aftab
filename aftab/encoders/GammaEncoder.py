@@ -1,5 +1,5 @@
 import torch
-from ..modules import LayerNorm2d, EncoderBlock
+from ..modules import EncoderBlock
 from ..constants import ModuleType
 
 
