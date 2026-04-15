@@ -6,10 +6,9 @@ from ..encoders import EpsilonEncoder
 from ..encoders import EtaEncoder
 from ..encoders import ZetaEncoder
 from ..encoders import ThetaEncoder
-from ..encoders import HadamaxGammaEncoder
-from ..encoders import SimpleAttentionGammaEncoder
-from ..encoders import EMAGammaEncoder
-from ..encoders import CoordinatedGammaEncoder
+from ..encoders import HadamaxGammaEncoderV1
+from ..encoders import HadamaxGammaEncoderV2
+from ..encoders import HadamaxNatureDQNEncoder
 
 
 encoders_map = {
@@ -21,13 +20,10 @@ encoders_map = {
     "eta": EtaEncoder,
     "zeta": ZetaEncoder,
     "theta": ThetaEncoder,
-    "gammahadamax": HadamaxGammaEncoder,
-    "hadamaxgamma": HadamaxGammaEncoder,
-    "simple": SimpleAttentionGammaEncoder,
-    "simplegamma": SimpleAttentionGammaEncoder,
-    "simpleattention": SimpleAttentionGammaEncoder,
-    "coordinated": CoordinatedGammaEncoder,
-    "coodinatedgamma": CoordinatedGammaEncoder,
-    "ema": EMAGammaEncoder,
-    "emagamma": EMAGammaEncoder,
+    "hadamax": HadamaxNatureDQNEncoder,
+    "dqnhadamax": HadamaxNatureDQNEncoder,
+    "hadamaxgammav1": HadamaxGammaEncoderV1,
+    "gammahadamaxv1": HadamaxGammaEncoderV1,
+    "hadamaxgammav2": HadamaxGammaEncoderV2,
+    "gammahadamaxv2": HadamaxGammaEncoderV2,
 }

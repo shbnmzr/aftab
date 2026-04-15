@@ -2,26 +2,47 @@ import torch
 from .HadamaxLayer import HadamaxLayer
 
 
-class HadamaxNatureDQNEncoder(torch.nn.Module):
+class HadamaxGammaEncoderV2(torch.nn.Module):
     def __init__(self, activation=torch.nn.GELU):
         super().__init__()
         self.stream = torch.nn.Sequential(
             HadamaxLayer(
                 4,
                 32,
-                kernel_size=8,
-                padding=4,
+                kernel_size=3,
                 stride=1,
-                pool_kernel=4,
-                pool_stride=4,
+                padding=1,
+                pool_kernel=2,
+                pool_stride=2,
                 activation=activation,
             ),
             HadamaxLayer(
                 32,
-                64,
-                kernel_size=4,
+                48,
+                kernel_size=3,
                 stride=1,
-                padding=2,
+                padding=1,
+                pool_kernel=2,
+                pool_stride=2,
+                activation=activation,
+            ),
+            HadamaxLayer(
+                48,
+                64,
+                kernel_size=3,
+                stride=1,
+                padding=1,
+                pool_kernel=3,
+                pool_stride=1,
+                pool_padding=1,
+                activation=activation,
+            ),
+            HadamaxLayer(
+                64,
+                64,
+                kernel_size=3,
+                stride=1,
+                padding=1,
                 pool_kernel=2,
                 pool_stride=2,
                 activation=activation,
