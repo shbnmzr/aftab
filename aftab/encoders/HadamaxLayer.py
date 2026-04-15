@@ -9,9 +9,9 @@ class HadamaxLayer(torch.nn.Module):
         out_channels,
         kernel_size,
         padding,
-        pool_k,
-        pool_s,
-        pool_p=0,
+        pool_kernel,
+        pool_stride,
+        pool_padding=0,
         activation=torch.nn.GELU,
     ):
         super().__init__()
@@ -35,14 +35,17 @@ class HadamaxLayer(torch.nn.Module):
 
         self.activation = activation()
 
-        self.pool_k = pool_k
-        self.pool_s = pool_s
-        self.pool_p = pool_p
+        self.pool_kernel = pool_kernel
+        self.pool_stride = pool_stride
+        self.pool_padding = pool_padding
 
     def forward(self, x):
         a = self.activation(self.norm_a(self.conv_a(x)))
         b = self.activation(self.norm_b(self.conv_b(x)))
         x = a * b
         return torch.nn.functional.max_pool2d(
-            x, kernel_size=self.pool_k, stride=self.pool_s, padding=self.pool_p
+            x,
+            kernel_size=self.pool_kernel,
+            stride=self.pool_stride,
+            padding=self.pool_padding,
         )
