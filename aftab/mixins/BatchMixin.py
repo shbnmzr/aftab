@@ -1,7 +1,7 @@
 import torch
 
 
-class MakeBatchesMixin:
+class BatchMixin:
     def __init__(self):
         super().__init__()
 

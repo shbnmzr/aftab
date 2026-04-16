@@ -7,7 +7,7 @@ from .ConstantsMixin import ConstantsMixin
 from .ActionsMixin import ActionsMixin
 from .CompilationMixin import CompilationMixin
 from .EncoderRefinementMixin import EncoderRefinementMixin
-from .MakeBatchesMixin import MakeBatchesMixin
+from .BatchMixin import BatchMixin
 from .EpsilonMixin import EpsilonMixin
 from .NetworkMixin import NetworkMixin
 from .OptimizerMixin import OptimizerMixin
