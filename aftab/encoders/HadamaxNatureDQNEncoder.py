@@ -14,7 +14,8 @@ class HadamaxNatureDQNEncoder(torch.nn.Module):
                 stride=1,
                 pool_kernel=4,
                 pool_stride=4,
-                activation=activation,
+                chi=activation,
+                psi=activation,
             ),
             HadamaxBlock(
                 32,
@@ -24,7 +25,8 @@ class HadamaxNatureDQNEncoder(torch.nn.Module):
                 padding=2,
                 pool_kernel=2,
                 pool_stride=2,
-                activation=activation,
+                chi=activation,
+                psi=activation,
             ),
             HadamaxBlock(
                 64,
@@ -35,7 +37,8 @@ class HadamaxNatureDQNEncoder(torch.nn.Module):
                 pool_kernel=3,
                 pool_stride=1,
                 pool_padding=1,
-                activation=activation,
+                chi=activation,
+                psi=activation,
             ),
             torch.nn.Flatten(),
         )
