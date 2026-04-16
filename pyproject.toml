@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aftab"
-version = "0.0.26"
+version = "0.0.27"
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
@@ -26,7 +26,7 @@ urls = { Homepage="https://github.com/tahashieenavaz/aftab", Repository="https:/
 
 [tool.setuptools.packages.find]
 where = ["."]
-exclude = ["tests*", "docs*", "figures*", "mermaid*"]
+exclude = ["tests*", "docs*", "figures*", "mermaid*", "scripts*"]
 
 [tool.setuptools.package-data]
 aftab = ["*.md", "*.txt", "*.png"]
