@@ -1,5 +1,5 @@
 import torch
-from ..modules import LayerNorm2d
+from ..modules import EncoderBlock
 from ..constants import ModuleType
 
 
@@ -7,15 +7,9 @@ class NatureDQNEncoder(torch.nn.Module):
     def __init__(self, *, activation: ModuleType = torch.nn.ReLU):
         super().__init__()
         self.stream = torch.nn.Sequential(
-            torch.nn.Conv2d(4, 32, 8, 4),
-            LayerNorm2d(32),
-            activation(),
-            torch.nn.Conv2d(32, 64, 4, 2),
-            LayerNorm2d(64),
-            activation(),
-            torch.nn.Conv2d(64, 64, 3, 1),
-            LayerNorm2d(64),
-            activation(),
+            EncoderBlock(4, 32, kernel_size=8, stride=4, activation=activation),
+            EncoderBlock(32, 64, kernel_size=4, stride=2, activation=activation),
+            EncoderBlock(64, 64, kernel_size=3, stride=1, activation=activation),
             torch.nn.Flatten(),
         )
 
