@@ -22,20 +22,20 @@ class PQNAgent(torch.nn.Module):
     def no_epsilon_greedy(self):
         self.epsilon_greedy = False
 
-    def normalize_features(self, x):
+    def normalize_observations(self, x: torch.Tensor) -> torch.Tensor:
         return x / 255.0
 
-    def get_features(self, x):
-        x = self.normalize_features(x)
+    def get_features(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.normalize_observations(x)
         features = self.phi(x)
         return features
 
-    def get_q(self, states):
+    def get_q(self, states: torch.Tensor) -> torch.Tensor:
         features = self.get_features(states)
         return self.q(features)
 
-    def loss(self, q, target):
+    def loss(self, q: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
         return mse_loss(q, target)
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.get_q(x)
