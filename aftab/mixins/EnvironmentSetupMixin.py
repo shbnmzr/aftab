@@ -17,7 +17,7 @@ class EnvironmentSetupMixin:
             reward_clip=self.train_reward_clip,
             episodic_life=self.train_episodic_life,
             frame_skip=self.frame_skip,
-            stack_num=self.stack_number,
+            stack_num=self.frame_stack,
         )
 
         test_environment = envpool.make(
@@ -31,7 +31,7 @@ class EnvironmentSetupMixin:
             reward_clip=self.test_reward_clip,
             episodic_life=self.test_episodic_life,
             frame_skip=self.frame_skip,
-            stack_num=self.stack_number,
+            stack_num=self.frame_stack,
         )
 
         return train_environment, test_environment

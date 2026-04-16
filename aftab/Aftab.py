@@ -72,7 +72,7 @@ class Aftab(
         test_episodic_life: bool = False,
         test_reward_clip: bool = True,
         should_compile: bool = True,
-        stack_number: int = 4,
+        frame_stack: int = 4,
     ):
         self.frame_skip = frame_skip
         self.lr = lr
@@ -100,7 +100,7 @@ class Aftab(
         self.log_interval = log_interval
         self.verbose = verbose
         self.should_compile = should_compile
-        self.stack_number = stack_number
+        self.frame_stack = frame_stack
         self.optimizer_instance = optimizer_instance
         self.optimizer_epsilon = optimizer_epsilon
         self.optimizer_first_beta = optimizer_first_beta
