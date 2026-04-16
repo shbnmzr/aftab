@@ -11,7 +11,7 @@ class DuellingAgent(BaseAgent):
         action_dimension: int,
         encoder: ModuleType = NatureDQNEncoder,
     ):
-        super().__init__(encoder=encoder)
+        super().__init__(encoder=encoder, action_dimension=action_dimension)
         self.q = Stream(output_dimension=action_dimension)
 
     def get_q(self, states: torch.Tensor) -> torch.Tensor:
