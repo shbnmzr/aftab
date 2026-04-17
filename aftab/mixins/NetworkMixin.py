@@ -61,7 +61,7 @@ class NetworkMixin:
                     action_dimension=action_dimension, agent_instance=agent_instance
                 )
         except:
-            raise ValueError("Wrong strategy detected.")
+            raise ValueError("Wrong agent id detected.")
 
     def __compile_network(self):
         if not getattr(self, "should_compile", False):
