@@ -297,6 +297,3 @@ class Aftab(
         self.results.rewards.test = all_test_rewards
         self.results.loss = all_loss
         self.results.duration = time.time() - training_start_time
-
-        if self.verbose:
-            flush(f"Training finished.")
