@@ -10,15 +10,15 @@ class FQFNetwork(BaseNetwork):
             number_quantiles=kwargs["number_quantiles"],
             embedding_dimension=kwargs["embedding_dimension"],
         )
-        self.quantile = QuantileStream(
+        self.quantile_value = QuantileStream(
             action_dimension=kwargs["action_dimension"],
             embedding_dimension=kwargs["embedding_dimension"],
         )
 
     def get_quantiles(self, x: torch.Tensor):
         features = self.get_features(x)
-        taus, tau_hats, q_probs = self.fpn(features)
-        quantiles = self.qvn(features, tau_hats)
+        taus, tau_hats, q_probs = self.fraction_proposal(features)
+        quantiles = self.quantile_value(features, tau_hats)
         return quantiles, taus, tau_hats, q_probs
 
     def get_q(self, x: torch.Tensor) -> torch.Tensor:
@@ -47,7 +47,7 @@ class FQFNetwork(BaseNetwork):
         q_probs: torch.Tensor,
     ) -> torch.Tensor:
         inner_taus = taus[:, 1:-1]
-        quantiles_at_tau = self.qvn(features.detach(), inner_taus)
+        quantiles_at_tau = self.quantile_value(features.detach(), inner_taus)
         action_idx = (
             actions.unsqueeze(-1).unsqueeze(-1).expand(-1, inner_taus.size(1), 1)
         )
@@ -66,8 +66,8 @@ class FQFNetwork(BaseNetwork):
 
     def loss(self, mini_batch_observations, mini_batch_targets, mini_batch_actions):
         features = self._network.get_features(mini_batch_observations)
-        taus, tau_hats, q_probs = self._network.fpn(features)
-        quantiles = self._network.qvn(features, tau_hats)
+        taus, tau_hats, q_probs = self.fraction_proposal(features)
+        quantiles = self.quantile_value(features, tau_hats)
         action_idx = (
             mini_batch_actions.unsqueeze(-1)
             .unsqueeze(-1)

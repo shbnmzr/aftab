@@ -50,7 +50,8 @@ class Aftab(
         epochs: int = 2,
         gamma: float = 0.99,
         lmbda: float = 0.65,
-        lr: float = 0.00025,
+        lr: float = 2.5 * pow(10, -4),
+        fraction_proposal_lr: float = 2.5 * pow(10, -9),
         num_train_environments: int = 128,
         num_test_environments: int = 8,
         steps_per_update: int = 32,
@@ -76,6 +77,7 @@ class Aftab(
     ):
         self.frame_skip = frame_skip
         self.lr = lr
+        self.fraction_proposal_lr = fraction_proposal_lr
         self.lmbda = lmbda
         self.gamma = gamma
         self.epochs = epochs
@@ -187,6 +189,7 @@ class Aftab(
                 truncations = numpy.concatenate(
                     [truncation_train, truncation_test], axis=0
                 )
+                terminations = numpy.logical_or(terminations, truncations)
 
                 infos = {}
                 for k, v_train in info_train.items():
@@ -204,25 +207,25 @@ class Aftab(
                     else:
                         continue
 
-                dones = numpy.logical_or(terminations, truncations)
-
                 if "reward" in infos:
                     episode_returns += infos["reward"]
 
-                if numpy.any(dones):
-                    done_indices = numpy.where(dones)[0]
-                    finished_scores = episode_returns[dones]
+                if numpy.any(terminations):
+                    done_indices = numpy.where(terminations)[0]
+                    finished_scores = episode_returns[terminations]
                     for idx, score in zip(done_indices, finished_scores):
                         if idx < self.num_train_environments:
                             all_train_rewards.append(score)
                         else:
                             all_test_rewards.append(score)
-                    episode_returns[dones] = 0
+                    episode_returns[terminations] = 0
 
                 batch_observations[step] = observation
                 batch_actions[step] = torch.as_tensor(actions, device=self.device)
                 batch_rewards[step] = torch.as_tensor(rewards, device=self.device)
-                batch_terminations[step] = torch.as_tensor(dones, device=self.device)
+                batch_terminations[step] = torch.as_tensor(
+                    terminations, device=self.device
+                )
                 batch_q[step] = q_values
 
                 observation = torch.as_tensor(
