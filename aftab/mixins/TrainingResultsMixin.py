@@ -6,14 +6,6 @@ class TrainingResultsMixin:
     def __init__(self):
         super().__init__()
 
-    def flush_results(self):
-        self.results = SimpleNamespace()
-        self.results.rewards = SimpleNamespace()
-        self.results.rewards.train = []
-        self.results.rewards.test = []
-        self.results.loss = []
-        self.results.duration = 0.0
-
     def __make_log_filename(self, **kwargs):
         filename = "_".join(f"{k}-{v}" for k, v in kwargs.items())
         return f"{filename}.pkl"
@@ -27,6 +19,14 @@ class TrainingResultsMixin:
             "duration_seconds": duration,
             "duration_hours": duration / 3600,
         }
+
+    def flush_results(self):
+        self.results = SimpleNamespace()
+        self.results.rewards = SimpleNamespace()
+        self.results.rewards.train = []
+        self.results.rewards.test = []
+        self.results.loss = []
+        self.results.duration = 0.0
 
     def save(self, **kwargs) -> None:
         filename = self.__make_log_filename(**kwargs)
