@@ -114,6 +114,8 @@ class Aftab(
         self.quantile_embedding_dimension = quantile_embedding_dimension
 
     def train(self, environment, seed: int = 42):
+        frame_count = 0
+
         self.flush_results()
         self.set_precision()
         self.set_seed(seed)
@@ -138,11 +140,11 @@ class Aftab(
         ) = self.make_batches(
             observation_shape=observation_shape, action_dimension=action_dimension
         )
-        scaler = torch.amp.GradScaler("cuda")
+        scaler = torch.amp.GradScaler(enabled=self.device.type == "cuda")
         training_start_time = time.time()
 
+        self._network.eval()
         for update in range(1, self.total_updates + 1):
-            self._network.eval()
             for step in range(self.steps_per_update):
                 float_observations = observation.float()
                 epsilon_value = self._network.epsilon.get(
@@ -185,34 +187,28 @@ class Aftab(
                 )
                 terminations = numpy.logical_or(terminations, truncations)
 
-                infos = {}
-                for k, v_train in info_train.items():
-                    if k not in info_test:
-                        continue
-                    v_test = info_test[k]
-
-                    if isinstance(v_train, numpy.ndarray) and isinstance(
-                        v_test, numpy.ndarray
+                reward_train = info_train.get("reward", None)
+                reward_test = info_test.get("reward", None)
+                if reward_train is not None and reward_test is not None:
+                    if isinstance(reward_train, numpy.ndarray) and isinstance(
+                        reward_test, numpy.ndarray
                     ):
-                        if v_train.ndim == 0:
-                            infos[k] = numpy.stack([v_train, v_test])
+                        if reward_train.ndim == 0:
+                            rewards = numpy.stack([reward_train, reward_test])
                         else:
-                            infos[k] = numpy.concatenate([v_train, v_test], axis=0)
-                    else:
-                        continue
+                            rewards = numpy.concatenate(
+                                [reward_train, reward_test], axis=0
+                            )
+                        episode_returns += rewards
 
-                if "reward" in infos:
-                    episode_returns += infos["reward"]
-
-                if numpy.any(terminations):
-                    done_indices = numpy.where(terminations)[0]
-                    finished_scores = episode_returns[terminations]
-                    for idx, score in zip(done_indices, finished_scores):
-                        if idx < self.num_train_environments:
-                            self.results.rewards.train.append(score)
-                        else:
-                            self.results.rewards.test.append(score)
-                    episode_returns[terminations] = 0
+                done_mask = terminations
+                if numpy.any(done_mask):
+                    idx = numpy.nonzero(done_mask)[0]
+                    scores = episode_returns[done_mask]
+                    split = idx < self.num_train_environments
+                    self.results.rewards.train.extend(scores[split].tolist())
+                    self.results.rewards.test.extend(scores[~split].tolist())
+                    episode_returns[done_mask] = 0
 
                 batch_observations[step] = observation
                 batch_actions[step] = torch.from_numpy(actions).to(self.device)
@@ -233,13 +229,13 @@ class Aftab(
                 batch_rewards=batch_rewards,
                 batch_terminations=batch_terminations,
             )
+
+            train_slice = slice(0, self.num_train_environments)
             flattened_observations = batch_observations[
                 :, : self.num_train_environments
             ].reshape((-1,) + observation_shape)
-            flattened_actions = batch_actions[:, : self.num_train_environments].reshape(
-                -1
-            )
-            flattened_targets = targets[:, : self.num_train_environments].reshape(-1)
+            flattened_actions = batch_actions[:, train_slice].reshape(-1)
+            flattened_targets = targets[:, train_slice].reshape(-1)
 
             self._network.train()
             for _ in range(self.epochs):
