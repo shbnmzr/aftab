@@ -1,9 +1,12 @@
 import torch
 import math
+from ..constants import ModuleType
 
 
 class CosineEmbeddingModule(torch.nn.Module):
-    def __init__(self, *, embedding_dimension: int = 256, activation=torch.nn.ReLU):
+    def __init__(
+        self, *, embedding_dimension: int, activation: ModuleType = torch.nn.ReLU
+    ):
         super().__init__()
         self.cosine_network = torch.nn.Linear(embedding_dimension, embedding_dimension)
         pi_indices = math.pi * torch.arange(0, embedding_dimension).float()

@@ -3,14 +3,10 @@ from .Stream import Stream
 
 
 class FractionProposalStream(torch.nn.Module):
-    def __init__(
-        self,
-        *,
-        number_quantiles: int = 32,
-        embedding_dimension: int = 256,
-    ):
+    def __init__(self, *, number_quantiles: int, embedding_dimension: int):
         super().__init__()
         self.mu = Stream(
+            input_dimension=None,
             output_dimension=number_quantiles,
             hidden_dimension=embedding_dimension,
         )

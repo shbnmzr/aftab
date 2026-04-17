@@ -6,10 +6,10 @@ class QuantileStream(torch.nn.Module):
     def __init__(
         self,
         action_dimension: int,
-        embedding_dimension: int = 256,
+        embedding_dimension: int,
     ):
         super().__init__()
-        self.mu = CosineEmbeddingModule(embedding_dimension)
+        self.mu = CosineEmbeddingModule(embedding_dimension=embedding_dimension)
         self.nu = Stream(
             input_dimension=embedding_dimension,
             hidden_dimension=embedding_dimension,
