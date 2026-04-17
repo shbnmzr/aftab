@@ -1,3 +1,6 @@
+from types import SimpleNamespace
+
+
 class OptimizerMixin:
     def __init__(self):
         super().__init__()
@@ -21,9 +24,14 @@ class OptimizerMixin:
             eps=self.optimizer_epsilon,
         )
 
-        return fraction_proposal_optimizer, quantile_value_optimizer
+        return SimpleNamespace(
+            **{
+                "fraction_proposal": fraction_proposal_optimizer,
+                "quantile_value": quantile_value_optimizer,
+            }
+        )
 
-    def __build_regression_optimizers(self):
+    def __build_regression_optimizer(self):
         return self.optimizer_instance(
             self._network.parameters(),
             lr=self.lr,
@@ -34,6 +42,6 @@ class OptimizerMixin:
 
     def make_optimizer(self):
         if self.network == "regression":
-            return self.__build_regression_optimizers()
+            return self.__build_regression_optimizer()
         else:
             return self.__build_quantile_optimizers()

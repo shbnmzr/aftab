@@ -13,3 +13,5 @@ from .QValueMixin import QValueMixin
 from .CheckFramesMixin import CheckFramesMixin
 from .LossMixin import LossMixin
 from .LambdaReturnsMixin import LambdaReturnsMixin
+from .RegressionTrainMixin import RegressionTrainMixin
+from .CategoricalTrainMixin import CategoricalTrainMixin
