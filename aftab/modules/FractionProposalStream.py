@@ -1,15 +1,20 @@
 import torch
+from .Stream import Stream
 
 
 class FractionProposalStream(torch.nn.Module):
-    def __init__(self, feature_dimension: int, number_quantiles: int):
+    def __init__(self, *, number_quantiles: int = 32, embedding_dimension: int = 256):
         super().__init__()
-        self.mu = torch.nn.Linear(feature_dimension, number_quantiles)
+        self.mu = Stream(
+            output_dimension=number_quantiles, hidden_dimension=embedding_dimension
+        )
 
-    def forward(self, x):
-        logits = self.mu(x)
-        probs = torch.softmax(logits, dim=-1)
-        taus = torch.cumsum(probs, dim=-1)
-        taus = torch.cat([torch.zeros_like(taus[:, :1]), taus], dim=1)
-        tau_hats = (taus[:, :-1] + taus[:, 1:]) / 2.0
-        return taus, tau_hats
+    def forward(self, state):
+        q_logits = self.net(state)
+        q_probs = torch.nn.functional.softmax(q_logits, dim=-1)
+        tau_0 = torch.zeros((state.size(0), 1), device=state.device)
+        tau_1_to_N = torch.cumsum(q_probs, dim=-1)
+        tau = torch.cat([tau_0, tau_1_to_N], dim=-1)
+        tau_hat = (tau[:, :-1] + tau[:, 1:]) / 2.0
+        entropy = -torch.sum(q_probs * torch.log(q_probs + 1e-8), dim=-1, keepdim=True)
+        return tau, tau_hat, q_probs, entropy
