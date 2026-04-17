@@ -1,11 +1,9 @@
 import torch
-from ..constants import ModuleType
-from ..encoders import NatureDQNEncoder
 from ..modules import Stream
 from .BaseAgent import BaseAgent
 
 
-class PQNAgent(BaseAgent):
+class DuellingAgent(BaseAgent):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.advantage = Stream(output_dimension=kwargs["action_dimension"])

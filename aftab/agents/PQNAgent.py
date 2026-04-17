@@ -3,7 +3,7 @@ from ..modules import Stream
 from .BaseAgent import BaseAgent
 
 
-class DuellingAgent(BaseAgent):
+class PQNAgent(BaseAgent):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.q = Stream(output_dimension=kwargs["action_dimension"])
