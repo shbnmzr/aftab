@@ -43,6 +43,8 @@ class Aftab(
     def __init__(
         self,
         encoder: str | Type[torch.nn.Module] = "gamma",
+        agent: Literal["regression", "duelling", "fqf"] = "regression",
+        frames: int | Literal["pilot", "full", "ablation"] = "pilot",
         frame_skip: int = 4,
         num_minibatches: int = 32,
         epochs: int = 2,
@@ -52,7 +54,6 @@ class Aftab(
         num_train_environments: int = 128,
         num_test_environments: int = 8,
         steps_per_update: int = 32,
-        frames: int | Literal["pilot", "full", "ablation"] = "pilot",
         min_test_cpu_count: int = 4,
         noop: int = 30,
         frame_stack: int = 4,
@@ -70,7 +71,6 @@ class Aftab(
         test_reward_clip: bool = True,
         should_compile: bool = True,
         augmentation: bool = False,
-        agent: Literal["regression", "duelling", "fqf"] = "regression",
     ):
         self.frame_skip = frame_skip
         self.lr = lr
