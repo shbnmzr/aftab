@@ -60,8 +60,8 @@ class NetworkMixin:
                 self.__build_categorical_network(
                     action_dimension=action_dimension, network_instance=network_instance
                 )
-        except:
-            raise ValueError("Wrong network id detected.")
+        except Exception as e:
+            raise ValueError("Wrong network id detected.", e)
 
     def __compile_network(self):
         if not getattr(self, "should_compile", False):
