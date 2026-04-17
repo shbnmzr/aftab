@@ -46,7 +46,7 @@ class NetworkMixin:
             action_dimension=action_dimension,
             encoder_instance=self.encoder,
             number_quantiles=self.number_quantiles,
-            embedding_dimension=self.categorical_embedding_dimension,
+            embedding_dimension=self.quantile_embedding_dimension,
         )
 
     def __build_network(self, action_dimension: int):
