@@ -1,9 +1,9 @@
 import torch
 from ..modules import Stream
-from .BaseAgent import BaseAgent
+from .BaseNetwork import BaseNetwork
 
 
-class DuellingAgent(BaseAgent):
+class DuellingNetwork(BaseNetwork):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.advantage = Stream(output_dimension=kwargs["action_dimension"])

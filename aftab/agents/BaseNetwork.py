@@ -5,7 +5,7 @@ from ..functions import mse_loss
 from ..modules.augmentation import RandomShift, ColorIntensity
 
 
-class BaseAgent(torch.nn.Module):
+class BaseNetwork(torch.nn.Module):
     def __init__(
         self, *, action_dimension: int, augmentation: bool, encoder: ModuleType
     ):

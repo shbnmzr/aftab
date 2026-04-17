@@ -1,9 +1,9 @@
 import torch
-from .BaseAgent import BaseAgent
+from .DuellingNetwork import BaseNetwork
 from ..modules import QuantileStream, FractionProposalStream
 
 
-class FQFAgent(BaseAgent):
+class FQFNetwork(BaseNetwork):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.fraction_proposal = FractionProposalStream(
