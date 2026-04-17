@@ -46,7 +46,7 @@ class Aftab(
         encoder: str | Type[torch.nn.Module] = "gamma",
         network: Literal["regression", "duelling", "fqf"] = "regression",
         frames: int | Literal["pilot", "full", "ablation"] = "pilot",
-        augmentation: Literal["all", "intensity", "shift"] = "all",
+        augmentation: Literal["all", "intensity", "shift", "none"] = "all",
         frame_skip: int = 4,
         num_minibatches: int = 32,
         epochs: int = 2,
@@ -76,6 +76,7 @@ class Aftab(
         test_reward_clip: bool = True,
         should_compile: bool = True,
     ):
+        super().__init__()
         self.frame_skip = frame_skip
         self.lr = lr
         self.fraction_proposal_lr = fraction_proposal_lr
