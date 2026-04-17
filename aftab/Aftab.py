@@ -118,10 +118,6 @@ class Aftab(
         self.set_precision()
         self.set_seed(seed)
 
-        all_train_rewards = []
-        all_test_rewards = []
-        all_loss = []
-
         episode_returns = numpy.zeros(self.total_environments, dtype=numpy.float32)
         train_environment, test_environment = self.make_environments(
             environment=environment, seed=seed
@@ -215,9 +211,9 @@ class Aftab(
                     finished_scores = episode_returns[terminations]
                     for idx, score in zip(done_indices, finished_scores):
                         if idx < self.num_train_environments:
-                            all_train_rewards.append(score)
+                            self.results.rewards.train.append(score)
                         else:
-                            all_test_rewards.append(score)
+                            self.results.rewards.test.append(score)
                     episode_returns[terminations] = 0
 
                 batch_observations[step] = observation
@@ -253,12 +249,12 @@ class Aftab(
             for _ in range(self.epochs):
                 indices = torch.randperm(self.batch_size, device=self.device)
 
-                for start in range(0, self.batch_size, self.minibatch_size):
-                    end = start + self.minibatch_size
-                    mb_idx = indices[start:end]
-                    mini_batch_observations = flattened_observations[mb_idx]
-                    mini_batch_actions = flattened_actions[mb_idx]
-                    mini_batch_targets = flattened_targets[mb_idx]
+                for range_start in range(0, self.batch_size, self.minibatch_size):
+                    range_end = range_start + self.minibatch_size
+                    mini_batch_idx = indices[range_start:range_end]
+                    mini_batch_observations = flattened_observations[mini_batch_idx]
+                    mini_batch_actions = flattened_actions[mini_batch_idx]
+                    mini_batch_targets = flattened_targets[mini_batch_idx]
 
                     optimizer.zero_grad(set_to_none=True)
                     loss = self.get_loss(
@@ -273,15 +269,14 @@ class Aftab(
                     )
                     scaler.step(optimizer)
                     scaler.update()
-
                     total_loss += loss.item()
-                    all_loss.append(loss.item())
+                    self.results.loss.append(loss.item())
 
             avg_loss = total_loss / (self.epochs * self.num_minibatches)
             test_score = (
                 0.0
-                if len(all_test_rewards) < 10
-                else numpy.mean(all_test_rewards[-10:])
+                if len(self.results.rewards.test) < 10
+                else numpy.mean(self.results.rewards.test[-10:])
             )
 
             if self.verbose and update % self.log_interval == 0:
@@ -292,8 +287,4 @@ class Aftab(
 
         train_environment.close()
         test_environment.close()
-
-        self.results.rewards.train = all_train_rewards
-        self.results.rewards.test = all_test_rewards
-        self.results.loss = all_loss
         self.results.duration = time.time() - training_start_time

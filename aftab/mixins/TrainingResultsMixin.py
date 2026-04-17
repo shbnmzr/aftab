@@ -9,16 +9,16 @@ class TrainingResultsMixin:
     def flush_results(self):
         self.results = SimpleNamespace()
         self.results.rewards = SimpleNamespace()
-        self.results.rewards.train = None
-        self.results.rewards.test = None
-        self.results.loss = None
-        self.results.duration = None
+        self.results.rewards.train = []
+        self.results.rewards.test = []
+        self.results.loss = []
+        self.results.duration = 0.0
 
-    def make_log_filename(self, **kwargs):
+    def __make_log_filename(self, **kwargs):
         filename = "_".join(f"{k}-{v}" for k, v in kwargs.items())
         return f"{filename}.pkl"
 
-    def _build_log_payload(self):
+    def __build_log_payload(self):
         duration = self.results.duration or 0
         return {
             "training_reward": self.results.rewards.train,
@@ -29,6 +29,6 @@ class TrainingResultsMixin:
         }
 
     def save(self, **kwargs) -> None:
-        filename = self.make_log_filename(**kwargs)
-        payload = self._build_log_payload()
+        filename = self.__make_log_filename(**kwargs)
+        payload = self.__build_log_payload()
         funnel(filename, payload)
