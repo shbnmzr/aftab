@@ -4,3 +4,4 @@ from .HadamaxBlock import HadamaxBlock
 from .EncoderBlock import EncoderBlock
 from .RandomShiftModule import RandomShiftModule
 from .FractionProposalStream import FractionProposalStream
+from .QuantileStream import QuantileStream
