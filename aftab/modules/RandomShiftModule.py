@@ -11,14 +11,17 @@ class RandomShiftModule(torch.nn.Module):
             return x
 
         n, c, h, w = x.shape
-        padded = torch.nn.functional.pad(
-            x, (self.pad, self.pad, self.pad, self.pad), mode="replicate"
+        device = x.device
+        x = torch.nn.functional.pad(
+            x, (self.padding, self.padding, self.padding, self.padding)
         )
-        cropped = torch.empty_like(x)
-        w_starts = torch.randint(0, 2 * self.pad + 1, (n,))
-        h_starts = torch.randint(0, 2 * self.pad + 1, (n,))
-        for i in range(n):
-            cropped[i] = padded[
-                i, :, h_starts[i] : h_starts[i] + h, w_starts[i] : w_starts[i] + w
-            ]
-        return cropped
+        eps = 1.0 / (h + 2 * self.padding)
+        arange = torch.linspace(-1 + eps, 1 - eps, h, device=device)
+        base_grid = torch.stack(torch.meshgrid(arange, arange, indexing="ij"), dim=-1)
+        base_grid = base_grid.unsqueeze(0).repeat(n, 1, 1, 1)
+        shift = torch.randint(0, 2 * self.padding + 1, (n, 2), device=device)
+        shift = shift * 2.0 / (h + 2 * self.padding)
+        grid = base_grid + shift.view(n, 1, 1, 2)
+        return torch.nn.functional.grid_sample(
+            x, grid, padding_mode="zeros", align_corners=False
+        )
