@@ -2,9 +2,9 @@ import torch
 
 
 class FractionProposalStream(torch.nn.Module):
-    def __init__(self, feature_dim, num_quantiles):
+    def __init__(self, feature_dimension: int, number_quantiles: int):
         super().__init__()
-        self.linear = torch.nn.Linear(feature_dim, num_quantiles)
+        self.linear = torch.nn.Linear(feature_dimension, number_quantiles)
 
     def forward(self, x):
         logits = self.linear(x)
