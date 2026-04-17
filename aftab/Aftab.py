@@ -122,7 +122,6 @@ class Aftab(
         train_environment, test_environment = self.make_environments(
             environment=environment, seed=seed
         )
-        action_dimension = train_environment.action_space.n
         self.prepare_network(action_dimension=action_dimension)
 
         observation_train, _ = train_environment.reset()

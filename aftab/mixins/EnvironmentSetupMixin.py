@@ -33,5 +33,5 @@ class EnvironmentSetupMixin:
             frame_skip=self.frame_skip,
             stack_num=self.frame_stack,
         )
-
-        return train_environment, test_environment
+        action_dimension = train_environment.action_space.n
+        return train_environment, test_environment, action_dimension
