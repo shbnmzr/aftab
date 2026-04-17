@@ -12,8 +12,13 @@ class BaseAgent(torch.nn.Module):
         self.epsilon_greedy = True
         self.action_dimension = action_dimension
         self.epsilon = LinearEpsilon()
-        if augmentation:
+
+        if augmentation == "all":
             self.phi = torch.nn.Sequential(RandomShift(), ColorIntensity(), encoder())
+        elif augmentation == "intensity":
+            self.phi = torch.nn.Sequential(ColorIntensity(), encoder())
+        elif augmentation == "shift":
+            self.phi = torch.nn.Sequential(RandomShift(), encoder())
         else:
             self.phi = encoder()
 

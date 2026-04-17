@@ -72,7 +72,7 @@ class Aftab(
         test_episodic_life: bool = False,
         test_reward_clip: bool = True,
         should_compile: bool = True,
-        augmentation: bool = False,
+        augmentation: Literal["all", "intensity", "shift"] = "all",
     ):
         self.frame_skip = frame_skip
         self.lr = lr
