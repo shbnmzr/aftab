@@ -51,8 +51,8 @@ class Aftab(
         epochs: int = 2,
         gamma: float = 0.99,
         lmbda: float = 0.65,
-        lr: float = 2.5 * pow(10, -4),
-        fraction_proposal_lr: float = 2.5 * pow(10, -9),
+        lr: float = 2.5e-4,
+        fraction_proposal_lr: float = 2.5e-9,
         num_train_environments: int = 128,
         num_test_environments: int = 8,
         steps_per_update: int = 32,
@@ -244,8 +244,6 @@ class Aftab(
             flattened_targets = targets[:, : self.num_train_environments].reshape(-1)
 
             self._network.train()
-            total_loss = 0.0
-
             for _ in range(self.epochs):
                 indices = torch.randperm(self.batch_size, device=self.device)
 
@@ -269,10 +267,8 @@ class Aftab(
                     )
                     scaler.step(optimizer)
                     scaler.update()
-                    total_loss += loss.item()
                     self.results.loss.append(loss.item())
 
-            avg_loss = total_loss / (self.epochs * self.num_minibatches)
             test_score = (
                 0.0
                 if len(self.results.rewards.test) < 10
@@ -280,7 +276,7 @@ class Aftab(
             )
 
             if self.verbose and update % self.log_interval == 0:
-                flush(f"Update {update} | Frames: {frame_count} | Loss: {avg_loss:.4f}")
+                flush(f"Update {update} | Frames: {frame_count}")
                 flush(
                     f"Test Score: {test_score:.4f}",
                 )
