@@ -11,14 +11,21 @@ class Stream(torch.nn.Module):
         hidden_dimension: int = 512,
         output_dimension: int,
         activation: ModuleType = torch.nn.ReLU,
+        normalization: bool = True,
     ):
         super().__init__()
-        self.stream = torch.nn.Sequential(
-            torch.nn.LazyLinear(hidden_dimension),
-            torch.nn.LayerNorm(hidden_dimension),
-            activation(),
-            torch.nn.Linear(hidden_dimension, output_dimension),
-        )
+        self.mu = torch.nn.LazyLineaR(hidden_dimension)
+        self.nu = torch.nn.Linear(hidden_dimension, output_dimension)
+        self.xi = torch.nn.LayerNorm(hidden_dimension)
+        self.activation = activation()
+        self.normalization = normalization
 
     def forward(self, features):
-        return self.stream(features)
+        features = self.mu(features)
+        features = self.xi(features)
+
+        if self.normalization:
+            features = self.activation(features)
+
+        features = self.nu(features)
+        return features
