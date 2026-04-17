@@ -59,6 +59,8 @@ class Aftab(
         frame_stack: int = 4,
         gradient_norm: float = 10.0,
         log_interval: int = 10,
+        number_quantiles: int = 32,
+        categorical_embedding_dimension: int = 256,
         verbose: bool = False,
         optimizer_instance: Type[torch.nn.Module] = torch.optim.RAdam,
         optimizer_epsilon: float = 1e-5,
@@ -106,6 +108,8 @@ class Aftab(
         self.optimizer_weight_decay = optimizer_weight_decay
         self.augmentation = augmentation
         self.agent = agent
+        self.number_quantiles = number_quantiles
+        self.categorical_embedding_dimension = categorical_embedding_dimension
 
     def train(self, environment, seed: int = 42):
         self.flush_results()
