@@ -76,7 +76,8 @@ class Aftab(
         test_reward_clip: bool = True,
         should_compile: bool = True,
     ):
-        super().__init__()
+        self.encoder = encoder
+        self.frames = frames
         self.frame_skip = frame_skip
         self.lr = lr
         self.fraction_proposal_lr = fraction_proposal_lr
@@ -84,14 +85,12 @@ class Aftab(
         self.gamma = gamma
         self.epochs = epochs
         self.num_minibatches = num_minibatches
-        self.encoder = encoder
         self.num_train_environments = num_train_environments
         self.num_test_environments = num_test_environments
         self.total_environments = int(num_train_environments + num_test_environments)
         self.steps_per_update = steps_per_update
         self.batch_size = int(num_train_environments * steps_per_update)
         self.minibatch_size = int(self.batch_size // num_minibatches)
-        self.frames = frames
         self.actual_frames = int(self.frames / self.frame_skip)
         self.total_updates = math.ceil(self.actual_frames / self.batch_size)
         self.train_reward_clip = train_reward_clip
@@ -114,6 +113,8 @@ class Aftab(
         self.network = network
         self.number_quantiles = number_quantiles
         self.quantile_embedding_dimension = quantile_embedding_dimension
+
+        super().__init__()
 
     def train(self, environment: str, seed: int = 42):
         if self.network in ["regression", "duelling"]:
