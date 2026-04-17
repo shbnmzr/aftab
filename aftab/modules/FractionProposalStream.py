@@ -4,10 +4,10 @@ import torch
 class FractionProposalStream(torch.nn.Module):
     def __init__(self, feature_dimension: int, number_quantiles: int):
         super().__init__()
-        self.linear = torch.nn.Linear(feature_dimension, number_quantiles)
+        self.chi = torch.nn.Linear(feature_dimension, number_quantiles)
 
     def forward(self, x):
-        logits = self.linear(x)
+        logits = self.chi(x)
         probs = torch.softmax(logits, dim=-1)
         taus = torch.cumsum(probs, dim=-1)
         taus = torch.cat([torch.zeros_like(taus[:, :1]), taus], dim=1)
