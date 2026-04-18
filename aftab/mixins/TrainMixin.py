@@ -380,13 +380,14 @@ class TrainMixin:
                     self.results.loss.append(quantile_loss.item())
 
     def _log_progress(self, *, update, frame_count):
+        logging_window = self.logging_window
         test_score = (
             0.0
-            if len(self.results.rewards.test) < 10
-            else numpy.mean(self.results.rewards.test[-10:])
+            if len(self.results.rewards.test) < logging_window
+            else numpy.mean(self.results.rewards.test[-logging_window:])
         )
 
-        if self.verbose and update % self.log_interval == 0:
+        if self.logging and update % self.logging_interval == 0:
             flush(f"Update {update} | Frames: {frame_count}")
             flush(
                 f"Test Score: {test_score:.4f}",
