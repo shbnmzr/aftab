@@ -75,6 +75,7 @@ class Aftab(
         test_reward_clip: bool = True,
         should_compile: bool = True,
         reward_centering: bool = True,
+        reward_centering_beta: float = 0.01,
     ):
         self.encoder = encoder
         self.frames = frames

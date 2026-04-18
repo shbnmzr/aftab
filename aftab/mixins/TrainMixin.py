@@ -166,6 +166,13 @@ class TrainMixin:
                         rewards = numpy.concatenate([reward_train, reward_test], axis=0)
                     episode_returns += rewards
 
+            if getattr(self, "reward_centering", False):
+                reward_centering_beta = getattr(self, "reward_centering_beta", 0.01)
+                mean_step_reward = numpy.mean(rewards)
+                reward_difference = mean_step_reward - self._average_reward
+                self._average_reward += reward_centering_beta * reward_difference
+                rewards = rewards - self._average_reward
+
             done_mask = terminations
             if numpy.any(done_mask):
                 idx = numpy.nonzero(done_mask)[0]
