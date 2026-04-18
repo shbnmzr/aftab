@@ -184,18 +184,11 @@ agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
 
 ## Reproducibility
 
-As in the deep reinforcement learning context providing a standalone dataset which is used to conduct researcher's experiments is not possible, we present to you the list of the seeds which has been used to perform our experiments. That can be used to replicate our results spotlessly. 
+In deep reinforcement learning, providing a fixed, standalone dataset for reproducibility is often not feasible due to the stochastic nature of the training process. To support reproducibility, we provide a set of random seeds used in our experiments. Using these seeds allows you to closely replicate our reported results.
 
-```py
-from aftab import Aftab
+These seeds were generated using Python’s built-in random number generator.
 
-seeds = [475284, 219842, 525975, 909314]
-# the rest of the code
-```
-
-Trivially, our seeds themselves were generated randomly using [Python random library](https://docs.python.org/3/library/random.html) as well. 
-
-As an alternative, one can simply import the default seeds from the installed library as shown below.
+You can import the default seed set provided by the library as shown below:
 
 ```py
 from aftab import aftab_seeds
