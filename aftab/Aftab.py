@@ -46,6 +46,7 @@ class Aftab(
         network: Literal["regression", "duelling", "fqf"] = "regression",
         frames: int | Literal["pilot", "full", "ablation"] = "pilot",
         augmentation: Literal["all", "intensity", "shift", "none"] = "all",
+        q_value_iterations: int = 4,
         frame_skip: int = 4,
         num_minibatches: int = 32,
         epochs: int = 2,
@@ -116,6 +117,7 @@ class Aftab(
         self.quantile_embedding_dimension = quantile_embedding_dimension
         self.reward_centring = reward_centering
         self.reward_centering_beta = reward_centering_beta
+        self.q_value_iterations = q_value_iterations
 
         super().__init__()
 
