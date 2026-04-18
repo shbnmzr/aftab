@@ -1,7 +1,6 @@
 import torch
 from ..constants import ModuleType
 from ..common import LinearEpsilon
-from ..functions import mse_loss
 from ..modules.augmentation import RandomShift, ColorIntensity
 
 
@@ -34,9 +33,6 @@ class BaseNetwork(torch.nn.Module):
         x = self.normalize_observations(x)
         features = self.phi(x)
         return features
-
-    def loss(self, q: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
-        return mse_loss(q, target)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.get_q(x)
