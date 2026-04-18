@@ -41,7 +41,9 @@ class TrainMixin:
             episode_returns,
         )
 
-    def _allocate_buffers(self, observation_shape, action_dimension, is_regression):
+    def _allocate_buffers(
+        self, *, observation_shape, action_dimension, is_distributional
+    ):
         batch_observations = torch.empty(
             (self.steps_per_update, self.total_environments) + observation_shape,
             dtype=torch.uint8,
@@ -65,7 +67,7 @@ class TrainMixin:
 
         batch_q = None
         batch_quantiles = None
-        if is_regression:
+        if not is_distributional:
             batch_q = torch.empty(
                 (self.steps_per_update, self.total_environments, action_dimension),
                 dtype=torch.float32,
@@ -89,7 +91,8 @@ class TrainMixin:
 
     def _collect_trajectories(
         self,
-        is_regression,
+        *,
+        is_distributional,
         frame_count,
         observation,
         train_environment,
@@ -109,7 +112,7 @@ class TrainMixin:
                 self.actual_frames,
             )
 
-            if is_regression:
+            if not is_distributional:
                 q_values = self.get_q_values(
                     float_observations=float_observations, gradient=False
                 )
@@ -180,7 +183,7 @@ class TrainMixin:
             batch_rewards[step] = torch.from_numpy(rewards).to(self.device)
             batch_terminations[step] = torch.from_numpy(terminations).to(self.device)
 
-            if is_regression:
+            if not is_distributional:
                 batch_q[step] = q_values
             else:
                 action_idx = (
@@ -201,14 +204,15 @@ class TrainMixin:
 
     def _compute_targets(
         self,
-        is_regression,
+        *,
+        is_distributional,
         observation,
         batch_q,
         batch_rewards,
         batch_terminations,
         batch_quantiles,
     ):
-        if is_regression:
+        if not is_distributional:
             targets = self.get_returns(
                 float_observations=observation.float(),
                 batch_q=batch_q,
@@ -242,7 +246,8 @@ class TrainMixin:
 
     def _flatten_batches(
         self,
-        is_regression,
+        *,
+        is_distributional,
         batch_observations,
         batch_actions,
         targets,
@@ -254,7 +259,7 @@ class TrainMixin:
         ].reshape((-1,) + observation_shape)
         flattened_actions = batch_actions[:, train_slice].reshape(-1)
 
-        if is_regression:
+        if not is_distributional:
             flattened_targets = targets[:, train_slice].reshape(-1)
         else:
             flattened_targets = targets[:, train_slice].reshape(
@@ -264,7 +269,8 @@ class TrainMixin:
 
     def _update_network(
         self,
-        is_regression,
+        *,
+        is_distributional,
         optimizer,
         scaler,
         flattened_observations,
@@ -282,7 +288,7 @@ class TrainMixin:
                 mini_batch_actions = flattened_actions[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
 
-                if is_regression:
+                if not is_distributional:
                     optimizer.zero_grad(set_to_none=True)
                     loss = self.get_loss(
                         mini_batch_observations=mini_batch_observations,
@@ -373,7 +379,7 @@ class TrainMixin:
 
                     self.results.loss.append(quantile_loss.item())
 
-    def _log_progress(self, update, frame_count):
+    def _log_progress(self, *, update, frame_count):
         test_score = (
             0.0
             if len(self.results.rewards.test) < 10
@@ -386,9 +392,9 @@ class TrainMixin:
                 f"Test Score: {test_score:.4f}",
             )
 
-    def _train_loop(self, environment: str, seed: int):
+    def _train_loop(self, *, environment: str, seed: int):
         frame_count = 0
-        is_regression = self.network in ["regression", "duelling"]
+        is_distributional = self.network not in ["regression", "duelling"]
 
         (
             train_environment,
@@ -399,7 +405,7 @@ class TrainMixin:
             scaler,
             observation,
             episode_returns,
-        ) = self._initialize_training(environment, seed)
+        ) = self._initialize_training(environment=environment, seed=seed)
 
         (
             batch_observations,
@@ -408,7 +414,11 @@ class TrainMixin:
             batch_terminations,
             batch_q,
             batch_quantiles,
-        ) = self._allocate_buffers(observation_shape, action_dimension, is_regression)
+        ) = self._allocate_buffers(
+            observation_shape=observation_shape,
+            action_dimension=action_dimension,
+            is_distributional=is_distributional,
+        )
 
         training_start_time = time.time()
 
@@ -416,27 +426,27 @@ class TrainMixin:
             self._network.eval()
 
             observation, frame_count = self._collect_trajectories(
-                is_regression,
-                frame_count,
-                observation,
-                train_environment,
-                test_environment,
-                episode_returns,
-                batch_observations,
-                batch_actions,
-                batch_rewards,
-                batch_terminations,
-                batch_q,
-                batch_quantiles,
+                is_distributional=is_distributional,
+                frame_count=frame_count,
+                observation=observation,
+                train_environment=train_environment,
+                test_environment=test_environment,
+                episode_returns=episode_returns,
+                batch_observations=batch_observations,
+                batch_actions=batch_actions,
+                batch_rewards=batch_rewards,
+                batch_terminations=batch_terminations,
+                batch_q=batch_q,
+                batch_quantiles=batch_quantiles,
             )
 
             targets = self._compute_targets(
-                is_regression,
-                observation,
-                batch_q,
-                batch_rewards,
-                batch_terminations,
-                batch_quantiles,
+                is_distributional=is_distributional,
+                observation=observation,
+                batch_q=batch_q,
+                batch_rewards=batch_rewards,
+                batch_terminations=batch_terminations,
+                batch_quantiles=batch_quantiles,
             )
 
             (
@@ -444,23 +454,23 @@ class TrainMixin:
                 flattened_actions,
                 flattened_targets,
             ) = self._flatten_batches(
-                is_regression,
-                batch_observations,
-                batch_actions,
-                targets,
-                observation_shape,
+                is_distributional=is_distributional,
+                batch_observations=batch_observations,
+                batch_actions=batch_actions,
+                targets=targets,
+                observation_shape=observation_shape,
             )
 
             self._update_network(
-                is_regression,
-                optimizer,
-                scaler,
-                flattened_observations,
-                flattened_actions,
-                flattened_targets,
+                is_distributional=is_distributional,
+                optimizer=optimizer,
+                scaler=scaler,
+                flattened_observations=flattened_observations,
+                flattened_actions=flattened_actions,
+                flattened_targets=flattened_targets,
             )
 
-            self._log_progress(update, frame_count)
+            self._log_progress(update=update, frame_count=frame_count)
 
         train_environment.close()
         test_environment.close()
