@@ -307,56 +307,11 @@ class TrainMixin:
                     optimizer.quantile_value.zero_grad(set_to_none=True)
                     optimizer.fraction_proposal.zero_grad(set_to_none=True)
 
-                    with torch.autocast(
-                        device_type=self.device.type, dtype=torch.float16
-                    ):
-                        mini_batch_observations_float = mini_batch_observations.float()
-                        features = self._network.phi(mini_batch_observations_float)
-                        tau, tau_hat, q_probs, entropy = (
-                            self._network.fraction_proposal(features.detach())
-                        )
-                        quantiles = self._network.quantile_value(features, tau_hat)
-
-                        action_idx = (
-                            mini_batch_actions.unsqueeze(1)
-                            .unsqueeze(2)
-                            .expand(-1, self.number_quantiles, -1)
-                        )
-                        current_quantiles = quantiles.gather(2, action_idx).squeeze(-1)
-
-                        u = mini_batch_targets.unsqueeze(
-                            1
-                        ) - current_quantiles.unsqueeze(2)
-                        huber_loss = torch.nn.functional.huber_loss(
-                            u, torch.zeros_like(u), reduction="none", delta=1.0
-                        )
-
-                        tau_hat_expanded = tau_hat.unsqueeze(2).expand(
-                            -1, -1, self.number_quantiles
-                        )
-                        asym_weights = torch.abs(tau_hat_expanded - (u < 0).float())
-                        quantile_loss = (
-                            (asym_weights * huber_loss).sum(dim=1).mean(dim=1).mean()
-                        )
-
-                        with torch.no_grad():
-                            quantiles_tau = self._network.quantile_value(
-                                features.detach(), tau[:, 1:-1]
-                            )
-                            action_idx_tau = (
-                                mini_batch_actions.unsqueeze(1)
-                                .unsqueeze(2)
-                                .expand(-1, self.number_quantiles - 1, -1)
-                            )
-                            Z_tau = quantiles_tau.gather(2, action_idx_tau).squeeze(-1)
-
-                        Z_tau_hat = current_quantiles.detach()
-                        gradients_tau = 2 * Z_tau - Z_tau_hat[:, :-1] - Z_tau_hat[:, 1:]
-
-                        entropy_coeff = getattr(self, "entropy_coef", 0.0)
-                        fraction_loss = (tau[:, 1:-1] * gradients_tau.detach()).sum(
-                            dim=1
-                        ).mean() - entropy_coeff * entropy.mean()
+                    quantile_loss, fraction_loss = self.get_distributional_loss(
+                        mini_batch_observations=mini_batch_observations,
+                        mini_batch_actions=mini_batch_actions,
+                        mini_batch_targets=mini_batch_targets,
+                    )
 
                     total_loss = quantile_loss + fraction_loss
                     scaler.scale(total_loss).backward()

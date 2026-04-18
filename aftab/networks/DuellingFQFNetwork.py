@@ -1,9 +1,31 @@
 import torch
-from .DuellingNetwork import BaseNetwork
+from .BaseNetwork import BaseNetwork
 from ..modules import QuantileStream, FractionProposalStream
 
 
-class FQFNetwork(BaseNetwork):
+class QuantileHead(torch.nn.Module):
+    def __init__(self, action_dimension: int, embedding_dimension: int):
+        super().__init__()
+        self.value_stream = QuantileStream(
+            action_dimension=1,
+            embedding_dimension=embedding_dimension,
+        )
+        self.advantage_stream = QuantileStream(
+            action_dimension=action_dimension,
+            embedding_dimension=embedding_dimension,
+        )
+
+    def forward(self, features: torch.Tensor, tau_hats: torch.Tensor):
+        value_quantiles = self.value_stream(features, tau_hats)
+        advantage_quantiles = self.advantage_stream(features, tau_hats)
+        return (
+            value_quantiles
+            + advantage_quantiles
+            - advantage_quantiles.mean(dim=2, keepdim=True)
+        )
+
+
+class DuellingFQFNetwork(BaseNetwork):
     def __init__(
         self,
         quantile_embedding_dimension: int,
@@ -16,13 +38,14 @@ class FQFNetwork(BaseNetwork):
 
         self.entropy_coefficient = entropy_coefficient
         self.fraction_proposal_coefficient = fraction_proposal_coefficient
+        self.action_dimension = kwargs["action_dimension"]
 
         self.fraction_proposal = FractionProposalStream(
             number_quantiles=number_quantiles,
             embedding_dimension=quantile_embedding_dimension,
         )
-        self.quantile_value = QuantileStream(
-            action_dimension=kwargs["action_dimension"],
+        self.quantile_value = QuantileHead(
+            action_dimension=self.action_dimension,
             embedding_dimension=quantile_embedding_dimension,
         )
 
