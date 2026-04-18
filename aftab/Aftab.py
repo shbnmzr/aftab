@@ -17,8 +17,7 @@ from .mixins import (
     CheckFramesMixin,
     LossMixin,
     LambdaReturnsMixin,
-    RegressionTrainMixin,
-    CategoricalTrainMixin,
+    TrainMixin,
 )
 
 
@@ -38,8 +37,7 @@ class Aftab(
     CheckFramesMixin,
     LossMixin,
     LambdaReturnsMixin,
-    RegressionTrainMixin,
-    CategoricalTrainMixin,
+    TrainMixin,
 ):
     def __init__(
         self,
@@ -120,7 +118,4 @@ class Aftab(
         super().__init__()
 
     def train(self, environment: str, seed: int = 42):
-        if self.network in ["regression", "duelling"]:
-            self.regression_train(environment=environment, seed=seed)
-        else:
-            self.categorical_train(environment=environment, seed=seed)
+        self._train_loop(environment=environment, seed=seed)
