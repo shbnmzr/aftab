@@ -10,14 +10,13 @@ class QValueMixin:
             if getattr(self, "augmentation", "none") == "none":
                 return self._network(float_observations)
 
-            q_value_iterations = getattr(self, "q_value_iterations", 4)
+            q_value_iterations = getattr(self, "q_value_iterations")
             q_values_list = [
                 self._network(float_observations) for _ in range(q_value_iterations)
             ]
             return torch.stack(q_values_list).mean(dim=0)
 
     def get_q_and_quantiles(self, float_observations, gradient: bool = False):
-
         with (
             torch.set_grad_enabled(gradient),
             torch.autocast(device_type=self.device.type, dtype=torch.float16),
@@ -29,7 +28,7 @@ class QValueMixin:
                 q_values = (q_probs.unsqueeze(-1) * quantiles).sum(dim=1)
                 return q_values, quantiles
 
-            q_value_iterations = getattr(self, "q_value_iterations", 4)
+            q_value_iterations = getattr(self, "q_value_iterations")
             q_values_list = []
             quantiles_list = []
             for _ in range(q_value_iterations):
