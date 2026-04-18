@@ -265,8 +265,8 @@ class CategoricalTrainMixin:
                             dim=1
                         ).mean() - entropy_coeff * entropy.mean()
 
-                    scaler.scale(quantile_loss).backward()
-                    scaler.scale(fraction_loss).backward()
+                    total_loss = quantile_loss + fraction_loss
+                    scaler.scale(total_loss).backward()
 
                     scaler.unscale_(optimizer.quantile_value)
                     scaler.unscale_(optimizer.fraction_proposal)
