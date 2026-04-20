@@ -30,16 +30,10 @@ class DuellingFQFNetwork(BaseNetwork):
         self,
         quantile_embedding_dimension: int,
         number_quantiles: int,
-        entropy_coefficient: float = 1e-3,
-        fraction_proposal_coefficient: float = 1.0,
         **kwargs,
     ):
         super().__init__(**kwargs)
-
-        self.entropy_coefficient = entropy_coefficient
-        self.fraction_proposal_coefficient = fraction_proposal_coefficient
         self.action_dimension = kwargs["action_dimension"]
-
         self.fraction_proposal = FractionProposalStream(
             number_quantiles=number_quantiles,
             embedding_dimension=quantile_embedding_dimension,

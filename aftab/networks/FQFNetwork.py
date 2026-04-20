@@ -13,10 +13,6 @@ class FQFNetwork(BaseNetwork):
         **kwargs,
     ):
         super().__init__(**kwargs)
-
-        self.entropy_coefficient = entropy_coefficient
-        self.fraction_proposal_coefficient = fraction_proposal_coefficient
-
         self.fraction_proposal = FractionProposalStream(
             number_quantiles=number_quantiles,
             embedding_dimension=quantile_embedding_dimension,
