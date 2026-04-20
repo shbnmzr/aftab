@@ -215,3 +215,7 @@ Please cite this work should you find that useful.
   year={2026}
 }
 ```
+
+## License
+
+© 2025 Taha Shieenavaz. This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.en) International License.
