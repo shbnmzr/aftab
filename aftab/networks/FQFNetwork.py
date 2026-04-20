@@ -1,5 +1,5 @@
 import torch
-from .DuellingNetwork import BaseNetwork
+from .BaseNetwork import BaseNetwork
 from ..modules import QuantileStream, FractionProposalStream
 
 
