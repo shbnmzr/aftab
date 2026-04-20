@@ -10,6 +10,7 @@ class FractionProposalStream(torch.nn.Module):
             input_dimension=None,
             hidden_dimension=embedding_dimension,
             output_dimension=number_quantiles,
+            normalization=True,
         )
 
     def forward(self, features):
