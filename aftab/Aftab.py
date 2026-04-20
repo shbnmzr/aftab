@@ -46,7 +46,7 @@ class Aftab(
         network: Literal["q", "duelling", "fqf", "duelling-fqf", "fqf-duelling"] = "q",
         frames: int | Literal["pilot", "full", "ablation"] = "pilot",
         augmentation: Literal["all", "intensity", "shift", "none"] = "all",
-        q_value_iterations: int = 4,
+        augmentation_iterations: int = 4,
         frame_skip: int = 4,
         num_minibatches: int = 32,
         epochs: int = 2,
