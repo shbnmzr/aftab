@@ -140,7 +140,7 @@ class Aftab(
         self.results.loss = []
         self.results.duration = 0.0
 
-    def train(self, environment: str, seed: int = 42):
+    def train(self, *, environment: str, seed: int = 42):
         self.set_buffer("seed", seed)
         self.set_buffer("environment", environment)
         self.__train_loop(environment=environment, seed=seed)
