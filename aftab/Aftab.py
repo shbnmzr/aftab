@@ -2,8 +2,8 @@ import torch
 import math
 import os
 from baloot import acceleration_device
-from maps import encoders_map, acceptable_frames_map
 from typing import Type, Literal
+from .maps import encoders_map, acceptable_frames_map
 from .mixins import (
     TrainingResultsMixin,
     MatrixPrecisionMixin,
