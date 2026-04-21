@@ -32,8 +32,7 @@ class TrainMixin:
         test_observation = (
             torch.from_numpy(test_observation).to(torch.uint8).to(self.device)
         )
-        observation = numpy.concatenate([train_observation, test_observation], axis=0)
-        observation = torch.from_numpy(observation).to(torch.uint8).to(self.device)
+        observation = torch.cat([train_observation, test_observation], dim=0)
 
         episode_returns = numpy.zeros(self.total_environments, dtype=numpy.float32)
 
