@@ -2,14 +2,11 @@ import torch
 
 
 class RandomShift(torch.nn.Module):
-    def __init__(self, padding: int = 4):
+    def __init__(self, *, padding: int = 4):
         super().__init__()
         self.padding = padding
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        if not self.training:
-            return x
-
         n, c, h, w = x.shape
         device = x.device
         x = torch.nn.functional.pad(
