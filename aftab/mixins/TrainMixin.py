@@ -13,7 +13,7 @@ class TrainMixin:
         self.set_precision()
         self.set_seed(seed)
 
-        if getattr(self, "reward_centering", False):
+        if getattr(self, "reward_centering"):
             self._average_reward = 0.0
 
         train_environment, test_environment, action_dimension, observation_shape = (
@@ -162,8 +162,8 @@ class TrainMixin:
                         rewards = numpy.concatenate([reward_train, reward_test], axis=0)
                     episode_returns += rewards
 
-            if getattr(self, "reward_centering", False):
-                reward_centering_beta = getattr(self, "reward_centering_beta", 0.01)
+            if getattr(self, "reward_centering"):
+                reward_centering_beta = getattr(self, "reward_centering_beta")
                 mean_step_reward = numpy.mean(rewards)
                 reward_difference = mean_step_reward - self._average_reward
                 self._average_reward += reward_centering_beta * reward_difference
