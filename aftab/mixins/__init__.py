@@ -8,7 +8,6 @@ from .EpsilonMixin import EpsilonMixin
 from .NetworkMixin import NetworkMixin
 from .OptimizerMixin import OptimizerMixin
 from .QValueMixin import QValueMixin
-from .CheckFramesMixin import CheckFramesMixin
 from .LossMixin import LossMixin
 from .LambdaReturnsMixin import LambdaReturnsMixin
 from .TrainMixin import TrainMixin

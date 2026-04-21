@@ -2,7 +2,7 @@ import torch
 import math
 import os
 from baloot import acceleration_device
-from maps import encoders_map
+from maps import encoders_map, acceptable_frames_map
 from typing import Type, Literal
 from .mixins import (
     TrainingResultsMixin,
@@ -15,7 +15,6 @@ from .mixins import (
     NetworkMixin,
     OptimizerMixin,
     QValueMixin,
-    CheckFramesMixin,
     LossMixin,
     LambdaReturnsMixin,
     TrainMixin,
@@ -33,7 +32,6 @@ class Aftab(
     NetworkMixin,
     OptimizerMixin,
     QValueMixin,
-    CheckFramesMixin,
     LossMixin,
     LambdaReturnsMixin,
     TrainMixin,
@@ -89,6 +87,18 @@ class Aftab(
     def __init_hyperparameters(self, **hyperparameters):
         for key, value in hyperparameters.items():
             setattr(self, key, value)
+
+    def __check_frames(self):
+        if not isinstance(self.frames, str):
+            return
+
+        try:
+            self.frames = acceptable_frames_map[self.frames]
+        except KeyError as exc:
+            raise ValueError(
+                f"Invalid value for `frames`: {self.frames!r}. "
+                f"Expected one of {tuple(acceptable_frames_map)}."
+            ) from exc
 
     def __calculate_derived_attributes(self):
         self.total_environments = int(
