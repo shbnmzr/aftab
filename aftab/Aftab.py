@@ -82,6 +82,7 @@ class Aftab(
         self.__calculate_derived_attributes()
         self.__set_constants()
         self.__refine_encoder()
+        self.__check_frames()
         super().__init__()
 
     def __init_hyperparameters(self, **hyperparameters):
