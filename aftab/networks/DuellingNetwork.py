@@ -22,3 +22,6 @@ class DuellingNetwork(BaseNetwork):
         value = self.get_value(features=features)
         advantage = self.get_advantage(features=features)
         return value + advantage
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.get_q(x)

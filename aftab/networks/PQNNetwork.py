@@ -11,3 +11,6 @@ class PQNNetwork(BaseNetwork):
     def get_q(self, states: torch.Tensor) -> torch.Tensor:
         features = self.get_features(states)
         return self.q(features)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.get_q(x)

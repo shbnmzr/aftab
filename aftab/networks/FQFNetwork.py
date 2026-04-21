@@ -21,6 +21,12 @@ class FQFNetwork(BaseNetwork):
             embedding_dimension=quantile_embedding_dimension,
         )
 
+    def get_q(self, x: torch.Tensor) -> torch.Tensor:
+        output = self.forward(x)
+        quantiles = output["quantiles"]
+        q_probs = output["q_probs"]
+        return (quantiles * q_probs.unsqueeze(-1)).sum(dim=1)
+
     def forward(self, x: torch.Tensor) -> Dict:
         features = self.get_features(x)
         taus, tau_hats, q_probs, entropy = self.fraction_proposal(features)
@@ -33,9 +39,3 @@ class FQFNetwork(BaseNetwork):
             "q_probs": q_probs,
             "entropy": entropy,
         }
-
-    def get_q(self, x: torch.Tensor) -> torch.Tensor:
-        output = self.forward(x)
-        quantiles = output["quantiles"]
-        q_probs = output["q_probs"]
-        return (quantiles * q_probs.unsqueeze(-1)).sum(dim=1)
