@@ -10,7 +10,8 @@ class TrainingResultsMixin:
         filename = f"seed-{self.buffer.seed}_"
         filename = f"network-{self.network}_"
         filename = f"environment-{self.buffer.environment}_"
-        filename = f"network-{self.network}"
+        filename = f"network-{self.network}_"
+        filename = f"encoder-{self.encoder.__name__}"
         return f"{filename}.pkl"
 
     def __build_log_payload(self) -> dict:
