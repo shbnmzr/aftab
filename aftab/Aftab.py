@@ -1,9 +1,9 @@
 import torch
 import math
 import os
-from baloot import acceleration_device, seed_everything
 from typing import Type, Literal
 from types import SimpleNamespace
+from baloot import acceleration_device, seed_everything
 from .maps import encoders_map, acceptable_frames_map
 from .mixins import (
     TrainingResultsMixin,
@@ -143,4 +143,4 @@ class Aftab(
     def train(self, *, environment: str, seed: int = 42):
         self.set_buffer("seed", seed)
         self.set_buffer("environment", environment)
-        self.__train_loop(environment=environment, seed=seed)
+        self.train_loop(environment=environment, seed=seed)

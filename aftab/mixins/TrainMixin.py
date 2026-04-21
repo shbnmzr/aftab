@@ -348,7 +348,7 @@ class TrainMixin:
                 f"Test Score: {test_score:.4f}",
             )
 
-    def __train_loop(self, *, environment: str, seed: int):
+    def train_loop(self, *, environment: str, seed: int):
         frame_count = 0
         is_distributional = self.network not in ["q", "duelling"]
 

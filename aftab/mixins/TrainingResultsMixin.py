@@ -1,19 +1,19 @@
 from baloot import funnel
-from types import SimpleNamespace
+from pathlib import Path
 
 
 class TrainingResultsMixin:
     def __init__(self):
         super().__init__()
 
-    def __make_log_filename(self):
+    def __make_log_filename(self) -> str:
         filename = f"seed-{self.buffer.seed}_"
         filename = f"network-{self.network}_"
         filename = f"environment-{self.buffer.environment}_"
         filename = f"network-{self.network}"
         return f"{filename}.pkl"
 
-    def __build_log_payload(self):
+    def __build_log_payload(self) -> dict:
         duration = self.results.duration or 0
         return {
             "training_reward": self.results.rewards.train,
@@ -23,7 +23,13 @@ class TrainingResultsMixin:
             "duration_hours": duration / 3600,
         }
 
-    def save(self, **kwargs) -> None:
-        filename = self.__make_log_filename(**kwargs)
+    def __create_directory(self, directory_path: str) -> str:
+        directory_path = directory_path.replace(".", "/")
+        Path(directory_path).mkdir(exist_ok=True, parents=True)
+        return directory_path
+
+    def log(self, directory: str = "logs") -> None:
+        directory_path = self.__create_directory(directory).strip("/").strip()
+        filename = self.__make_log_filename()
         payload = self.__build_log_payload()
-        funnel(filename, payload)
+        funnel(f"{directory_path}/{filename}", payload)
