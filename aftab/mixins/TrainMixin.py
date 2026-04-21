@@ -121,8 +121,15 @@ class TrainMixin:
                     float_observations=float_observations, gradient=False
                 )
 
-            actions = self.get_actions(q_values=q_values, epsilon_value=epsilon_value)
-            actions_train, actions_test = self.split_actions(actions)
+            q_values_train = q_values[: self.num_train_environments]
+            q_values_test = q_values[self.num_train_environments :]
+
+            actions_train, actions_test = self.get_actions(
+                q_values_train=q_values_train,
+                q_values_test=q_values_test,
+                epsilon_value=epsilon_value,
+            )
+            actions = numpy.concatenate([actions_train, actions_test], axis=0)
 
             (
                 next_observation_train,
