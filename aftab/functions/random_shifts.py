@@ -2,10 +2,10 @@ import torch
 
 
 def random_shifts(
+    *,
     observation: torch.Tensor,
     height_shifts: torch.Tensor,
     width_shifts: torch.Tensor,
-    *,
     padding: int,
 ):
     B, C, H, W = observation.shape

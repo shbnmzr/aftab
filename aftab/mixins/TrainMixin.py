@@ -325,7 +325,7 @@ class TrainMixin:
                         device=self.device,
                     )
                     mini_batch_observations = random_shifts(
-                        mini_batch_observations.float(),
+                        observation=mini_batch_observations.float(),
                         width_shifts=width_shifts,
                         height_shifts=height_shifts,
                         padding=self.random_shift_padding,
