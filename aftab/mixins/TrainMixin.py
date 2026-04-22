@@ -235,7 +235,7 @@ class TrainMixin:
 
         random_shift_k = getattr(self, "random_shift_k")
         if not is_distributional:
-            if getattr(self, "random_shift", False) and random_shift_k > 0:
+            if getattr(self, "random_shift") and random_shift_k > 0:
                 B = float_obs.shape[0]
                 q_sum = 0
                 for _ in range(random_shift_k):
