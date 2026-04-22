@@ -356,8 +356,8 @@ class TrainMixin:
         for _ in range(self.epochs):
             indices = torch.randperm(self.batch_size, device=self.device)
 
-            for range_start in range(0, self.batch_size, self.minibatch_size):
-                range_end = range_start + self.minibatch_size
+            for range_start in range(0, self.batch_size, self.mini_batch_size):
+                range_end = range_start + self.mini_batch_size
                 mini_batch_idx = indices[range_start:range_end]
 
                 mini_batch_observations = flattened_observations[mini_batch_idx]

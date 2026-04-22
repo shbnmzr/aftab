@@ -25,7 +25,7 @@ class EnvironmentMixin:
             env_type="gymnasium",
             num_envs=self.test_environments,
             seed=seed + 1000,
-            num_threads=min(self.min_test_cpu_count, self.cpu_count),
+            num_threads=min(self.min_cpu_count, self.cpu_count),
             thread_affinity_offset=0,
             noop_max=self.noop,
             reward_clip=self.test_reward_clip,

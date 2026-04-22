@@ -43,7 +43,7 @@ class Aftab(
         network: Literal["q", "duelling", "fqf", "dfqf"] = "dfqf",
         frames: int | Literal["pilot", "full", "ablation"] = "pilot",
         frame_skip: int = 4,
-        num_minibatches: int = 32,
+        mini_batches: int = 32,
         epochs: int = 2,
         gamma: float = 0.999,
         lmbda: float = 0.65,
@@ -52,7 +52,7 @@ class Aftab(
         train_environments: int = 128,
         test_environments: int = 8,
         steps_per_update: int = 32,
-        min_test_cpu_count: int = 4,
+        min_cpu_count: int = 4,
         noop: int = 30,
         frame_stack: int = 4,
         gradient_norm: float = 10.0,
@@ -108,7 +108,7 @@ class Aftab(
     def __initialize_derived_attributes(self):
         self.total_environments = int(self.train_environments + self.test_environments)
         self.batch_size = int(self.train_environments * self.steps_per_update)
-        self.minibatch_size = int(self.batch_size // self.num_minibatches)
+        self.mini_batch_size = int(self.batch_size / self.mini_batches)
         self.actual_frames = int(self.frames / self.frame_skip)
         self.total_updates = math.ceil(self.actual_frames / self.batch_size)
 
