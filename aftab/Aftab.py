@@ -75,6 +75,7 @@ class Aftab(
         random_shift_padding: int = 4,
         random_shift_k: int = 1,
         random_shift_m: int = 1,
+        entropy_coefficient: float = 0.001,
     ):
         params = locals()
         params.pop("self")

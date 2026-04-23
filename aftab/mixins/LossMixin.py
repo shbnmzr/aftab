@@ -9,7 +9,7 @@ class LossMixin:
     def get_loss(
         self, mini_batch_observations, mini_batch_actions, mini_batch_targets
     ) -> torch.Tensor:
-        with torch.autocast(device_type=self.device.type, dtype=torch.float16):
+        with torch.autocast(device_type=self.device.type, dtype=torch.float32):
             q_values = self.get_q_values(
                 float_observations=mini_batch_observations.float(),
                 gradient=True,
@@ -20,21 +20,20 @@ class LossMixin:
     def get_distributional_loss(
         self, mini_batch_observations, mini_batch_actions, mini_batch_targets
     ):
-        with torch.autocast(device_type=self.device.type, dtype=torch.float16):
+        with torch.autocast(device_type=self.device.type, dtype=torch.float32):
             mini_batch_observations_float = mini_batch_observations.float()
             features = self._network.get_features(mini_batch_observations_float)
             tau, tau_hat, q_probs, entropy = self._network.fraction_proposal(
                 features.detach()
             )
-            quantiles = self._network.quantile_value(features, tau_hat)
-
+            tau_hat_detached = tau_hat.detach()
+            quantiles = self._network.quantile_value(features, tau_hat_detached)
             action_idx = (
                 mini_batch_actions.unsqueeze(1)
                 .unsqueeze(2)
                 .expand(-1, self.number_quantiles, -1)
             )
             current_quantiles = quantiles.gather(2, action_idx).squeeze(-1)
-
             target_expanded = mini_batch_targets.unsqueeze(1).expand(
                 -1, self.number_quantiles, self.number_quantiles
             )
@@ -49,7 +48,7 @@ class LossMixin:
                 reduction="none",
                 delta=1.0,
             )
-            asym_weights = torch.abs(tau_hat.unsqueeze(2) - (u < 0).float())
+            asym_weights = torch.abs(tau_hat_detached.unsqueeze(2) - (u < 0).float())
             quantile_loss = (asym_weights * huber_loss).sum(dim=1).mean(dim=1).mean()
             with torch.no_grad():
                 quantiles_tau = self._network.quantile_value(
@@ -65,9 +64,9 @@ class LossMixin:
             Z_tau_hat = current_quantiles.detach()
             gradients_tau = 2 * Z_tau - Z_tau_hat[:, :-1] - Z_tau_hat[:, 1:]
 
-            entropy_coeff = getattr(self, "entropy_coef", 0.0)
+            entropy_coefficient = getattr(self, "entropy_coefficient")
             fraction_loss = (tau[:, 1:-1] * gradients_tau.detach()).sum(
                 dim=1
-            ).mean() - entropy_coeff * entropy.mean()
+            ).mean() - entropy_coefficient * entropy.mean()
 
         return quantile_loss, fraction_loss
