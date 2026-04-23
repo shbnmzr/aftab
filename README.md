@@ -157,9 +157,31 @@ agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
 
 ## Statistical Significance
 
-| Encoder Experiments | Hadamax Experiments |
-| :---: | :---: |
-| ![Encoder Experiments Statistical Significance](./figures/base_experiments/statistical_significance.png) | ![Hadamax Experiments Statistical Significance](./figures/hadamax_experiments/statistical_significance.png) |
+<div align="center">
+|         |   PQN |   Alpha |   Beta |   Gamma |   Delta |   Epsilon |   Zeta |   Eta |   Theta |
+|:--------|------:|--------:|-------:|--------:|--------:|----------:|-------:|------:|--------:|
+| PQN     | -     |   -     |  -     |   -     |   -     |     -     |  -     | -     |   -     |
+| Alpha   | 0     |   -     |  -     |   -     |   -     |     -     |  -     | -     |   -     |
+| Beta    | 0     |   0.847 |  -     |   -     |   -     |     -     |  -     | -     |   -     |
+| Gamma   | 0     |   0.295 |  0.802 |   -     |   -     |     -     |  -     | -     |   -     |
+| Delta   | 0     |   0     |  0     |   0     |   -     |     -     |  -     | -     |   -     |
+| Epsilon | 0     |   0.104 |  0.068 |   0.01  |   0     |     -     |  -     | -     |   -     |
+| Zeta    | 0     |   0.145 |  0.293 |   0.024 |   0     |     0.552 |  -     | -     |   -     | 
+| Eta     | 0.001 |   0.337 |  0.757 |   0.221 |   0     |     0.819 |  0.967 | -     |   -     | 
+| Theta   | 0.431 |   0     |  0.004 |   0     |   0.046 |     0.001 |  0.001 | 0.002 |   -     |
+
+</div>
+
+<div align="center">
+
+|                  |   Gamma |   Hadamax Gamma V1 |   Hadamax Gamma V2 |   Hadamax |
+|:-----------------|--------:|-------------------:|-------------------:|----------:|
+| Gamma            |       - |              -     |              -     |     -     |
+| Hadamax Gamma V1 |       0 |              -     |              -     |     -     |
+| Hadamax Gamma V2 |       0 |              0.72  |              -     |     -     |
+| Hadamax          |       0 |              0.078 |              0.151 |     -     |
+
+<div>
 
 ## Reproducibility
 
