@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aftab"
-version = "0.0.65"
+version = "0.0.66"
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
@@ -19,7 +19,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-# "envpool==0.8.4"
 dependencies = ["numpy==1.26.4", "envpool", "baloot", "torch"]
 keywords = ["reinforcement learning", "dqn", "aftab", "drl", "pqn", "deep reinforcement learning", "cnn"]
 license = { file = "LICENSE" }
