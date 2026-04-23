@@ -12,7 +12,7 @@ class QValueMixin:
             torch.set_grad_enabled(gradient),
             torch.autocast(device_type=self.device.type, dtype=torch.float16),
         ):
-            features = self._network.phi(float_observations)
+            features = self._network.get_features(float_observations)
             _, tau_hat, q_probs, _ = self._network.fraction_proposal(features)
             quantiles = self._network.quantile_value(features, tau_hat)
             q_values = (q_probs.unsqueeze(-1) * quantiles).sum(dim=1)
@@ -48,9 +48,7 @@ class QValueMixin:
         test_res = self.__get_q_value_and_quantiles(float_test_observations, gradient)
         test_q_values = test_res["q_values"]
         test_quantiles = test_res["quantiles"]
-        train_res = self.__get_q_value_and_quantiles(
-            float_train_observations, gradient
-        )
+        train_res = self.__get_q_value_and_quantiles(float_train_observations, gradient)
         train_q_values = train_res["q_values"]
         train_quantiles = train_res["quantiles"]
 

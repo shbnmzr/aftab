@@ -50,7 +50,11 @@ class TrainMixin:
         )
 
     def __allocate_buffers(
-        self, *, observation_shape, action_dimension, is_distributional
+        self,
+        *,
+        observation_shape: tuple,
+        action_dimension: int,
+        is_distributional: bool,
     ):
         batch_observations = torch.empty(
             (self.steps_per_update, self.total_environments) + observation_shape,
@@ -279,13 +283,15 @@ class TrainMixin:
                         size=(2, B),
                         device=self.device,
                     )
-                    obs_k = random_shifts(
+                    shifted_observations = random_shifts(
                         observation=float_obs,
                         width_shifts=shifts[0],
                         height_shifts=shifts[1],
                         padding=self.random_shift_padding,
                     )
-                    q, quantiles = self.get_q_and_quantiles(float_observations=obs_k)
+                    q, quantiles = self.get_q_and_quantiles(
+                        float_observations=shifted_observations
+                    )
                     q_sum += q
                     quantiles_sum += quantiles
 

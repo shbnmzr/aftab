@@ -22,7 +22,7 @@ class LossMixin:
     ):
         with torch.autocast(device_type=self.device.type, dtype=torch.float16):
             mini_batch_observations_float = mini_batch_observations.float()
-            features = self._network.phi(mini_batch_observations_float)
+            features = self._network.get_features(mini_batch_observations_float)
             tau, tau_hat, q_probs, entropy = self._network.fraction_proposal(
                 features.detach()
             )
@@ -35,10 +35,17 @@ class LossMixin:
             )
             current_quantiles = quantiles.gather(2, action_idx).squeeze(-1)
 
-            u = mini_batch_targets.unsqueeze(1) - current_quantiles.unsqueeze(2)
+            target_expanded = mini_batch_targets.unsqueeze(1).expand(
+                -1, self.number_quantiles, self.number_quantiles
+            )
+            current_expanded = current_quantiles.unsqueeze(2).expand(
+                -1, self.number_quantiles, self.number_quantiles
+            )
+
+            u = target_expanded - current_expanded
             huber_loss = torch.nn.functional.huber_loss(
-                mini_batch_targets.unsqueeze(1),
-                current_quantiles.unsqueeze(2),
+                current_expanded,
+                target_expanded,
                 reduction="none",
                 delta=1.0,
             )
