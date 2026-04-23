@@ -157,13 +157,9 @@ agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
 
 ## Statistical Significance
 
-<div align="center">
-  <img src="./figures/base_experiments/statistical_significance.png" />
-</div>
-
-<div align="center">
-  <img src="./figures/hadamax_experiments/statistical_significance.png" />
-</div>
+| Encoder Experiments | Hadamax Experiments |
+| :---: | :---: |
+| ![Encoder Experiments Statistical Significance](./figures/base_experiments/statistical_significance.png) | ![Hadamax Experiments Statistical Significance](./figures/hadamax_experiments/statistical_significance.png) |
 
 ## Reproducibility
 
