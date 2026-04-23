@@ -120,6 +120,8 @@ agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
 
 <div align="center">
 
+### Base Encoder Variations
+
 | Variant  | Encoder Parameters | Regression Head | Total Parameters |
 |----------|------------------|-----------------|------------------|
 | PQN      | 78,304           | 1,686,500       | 1,764,804        |
@@ -131,6 +133,15 @@ agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
 | Zeta     | 77,232           | 2,537,396       | 2,614,628        |
 | Eta      | 78,400           | 23,739,460      | 23,817,860       |
 | Theta    | 76,288           | 1,127,428       | 1,203,716        |
+
+### Hadamax Variants
+
+| Variant           | Encoder Parameters | Q Regression Head | Total Parameters |
+|-------------------|--------------------|-------------------|------------------|
+| PQN Hadamax       | 156,608            | 3,968,516         | 4,125,124        |
+| Gamma Hadamax V1  | 234,336            | 1,609,220         | 1,843,556        |
+| Gamma Hadamax V2  | 234,336            | 3,280,388         | 3,514,724        |
+
 
 </div>
 

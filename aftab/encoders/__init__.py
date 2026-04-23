@@ -9,3 +9,4 @@ from .EtaEncoder import EtaEncoder
 from .ThetaEncoder import ThetaEncoder
 from .HadamaxGammaEncoderV1 import HadamaxGammaEncoderV1
 from .HadamaxGammaEncoderV2 import HadamaxGammaEncoderV2
+from .HadamaxNatureDQNEncoder import HadamaxNatureDQNEncoder
