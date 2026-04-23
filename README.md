@@ -17,9 +17,7 @@
 </div>
 
 <p align="center">
-  <sub>
-    Comparing two distinct variants of Gamma encoder based on the findings in <a href="https://arxiv.org/abs/2505.15345">Hadamax Encoding: Elevating Performance in Model-Free Atari</a>
-  </sub>
+  Comparing two distinct variants of Gamma encoder based on the findings in <a href="https://arxiv.org/abs/2505.15345">Hadamax Encoding: Elevating Performance in Model-Free Atari</a>
 </p>
 
 ## Installation
