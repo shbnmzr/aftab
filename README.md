@@ -122,7 +122,7 @@ agent = Aftab(encoder=CustomImageEncoder, frames="pilot")
 
 ### Base Encoder Variations
 
-| Variant  | Encoder Parameters | Regression Head | Total Parameters |
+| Variant  | Encoder Parameters | Q Regression Head | Total Parameters |
 |----------|------------------|-----------------|------------------|
 | PQN      | 78,304           | 1,686,500       | 1,764,804        |
 | Alpha    | 174,752          | 1,782,948       | 1,957,700        |
