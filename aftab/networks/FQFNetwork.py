@@ -19,6 +19,7 @@ class FQFNetwork(BaseNetwork):
         self.quantile_value = QuantileStream(
             action_dimension=kwargs["action_dimension"],
             embedding_dimension=quantile_embedding_dimension,
+            feature_dimension=self.feature_dimension,
         )
 
     def get_q(self, x: torch.Tensor) -> torch.Tensor:

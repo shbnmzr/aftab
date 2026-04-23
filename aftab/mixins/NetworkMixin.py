@@ -53,14 +53,14 @@ class NetworkMixin:
     def __build_network(self, action_dimension: int):
         try:
             network_instance = networks_map[self.network]
+            args = {
+                "action_dimension": action_dimension,
+                "network_instance": network_instance,
+            }
             if network_instance == PQNNetwork:
-                self.__build_pqn_network(
-                    action_dimension=action_dimension, network_instance=network_instance
-                )
+                self.__build_pqn_network(**args)
             else:
-                self.__build_categorical_network(
-                    action_dimension=action_dimension, network_instance=network_instance
-                )
+                self.__build_categorical_network(**args)
         except Exception as e:
             raise ValueError("Wrong network id detected.", e)
 

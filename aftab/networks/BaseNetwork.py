@@ -7,6 +7,11 @@ class BaseNetwork(torch.nn.Module):
     def __init__(self, *, action_dimension: int, encoder: ModuleType):
         super().__init__()
         self.phi = encoder()
+
+        dummy_input = torch.randn(1, 4, 84, 84)
+        with torch.no_grad():
+            self.feature_dimension = self.phi(dummy_input).flatten(1).size(1)
+
         self.epsilon_greedy = True
         self.epsilon = LinearEpsilon()
         self.action_dimension = action_dimension

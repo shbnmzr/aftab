@@ -11,4 +11,5 @@ class DuellingFQFNetwork(FQFNetwork):
         self.quantile_value = DuellingQuantileStream(
             action_dimension=kwargs["action_dimension"],
             embedding_dimension=kwargs["quantile_embedding_dimension"],
+            feature_dimension=self.feature_dimension,
         )
