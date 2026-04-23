@@ -150,6 +150,20 @@ from aftab import aftab_seeds
 print(aftab_seeds)
 ```
 
+Therefore full experiments could be run as follows.
+
+```py
+from aftab import Aftab
+from aftab import aftab_environments
+from aftab import aftab_seeds
+
+for environment in aftab_environments:
+  agent = Aftab()
+  for seed in seeds:
+    agent.train(environment=environment, seed=seed)
+    agent.log()
+```
+
 ## Available Atari Environments
 
 A comprehensive set of Atari environments has been developed by the professional [maintainers](https://github.com/sail-sg/envpool/graphs/contributors) of the library [EnvPool](https://github.com/sail-sg/envpool) which could be found [here](https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks). 
