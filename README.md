@@ -17,7 +17,9 @@
 </div>
 
 <p align="center">
-Comparing two distinct variants of Gamma encoder based on the findings in <a href="https://arxiv.org/abs/2505.15345">Hadamax Encoding: Elevating Performance in Model-Free Atari</a>
+  <sub>
+    Comparing two distinct variants of Gamma encoder based on the findings in <a href="https://arxiv.org/abs/2505.15345">Hadamax Encoding: Elevating Performance in Model-Free Atari</a>
+  </sub>
 </p>
 
 ## Installation
@@ -34,11 +36,11 @@ You can import the agent and configure all the hyper-parameters based on followi
 
 ```python
 from aftab import Aftab
+from aftab import aftab_environments
 
 seeds = [1, 2, 3, 4]
-environments = ["Pong-v5", "IceHockey-v5"]
 
-for environment in environments:
+for environment in aftab_environments:
   agent = Aftab(encoder="gamma", frames="pilot")
   for seed in seeds:
     agent.train(environment=environment, seed=seed)
