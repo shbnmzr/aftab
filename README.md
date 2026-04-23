@@ -3,6 +3,13 @@
 | IQM HNS | IQM HNS (Last 50M Frames) |
 | :---: | :---: |
 | ![Global Performance](figures/global.png) | ![Last 50M Frames](figures/global_zoomed.png) |
+
+</p>
+
+<p>
+
+| IQM HNS | IQM HNS (Last 50M Frames) |
+| :---: | :---: |
 | ![Hadamax Global Performance](figures/hadamax_global.png) | ![Last 50M Frames](figures/hadamax_global_zoomed.png) |
 
 </p>
