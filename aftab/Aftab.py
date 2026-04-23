@@ -1,7 +1,3 @@
-import warnings
-
-warnings.filterwarnings("ignore")
-
 import torch
 import math
 import os
@@ -12,6 +8,7 @@ from baloot import acceleration_device
 from baloot import seed_everything
 from .maps import encoders_map
 from .maps import acceptable_frames_map
+from .functions import flush
 from .mixins import TrainingResultsMixin
 from .mixins import EnvironmentMixin
 from .mixins import ActionsMixin
@@ -93,6 +90,8 @@ class Aftab(
         for key, value in hyperparameters.items():
             setattr(self, key, value)
 
+        self.flush_verbose("Aftab hyper-parameters initialized.")
+
     def __initialize_frames(self):
         if not isinstance(self.frames, str):
             return
@@ -124,6 +123,8 @@ class Aftab(
                 f"Expected one of: {tuple(encoders_map.keys())}"
             ) from exc
 
+        self.flush_verbose(f"Encoder {self.encoder.__name__} was initialized.")
+
     def __initialize_constants(self):
         self.device = acceleration_device()
         self.cpu_count = os.cpu_count() or 1
@@ -144,6 +145,10 @@ class Aftab(
         self.results.rewards.test = []
         self.results.loss = []
         self.results.duration = 0.0
+
+    def flush_verbose(self, message: str):
+        if self.verbose:
+            flush(message=message)
 
     def train(self, *, environment: str, seed: int = 42):
         self.set_buffer("seed", seed)
