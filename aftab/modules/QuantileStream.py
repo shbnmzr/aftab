@@ -12,7 +12,7 @@ class QuantileStream(torch.nn.Module):
         self.mu = CosineEmbeddingModule(embedding_dimension=embedding_dimension)
         self.nu = Stream(
             input_dimension=embedding_dimension,
-            hidden_dimension=embedding_dimension,
+            embedding_dimension=embedding_dimension,
             output_dimension=action_dimension,
         )
         self.xi = torch.nn.Linear(embedding_dimension, feature_dimension)

@@ -8,7 +8,7 @@ class FractionProposalStream(torch.nn.Module):
         self.number_quantiles = number_quantiles
         self.stream = Stream(
             input_dimension=None,
-            hidden_dimension=embedding_dimension,
+            embedding_dimension=embedding_dimension,
             output_dimension=number_quantiles,
             normalization=True,
         )

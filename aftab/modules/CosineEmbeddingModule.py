@@ -15,7 +15,7 @@ class CosineEmbeddingModule(torch.nn.Module):
         self.embedding_dimension = embedding_dimension
         self.cosine_network = Stream(
             input_dimension=embedding_dimension,
-            hidden_dimension=embedding_dimension,
+            embedding_dimension=embedding_dimension,
             output_dimension=embedding_dimension,
             normalization=False,
         )

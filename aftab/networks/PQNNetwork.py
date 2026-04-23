@@ -8,7 +8,7 @@ class PQNNetwork(BaseNetwork):
         super().__init__(**kwargs)
         self.q = Stream(
             input_dimension=self.feature_dimension,
-            hidden_dimension=self.hidden_dimension,
+            embedding_dimension=self.embedding_dimension,
             output_dimension=self.action_dimension,
         )
 
