@@ -59,9 +59,7 @@ class NetworkMixin:
             "number_quantiles": self.number_quantiles,
             "quantile_embedding_dimension": self.quantile_embedding_dimension,
         }
-        self._network = network_instance(
-            **network_kwargs,
-        )
+        self._network = network_instance(**network_kwargs)
 
     def __build_network(self, action_dimension: int):
         try:
