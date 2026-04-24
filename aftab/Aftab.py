@@ -36,9 +36,9 @@ class Aftab(
     def __init__(
         self,
         *,
-        encoder: str | Type[torch.nn.Module] = "gamma",
+        encoder: str | Type[torch.nn.Module] = "gammahadamaxv1",
         network: Literal["q", "duelling", "fqf", "dfqf"] = "dfqf",
-        frames: int | Literal["pilot", "full", "ablation"] = "pilot",
+        frames: int | Literal["pilot", "full", "ablation"] = "full",
         frame_skip: int = 4,
         mini_batches: int = 32,
         epochs: int = 2,
