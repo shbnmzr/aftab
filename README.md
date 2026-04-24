@@ -11,6 +11,10 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/reinforcement%20learning-supported-blueviolet" />
+  <img src="https://img.shields.io/badge/environments-Atari-ff69b4" />
+  <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
+  <img src="https://img.shields.io/badge/vectorized%20envs-EnvPool-green" />
   <img src="https://img.shields.io/badge/GPU-ready-brightgreen" />
   <img src="https://img.shields.io/badge/AMP-mixed%20precision-blue" />
 </p>
