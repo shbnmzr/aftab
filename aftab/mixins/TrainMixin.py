@@ -451,10 +451,6 @@ class TrainMixin:
             self.flush_verbose(f"Test Score: {test_score:.4f}")
 
     def train_loop(self, *, environment: str, seed: int):
-        self.flush_verbose("Training started.")
-        self.flush_verbose(f"Environment: {environment}")
-        self.flush_verbose(f"Seed: {seed}")
-
         frame_count = 0
         is_distributional = self.network not in ["q", "duelling"]
 

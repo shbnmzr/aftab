@@ -94,8 +94,6 @@ class Aftab(
         for key, value in hyperparameters.items():
             setattr(self, key, value)
 
-        self.flush_verbose("Aftab hyper-parameters initialized.")
-
     # TODO
     def __initialize_optimizer(self):
         pass
@@ -131,14 +129,13 @@ class Aftab(
                 f"Expected one of: {tuple(encoders_map.keys())}"
             ) from exc
 
-        self.flush_verbose(f"Encoder {self.encoder.__name__} was initialized.")
+        self.flush_verbose(f"Encoder: {self.encoder.__name__}")
 
     def __initialize_constants(self):
         self.device = acceleration_device()
         self.cpu_count = os.cpu_count() or 1
-        self.flush_verbose(
-            f"Acceleration device: {self.device} | CPU Count: {self.cpu_count}"
-        )
+        self.flush_verbose(f"Acceleration device: {self.device}")
+        self.flush_results(f"CPU Count: {self.cpu_count}")
 
     def set_precision(self):
         torch.set_float32_matmul_precision("high")
@@ -162,6 +159,9 @@ class Aftab(
             flush(message=message)
 
     def train(self, *, environment: str, seed: int):
+        self.flush_verbose(f"Environment: {environment}")
+        self.flush_verbose(f"Seed: {seed}")
+
         self.set_buffer("seed", seed)
         self.set_buffer("environment", environment)
         self.train_loop(environment=environment, seed=seed)
