@@ -1,3 +1,4 @@
+from ..encoders import NatureDQNEncoder
 from ..encoders import AlphaEncoder
 from ..encoders import BetaEncoder
 from ..encoders import GammaEncoder
@@ -6,10 +7,9 @@ from ..encoders import EpsilonEncoder
 from ..encoders import EtaEncoder
 from ..encoders import ZetaEncoder
 from ..encoders import ThetaEncoder
+from ..encoders import HadamaxNatureDQNEncoder
 from ..encoders import HadamaxGammaEncoderV1
 from ..encoders import HadamaxGammaEncoderV2
-from ..encoders import HadamaxNatureDQNEncoder
-from ..encoders import NatureDQNEncoder
 
 
 encoders_map = {
