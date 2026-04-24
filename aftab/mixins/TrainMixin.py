@@ -314,6 +314,8 @@ class TrainMixin:
                 batch_rewards=batch_rewards,
                 batch_terminations=batch_terminations,
                 q_seq_for_bootstrap=q_seq_for_bootstrap,
+                gamma=self.gamma,
+                steps=self.steps,
                 gradient=False,
             )
 
