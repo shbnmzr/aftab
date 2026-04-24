@@ -40,9 +40,9 @@ class QValueMixin:
     ):
         with torch.set_grad_enabled(gradient):
             if float_observations is not None:
-                return self._network(float_observations)
-            test_q_values = self._network(float_test_observations)
-            train_q_values = self._network(float_train_observations)
+                return self._network.get_q(float_observations)
+            test_q_values = self._network.get_q(float_test_observations)
+            train_q_values = self._network.get_q(float_train_observations)
             return {"test": test_q_values, "train": train_q_values}
 
     def get_q_and_quantiles(
