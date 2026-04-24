@@ -3,12 +3,12 @@ import torch
 
 @torch.jit.script
 def lambda_returns(
-    rewards,
-    terminations,
-    next_q,
+    rewards: torch.Tensor,
+    terminations: torch.Tensor,
+    next_q: torch.Tensor,
     gamma: float,
     lmbda: float,
-):
+) -> torch.Tensor:
     trajectory_length = rewards.size(0)
     output = torch.zeros_like(rewards)
     not_done_last = 1.0 - terminations[-1]

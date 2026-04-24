@@ -2,7 +2,7 @@ import torch
 import numpy
 import time
 from ..functions import random_shifts
-from ..functions import lambda_returns_quantile
+from ..functions import n_step_returns
 
 
 class TrainMixin:
@@ -229,10 +229,10 @@ class TrainMixin:
         *,
         is_distributional: bool,
         observation,
-        batch_q,
-        batch_rewards,
-        batch_terminations,
-        batch_quantiles,
+        batch_q: torch.Tensor,
+        batch_rewards: torch.Tensor,
+        batch_terminations: torch.Tensor,
+        batch_quantiles: torch.Tensor,
     ):
         float_obs = observation.float()
 
@@ -310,31 +310,23 @@ class TrainMixin:
                 [batch_quantiles[1:], next_quantiles.unsqueeze(0)], dim=0
             )
 
-            with torch.no_grad():
-                if getattr(self, "fqf_use_lambda_returns"):
-                    targets = lambda_returns_quantile(
-                        batch_rewards,
-                        batch_terminations,
-                        q_seq_for_bootstrap,
-                        self.gamma,
-                        self.lmbda,
-                    )
-                else:
-                    not_done = (1.0 - batch_terminations).unsqueeze(-1)
-                    targets = (
-                        batch_rewards.unsqueeze(-1)
-                        + self.gamma * not_done * q_seq_for_bootstrap
-                    )
+            targets = n_step_returns(
+                batch_rewards=batch_rewards,
+                batch_terminations=batch_terminations,
+                q_seq_for_bootstrap=q_seq_for_bootstrap,
+                gradient=False,
+            )
+
         return targets
 
     def __flatten_batches(
         self,
         *,
         is_distributional: bool,
-        batch_observations,
-        batch_actions,
-        targets,
-        observation_shape,
+        batch_observations: torch.Tensor,
+        batch_actions: torch.Tensor,
+        targets: torch.Tensor,
+        observation_shape: tuple,
     ):
         train_slice = slice(0, self.train_environments)
         flattened_observations = batch_observations[
@@ -354,11 +346,11 @@ class TrainMixin:
         self,
         *,
         is_distributional: bool,
-        optimizer,
+        optimizer: torch.optim.Optimizer,
         scaler,
-        flattened_observations,
-        flattened_actions,
-        flattened_targets,
+        flattened_observations: torch.Tensor,
+        flattened_actions: torch.Tensor,
+        flattened_targets: torch.Tensor,
     ):
         self._network.train()
         for _ in range(self.epochs):
