@@ -33,12 +33,9 @@ class LossMixin:
         self._ensure_finite(tau_hat, "tau_hat")
         tau_hat_detached = tau_hat.detach()
         quantiles = self._network.quantile_value(features, tau_hat_detached)
-        action_idx = (
-            mini_batch_actions.unsqueeze(1)
-            .unsqueeze(2)
-            .expand(-1, self.number_quantiles, -1)
+        current_quantiles = self._gather_action_quantiles(
+            quantiles=quantiles, actions=mini_batch_actions
         )
-        current_quantiles = quantiles.gather(2, action_idx).squeeze(-1)
         self._ensure_finite(current_quantiles, "current_quantiles")
         target_expanded = mini_batch_targets.unsqueeze(1).expand(
             -1, self.number_quantiles, self.number_quantiles
@@ -60,12 +57,9 @@ class LossMixin:
             quantiles_tau = self._network.quantile_value(
                 features.detach(), tau[:, 1:-1]
             )
-            action_idx_tau = (
-                mini_batch_actions.unsqueeze(1)
-                .unsqueeze(2)
-                .expand(-1, self.number_quantiles - 1, -1)
+            Z_tau = self._gather_action_quantiles(
+                quantiles=quantiles_tau, actions=mini_batch_actions
             )
-            Z_tau = quantiles_tau.gather(2, action_idx_tau).squeeze(-1)
 
         Z_tau_hat = current_quantiles.detach()
         gradients_tau = 2 * Z_tau - Z_tau_hat[:, :-1] - Z_tau_hat[:, 1:]

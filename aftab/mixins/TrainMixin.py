@@ -9,22 +9,6 @@ class TrainMixin:
     def __init__(self):
         super().__init__()
 
-    def _gather_action_quantiles(
-        self, quantiles: torch.Tensor, actions: torch.Tensor
-    ) -> torch.Tensor:
-        action_idx = (
-            actions.unsqueeze(1).unsqueeze(2).expand(-1, self.number_quantiles, -1)
-        )
-        return quantiles.gather(2, action_idx).squeeze(-1)
-
-    def _get_greedy_quantiles(
-        self, q_values: torch.Tensor, quantiles: torch.Tensor
-    ) -> torch.Tensor:
-        greedy_actions = q_values.argmax(dim=-1)
-        return self._gather_action_quantiles(
-            quantiles=quantiles, actions=greedy_actions
-        )
-
     def __initialize_training(self, environment: str, seed: int):
         self.flush_results()
         self.set_precision()
