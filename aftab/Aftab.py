@@ -135,7 +135,7 @@ class Aftab(
         self.device = acceleration_device()
         self.cpu_count = os.cpu_count() or 1
         self.flush_verbose(f"Acceleration device: {self.device}")
-        self.flush_results(f"CPU Count: {self.cpu_count}")
+        self.flush_verbose(f"CPU Count: {self.cpu_count}")
 
     def set_precision(self):
         torch.set_float32_matmul_precision("high")
