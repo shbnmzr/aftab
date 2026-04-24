@@ -16,7 +16,7 @@ def main():
         help="Environment name"
     )
     args = parser.parse_args()
-    agent = Aftab()
+    agent = Aftab(verbose=True)
     agent.train(environment=args.environment, seed=args.seed)
     agent.log(directory="results")
 
