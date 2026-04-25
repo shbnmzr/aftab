@@ -33,9 +33,7 @@ class TrainMixin:
             torch.from_numpy(test_observation).to(torch.uint8).to(self.device)
         )
         observation = torch.cat([train_observation, test_observation], dim=0)
-
         episode_returns = numpy.zeros(self.total_environments, dtype=numpy.float32)
-
         return (
             train_environment,
             test_environment,
@@ -47,11 +45,7 @@ class TrainMixin:
             episode_returns,
         )
 
-    def __allocate_buffers(
-        self,
-        *,
-        observation_shape: tuple,
-    ):
+    def __allocate_buffers(self, *, observation_shape: tuple):
         batch_observations = torch.empty(
             (self.steps_per_update, self.total_environments) + observation_shape,
             dtype=torch.uint8,
@@ -72,7 +66,6 @@ class TrainMixin:
             dtype=torch.float32,
             device=self.device,
         )
-
         return (
             batch_observations,
             batch_actions,
@@ -83,16 +76,15 @@ class TrainMixin:
     def __collect_trajectories(
         self,
         *,
-        is_distributional: bool,
         frame_count: int,
         observation,
         train_environment,
         test_environment,
         episode_returns,
-        batch_observations,
-        batch_actions,
-        batch_rewards,
-        batch_terminations,
+        batch_observations: torch.Tensor,
+        batch_actions: torch.Tensor,
+        batch_rewards: torch.Tensor,
+        batch_terminations: torch.Tensor,
     ):
         for step in range(self.steps_per_update):
             train_observation = observation[: self.train_environments]
@@ -104,18 +96,11 @@ class TrainMixin:
                 self.actual_frames,
             )
 
-            if not is_distributional:
-                q_values = self.get_q_values(
-                    float_train_observations=float_train_observations,
-                    float_test_observations=float_test_observations,
-                    gradient=False,
-                )
-            else:
-                q_values, _ = self.get_q_and_quantiles(
-                    float_train_observations=float_train_observations,
-                    float_test_observations=float_test_observations,
-                    gradient=False,
-                )
+            q_values = self.get_q_values(
+                float_train_observations=float_train_observations,
+                float_test_observations=float_test_observations,
+                gradient=False,
+            )
 
             actions_train, actions_test = self.get_actions(
                 q_values_train=q_values["train"],
@@ -202,7 +187,6 @@ class TrainMixin:
     def __compute_targets(
         self,
         *,
-        is_distributional: bool,
         batch_observations: torch.Tensor,
         observation,
         batch_rewards: torch.Tensor,
@@ -219,48 +203,23 @@ class TrainMixin:
         if bool(getattr(self, "random_shift")):
             flat_next_observations = self.__augment_observations(flat_next_observations)
 
-        if not is_distributional:
-            q_values = self.get_q_values(
-                float_observations=flat_next_observations,
-                gradient=False,
-            )
-            next_q = q_values.max(dim=-1).values.reshape(
-                sequence_length,
-                environment_count,
-            )
-            return self.get_returns(
-                batch_rewards=batch_rewards,
-                batch_terminations=batch_terminations,
-                next_q=next_q,
-            )
-
-        q_values, quantiles = self.get_q_and_quantiles(
+        q_values = self.get_q_values(
             float_observations=flat_next_observations,
             gradient=False,
         )
-        next_quantiles = self._get_greedy_quantiles(
-            q_values=q_values,
-            quantiles=quantiles,
-        )
-
-        q_seq_for_bootstrap = next_quantiles.reshape(
+        next_q = q_values.max(dim=-1).values.reshape(
             sequence_length,
             environment_count,
-            self.number_quantiles,
         )
-        return n_step_returns(
+        return self.get_returns(
             batch_rewards=batch_rewards,
             batch_terminations=batch_terminations,
-            q_seq_for_bootstrap=q_seq_for_bootstrap,
-            gamma=self.gamma,
-            steps=self.steps,
-            gradient=False,
+            next_q=next_q,
         )
 
     def __flatten_batches(
         self,
         *,
-        is_distributional: bool,
         batch_observations: torch.Tensor,
         batch_actions: torch.Tensor,
         targets: torch.Tensor,
@@ -271,24 +230,17 @@ class TrainMixin:
             :, : self.train_environments
         ].reshape((-1,) + observation_shape)
         flattened_actions = batch_actions[:, train_slice].reshape(-1)
-
-        if not is_distributional:
-            flattened_targets = targets[:, train_slice].reshape(-1)
-        else:
-            flattened_targets = targets[:, train_slice].reshape(
-                -1, self.number_quantiles
-            )
+        flattened_targets = targets[:, train_slice].reshape(-1)
         return flattened_observations, flattened_actions, flattened_targets
 
     def __update_network(
         self,
         *,
-        is_distributional: bool,
         optimizer: torch.optim.Optimizer,
-        scaler,
         flattened_observations: torch.Tensor,
         flattened_actions: torch.Tensor,
         flattened_targets: torch.Tensor,
+        scaler,
     ):
         self._network.train()
         for _ in range(self.epochs):
@@ -297,7 +249,6 @@ class TrainMixin:
             for range_start in range(0, self.batch_size, self.mini_batch_size):
                 range_end = range_start + self.mini_batch_size
                 mini_batch_idx = indices[range_start:range_end]
-
                 mini_batch_observations = flattened_observations[mini_batch_idx]
                 mini_batch_actions = flattened_actions[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
@@ -307,89 +258,20 @@ class TrainMixin:
                         mini_batch_observations
                     )
 
-                if not is_distributional:
-                    optimizer.zero_grad(set_to_none=True)
-                    loss = self.get_loss(
-                        mini_batch_observations=mini_batch_observations,
-                        mini_batch_targets=mini_batch_targets,
-                        mini_batch_actions=mini_batch_actions,
-                    )
-                    scaler.scale(loss).backward()
-                    scaler.unscale_(optimizer)
-                    torch.nn.utils.clip_grad_norm_(
-                        self._network.parameters(), self.gradient_norm
-                    )
-                    scaler.step(optimizer)
-                    scaler.update()
-                    self.results.loss.append(loss.item())
-                else:
-                    quantile_value_parameters = list(
-                        self._network.phi.parameters()
-                    ) + list(self._network.quantile_value.parameters())
-                    fraction_proposal_parameters = list(
-                        self._network.fraction_proposal.parameters()
-                    )
-                    optimizer.quantile_value.zero_grad(set_to_none=True)
-                    optimizer.fraction_proposal.zero_grad(set_to_none=True)
-
-                    quantile_loss, fraction_loss, entropy_loss = (
-                        self.get_distributional_loss(
-                            mini_batch_observations=mini_batch_observations,
-                            mini_batch_actions=mini_batch_actions,
-                            mini_batch_targets=mini_batch_targets,
-                        )
-                    )
-
-                    quantile_loss.backward()
-                    torch.nn.utils.clip_grad_norm_(
-                        quantile_value_parameters, self.gradient_norm
-                    )
-                    optimizer.quantile_value.step()
-
-                    optimizer.fraction_proposal.zero_grad(set_to_none=True)
-                    fraction_loss.backward(retain_graph=True)
-                    torch.nn.utils.clip_grad_norm_(
-                        fraction_proposal_parameters, self.gradient_norm
-                    )
-                    fraction_grads = [
-                        (
-                            None
-                            if parameter.grad is None
-                            else parameter.grad.detach().clone()
-                        )
-                        for parameter in fraction_proposal_parameters
-                    ]
-
-                    optimizer.fraction_proposal.zero_grad(set_to_none=True)
-                    entropy_loss.backward()
-                    torch.nn.utils.clip_grad_norm_(
-                        fraction_proposal_parameters, self.gradient_norm
-                    )
-                    entropy_grads = [
-                        (
-                            None
-                            if parameter.grad is None
-                            else parameter.grad.detach().clone()
-                        )
-                        for parameter in fraction_proposal_parameters
-                    ]
-
-                    optimizer.fraction_proposal.zero_grad(set_to_none=True)
-                    for parameter, grad in zip(
-                        fraction_proposal_parameters, fraction_grads
-                    ):
-                        parameter.grad = grad
-                    optimizer.fraction_proposal.step()
-
-                    optimizer.fraction_proposal.zero_grad(set_to_none=True)
-                    for parameter, grad in zip(
-                        fraction_proposal_parameters, entropy_grads
-                    ):
-                        parameter.grad = grad
-                    optimizer.fraction_proposal.step()
-                    optimizer.fraction_proposal.zero_grad(set_to_none=True)
-
-                    self.results.loss.append(quantile_loss.item())
+                optimizer.zero_grad(set_to_none=True)
+                loss = self.get_loss(
+                    mini_batch_observations=mini_batch_observations,
+                    mini_batch_targets=mini_batch_targets,
+                    mini_batch_actions=mini_batch_actions,
+                )
+                scaler.scale(loss).backward()
+                scaler.unscale_(optimizer)
+                torch.nn.utils.clip_grad_norm_(
+                    self._network.parameters(), self.gradient_norm
+                )
+                scaler.step(optimizer)
+                scaler.update()
+                self.results.loss.append(loss.item())
 
     def __log_progress(self, *, update: int, frame_count: int):
         verbose_window = self.verbose_window
@@ -405,8 +287,6 @@ class TrainMixin:
 
     def train_loop(self, *, environment: str, seed: int):
         frame_count = 0
-        is_distributional = self.network not in ["q", "duelling"]
-
         (
             train_environment,
             test_environment,
@@ -433,7 +313,6 @@ class TrainMixin:
             self._network.eval()
 
             observation, frame_count = self.__collect_trajectories(
-                is_distributional=is_distributional,
                 frame_count=frame_count,
                 observation=observation,
                 train_environment=train_environment,
@@ -446,7 +325,6 @@ class TrainMixin:
             )
 
             targets = self.__compute_targets(
-                is_distributional=is_distributional,
                 batch_observations=batch_observations,
                 observation=observation,
                 batch_rewards=batch_rewards,
@@ -458,7 +336,6 @@ class TrainMixin:
                 flattened_actions,
                 flattened_targets,
             ) = self.__flatten_batches(
-                is_distributional=is_distributional,
                 batch_observations=batch_observations,
                 batch_actions=batch_actions,
                 targets=targets,
@@ -466,7 +343,6 @@ class TrainMixin:
             )
 
             self.__update_network(
-                is_distributional=is_distributional,
                 optimizer=optimizer,
                 scaler=scaler,
                 flattened_observations=flattened_observations,

@@ -5,7 +5,7 @@ class EpsilonMixin:
     def __init__(self):
         super().__init__()
 
-    def get_epsilons(self, epsilon_value) -> torch.Tensor:
+    def get_epsilons(self, epsilon_value: float) -> torch.Tensor:
         training_epsilon_vector = torch.full(
             (self.train_environments,),
             epsilon_value,

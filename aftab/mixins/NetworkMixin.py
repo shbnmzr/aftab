@@ -46,21 +46,6 @@ class NetworkMixin:
             encoder=self.encoder,
         )
 
-    def __build_distributional_network(
-        self,
-        action_dimension: int,
-        embedding_dimension: int,
-        network_instance: ModuleType,
-    ):
-        network_kwargs = {
-            "action_dimension": action_dimension,
-            "embedding_dimension": embedding_dimension,
-            "encoder": self.encoder,
-            "number_quantiles": self.number_quantiles,
-            "quantile_embedding_dimension": self.quantile_embedding_dimension,
-        }
-        self._network = network_instance(**network_kwargs)
-
     def __build_network(self, action_dimension: int):
         try:
             network_instance = networks_map[self.network]
@@ -69,10 +54,7 @@ class NetworkMixin:
                 "action_dimension": action_dimension,
                 "embedding_dimension": self.embedding_dimension,
             }
-            if network_instance == PQNNetwork:
-                self.__build_pqn_network(**args)
-            else:
-                self.__build_distributional_network(**args)
+            self.__build_pqn_network(**args)
         except Exception as e:
             raise ValueError("Wrong network id detected.", e)
 

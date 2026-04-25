@@ -14,13 +14,7 @@ class TrainingResultsMixin:
         filename += f"gamma-{self.gamma}__"
         filename += f"lr-{self.lr}__"
         filename += f"epochs-{self.epochs}__"
-
-        if self.network in ["fqf", "dfqf"]:
-            filename += f"quantiles-{self.number_quantiles}__"
-            filename += f"quantile-dimension-{self.quantile_embedding_dimension}__"
-            filename += f"return-steps-{self.steps}__"
-        else:
-            filename += f"lambda-{self.lmbda}__"
+        filename += f"lambda-{self.lmbda}__"
 
         if self.reward_centering:
             filename += f"reward-centering-beta-{self.reward_centering}__"
