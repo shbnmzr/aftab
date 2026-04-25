@@ -7,6 +7,20 @@ class TrainMixin:
     def __init__(self):
         super().__init__()
 
+    def __autocast_float16_enabled(self):
+        return (
+            bool(getattr(self, "autocast_float16", False))
+            and self.device.type != "cpu"
+            and torch.amp.autocast_mode.is_autocast_available(self.device.type)
+        )
+
+    def __autocast_float16(self):
+        return torch.amp.autocast(
+            device_type=self.device.type,
+            dtype=torch.float16,
+            enabled=self.__autocast_float16_enabled(),
+        )
+
     def __initialize_training(self, environment: str, seed: int):
         self.flush_results()
         self.set_precision()
@@ -95,11 +109,12 @@ class TrainMixin:
                 self.actual_frames,
             )
 
-            q_values = self.get_q_values(
-                float_train_observations=float_train_observations,
-                float_test_observations=float_test_observations,
-                gradient=False,
-            )
+            with self.__autocast_float16():
+                q_values = self.get_q_values(
+                    float_train_observations=float_train_observations,
+                    float_test_observations=float_test_observations,
+                    gradient=False,
+                )
 
             actions_train, actions_test = self.get_actions(
                 q_values_train=q_values["train"],
@@ -201,10 +216,11 @@ class TrainMixin:
         if bool(getattr(self, "random_shift")):
             flat_next_observations = self.__augment_observations(flat_next_observations)
 
-        q_values = self.get_q_values(
-            float_observations=flat_next_observations,
-            gradient=False,
-        )
+        with self.__autocast_float16():
+            q_values = self.get_q_values(
+                float_observations=flat_next_observations,
+                gradient=False,
+            )
         next_q = q_values.max(dim=-1).values.reshape(
             sequence_length,
             environment_count,
@@ -252,11 +268,12 @@ class TrainMixin:
                 mini_batch_targets = flattened_targets[mini_batch_idx]
 
                 optimizer.zero_grad(set_to_none=True)
-                loss = self.get_loss(
-                    mini_batch_observations=mini_batch_observations,
-                    mini_batch_targets=mini_batch_targets,
-                    mini_batch_actions=mini_batch_actions,
-                )
+                with self.__autocast_float16():
+                    loss = self.get_loss(
+                        mini_batch_observations=mini_batch_observations,
+                        mini_batch_targets=mini_batch_targets,
+                        mini_batch_actions=mini_batch_actions,
+                    )
                 scaler.scale(loss).backward()
                 scaler.unscale_(optimizer)
                 torch.nn.utils.clip_grad_norm_(
