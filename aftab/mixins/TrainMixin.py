@@ -216,13 +216,12 @@ class TrainMixin:
         flat_next_observations = next_observations.reshape(
             (-1,) + next_observations.shape[2:]
         )
-        augmented_next_observations = self.__augment_observations(
-            flat_next_observations
-        )
+        if bool(getattr(self, "random_shift")):
+            flat_next_observations = self.__augment_observations(flat_next_observations)
 
         if not is_distributional:
             q_values = self.get_q_values(
-                float_observations=augmented_next_observations,
+                float_observations=flat_next_observations,
                 gradient=False,
             )
             next_q = q_values.max(dim=-1).values.reshape(
@@ -236,7 +235,7 @@ class TrainMixin:
             )
 
         q_values, quantiles = self.get_q_and_quantiles(
-            float_observations=augmented_next_observations,
+            float_observations=flat_next_observations,
             gradient=False,
         )
         next_quantiles = self._get_greedy_quantiles(
@@ -303,9 +302,10 @@ class TrainMixin:
                 mini_batch_actions = flattened_actions[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
 
-                mini_batch_observations = self.__augment_observations(
-                    mini_batch_observations
-                )
+                if bool(getattr(self, "random_shift")):
+                    mini_batch_observations = self.__augment_observations(
+                        mini_batch_observations
+                    )
 
                 if not is_distributional:
                     optimizer.zero_grad(set_to_none=True)
