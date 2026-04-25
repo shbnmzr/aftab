@@ -1,4 +1,5 @@
 import torch
+from hl_gauss_pytorch import HLGaussLoss
 from ..functions import mse_loss
 
 
@@ -13,14 +14,6 @@ class LossMixin:
         return self.network in {"distributional", "distributional-duelling"}
 
     def __initialize_hl_gauss(self):
-        try:
-            from hl_gauss_pytorch import HLGaussLoss
-        except ImportError as exc:
-            raise ImportError(
-                "HL-Gauss training requires `hl-gauss-pytorch`. "
-                "Install it with `pip install hl-gauss-pytorch`."
-            ) from exc
-
         if self.v_max <= self.v_min:
             raise ValueError("Expected `v_max` to be greater than `v_min`.")
 
