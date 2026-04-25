@@ -44,6 +44,7 @@ class NetworkMixin:
             action_dimension=action_dimension,
             embedding_dimension=embedding_dimension,
             encoder=self.encoder,
+            bins=self.bins,
         )
 
     def __build_network(self, action_dimension: int):

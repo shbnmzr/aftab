@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import torch
 import math
 import os
@@ -40,7 +42,12 @@ class Aftab(
         self,
         *,
         encoder: ModuleType | EncoderStringType = "gammahadamaxv1",
-        network: Literal["q", "duelling"] = "duelling",
+        network: Literal[
+            "q",
+            "duelling",
+            "distributional",
+            "distributional-duelling",
+        ] = "duelling",
         frames: int | Literal["pilot", "full", "ablation"] = "full",
         frame_skip: int = 4,
         mini_batches: int = 32,
@@ -74,9 +81,10 @@ class Aftab(
         reward_centering_beta: float = 0.01,
         random_shift: bool = True,
         random_shift_padding: int = 4,
-        v_min: float = 10.0,
+        v_min: float = -10.0,
         v_max: float = 10.0,
         bins: int = 51,
+        hl_gauss_smoothing_ratio: float = 0.75,
     ):
         params = locals()
         params.pop("self")

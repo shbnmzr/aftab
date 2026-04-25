@@ -5,7 +5,12 @@ from ..common import LinearEpsilon
 
 class BaseNetwork(torch.nn.Module):
     def __init__(
-        self, *, action_dimension: int, embedding_dimension: int, encoder: ModuleType
+        self,
+        *,
+        action_dimension: int,
+        embedding_dimension: int,
+        encoder: ModuleType,
+        bins: int,
     ):
         super().__init__()
         self.phi = encoder()
@@ -15,6 +20,7 @@ class BaseNetwork(torch.nn.Module):
 
         self.action_dimension = action_dimension
         self.embedding_dimension = embedding_dimension
+        self.bins = bins
         dummy_input = torch.randn(1, 4, 84, 84)
         with torch.no_grad():
             self.feature_dimension = self.phi(dummy_input).flatten(1).size(1)

@@ -5,6 +5,14 @@ class QValueMixin:
     def __init__(self):
         super().__init__()
 
+    def __uses_hl_gauss(self):
+        return self.network in {"distributional", "distributional-duelling"}
+
+    def __get_q_values_from_observations(self, observations: torch.Tensor):
+        if self.__uses_hl_gauss():
+            return self.hl_gauss(self._network.get_q_logits(observations))
+        return self._network.get_q(observations)
+
     def get_q_values(
         self,
         float_train_observations: torch.Tensor = None,
@@ -14,7 +22,11 @@ class QValueMixin:
     ):
         with torch.set_grad_enabled(gradient):
             if float_observations is not None:
-                return self._network.get_q(float_observations)
-            test_q_values = self._network.get_q(float_test_observations)
-            train_q_values = self._network.get_q(float_train_observations)
+                return self.__get_q_values_from_observations(float_observations)
+            test_q_values = self.__get_q_values_from_observations(
+                float_test_observations
+            )
+            train_q_values = self.__get_q_values_from_observations(
+                float_train_observations
+            )
             return {"test": test_q_values, "train": train_q_values}
