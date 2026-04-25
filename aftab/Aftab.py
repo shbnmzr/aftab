@@ -82,13 +82,16 @@ class Aftab(
         self.__initialize_derived_attributes()
         self.__initialize_constants()
         self.__initialize__encoder()
-        self.augmentation_pipeline = RandomShift(padding=self.random_shift_padding)
+        self.__initialize_augmentation_pipeline()
         super().__init__()
         self.buffer = SimpleNamespace()
 
     def __initialize_hyperparameters(self, **hyperparameters):
         for key, value in hyperparameters.items():
             setattr(self, key, value)
+
+    def __initialize_augmentation_pipeline(self):
+        self.augmentation_pipeline = RandomShift(padding=self.random_shift_padding)
 
     # TODO
     def __initialize_optimizer(self):
@@ -157,7 +160,6 @@ class Aftab(
     def train(self, *, environment: str, seed: int):
         self.flush_verbose(f"Environment: {environment}")
         self.flush_verbose(f"Seed: {seed}")
-
         self.set_buffer("seed", seed)
         self.set_buffer("environment", environment)
         self.train_loop(environment=environment, seed=seed)

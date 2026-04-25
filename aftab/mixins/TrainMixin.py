@@ -179,7 +179,7 @@ class TrainMixin:
         observations: torch.Tensor,
     ) -> torch.Tensor:
         observations = observations.float()
-        if not getattr(self, "random_shift"):
+        if not bool(getattr(self, "random_shift")):
             return observations
         return self.augmentation_pipeline(observations)
 
@@ -250,11 +250,6 @@ class TrainMixin:
                 mini_batch_observations = flattened_observations[mini_batch_idx]
                 mini_batch_actions = flattened_actions[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
-
-                if bool(getattr(self, "random_shift")):
-                    mini_batch_observations = self.__augment_observations(
-                        mini_batch_observations
-                    )
 
                 optimizer.zero_grad(set_to_none=True)
                 loss = self.get_loss(
@@ -339,6 +334,11 @@ class TrainMixin:
                 targets=targets,
                 observation_shape=observation_shape,
             )
+
+            if bool(getattr(self, "random_shift")):
+                flattened_observations = self.__augment_observations(
+                    flattened_observations
+                )
 
             self.__update_network(
                 optimizer=optimizer,
