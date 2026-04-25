@@ -19,7 +19,7 @@ class BaseNetwork(torch.nn.Module):
         with torch.no_grad():
             self.feature_dimension = self.phi(dummy_input).flatten(1).size(1)
 
-    def no_epsilon_greedy(self):
+    def no_epsilon_greedy(self) -> None:
         self.epsilon_greedy = False
 
     def normalize_observations(self, x: torch.Tensor) -> torch.Tensor:

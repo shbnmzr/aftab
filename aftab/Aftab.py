@@ -74,6 +74,9 @@ class Aftab(
         reward_centering_beta: float = 0.01,
         random_shift: bool = True,
         random_shift_padding: int = 4,
+        v_min: float = 10.0,
+        v_max: float = 10.0,
+        bins: int = 51,
     ):
         params = locals()
         params.pop("self")
