@@ -192,8 +192,7 @@ class TrainMixin:
         batch_terminations: torch.Tensor,
     ):
         next_observations = torch.cat(
-            [batch_observations[1:], observation.unsqueeze(0)],
-            dim=0,
+            [batch_observations[1:], observation.unsqueeze(0)], dim=0
         )
         sequence_length, environment_count = next_observations.shape[:2]
         flat_next_observations = next_observations.reshape(
