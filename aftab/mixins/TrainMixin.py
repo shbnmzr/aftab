@@ -1,7 +1,6 @@
 import torch
 import numpy
 import time
-from ..functions import random_shifts
 from ..functions import n_step_returns
 
 
@@ -191,98 +190,14 @@ class TrainMixin:
 
         return observation, frame_count
 
-    def __get_next_observations(
-        self,
-        *,
-        batch_observations: torch.Tensor,
-        observation: torch.Tensor,
-    ) -> torch.Tensor:
-        return torch.cat([batch_observations[1:], observation.unsqueeze(0)], dim=0)
-
-    def __target_augmentation_count(self) -> tuple[bool, int]:
-        random_shift_k = int(getattr(self, "random_shift_k"))
-        use_random_shift = bool(getattr(self, "random_shift")) and random_shift_k > 0
-        augmentation_count = random_shift_k if use_random_shift else 1
-        return use_random_shift, augmentation_count
-
-    def __prepare_bootstrap_observations(
+    def __augment_observations(
         self,
         observations: torch.Tensor,
-        *,
-        use_random_shift: bool,
     ) -> torch.Tensor:
         observations = observations.float()
-        if not use_random_shift:
+        if not getattr(self, "random_shift"):
             return observations
-        return random_shifts(
-            observation=observations,
-            padding=self.random_shift_padding,
-        )
-
-    def __compute_bootstrap_next_q(
-        self,
-        *,
-        next_observations: torch.Tensor,
-    ) -> torch.Tensor:
-        sequence_length, environment_count = next_observations.shape[:2]
-        flat_next_observations = next_observations.reshape(
-            (-1,) + next_observations.shape[2:]
-        )
-        use_random_shift, augmentation_count = self.__target_augmentation_count()
-
-        next_q_sum = None
-        for _ in range(augmentation_count):
-            augmented_observations = self.__prepare_bootstrap_observations(
-                flat_next_observations,
-                use_random_shift=use_random_shift,
-            )
-            q_values = self.get_q_values(
-                float_observations=augmented_observations,
-                gradient=False,
-            )
-            next_q = q_values.max(dim=-1).values
-            next_q_sum = next_q if next_q_sum is None else next_q_sum + next_q
-
-        next_q = next_q_sum / augmentation_count
-        return next_q.reshape(sequence_length, environment_count)
-
-    def __compute_bootstrap_next_quantiles(
-        self,
-        *,
-        next_observations: torch.Tensor,
-    ) -> torch.Tensor:
-        sequence_length, environment_count = next_observations.shape[:2]
-        flat_next_observations = next_observations.reshape(
-            (-1,) + next_observations.shape[2:]
-        )
-        use_random_shift, augmentation_count = self.__target_augmentation_count()
-
-        next_quantiles_sum = None
-        for _ in range(augmentation_count):
-            augmented_observations = self.__prepare_bootstrap_observations(
-                flat_next_observations,
-                use_random_shift=use_random_shift,
-            )
-            q_values, quantiles = self.get_q_and_quantiles(
-                float_observations=augmented_observations,
-                gradient=False,
-            )
-            next_quantiles = self._get_greedy_quantiles(
-                q_values=q_values,
-                quantiles=quantiles,
-            )
-            next_quantiles_sum = (
-                next_quantiles
-                if next_quantiles_sum is None
-                else next_quantiles_sum + next_quantiles
-            )
-
-        next_quantiles = next_quantiles_sum / augmentation_count
-        return next_quantiles.reshape(
-            sequence_length,
-            environment_count,
-            self.number_quantiles,
-        )
+        return self.aug(observations)
 
     def __compute_targets(
         self,
@@ -293,36 +208,55 @@ class TrainMixin:
         batch_rewards: torch.Tensor,
         batch_terminations: torch.Tensor,
     ):
-        next_observations = self.__get_next_observations(
-            batch_observations=batch_observations,
-            observation=observation,
+        next_observations = torch.cat(
+            [batch_observations[1:], observation.unsqueeze(0)],
+            dim=0,
+        )
+        sequence_length, environment_count = next_observations.shape[:2]
+        flat_next_observations = next_observations.reshape(
+            (-1,) + next_observations.shape[2:]
+        )
+        augmented_next_observations = self.__augment_observations(
+            flat_next_observations
         )
 
         if not is_distributional:
-            next_q = self.__compute_bootstrap_next_q(
-                next_observations=next_observations,
+            q_values = self.get_q_values(
+                float_observations=augmented_next_observations,
+                gradient=False,
             )
-
-            targets = self.get_returns(
+            next_q = q_values.max(dim=-1).values.reshape(
+                sequence_length,
+                environment_count,
+            )
+            return self.get_returns(
                 batch_rewards=batch_rewards,
                 batch_terminations=batch_terminations,
                 next_q=next_q,
             )
-        else:
-            q_seq_for_bootstrap = self.__compute_bootstrap_next_quantiles(
-                next_observations=next_observations,
-            )
 
-            targets = n_step_returns(
-                batch_rewards=batch_rewards,
-                batch_terminations=batch_terminations,
-                q_seq_for_bootstrap=q_seq_for_bootstrap,
-                gamma=self.gamma,
-                steps=self.steps,
-                gradient=False,
-            )
+        q_values, quantiles = self.get_q_and_quantiles(
+            float_observations=augmented_next_observations,
+            gradient=False,
+        )
+        next_quantiles = self._get_greedy_quantiles(
+            q_values=q_values,
+            quantiles=quantiles,
+        )
 
-        return targets
+        q_seq_for_bootstrap = next_quantiles.reshape(
+            sequence_length,
+            environment_count,
+            self.number_quantiles,
+        )
+        return n_step_returns(
+            batch_rewards=batch_rewards,
+            batch_terminations=batch_terminations,
+            q_seq_for_bootstrap=q_seq_for_bootstrap,
+            gamma=self.gamma,
+            steps=self.steps,
+            gradient=False,
+        )
 
     def __flatten_batches(
         self,
@@ -369,22 +303,9 @@ class TrainMixin:
                 mini_batch_actions = flattened_actions[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
 
-                random_shift_m = getattr(self, "random_shift_m")
-                if getattr(self, "random_shift") and random_shift_m > 0:
-                    mini_batch_observations = mini_batch_observations.repeat(
-                        random_shift_m, 1, 1, 1
-                    )
-                    mini_batch_actions = mini_batch_actions.repeat(random_shift_m)
-                    mini_batch_targets = (
-                        mini_batch_targets.repeat(random_shift_m, 1)
-                        if is_distributional
-                        else mini_batch_targets.repeat(random_shift_m)
-                    )
-
-                    mini_batch_observations = random_shifts(
-                        observation=mini_batch_observations.float(),
-                        padding=self.random_shift_padding,
-                    )
+                mini_batch_observations = self.__augment_observations(
+                    mini_batch_observations
+                )
 
                 if not is_distributional:
                     optimizer.zero_grad(set_to_none=True)

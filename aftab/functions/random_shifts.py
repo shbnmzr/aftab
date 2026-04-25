@@ -1,58 +1,37 @@
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 
-def random_shifts(
-    *,
-    observation: torch.Tensor,
-    padding: int,
-    height_shifts: torch.Tensor = None,
-    width_shifts: torch.Tensor = None,
-):
-    if not observation.is_floating_point():
-        observation = observation.float()
+class RandomShiftsAug(nn.Module):
+    def __init__(self, pad):
+        super().__init__()
+        self.pad = pad
 
-    batch_size, _, height, width = observation.shape
-    if height != width:
-        raise ValueError("DrQ-style random shifts expect square observations.")
+    def forward(self, x):
+        n, c, h, w = x.size()
+        assert h == w
+        padding = tuple([self.pad] * 4)
+        x = F.pad(x, padding, 'replicate')
+        eps = 1.0 / (h + 2 * self.pad)
+        arange = torch.linspace(-1.0 + eps,
+                                1.0 - eps,
+                                h + 2 * self.pad,
+                                device=x.device,
+                                dtype=x.dtype)[:h]
+        arange = arange.unsqueeze(0).repeat(h, 1).unsqueeze(2)
+        base_grid = torch.cat([arange, arange.transpose(1, 0)], dim=2)
+        base_grid = base_grid.unsqueeze(0).repeat(n, 1, 1, 1)
 
-    padded_size = height + 2 * padding
-    observation = torch.nn.functional.pad(
-        observation,
-        (padding, padding, padding, padding),
-        mode="replicate",
-    )
+        shift = torch.randint(0,
+                              2 * self.pad + 1,
+                              size=(n, 1, 1, 2),
+                              device=x.device,
+                              dtype=x.dtype)
+        shift *= 2.0 / (h + 2 * self.pad)
 
-    eps = 1.0 / padded_size
-    arange = torch.linspace(
-        -1.0 + eps,
-        1.0 - eps,
-        padded_size,
-        device=observation.device,
-        dtype=observation.dtype,
-    )[:height]
-    arange = arange.unsqueeze(0).repeat(height, 1).unsqueeze(2)
-    base_grid = torch.cat([arange, arange.transpose(1, 0)], dim=2)
-    base_grid = base_grid.unsqueeze(0).repeat(batch_size, 1, 1, 1)
-
-    if height_shifts is None or width_shifts is None:
-        shift = torch.randint(
-            0,
-            2 * padding + 1,
-            size=(batch_size, 1, 1, 2),
-            device=observation.device,
-            dtype=observation.dtype,
-        )
-    else:
-        shift = torch.stack([width_shifts, height_shifts], dim=-1).to(
-            device=observation.device,
-            dtype=observation.dtype,
-        )
-        shift = shift.view(batch_size, 1, 1, 2)
-
-    grid = base_grid + shift * (2.0 / padded_size)
-    return torch.nn.functional.grid_sample(
-        observation,
-        grid,
-        padding_mode="zeros",
-        align_corners=False,
-    )
+        grid = base_grid + shift
+        return F.grid_sample(x,
+                             grid,
+                             padding_mode='zeros',
+                             align_corners=False)

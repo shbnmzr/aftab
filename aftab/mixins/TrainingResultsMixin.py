@@ -27,8 +27,6 @@ class TrainingResultsMixin:
 
         if self.random_shift:
             filename += f"random-shift-padding_{self.random_shift_padding}__"
-            filename += f"random-shift-m-{self.random_shift_m}__"
-            filename += f"random-shift-k-{self.random_shift_k}__"
 
         # removes trailing __
         filename = filename.strip("__")

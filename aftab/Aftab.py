@@ -11,6 +11,7 @@ from .constants import OptimizerStringType
 from .maps import encoders_map
 from .maps import acceptable_frames_map
 from .functions import flush
+from .functions import RandomShiftsAug
 from .mixins import TrainingResultsMixin
 from .mixins import EnvironmentMixin
 from .mixins import ActionsMixin
@@ -79,8 +80,6 @@ class Aftab(
         reward_centering_beta: float = 0.01,
         random_shift: bool = True,
         random_shift_padding: int = 4,
-        random_shift_k: int = 1,
-        random_shift_m: int = 1,
         entropy_coefficient: float = 0.001,
         fqf_entropy_loss_scale: float = 0.001,
     ):
@@ -91,6 +90,7 @@ class Aftab(
         self.__initialize_derived_attributes()
         self.__initialize_constants()
         self.__initialize__encoder()
+        self.aug = RandomShiftsAug(pad=self.random_shift_padding)
         super().__init__()
         self.buffer = SimpleNamespace()
 
