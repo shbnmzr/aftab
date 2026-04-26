@@ -106,7 +106,8 @@ class Aftab(
             setattr(self, key, value)
 
     def __initialize_reward_centering(self):
-        self.reward_centering_beta = self.lr * self.reward_centering_eta
+        if self.reward_centering_beta is None:
+            self.reward_centering_beta = self.lr * self.reward_centering_eta
 
     def __initialize_optimizer(self):
         if not isinstance(self.optimizer, str):
