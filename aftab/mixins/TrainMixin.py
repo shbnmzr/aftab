@@ -2,7 +2,6 @@ import torch
 import numpy
 import time
 from typing import Optional
-from ..modules import RandomShift
 
 
 class TrainMixin:
@@ -28,21 +27,11 @@ class TrainMixin:
             float(getattr(self, "distributional_value_clip")) > 0.0
         )
 
-    def __initialize_random_shift(self):
-        self._random_shift = None
-        if not bool(getattr(self, "random_shift", False)):
-            return
-
-        self._random_shift = RandomShift(
-            padding=int(getattr(self, "random_shift_padding"))
-        ).to(self.device)
-
     def __augment_observations(self, observations: torch.Tensor) -> torch.Tensor:
-        random_shift = getattr(self, "_random_shift", None)
-        if random_shift is None:
+        augmentation_pipeline = getattr(self, "augmentation_pipeline", None)
+        if augmentation_pipeline is None:
             return observations
-
-        return random_shift(observations.float())
+        return augmentation_pipeline(observations.float())
 
     def __initialize_training(self, environment: str, seed: int):
         self.flush_results()

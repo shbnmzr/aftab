@@ -14,6 +14,7 @@ from .maps import encoders_map
 from .maps import acceptable_frames_map
 from .maps import optimizer_map
 from .functions import flush
+from .modules import RandomShift
 from .mixins import TrainingResultsMixin
 from .mixins import EnvironmentMixin
 from .mixins import ActionsMixin
@@ -96,11 +97,20 @@ class Aftab(
         self.__initialize_constants()
         self.__initialize__encoder()
         self.__initialize_optimizer()
+        self.__initialize_augmentation()
         super().__init__()
 
     def __initialize_hyperparameters(self, **hyperparameters):
         for key, value in hyperparameters.items():
             setattr(self, key, value)
+
+    def __initialize_augmentation(self):
+        if not bool(getattr(self, "random_shift")):
+            return
+
+        self.augmentation_pipeline = RandomShift(
+            padding=int(getattr(self, "random_shift_padding"))
+        ).to(self.device)
 
     def __initialize_optimizer(self):
         if not isinstance(self.optimizer, str):
