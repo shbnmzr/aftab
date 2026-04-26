@@ -37,7 +37,6 @@ class TrainMixin:
         self.flush_results()
         self.set_precision()
         self.set_seed(seed)
-        self.__initialize_random_shift()
 
         train_environment, test_environment, action_dimension, observation_shape = (
             self.make_environments(environment=environment, seed=seed)
