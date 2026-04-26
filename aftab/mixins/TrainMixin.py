@@ -24,7 +24,7 @@ class TrainMixin:
 
     def __distributional_value_clip_enabled(self):
         return bool(getattr(self._network, "distributional", False)) and (
-            float(getattr(self, "distributional_value_clip", 0.0)) > 0.0
+            float(getattr(self, "distributional_value_clip")) > 0.0
         )
 
     def __initialize_training(self, environment: str, seed: int):
@@ -216,7 +216,6 @@ class TrainMixin:
         self,
         *,
         batch_observations: torch.Tensor,
-        batch_actions: torch.Tensor,
         observation: torch.Tensor,
         batch_rewards: torch.Tensor,
         batch_terminations: torch.Tensor,
@@ -368,7 +367,6 @@ class TrainMixin:
 
             targets = self.__compute_targets(
                 batch_observations=batch_observations,
-                batch_actions=batch_actions,
                 observation=observation,
                 batch_rewards=batch_rewards,
                 batch_terminations=batch_terminations,

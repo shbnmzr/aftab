@@ -52,7 +52,7 @@ class Aftab(
         frame_skip: int = 4,
         mini_batches: int = 32,
         epochs: int = 2,
-        gamma: float = 0.995,
+        gamma: float = 0.99,
         lmbda: float = 0.65,
         lr: float = 25e-5,
         train_environments: int = 128,
