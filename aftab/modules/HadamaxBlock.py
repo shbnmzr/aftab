@@ -1,6 +1,6 @@
 import torch
+from .LayerNorm2d import LayerNorm2d
 from ..constants import ModuleType
-from ..modules import LayerNorm2d
 
 
 class HadamaxBlock(torch.nn.Module):
