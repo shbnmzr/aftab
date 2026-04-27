@@ -1,5 +1,4 @@
 import torch
-from . import LayerNorm2d
 from ..constants import ModuleType
 
 
@@ -18,23 +17,17 @@ class HadamaxBlock(torch.nn.Module):
         psi: ModuleType = torch.nn.GELU,
     ):
         super().__init__()
-        self.conv_a = torch.nn.Conv2d(
+
+        self.fused = torch.nn.Conv2d(
             in_channels,
-            out_channels,
-            kernel_size=kernel_size,
-            stride=stride,
-            padding=padding,
-        )
-        self.conv_b = torch.nn.Conv2d(
-            in_channels,
-            out_channels,
+            out_channels * 2,
             kernel_size=kernel_size,
             stride=stride,
             padding=padding,
         )
 
-        self.norm_a = LayerNorm2d(out_channels)
-        self.norm_b = LayerNorm2d(out_channels)
+        self.alpha = torch.nn.GroupNorm(1, out_channels)
+        self.beta = torch.nn.GroupNorm(1, out_channels)
 
         self.chi = chi()
         self.psi = psi()
@@ -43,12 +36,12 @@ class HadamaxBlock(torch.nn.Module):
         self.pool_stride = pool_stride
         self.pool_padding = pool_padding
 
-    def forward(self, x):
-        a = self.psi(self.norm_a(self.conv_a(x)))
-        b = self.chi(self.norm_b(self.conv_b(x)))
-
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x_fused = self.fused(x)
+        a, b = torch.chunk(x_fused, 2, dim=1)
+        a = self.psi(self.alpha(a))
+        b = self.chi(self.beta(b))
         x = a * b
-
         return torch.nn.functional.max_pool2d(
             x,
             kernel_size=self.pool_kernel,
