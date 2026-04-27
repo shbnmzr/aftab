@@ -15,6 +15,13 @@ class TrainingResultsMixin:
         filename += f"lr-{self.lr}__"
         filename += f"epochs-{self.epochs}__"
         filename += f"lambda-{self.lmbda}__"
+        filename += f"autocast-float16-{self.autocast_float16}__"
+        filename += f"compiled-{self.should_compile}__"
+        filename += f"optimizer-{self.optimizer.__name__}__"
+
+        if self.random_shift:
+            filename += f"random-shift__"
+            filename += f"random-shift-padding-{self.random_shift_padding}__"
 
         # removes trailing __
         filename = filename.strip("__")

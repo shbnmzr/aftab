@@ -25,7 +25,7 @@ class EncoderBlock(torch.nn.Module):
         self.activation = activation()
         self.normalization = LayerNorm2d(out_channels)
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.convolutional(x)
         x = self.normalization(x)
         x = self.activation(x)
