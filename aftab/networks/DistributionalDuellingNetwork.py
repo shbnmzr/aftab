@@ -43,11 +43,10 @@ class DistributionalDuellingNetwork(BaseNetwork):
         return logits.unsqueeze(1)
 
     def get_advantage_logits(self, features: torch.Tensor) -> torch.Tensor:
+        batch_size = features.size(0)
         logits = self.advantage_logits(features)
         logits = logits.reshape(
-            features.shape[0],
-            self.action_dimension,
-            self.distributional_bins,
+            batch_size, self.action_dimension, self.distributional_bins
         )
         return logits - logits.mean(dim=1, keepdim=True)
 
