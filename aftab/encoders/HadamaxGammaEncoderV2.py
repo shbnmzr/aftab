@@ -1,9 +1,10 @@
 import torch
 from ..modules import HadamaxBlock
+from ..constants import ModuleType
 
 
 class HadamaxGammaEncoderV2(torch.nn.Module):
-    def __init__(self, *, activation=torch.nn.GELU):
+    def __init__(self, *, activation: ModuleType = torch.nn.GELU):
         super().__init__()
         self.stream = torch.nn.Sequential(
             HadamaxBlock(
@@ -66,5 +67,5 @@ class HadamaxGammaEncoderV2(torch.nn.Module):
             torch.nn.Flatten(),
         )
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.stream(x)
