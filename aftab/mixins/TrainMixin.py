@@ -235,11 +235,11 @@ class TrainMixin:
         next_observations = torch.cat(
             [batch_observations[1:], last_train_observation], dim=0
         )
+        next_observations = self.__augment_observations(next_observations)
         sequence_length, environment_count = next_observations.shape[:2]
         flat_next_observations = next_observations.reshape(
             (-1,) + next_observations.shape[2:]
         )
-        flat_next_observations = self.__augment_observations(flat_next_observations)
 
         with self.__autocast_float16():
             next_q_values = self.get_q_values(

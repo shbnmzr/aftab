@@ -30,17 +30,44 @@ class RandomShift(torch.nn.Module):
         self._base_grid_key = key
         return base_grid
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        n, c, h, w = x.size()
-        assert h == w
-        padding = tuple([self.padding] * 4)
-        x = torch.nn.functional.pad(x, padding, "replicate")
-        base_grid = self._get_base_grid(x, h)
+    def _sample_shift(self, x: torch.Tensor, n: int, h: int) -> torch.Tensor:
         shift = torch.randint(
             0, 2 * self.padding + 1, size=(n, 1, 1, 2), device=x.device, dtype=x.dtype
         )
         shift *= 2.0 / (h + 2 * self.padding)
+        return shift
+
+    def _apply_shift(self, x: torch.Tensor, shift: torch.Tensor, h: int) -> torch.Tensor:
+        padding = tuple([self.padding] * 4)
+        x = torch.nn.functional.pad(x, padding, "replicate")
+        base_grid = self._get_base_grid(x, h)
         grid = base_grid + shift
         return torch.nn.functional.grid_sample(
             x, grid, padding_mode="zeros", align_corners=False
         )
+
+    def _forward_batch(self, x: torch.Tensor) -> torch.Tensor:
+        n, c, h, w = x.size()
+        assert h == w
+        shift = self._sample_shift(x, n, h)
+        return self._apply_shift(x, shift, h)
+
+    def _forward_sequence(self, x: torch.Tensor) -> torch.Tensor:
+        trajectory_length, n, c, h, w = x.size()
+        assert h == w
+        x = x.reshape(trajectory_length * n, c, h, w)
+        shift = self._sample_shift(x, n, h)
+        shift = (
+            shift.unsqueeze(0)
+            .expand(trajectory_length, -1, -1, -1, -1)
+            .reshape(trajectory_length * n, 1, 1, 2)
+        )
+        x = self._apply_shift(x, shift, h)
+        return x.reshape(trajectory_length, n, c, h, w)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if x.ndim == 4:
+            return self._forward_batch(x)
+        if x.ndim == 5:
+            return self._forward_sequence(x)
+        raise ValueError("Expected a 4D batch or 5D trajectory tensor.")
