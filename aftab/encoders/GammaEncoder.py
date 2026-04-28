@@ -25,5 +25,5 @@ class GammaEncoder(torch.nn.Module):
             torch.nn.Flatten(),
         )
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.stream(x)
