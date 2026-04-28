@@ -18,10 +18,8 @@ class QValueMixin:
         with torch.set_grad_enabled(gradient):
             if float_observations is not None:
                 return self.__get_q_values_from_observations(float_observations)
-            test_q_values = self.__get_q_values_from_observations(
-                float_test_observations
+            train_count = float_train_observations.shape[0]
+            q_values = self.__get_q_values_from_observations(
+                torch.cat([float_train_observations, float_test_observations], dim=0)
             )
-            train_q_values = self.__get_q_values_from_observations(
-                float_train_observations
-            )
-            return {"test": test_q_values, "train": train_q_values}
+            return {"train": q_values[:train_count], "test": q_values[train_count:]}

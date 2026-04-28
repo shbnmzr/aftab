@@ -43,7 +43,9 @@ class TrainMixin:
         )
         self.prepare_network(action_dimension=action_dimension)
         optimizer = self.make_optimizer()
-        scaler = torch.amp.GradScaler(enabled=self.device.type == "cuda")
+        scaler = torch.amp.GradScaler(
+            enabled=self.device.type == "cuda" and self.__autocast_float16_enabled()
+        )
 
         train_observation, _ = train_environment.reset()
         train_observation = (
@@ -69,29 +71,29 @@ class TrainMixin:
 
     def __allocate_buffers(self, *, observation_shape: tuple):
         batch_observations = torch.empty(
-            (self.steps_per_update, self.total_environments) + observation_shape,
+            (self.steps_per_update, self.train_environments) + observation_shape,
             dtype=torch.uint8,
             device=self.device,
         )
         batch_actions = torch.empty(
-            (self.steps_per_update, self.total_environments),
+            (self.steps_per_update, self.train_environments),
             dtype=torch.int64,
             device=self.device,
         )
         batch_rewards = torch.empty(
-            (self.steps_per_update, self.total_environments),
+            (self.steps_per_update, self.train_environments),
             dtype=torch.float32,
             device=self.device,
         )
         batch_terminations = torch.empty(
-            (self.steps_per_update, self.total_environments),
+            (self.steps_per_update, self.train_environments),
             dtype=torch.float32,
             device=self.device,
         )
         batch_old_q_values = None
         if self.__distributional_value_clip_enabled():
             batch_old_q_values = torch.empty(
-                (self.steps_per_update, self.total_environments),
+                (self.steps_per_update, self.train_environments),
                 dtype=torch.float32,
                 device=self.device,
             )
@@ -103,6 +105,7 @@ class TrainMixin:
             batch_old_q_values,
         )
 
+    @torch.no_grad()
     def __collect_trajectories(
         self,
         *,
@@ -119,33 +122,33 @@ class TrainMixin:
     ):
         for step in range(self.steps_per_update):
             train_observation = observation[: self.train_environments]
-            test_observation = observation[self.train_environments :]
-            float_train_observations = train_observation.float()
-            float_test_observations = test_observation.float()
+            float_observations = observation.float()
             epsilon_value = self._network.epsilon.get(
                 frame_count,
                 self.actual_frames,
             )
 
             with self.__autocast_float16():
-                q_values = self.get_q_values(
-                    float_train_observations=float_train_observations,
-                    float_test_observations=float_test_observations,
+                q_values_all = self.get_q_values(
+                    float_observations=float_observations,
                     gradient=False,
                 )
+            q_values = {
+                "train": q_values_all[: self.train_environments],
+                "test": q_values_all[self.train_environments :],
+            }
 
-            actions_train, actions_test = self.get_actions(
+            actions_train_tensor, actions_test_tensor = self.get_action_tensors(
                 q_values_train=q_values["train"],
                 q_values_test=q_values["test"],
                 epsilon_value=epsilon_value,
             )
-            actions = numpy.concatenate([actions_train, actions_test], axis=0)
-            actions_tensor = torch.from_numpy(actions).to(self.device)
+            actions_train = actions_train_tensor.cpu().numpy()
+            actions_test = actions_test_tensor.cpu().numpy()
             if batch_old_q_values is not None:
-                q_values_all = torch.cat([q_values["train"], q_values["test"]], dim=0)
-                batch_old_q_values[step] = q_values_all.gather(
+                batch_old_q_values[step] = q_values["train"].gather(
                     1,
-                    actions_tensor.unsqueeze(1),
+                    actions_train_tensor.unsqueeze(1),
                 ).squeeze(1)
 
             (
@@ -167,15 +170,15 @@ class TrainMixin:
             next_observation = numpy.concatenate(
                 [next_observation_train, next_observation_test], axis=0
             )
-            rewards = numpy.concatenate([reward_train, reward_test], axis=0).astype(
-                numpy.float32,
-                copy=False,
-            )
+            reward_train = reward_train.astype(numpy.float32, copy=False)
+            reward_test = reward_test.astype(numpy.float32, copy=False)
+            rewards = numpy.concatenate([reward_train, reward_test], axis=0)
+            termination_train = numpy.logical_or(termination_train, truncation_train)
+            termination_test = numpy.logical_or(termination_test, truncation_test)
             terminations = numpy.concatenate(
-                [termination_train, termination_test], axis=0
+                [termination_train, termination_test],
+                axis=0,
             )
-            truncations = numpy.concatenate([truncation_train, truncation_test], axis=0)
-            terminations = numpy.logical_or(terminations, truncations)
 
             score_rewards = rewards
             score_reward_train = info_train.get("reward", None)
@@ -205,10 +208,12 @@ class TrainMixin:
                 self.results.rewards.test.extend(scores[~split].tolist())
                 episode_returns[done_mask] = 0
 
-            batch_observations[step] = observation
-            batch_actions[step] = actions_tensor
-            batch_rewards[step] = torch.from_numpy(rewards).to(self.device)
-            batch_terminations[step] = torch.from_numpy(terminations).to(self.device)
+            batch_observations[step] = train_observation
+            batch_actions[step] = actions_train_tensor
+            batch_rewards[step] = torch.from_numpy(reward_train).to(self.device)
+            batch_terminations[step] = torch.from_numpy(termination_train).to(
+                self.device
+            )
 
             observation = (
                 torch.from_numpy(next_observation).to(torch.uint8).to(self.device)
@@ -226,8 +231,9 @@ class TrainMixin:
         batch_rewards: torch.Tensor,
         batch_terminations: torch.Tensor,
     ):
+        last_train_observation = observation[: self.train_environments].unsqueeze(0)
         next_observations = torch.cat(
-            [batch_observations[1:], observation.unsqueeze(0)], dim=0
+            [batch_observations[1:], last_train_observation], dim=0
         )
         sequence_length, environment_count = next_observations.shape[:2]
         flat_next_observations = next_observations.reshape(
@@ -262,15 +268,12 @@ class TrainMixin:
         targets: torch.Tensor,
         observation_shape: tuple,
     ):
-        train_slice = slice(0, self.train_environments)
-        flattened_observations = batch_observations[
-            :, : self.train_environments
-        ].reshape((-1,) + observation_shape)
-        flattened_actions = batch_actions[:, train_slice].reshape(-1)
+        flattened_observations = batch_observations.reshape((-1,) + observation_shape)
+        flattened_actions = batch_actions.reshape(-1)
         flattened_old_q_values = None
         if batch_old_q_values is not None:
-            flattened_old_q_values = batch_old_q_values[:, train_slice].reshape(-1)
-        flattened_targets = targets[:, train_slice].reshape(-1)
+            flattened_old_q_values = batch_old_q_values.reshape(-1)
+        flattened_targets = targets.reshape(-1)
         return (
             flattened_observations,
             flattened_actions,
@@ -289,6 +292,8 @@ class TrainMixin:
         scaler,
     ):
         self._network.train()
+        update_losses = []
+        clip_grad_foreach = self.device.type in {"cpu", "cuda"}
         for _ in range(self.epochs):
             indices = torch.randperm(self.batch_size, device=self.device)
 
@@ -316,11 +321,16 @@ class TrainMixin:
                 scaler.scale(loss).backward()
                 scaler.unscale_(optimizer)
                 torch.nn.utils.clip_grad_norm_(
-                    self._network.parameters(), self.gradient_norm
+                    self._network.parameters(),
+                    self.gradient_norm,
+                    foreach=clip_grad_foreach,
                 )
                 scaler.step(optimizer)
                 scaler.update()
-                self.results.loss.append(loss.item())
+                update_losses.append(loss.detach())
+
+        if update_losses:
+            self.results.loss.extend(torch.stack(update_losses).float().cpu().tolist())
 
     def __log_progress(self, *, update: int, frame_count: int):
         verbose_window = self.verbose_window
