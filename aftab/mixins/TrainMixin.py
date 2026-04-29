@@ -28,10 +28,9 @@ class TrainMixin:
         )
 
     def __augment_observations(self, observations: torch.Tensor) -> torch.Tensor:
-        augmentation_pipeline = getattr(self, "augmentation_pipeline", None)
-        if augmentation_pipeline is None:
+        if not bool(getattr(self, "random_shift")):
             return observations
-        return augmentation_pipeline(observations.float())
+        return self.augmentation_pipeline(observations.float())
 
     def __initialize_training(self, environment: str, seed: int):
         self.flush_results()
@@ -146,10 +145,14 @@ class TrainMixin:
             actions_train = actions_train_tensor.cpu().numpy()
             actions_test = actions_test_tensor.cpu().numpy()
             if batch_old_q_values is not None:
-                batch_old_q_values[step] = q_values["train"].gather(
-                    1,
-                    actions_train_tensor.unsqueeze(1),
-                ).squeeze(1)
+                batch_old_q_values[step] = (
+                    q_values["train"]
+                    .gather(
+                        1,
+                        actions_train_tensor.unsqueeze(1),
+                    )
+                    .squeeze(1)
+                )
 
             (
                 next_observation_train,
