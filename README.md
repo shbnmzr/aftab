@@ -234,6 +234,15 @@ https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 ### Related Works
 
 ```bibtex
+@misc{2407.04811,
+  Title = {Simplifying Deep Temporal Difference Learning},
+  Author = {Matteo Gallici and Mattie Fellows and Benjamin Ellis and Bartomeu Pou and Ivan Masmitja and Jakob Nicolaus Foerster and Mario Martin},
+  Year = {2024},
+  Eprint = {arXiv:2407.04811},
+}
+```
+
+```bibtex
 @misc{2403.03950,
   Title = {Stop Regressing: Training Value Functions via Classification for Scalable Deep RL},
   Author = {Jesse Farebrother and Jordi Orbay and Quan Vuong and Adrien Ali Taïga and Yevgen Chebotar and Ted Xiao and Alex Irpan and Sergey Levine and Pablo Samuel Castro and Aleksandra Faust and Aviral Kumar and Rishabh Agarwal},
