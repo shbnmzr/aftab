@@ -3,7 +3,7 @@ from thriftynet import ThriftyEncoder
 from ..modules import LayerNorm2d
 
 
-class OmegaEncoder(ThriftyEncoder):
+class PsiEncoder(ThriftyEncoder):
     def __init__(self):
         super().__init__(
             filters=64,
