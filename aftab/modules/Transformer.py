@@ -27,7 +27,7 @@ class Transformer(torch.nn.Module):
                         ),
                         ViTStream(
                             embedding_dimension=embedding_dimension,
-                            mlp_dimension=mlp_dimension,
+                            hidden_dimension=mlp_dimension,
                         ),
                     ]
                 )
