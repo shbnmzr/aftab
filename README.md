@@ -26,7 +26,7 @@ It provides standardized training, evaluation, and reproducibility tools for dee
 
 | IQM HNS | IQM HNS (Last 50M Frames) |
 | :---: | :---: |
-| ![Global Performance](figures/encoder_experiments/global.png) | ![Last 50M Frames](figures/encoder_experiments/global_zoomed.png) |
+| ![Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global.png) | ![Last 50M Frames](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_zoomed.png) |
 
 </div>
 
@@ -36,7 +36,7 @@ It provides standardized training, evaluation, and reproducibility tools for dee
 
 | IQM HNS | IQM HNS (Last 50M Frames) |
 | :---: | :---: |
-| ![Hadamax Global Performance](figures/hadamax_experiments/global.png) | ![Last 50M Frames](figures/hadamax_experiments/global_zoomed.png) |
+| ![Hadamax Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/global.png) | ![Last 50M Frames](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/global_zoomed.png) |
 
 </div>
 
