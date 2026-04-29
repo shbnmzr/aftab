@@ -234,13 +234,20 @@ https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 ### Related Works
 
 ```
-@misc{farebrother2024stop,
-	title = {Stop {Regressing}: {Training} {Value} {Functions} via {Classification} for {Scalable} {Deep} {RL}},
-	year = {2024},
-	url = {http://arxiv.org/abs/2403.03950},
-	doi = {10.48550/arXiv.2403.03950},
-	author = {Farebrother, Jesse and Orbay, Jordi and Vuong, Quan and Taïga, Adrien Ali and Chebotar, Yevgen and Xiao, Ted and Irpan, Alex and Levine, Sergey and Castro, Pablo Samuel and Faust, Aleksandra and Kumar, Aviral and Agarwal, Rishabh},
-	publisher = {arXiv},
+@misc{2107.09645,
+  Author = {Denis Yarats and Rob Fergus and Alessandro Lazaric and Lerrel Pinto},
+  Title = {Mastering Visual Continuous Control: Improved Data-Augmented Reinforcement Learning},
+  Year = {2021},
+  Eprint = {arXiv:2107.09645},
+}
+```
+
+```
+@misc{2403.03950,
+  Author = {Jesse Farebrother and Jordi Orbay and Quan Vuong and Adrien Ali Taïga and Yevgen Chebotar and Ted Xiao and Alex Irpan and Sergey Levine and Pablo Samuel Castro and Aleksandra Faust and Aviral Kumar and Rishabh Agarwal},
+  Title = {Stop Regressing: Training Value Functions via Classification for Scalable Deep RL},
+  Year = {2024},
+  Eprint = {arXiv:2403.03950},
 }
 ```
 
