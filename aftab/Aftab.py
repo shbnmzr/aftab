@@ -65,7 +65,7 @@ class Aftab(
         gradient_norm: float = 10.0,
         verbose: bool = False,
         verbose_interval: int = 10,
-        verbose_window: int = 10,
+        verbose_window: int = 100,
         embedding_dimension: int = 512,
         optimizer: ModuleType | OptimizerStringType = "radam",
         optimizer_epsilon: float = 1e-5,

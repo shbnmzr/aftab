@@ -231,6 +231,19 @@ https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 }
 ```
 
+### Related Works
+
+```
+@misc{farebrother2024stop,
+	title = {Stop {Regressing}: {Training} {Value} {Functions} via {Classification} for {Scalable} {Deep} {RL}},
+	year = {2024},
+	url = {http://arxiv.org/abs/2403.03950},
+	doi = {10.48550/arXiv.2403.03950},
+	author = {Farebrother, Jesse and Orbay, Jordi and Vuong, Quan and Taïga, Adrien Ali and Chebotar, Yevgen and Xiao, Ted and Irpan, Alex and Levine, Sergey and Castro, Pablo Samuel and Faust, Aleksandra and Kumar, Aviral and Agarwal, Rishabh},
+	publisher = {arXiv},
+}
+```
+
 ## License
 
 © 2025 Taha Shieenavaz.  
