@@ -222,7 +222,7 @@ https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 
 ## Citation
 
-```
+```bibtex
 @article{aftab2026benchmarking,
   title={Aftab: Benchmarking {CNN} Encoders in {PQN}},
   author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
