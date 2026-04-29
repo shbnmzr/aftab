@@ -1,4 +1,4 @@
-from .ThriftyEncoder import ThriftyEncoder
+from thriftynet import ThriftyEncoder
 
 
 class PsiEncoder(ThriftyEncoder):
