@@ -10,6 +10,6 @@ from .ThetaEncoder import ThetaEncoder
 from .HadamaxGammaEncoderV1 import HadamaxGammaEncoderV1
 from .HadamaxGammaEncoderV2 import HadamaxGammaEncoderV2
 from .HadamaxNatureDQNEncoder import HadamaxNatureDQNEncoder
-from .ThriftyEncoder import ThriftyEncoder
+from .HadamaxThriftyEncoder import HadamaxThriftyEncoder
 from .PsiEncoder import PsiEncoder
 from .OmegaEncoder import OmegaEncoder
