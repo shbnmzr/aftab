@@ -14,7 +14,6 @@ from .maps import encoders_map
 from .maps import acceptable_frames_map
 from .maps import optimizer_map
 from .functions import flush
-from .modules import RandomShift
 from .mixins import TrainingResultsMixin
 from .mixins import EnvironmentMixin
 from .mixins import ActionsMixin
