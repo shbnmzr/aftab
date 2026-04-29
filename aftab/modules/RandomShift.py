@@ -56,12 +56,7 @@ class RandomShift(torch.nn.Module):
         trajectory_length, n, c, h, w = x.size()
         assert h == w
         x = x.reshape(trajectory_length * n, c, h, w)
-        shift = self._sample_shift(x, n, h)
-        shift = (
-            shift.unsqueeze(0)
-            .expand(trajectory_length, -1, -1, -1, -1)
-            .reshape(trajectory_length * n, 1, 1, 2)
-        )
+        shift = self._sample_shift(x, trajectory_length * n, h)
         x = self._apply_shift(x, shift, h)
         return x.reshape(trajectory_length, n, c, h, w)
 
