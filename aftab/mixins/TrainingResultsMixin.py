@@ -10,7 +10,7 @@ class TrainingResultsMixin:
         filename = f"seed-{self.buffer.seed}__"
         filename += f"environment-{self.buffer.environment}__"
         filename += f"encoder-{self.encoder.__name__}__"
-        filename += f"network-{self.network.__name__}__"
+        filename += f"network-{self.network}__"
         filename += f"gamma-{self.gamma}__"
         filename += f"lr-{self.lr}__"
         filename += f"epochs-{self.epochs}__"
@@ -33,8 +33,9 @@ class TrainingResultsMixin:
         return {
             "lambda": self.lmbda,
             "encoder": self.encoder.__name__,
-            "network": self.network.__name__,
+            "network": self.network,
             "frames": self.frames,
+            "optimizer": self.optimizer,
             "frame_skip": self.frame_skip,
             "training_reward": self.results.rewards.train,
             "test_reward": self.results.rewards.test,
