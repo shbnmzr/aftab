@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./figures/header.svg" />
+  <img src="https://raw.githubusercontent.com/tahashieenavaz/thriftynet/main/figures/header.svg" />
 </div>
 
 <p align="center">
