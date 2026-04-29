@@ -22,6 +22,8 @@ EncoderStringType = Literal[
     "gammahadamaxv1",
     "hadamaxgammav2",
     "gammahadamaxv2",
+    "psi",
+    "omega",
 ]
 
 OptimizerStringType = Literal["adam", "adamw" "radam", "nadam"]
