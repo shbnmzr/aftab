@@ -260,6 +260,15 @@ https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 }
 ```
 
+```bibtex
+@misc{1806.04613,
+  Title = {Improving Regression Performance with Distributional Losses},
+  Author = {Ehsan Imani and Martha White},
+  Year = {2018},
+  Eprint = {arXiv:1806.04613},
+}
+```
+
 ## License
 
 © 2025 Taha Shieenavaz.  
