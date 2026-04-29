@@ -20,17 +20,13 @@ class TrainingResultsMixin:
         filename += f"compiled-{self.should_compile}__"
         filename += f"optimizer-{self.optimizer.__name__}__"
 
-        if self.random_shift:
-            filename += f"random-shift__"
-            filename += f"random-shift-padding-{self.random_shift_padding}__"
-
         # removes trailing __
         filename = filename.strip("__")
         return f"{filename}.pkl"
 
     def __build_log_payload(self) -> dict:
         duration = self.results.duration or 0
-        return {
+        data = {
             "lambda": self.lmbda,
             "encoder": self.encoder.__name__,
             "network": self.network,
@@ -43,6 +39,20 @@ class TrainingResultsMixin:
             "duration_seconds": duration,
             "duration_hours": duration / 3600,
         }
+
+        if self.network in ["distributional", "distributional-duelling"]:
+            data.update(
+                {
+                    "distributional_bins": self.distributional_bins,
+                    "distributional_min_value": self.distributional_min_value,
+                    "distributional_max_value": self.distributional_max_value,
+                    "distributional_sigma": self.distributional_sigma,
+                    "distributional_sigma_ratio": self.distributional_sigma_ratio,
+                    "distributional_value_clip": self.distributional_value_clip,
+                }
+            )
+
+        return data
 
     def __create_directory(self, directory_path: str) -> str:
         directory_path = directory_path.replace(".", "/")
