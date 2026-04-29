@@ -35,7 +35,7 @@ class Attend(torch.nn.Module):
     ) -> torch.Tensor:
         n, device, scale = q.shape[-2], q.device, q.shape[-1] ** -0.5
         if self.use_flash:
-            return self.flash_attn(q, k, v)
+            return self.flash_attention(q, k, v)
         similarity = torch.einsum("b h i d, b j d -> b h i j", q, k) * scale
         attention = similarity.softmax(dim=-1)
         return torch.einsum("b h i j, b j d -> b h i d", attention, v)
