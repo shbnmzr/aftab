@@ -10,8 +10,6 @@ from ..encoders import ThetaEncoder
 from ..encoders import HadamaxNatureDQNEncoder
 from ..encoders import HadamaxGammaEncoderV1
 from ..encoders import HadamaxGammaEncoderV2
-from ..encoders import PsiEncoder
-from ..encoders import OmegaEncoder
 
 encoders_map = {
     "nature": NatureDQNEncoder,
@@ -31,6 +29,4 @@ encoders_map = {
     "gammahadamaxv1": HadamaxGammaEncoderV1,
     "hadamaxgammav2": HadamaxGammaEncoderV2,
     "gammahadamaxv2": HadamaxGammaEncoderV2,
-    "psi": PsiEncoder,
-    "omega": OmegaEncoder,
 }
