@@ -27,11 +27,6 @@ class TrainMixin:
             float(getattr(self, "distributional_value_clip")) > 0.0
         )
 
-    def __augment_observations(self, observations: torch.Tensor) -> torch.Tensor:
-        if not bool(getattr(self, "random_shift")):
-            return observations
-        return self.augmentation_pipeline(observations.float())
-
     def __initialize_training(self, environment: str, seed: int):
         self.flush_results()
         self.set_precision()
@@ -238,7 +233,6 @@ class TrainMixin:
         next_observations = torch.cat(
             [batch_observations[1:], last_train_observation], dim=0
         )
-        next_observations = self.__augment_observations(next_observations)
         sequence_length, environment_count = next_observations.shape[:2]
         flat_next_observations = next_observations.reshape(
             (-1,) + next_observations.shape[2:]
@@ -309,9 +303,6 @@ class TrainMixin:
                 if flattened_old_q_values is not None:
                     mini_batch_old_q_values = flattened_old_q_values[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
-                mini_batch_observations = self.__augment_observations(
-                    mini_batch_observations
-                )
 
                 optimizer.zero_grad(set_to_none=True)
                 with self.__autocast_float16():

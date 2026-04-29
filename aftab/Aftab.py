@@ -85,8 +85,6 @@ class Aftab(
         distributional_sigma: float | None = None,
         distributional_sigma_ratio: float = 0.75,
         distributional_value_clip: float = 0.0,
-        random_shift: bool = True,
-        random_shift_padding: int = 4,
     ):
         self.buffer = SimpleNamespace()
 
@@ -98,20 +96,11 @@ class Aftab(
         self.__initialize_constants()
         self.__initialize__encoder()
         self.__initialize_optimizer()
-        self.__initialize_augmentation()
         super().__init__()
 
     def __initialize_hyperparameters(self, **hyperparameters):
         for key, value in hyperparameters.items():
             setattr(self, key, value)
-
-    def __initialize_augmentation(self):
-        if not bool(getattr(self, "random_shift")):
-            return
-
-        self.augmentation_pipeline = RandomShift(
-            padding=int(getattr(self, "random_shift_padding"))
-        ).to(self.device)
 
     def __initialize_optimizer(self):
         if not isinstance(self.optimizer, str):

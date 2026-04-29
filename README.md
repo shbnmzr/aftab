@@ -234,15 +234,6 @@ https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 ### Related Works
 
 ```bibtex
-@misc{2107.09645,
-  Author = {Denis Yarats and Rob Fergus and Alessandro Lazaric and Lerrel Pinto},
-  Title = {Mastering Visual Continuous Control: Improved Data-Augmented Reinforcement Learning},
-  Year = {2021},
-  Eprint = {arXiv:2107.09645},
-}
-```
-
-```bibtex
 @misc{2403.03950,
   Author = {Jesse Farebrother and Jordi Orbay and Quan Vuong and Adrien Ali Taïga and Yevgen Chebotar and Ted Xiao and Alex Irpan and Sergey Levine and Pablo Samuel Castro and Aleksandra Faust and Aviral Kumar and Rishabh Agarwal},
   Title = {Stop Regressing: Training Value Functions via Classification for Scalable Deep RL},
