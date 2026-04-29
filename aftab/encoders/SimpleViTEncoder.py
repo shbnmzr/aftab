@@ -5,18 +5,18 @@ from ..modules.Transformer import Transformer
 from ..functions import positional_embedding_sincos_2d
 
 
-class SimpleViT(torch.nn.Module):
+class SimpleViTEncoder(torch.nn.Module):
     def __init__(
         self,
         *,
-        image_size: int,
+        image_size: int = 84,
         patch_size: int,
         dimension: int,
         depth: int,
         heads: int,
         mlp_dimension: int,
-        channels: int = 3,
-        head_dimension=64,
+        channels: int = 4,
+        head_dimension: int = 64,
         use_flash=True,
     ):
         super().__init__()
