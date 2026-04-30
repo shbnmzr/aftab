@@ -59,7 +59,6 @@ class TrainMixin:
         return (
             train_environment,
             test_environment,
-            action_dimension,
             observation_shape,
             optimizer,
             scaler,
@@ -68,35 +67,36 @@ class TrainMixin:
         )
 
     def __allocate_buffers(self, *, observation_shape: tuple):
+        rollout_shape = (self.steps_per_update, self.train_environments)
         batch_observations = torch.empty(
-            (self.steps_per_update, self.train_environments) + observation_shape,
+            rollout_shape + observation_shape,
             dtype=torch.uint8,
             device=self.device,
         )
         batch_actions = torch.empty(
-            (self.steps_per_update, self.train_environments),
+            rollout_shape,
             dtype=torch.int64,
             device=self.device,
         )
         batch_rewards = torch.empty(
-            (self.steps_per_update, self.train_environments),
+            rollout_shape,
             dtype=torch.float32,
             device=self.device,
         )
         batch_terminations = torch.empty(
-            (self.steps_per_update, self.train_environments),
+            rollout_shape,
             dtype=torch.float32,
             device=self.device,
         )
         batch_state_q_values = torch.empty(
-            (self.steps_per_update, self.train_environments),
+            rollout_shape,
             dtype=torch.float32,
             device=self.device,
         )
         batch_old_q_values = None
         if self.__distributional_value_clip_enabled():
             batch_old_q_values = torch.empty(
-                (self.steps_per_update, self.train_environments),
+                rollout_shape,
                 dtype=torch.float32,
                 device=self.device,
             )
@@ -108,6 +108,33 @@ class TrainMixin:
             batch_state_q_values,
             batch_old_q_values,
         )
+
+    def __get_score_rewards(self, *, rewards, info_train, info_test):
+        score_rewards = rewards
+        score_reward_train = info_train.get("reward", None)
+        score_reward_test = info_test.get("reward", None)
+        if score_reward_train is not None and score_reward_test is not None:
+            if isinstance(score_reward_train, numpy.ndarray) and isinstance(
+                score_reward_test, numpy.ndarray
+            ):
+                if score_reward_train.ndim == 0:
+                    score_rewards = numpy.stack([score_reward_train, score_reward_test])
+                else:
+                    score_rewards = numpy.concatenate(
+                        [score_reward_train, score_reward_test],
+                        axis=0,
+                    )
+        return score_rewards.astype(numpy.float32, copy=False)
+
+    def __record_completed_episodes(self, *, episode_returns, terminations):
+        done_mask = terminations
+        if numpy.any(done_mask):
+            idx = numpy.nonzero(done_mask)[0]
+            scores = episode_returns[done_mask]
+            split = idx < self.train_environments
+            self.results.rewards.train.extend(scores[split].tolist())
+            self.results.rewards.test.extend(scores[~split].tolist())
+            episode_returns[done_mask] = 0
 
     @torch.no_grad()
     def __collect_trajectories(
@@ -138,22 +165,20 @@ class TrainMixin:
                     float_observations=float_observations,
                     gradient=False,
                 )
-            q_values = {
-                "train": q_values_all[: self.train_environments],
-                "test": q_values_all[self.train_environments :],
-            }
-            batch_state_q_values[step] = q_values["train"].float().max(dim=-1).values
+            q_values_train = q_values_all[: self.train_environments]
+            q_values_test = q_values_all[self.train_environments :]
+            batch_state_q_values[step] = q_values_train.float().max(dim=-1).values
 
             actions_train_tensor, actions_test_tensor = self.get_action_tensors(
-                q_values_train=q_values["train"],
-                q_values_test=q_values["test"],
+                q_values_train=q_values_train,
+                q_values_test=q_values_test,
                 epsilon_value=epsilon_value,
             )
             actions_train = actions_train_tensor.cpu().numpy()
             actions_test = actions_test_tensor.cpu().numpy()
             if batch_old_q_values is not None:
                 batch_old_q_values[step] = (
-                    q_values["train"]
+                    q_values_train
                     .gather(
                         1,
                         actions_train_tensor.unsqueeze(1),
@@ -190,33 +215,16 @@ class TrainMixin:
                 axis=0,
             )
 
-            score_rewards = rewards
-            score_reward_train = info_train.get("reward", None)
-            score_reward_test = info_test.get("reward", None)
-            if score_reward_train is not None and score_reward_test is not None:
-                if isinstance(score_reward_train, numpy.ndarray) and isinstance(
-                    score_reward_test, numpy.ndarray
-                ):
-                    if score_reward_train.ndim == 0:
-                        score_rewards = numpy.stack(
-                            [score_reward_train, score_reward_test]
-                        )
-                    else:
-                        score_rewards = numpy.concatenate(
-                            [score_reward_train, score_reward_test],
-                            axis=0,
-                        )
-            score_rewards = score_rewards.astype(numpy.float32, copy=False)
+            score_rewards = self.__get_score_rewards(
+                rewards=rewards,
+                info_train=info_train,
+                info_test=info_test,
+            )
             episode_returns += score_rewards
-
-            done_mask = terminations
-            if numpy.any(done_mask):
-                idx = numpy.nonzero(done_mask)[0]
-                scores = episode_returns[done_mask]
-                split = idx < self.train_environments
-                self.results.rewards.train.extend(scores[split].tolist())
-                self.results.rewards.test.extend(scores[~split].tolist())
-                episode_returns[done_mask] = 0
+            self.__record_completed_episodes(
+                episode_returns=episode_returns,
+                terminations=terminations,
+            )
 
             batch_observations[step] = train_observation
             batch_actions[step] = actions_train_tensor
@@ -274,9 +282,8 @@ class TrainMixin:
         batch_actions: torch.Tensor,
         batch_old_q_values: Optional[torch.Tensor],
         targets: torch.Tensor,
-        observation_shape: tuple,
     ):
-        flattened_observations = batch_observations.reshape((-1,) + observation_shape)
+        flattened_observations = batch_observations.flatten(0, 1)
         flattened_actions = batch_actions.reshape(-1)
         flattened_old_q_values = None
         if batch_old_q_values is not None:
@@ -306,9 +313,7 @@ class TrainMixin:
         for _ in range(self.epochs):
             indices = torch.randperm(self.batch_size, device=self.device)
 
-            for range_start in range(0, self.batch_size, self.mini_batch_size):
-                range_end = range_start + self.mini_batch_size
-                mini_batch_idx = indices[range_start:range_end]
+            for mini_batch_idx in indices.split(self.mini_batch_size):
                 mini_batch_observations = flattened_observations[mini_batch_idx]
                 mini_batch_actions = flattened_actions[mini_batch_idx]
                 mini_batch_old_q_values = None
@@ -361,7 +366,6 @@ class TrainMixin:
         (
             train_environment,
             test_environment,
-            action_dimension,
             observation_shape,
             optimizer,
             scaler,
@@ -416,7 +420,6 @@ class TrainMixin:
                 batch_actions=batch_actions,
                 batch_old_q_values=batch_old_q_values,
                 targets=targets,
-                observation_shape=observation_shape,
             )
             flattened_target_probs = None
             if bool(getattr(self._network, "distributional", False)):
