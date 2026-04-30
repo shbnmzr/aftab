@@ -1,7 +1,7 @@
 import torch
 
 
-class FusedLayerNorm2d(torch.nn.Module):
+class HadamaxLayerNorm2d(torch.nn.Module):
     def __init__(self, num_channels: int, eps: float = 1e-6):
         super().__init__()
         self.weight = torch.nn.Parameter(torch.ones(2 * num_channels))

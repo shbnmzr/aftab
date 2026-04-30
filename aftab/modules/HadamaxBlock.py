@@ -1,6 +1,6 @@
 import torch
 from ..constants import ModuleType
-from .FusedLayerNorm2d import FusedLayerNorm2d
+from .HadamaxLayerNorm2d import HadamaxLayerNorm2d
 
 
 class HadamaxBlock(torch.nn.Module):
@@ -26,7 +26,7 @@ class HadamaxBlock(torch.nn.Module):
             stride=stride,
             padding=padding,
         )
-        self.normalization = FusedLayerNorm2d(out_channels)
+        self.normalization = HadamaxLayerNorm2d(out_channels)
         self.pool = torch.nn.MaxPool2d(
             kernel_size=pool_kernel, stride=pool_stride, padding=pool_padding
         )
@@ -37,11 +37,9 @@ class HadamaxBlock(torch.nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.normalization(self.convolutional(x))
-
         if self.same_activations:
             a, b = torch.chunk(self.chi(x), 2, dim=1)
         else:
             a, b = torch.chunk(x, 2, dim=1)
             a, b = self.chi(a), self.psi(b)
-
         return self.pool(a * b)
