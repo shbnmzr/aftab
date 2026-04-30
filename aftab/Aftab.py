@@ -71,7 +71,7 @@ class Aftab(
         optimizer_weight_decay: float = 0.0,
         optimizer_first_beta: float = 0.9,
         optimizer_second_beta: float = 0.999,
-        should_compile: bool = True,
+        torch_compile: bool = True,
         autocast_float16: bool = True,
         channels_last: bool = True,
         train_episodic_life: bool = True,
