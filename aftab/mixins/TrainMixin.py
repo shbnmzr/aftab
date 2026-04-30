@@ -42,13 +42,17 @@ class TrainMixin:
         )
 
         train_observation, _ = train_environment.reset()
-        train_observation = (
-            torch.from_numpy(train_observation).to(torch.uint8).to(self.device)
+        train_observation = torch.as_tensor(
+            train_observation,
+            dtype=torch.uint8,
+            device=self.device,
         )
 
         test_observation, _ = test_environment.reset()
-        test_observation = (
-            torch.from_numpy(test_observation).to(torch.uint8).to(self.device)
+        test_observation = torch.as_tensor(
+            test_observation,
+            dtype=torch.uint8,
+            device=self.device,
         )
         observation = torch.cat([train_observation, test_observation], dim=0)
         episode_returns = numpy.zeros(self.total_environments, dtype=numpy.float32)
@@ -84,6 +88,11 @@ class TrainMixin:
             dtype=torch.float32,
             device=self.device,
         )
+        batch_state_q_values = torch.empty(
+            (self.steps_per_update, self.train_environments),
+            dtype=torch.float32,
+            device=self.device,
+        )
         batch_old_q_values = None
         if self.__distributional_value_clip_enabled():
             batch_old_q_values = torch.empty(
@@ -96,6 +105,7 @@ class TrainMixin:
             batch_actions,
             batch_rewards,
             batch_terminations,
+            batch_state_q_values,
             batch_old_q_values,
         )
 
@@ -112,6 +122,7 @@ class TrainMixin:
         batch_actions: torch.Tensor,
         batch_rewards: torch.Tensor,
         batch_terminations: torch.Tensor,
+        batch_state_q_values: torch.Tensor,
         batch_old_q_values: Optional[torch.Tensor],
     ):
         for step in range(self.steps_per_update):
@@ -131,6 +142,7 @@ class TrainMixin:
                 "train": q_values_all[: self.train_environments],
                 "test": q_values_all[self.train_environments :],
             }
+            batch_state_q_values[step] = q_values["train"].float().max(dim=-1).values
 
             actions_train_tensor, actions_test_tensor = self.get_action_tensors(
                 q_values_train=q_values["train"],
@@ -208,13 +220,21 @@ class TrainMixin:
 
             batch_observations[step] = train_observation
             batch_actions[step] = actions_train_tensor
-            batch_rewards[step] = torch.from_numpy(reward_train).to(self.device)
-            batch_terminations[step] = torch.from_numpy(termination_train).to(
-                self.device
+            batch_rewards[step] = torch.as_tensor(
+                reward_train,
+                dtype=torch.float32,
+                device=self.device,
+            )
+            batch_terminations[step] = torch.as_tensor(
+                termination_train,
+                dtype=torch.float32,
+                device=self.device,
             )
 
-            observation = (
-                torch.from_numpy(next_observation).to(torch.uint8).to(self.device)
+            observation = torch.as_tensor(
+                next_observation,
+                dtype=torch.uint8,
+                device=self.device,
             )
             frame_count += self.train_environments
 
@@ -224,31 +244,22 @@ class TrainMixin:
     def __compute_targets(
         self,
         *,
-        batch_observations: torch.Tensor,
         observation: torch.Tensor,
         batch_rewards: torch.Tensor,
         batch_terminations: torch.Tensor,
+        batch_state_q_values: torch.Tensor,
     ):
-        last_train_observation = observation[: self.train_environments].unsqueeze(0)
-        next_observations = torch.cat(
-            [batch_observations[1:], last_train_observation], dim=0
-        )
-        sequence_length, environment_count = next_observations.shape[:2]
-        flat_next_observations = next_observations.reshape(
-            (-1,) + next_observations.shape[2:]
-        )
+        last_train_observation = observation[: self.train_environments]
 
         with self.__autocast_float16():
-            next_q_values = self.get_q_values(
-                float_observations=flat_next_observations,
+            last_next_q_values = self.get_q_values(
+                float_observations=last_train_observation,
                 gradient=False,
             )
 
-        next_q_values = next_q_values.float()
-        next_q = next_q_values.max(dim=-1).values.reshape(
-            sequence_length,
-            environment_count,
-        )
+        next_q = torch.empty_like(batch_state_q_values)
+        next_q[:-1] = batch_state_q_values[1:]
+        next_q[-1] = last_next_q_values.float().max(dim=-1).values
 
         return self.get_returns(
             batch_rewards=batch_rewards,
@@ -286,6 +297,7 @@ class TrainMixin:
         flattened_actions: torch.Tensor,
         flattened_old_q_values: Optional[torch.Tensor],
         flattened_targets: torch.Tensor,
+        flattened_target_probs: Optional[torch.Tensor],
         scaler,
     ):
         self._network.train()
@@ -303,6 +315,9 @@ class TrainMixin:
                 if flattened_old_q_values is not None:
                     mini_batch_old_q_values = flattened_old_q_values[mini_batch_idx]
                 mini_batch_targets = flattened_targets[mini_batch_idx]
+                mini_batch_target_probs = None
+                if flattened_target_probs is not None:
+                    mini_batch_target_probs = flattened_target_probs[mini_batch_idx]
 
                 optimizer.zero_grad(set_to_none=True)
                 with self.__autocast_float16():
@@ -311,6 +326,7 @@ class TrainMixin:
                         mini_batch_targets=mini_batch_targets,
                         mini_batch_actions=mini_batch_actions,
                         mini_batch_old_q_values=mini_batch_old_q_values,
+                        mini_batch_target_probs=mini_batch_target_probs,
                     )
                 scaler.scale(loss).backward()
                 scaler.unscale_(optimizer)
@@ -358,6 +374,7 @@ class TrainMixin:
             batch_actions,
             batch_rewards,
             batch_terminations,
+            batch_state_q_values,
             batch_old_q_values,
         ) = self.__allocate_buffers(
             observation_shape=observation_shape,
@@ -378,14 +395,15 @@ class TrainMixin:
                 batch_actions=batch_actions,
                 batch_rewards=batch_rewards,
                 batch_terminations=batch_terminations,
+                batch_state_q_values=batch_state_q_values,
                 batch_old_q_values=batch_old_q_values,
             )
 
             targets = self.__compute_targets(
-                batch_observations=batch_observations,
                 observation=observation,
                 batch_rewards=batch_rewards,
                 batch_terminations=batch_terminations,
+                batch_state_q_values=batch_state_q_values,
             )
 
             (
@@ -400,6 +418,11 @@ class TrainMixin:
                 targets=targets,
                 observation_shape=observation_shape,
             )
+            flattened_target_probs = None
+            if bool(getattr(self._network, "distributional", False)):
+                flattened_target_probs = (
+                    self._network.hl_gauss_loss.transform_to_probs(flattened_targets)
+                )
 
             self.__update_network(
                 optimizer=optimizer,
@@ -408,6 +431,7 @@ class TrainMixin:
                 flattened_actions=flattened_actions,
                 flattened_old_q_values=flattened_old_q_values,
                 flattened_targets=flattened_targets,
+                flattened_target_probs=flattened_target_probs,
             )
 
             self.__log_progress(update=update, frame_count=frame_count)
