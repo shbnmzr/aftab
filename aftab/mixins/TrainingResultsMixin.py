@@ -14,7 +14,7 @@ class TrainingResultsMixin:
         filename += f"gamma-{self.gamma}__"
         filename += f"lr-{self.lr}__"
         filename += f"epochs-{self.epochs}__"
-        filename += f"lambda-{self.lmbda}__"
+        filename += f"lambda-{self.return_lambda}__"
         filename += f"autocast-float16-{self.autocast_float16}__"
         filename += f"channels-last-{self.channels_last}__"
         filename += f"compiled-{self.should_compile}__"
@@ -27,7 +27,7 @@ class TrainingResultsMixin:
     def __build_log_payload(self) -> dict:
         duration = self.results.duration or 0
         data = {
-            "lambda": self.lmbda,
+            "lambda": self.return_lambda,
             "encoder": self.encoder.__name__,
             "network": self.network,
             "frames": self.frames,

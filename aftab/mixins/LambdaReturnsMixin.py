@@ -19,5 +19,5 @@ class LambdaReturnsMixin:
             terminations=batch_terminations,
             next_q=next_q,
             gamma=getattr(self, "gamma"),
-            lmbda=getattr(self, "lmbda"),
+            return_lambda=getattr(self, "return_lambda"),
         )

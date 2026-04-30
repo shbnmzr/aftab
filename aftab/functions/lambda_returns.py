@@ -7,7 +7,7 @@ def lambda_returns(
     terminations: torch.Tensor,
     next_q: torch.Tensor,
     gamma: float,
-    lmbda: float,
+    return_lambda: float,
 ) -> torch.Tensor:
     trajectory_length = rewards.size(0)
     output = torch.zeros_like(rewards)
@@ -17,7 +17,7 @@ def lambda_returns(
     for t in range(trajectory_length - 2, -1, -1):
         not_done = 1.0 - terminations[t]
         bootstrap = next_q[t]
-        mix = (1.0 - lmbda) * bootstrap + lmbda * accumulated_return
+        mix = (1.0 - return_lambda) * bootstrap + return_lambda * accumulated_return
         accumulated_return = rewards[t] + gamma * not_done * mix
         output[t] = accumulated_return
     return output

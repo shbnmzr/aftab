@@ -53,7 +53,7 @@ class Aftab(
         mini_batches: int = 32,
         epochs: int = 2,
         gamma: float = 0.99,
-        lmbda: float = 0.65,
+        return_lambda: float = 0.65,
         lr: float = 25e-5,
         train_environments: int = 128,
         test_environments: int = 8,
