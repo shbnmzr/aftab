@@ -19,7 +19,7 @@ class HadamaxBlock(torch.nn.Module):
     ):
         super().__init__()
 
-        self.fused = torch.nn.Conv2d(
+        self.convolutional = torch.nn.Conv2d(
             in_channels,
             out_channels * 2,
             kernel_size=kernel_size,
@@ -27,35 +27,21 @@ class HadamaxBlock(torch.nn.Module):
             padding=padding,
         )
         self.normalization = FusedLayerNorm2d(out_channels)
+        self.pool = torch.nn.MaxPool2d(
+            kernel_size=pool_kernel, stride=pool_stride, padding=pool_padding
+        )
 
-        self.pool_kernel = pool_kernel
-        self.pool_stride = pool_stride
-        self.pool_padding = pool_padding
-
-        self.same_acts = chi == psi
-        if self.same_acts:
-            self.act = chi()
-        else:
-            self.chi = chi()
-            self.psi = psi()
+        self.same_activations = chi == psi
+        self.chi = chi()
+        self.psi = psi() if not self.same_activations else None
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.fused(x)
-        x = self.normalization(x)
+        x = self.normalization(self.convolutional(x))
 
-        if self.same_acts:
-            x = self.act(x)
-            a, b = torch.chunk(x, 2, dim=1)
+        if self.same_activations:
+            a, b = torch.chunk(self.chi(x), 2, dim=1)
         else:
             a, b = torch.chunk(x, 2, dim=1)
-            a = self.psi(a)
-            b = self.chi(b)
+            a, b = self.chi(a), self.psi(x)
 
-        x = a * b
-
-        return torch.nn.functional.max_pool2d(
-            x,
-            kernel_size=self.pool_kernel,
-            stride=self.pool_stride,
-            padding=self.pool_padding,
-        )
+        return self.poo(a * b)
