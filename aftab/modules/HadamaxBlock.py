@@ -1,6 +1,6 @@
 import torch
 from ..constants import ModuleType
-from ..modules import FusedLayerNorm2d
+from .FusedLayerNorm2d import FusedLayerNorm2d
 
 
 class HadamaxBlock(torch.nn.Module):
