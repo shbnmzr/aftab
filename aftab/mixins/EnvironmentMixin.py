@@ -6,12 +6,15 @@ class EnvironmentMixin:
         super().__init__()
 
     def make_environments(self, environment: str, seed: int):
+        test_cpu_count = min(self.min_cpu_count, max(1, self.cpu_count - 1))
+        train_cpu_count = max(1, self.cpu_count - test_cpu_count)
+
         train_environment = envpool.make(
             environment,
             env_type="gymnasium",
             num_envs=self.train_environments,
             seed=seed,
-            num_threads=self.cpu_count,
+            num_threads=train_cpu_count,
             thread_affinity_offset=0,
             noop_max=self.noop,
             reward_clip=self.train_reward_clip,
@@ -25,8 +28,8 @@ class EnvironmentMixin:
             env_type="gymnasium",
             num_envs=self.test_environments,
             seed=seed + 1000,
-            num_threads=min(self.min_cpu_count, self.cpu_count),
-            thread_affinity_offset=0,
+            num_threads=test_cpu_count,
+            thread_affinity_offset=train_cpu_count if self.cpu_count > 1 else 0,
             noop_max=self.noop,
             reward_clip=self.test_reward_clip,
             episodic_life=self.test_episodic_life,
