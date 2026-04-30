@@ -9,13 +9,12 @@ class FusedLayerNorm2d(torch.nn.Module):
         self.eps = eps
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        N, C_total, H, W = x.shape
-        C = C_total // 2
-        x_reshaped = x.view(N, 2, C, H, W)
-        mean = x_reshaped.mean(dim=2, keepdim=True)
-        var = (x_reshaped - mean).pow(2).mean(dim=2, keepdim=True)
-        x_norm = (x_reshaped - mean) / torch.sqrt(var + self.eps)
+        batch_size, total_channels, height, width = x.shape
+        C = total_channels // 2
+        reshaped = x.view(batch_size, 2, C, height, width)
+        var, mean = torch.var_mean(reshaped, dim=2, keepdim=True, correction=0)
+        normalized = (reshaped - mean) / torch.sqrt(var + self.eps)
         weight = self.weight.view(1, 2, C, 1, 1)
         bias = self.bias.view(1, 2, C, 1, 1)
-        x_norm = x_norm * weight + bias
-        return x_norm.view(N, C_total, H, W)
+        normalized = normalized * weight + bias
+        return normalized.view(batch_size, total_channels, height, width)
