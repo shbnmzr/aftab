@@ -42,6 +42,6 @@ class HadamaxBlock(torch.nn.Module):
             a, b = torch.chunk(self.chi(x), 2, dim=1)
         else:
             a, b = torch.chunk(x, 2, dim=1)
-            a, b = self.chi(a), self.psi(x)
+            a, b = self.chi(a), self.psi(b)
 
-        return self.poo(a * b)
+        return self.pool(a * b)
