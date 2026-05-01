@@ -94,6 +94,12 @@ class NetworkMixin:
             "distributional_sigma": self.__get_distributional_sigma(),
         }
 
+    def __get_ensemble_network_args(self):
+        ensemble_heads = int(getattr(self, "ensemble_heads"))
+        if ensemble_heads <= 0:
+            raise ValueError("Expected `ensemble_heads` to be positive.")
+        return {"ensemble_heads": ensemble_heads}
+
     def __build_network(self, action_dimension: int):
         try:
             network_instance = networks_map[self.network]
@@ -110,6 +116,8 @@ class NetworkMixin:
         }
         if self.network in {"distributional", "distributional-duelling"}:
             args.update(self.__get_distributional_network_args())
+        if self.network in {"ensemble", "ensemble-duelling"}:
+            args.update(self.__get_ensemble_network_args())
         self.__build_pqn_network(**args)
 
     def __compile_network(self):

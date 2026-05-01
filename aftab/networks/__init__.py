@@ -1,4 +1,6 @@
 from .PQNNetwork import PQNNetwork
 from .DuellingNetwork import DuellingNetwork
+from .EnsembleNetwork import EnsembleNetwork
+from .EnsembleDuellingNetwork import EnsembleDuellingNetwork
 from .DistributionalPQNNetwork import DistributionalPQNNetwork
 from .DistributionalDuellingNetwork import DistributionalDuellingNetwork

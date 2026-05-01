@@ -19,6 +19,9 @@ class TrainingResultsMixin:
         filename += f"channels-last-{self.channels_last}__"
         filename += f"compiled-{self.torch_compile}__"
         filename += f"optimizer-{self.optimizer.__name__}__"
+        if self.network in ["ensemble", "ensemble-duelling"]:
+            filename += f"heads-{self.ensemble_heads}__"
+            filename += f"bootstrap-p-{self.bootstrap_probability}__"
 
         # removes trailing __
         filename = filename.strip("__")
@@ -51,6 +54,14 @@ class TrainingResultsMixin:
                     "distributional_sigma": self.distributional_sigma,
                     "distributional_sigma_ratio": self.distributional_sigma_ratio,
                     "distributional_value_clip": self.distributional_value_clip,
+                }
+            )
+
+        if self.network in ["ensemble", "ensemble-duelling"]:
+            data.update(
+                {
+                    "ensemble_heads": self.ensemble_heads,
+                    "bootstrap_probability": self.bootstrap_probability,
                 }
             )
 
