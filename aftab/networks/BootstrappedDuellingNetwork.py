@@ -4,14 +4,14 @@ from .BaseNetwork import BaseNetwork
 from ..modules import Stream
 
 
-class EnsembleDuellingNetwork(BaseNetwork):
-    def __init__(self, *, ensemble_heads: int = 10, **kwargs):
+class BootstrappedDuellingNetwork(BaseNetwork):
+    def __init__(self, *, bootstrap_heads: int = 10, **kwargs):
         super().__init__(**kwargs)
-        if ensemble_heads <= 0:
-            raise ValueError("Expected `ensemble_heads` to be positive.")
+        if bootstrap_heads <= 0:
+            raise ValueError("Expected `bootstrap_heads` to be positive.")
 
-        self.ensemble = True
-        self.ensemble_heads = ensemble_heads
+        self.bootstrapped = True
+        self.bootstrap_heads = bootstrap_heads
         self.advantage_heads = torch.nn.ModuleList(
             [
                 Stream(
@@ -20,7 +20,7 @@ class EnsembleDuellingNetwork(BaseNetwork):
                     output_dimension=self.action_dimension,
                     normalization=True,
                 )
-                for _ in range(self.ensemble_heads)
+                for _ in range(self.bootstrap_heads)
             ]
         )
         self.value_heads = torch.nn.ModuleList(
@@ -31,7 +31,7 @@ class EnsembleDuellingNetwork(BaseNetwork):
                     output_dimension=1,
                     normalization=True,
                 )
-                for _ in range(self.ensemble_heads)
+                for _ in range(self.bootstrap_heads)
             ]
         )
 

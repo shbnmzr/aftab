@@ -4,14 +4,14 @@ from ..modules import Stream
 from .BaseNetwork import BaseNetwork
 
 
-class EnsembleNetwork(BaseNetwork):
-    def __init__(self, *, ensemble_heads: int = 10, **kwargs):
+class BootstrappedNetwork(BaseNetwork):
+    def __init__(self, *, bootstrap_heads: int = 10, **kwargs):
         super().__init__(**kwargs)
-        if ensemble_heads <= 0:
-            raise ValueError("Expected `ensemble_heads` to be positive.")
+        if bootstrap_heads <= 0:
+            raise ValueError("Expected `bootstrap_heads` to be positive.")
 
-        self.ensemble = True
-        self.ensemble_heads = ensemble_heads
+        self.bootstrapped = True
+        self.bootstrap_heads = bootstrap_heads
         self.q_heads = torch.nn.ModuleList(
             [
                 Stream(
@@ -19,7 +19,7 @@ class EnsembleNetwork(BaseNetwork):
                     hidden_dimension=self.embedding_dimension,
                     output_dimension=self.action_dimension,
                 )
-                for _ in range(self.ensemble_heads)
+                for _ in range(self.bootstrap_heads)
             ]
         )
 

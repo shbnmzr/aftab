@@ -94,11 +94,11 @@ class NetworkMixin:
             "distributional_sigma": self.__get_distributional_sigma(),
         }
 
-    def __get_ensemble_network_args(self):
-        ensemble_heads = int(getattr(self, "ensemble_heads"))
-        if ensemble_heads <= 0:
-            raise ValueError("Expected `ensemble_heads` to be positive.")
-        return {"ensemble_heads": ensemble_heads}
+    def __get_bootstrapped_network_args(self):
+        bootstrap_heads = int(getattr(self, "bootstrap_heads"))
+        if bootstrap_heads <= 0:
+            raise ValueError("Expected `bootstrap_heads` to be positive.")
+        return {"bootstrap_heads": bootstrap_heads}
 
     def __build_network(self, action_dimension: int):
         try:
@@ -116,8 +116,8 @@ class NetworkMixin:
         }
         if self.network in {"distributional", "distributional-duelling"}:
             args.update(self.__get_distributional_network_args())
-        if self.network in {"ensemble", "ensemble-duelling"}:
-            args.update(self.__get_ensemble_network_args())
+        if self.network in {"bootstrapped", "bootstrapped-duelling"}:
+            args.update(self.__get_bootstrapped_network_args())
         self.__build_pqn_network(**args)
 
     def __compile_network(self):

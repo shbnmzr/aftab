@@ -19,8 +19,8 @@ class TrainingResultsMixin:
         filename += f"channels-last-{self.channels_last}__"
         filename += f"compiled-{self.torch_compile}__"
         filename += f"optimizer-{self.optimizer.__name__}__"
-        if self.network in ["ensemble", "ensemble-duelling"]:
-            filename += f"heads-{self.ensemble_heads}__"
+        if self.network in ["bootstrapped", "bootstrapped-duelling"]:
+            filename += f"heads-{self.bootstrap_heads}__"
             filename += f"bootstrap-p-{self.bootstrap_probability}__"
 
         # removes trailing __
@@ -57,10 +57,10 @@ class TrainingResultsMixin:
                 }
             )
 
-        if self.network in ["ensemble", "ensemble-duelling"]:
+        if self.network in ["bootstrapped", "bootstrapped-duelling"]:
             data.update(
                 {
-                    "ensemble_heads": self.ensemble_heads,
+                    "bootstrap_heads": self.bootstrap_heads,
                     "bootstrap_probability": self.bootstrap_probability,
                 }
             )

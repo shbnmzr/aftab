@@ -45,8 +45,8 @@ class Aftab(
         network: Literal[
             "q",
             "duelling",
-            "ensemble",
-            "ensemble-duelling",
+            "bootstrapped",
+            "bootstrapped-duelling",
             "distributional",
             "distributional-duelling",
         ] = "distributional-duelling",
@@ -86,7 +86,7 @@ class Aftab(
         distributional_sigma: float | None = None,
         distributional_sigma_ratio: float = 0.75,
         distributional_value_clip: float = 0.0,
-        ensemble_heads: int = 10,
+        bootstrap_heads: int = 10,
         bootstrap_probability: float = 1.0,
     ):
         self.buffer = SimpleNamespace()

@@ -27,11 +27,11 @@ class TrainMixin:
             float(getattr(self, "distributional_value_clip")) > 0.0
         )
 
-    def __ensemble_enabled(self) -> bool:
-        return bool(getattr(self._network, "ensemble", False))
+    def __bootstrapped_enabled(self) -> bool:
+        return bool(getattr(self._network, "bootstrapped", False))
 
-    def __get_ensemble_heads(self) -> int:
-        return int(getattr(self._network, "ensemble_heads", 1))
+    def __get_bootstrap_heads(self) -> int:
+        return int(getattr(self._network, "bootstrap_heads", 1))
 
     def __get_bootstrap_probability(self) -> float:
         probability = float(getattr(self, "bootstrap_probability", 1.0))
@@ -39,17 +39,17 @@ class TrainMixin:
             raise ValueError("Expected `bootstrap_probability` to be in (0, 1].")
         return probability
 
-    def __sample_ensemble_heads(self, size: int) -> Optional[torch.Tensor]:
-        if not self.__ensemble_enabled():
+    def __sample_bootstrap_heads(self, size: int) -> Optional[torch.Tensor]:
+        if not self.__bootstrapped_enabled():
             return None
         return torch.randint(
-            self.__get_ensemble_heads(),
+            self.__get_bootstrap_heads(),
             (size,),
             device=self.device,
         )
 
     def __sample_bootstrap_masks(self) -> torch.Tensor:
-        mask_shape = (self.train_environments, self.__get_ensemble_heads())
+        mask_shape = (self.train_environments, self.__get_bootstrap_heads())
         probability = self.__get_bootstrap_probability()
         if probability >= 1.0:
             return torch.ones(mask_shape, dtype=torch.float32, device=self.device)
@@ -61,7 +61,7 @@ class TrainMixin:
         )
         return torch.bernoulli(probabilities)
 
-    def __get_ensemble_vote_q_values(self, q_heads: torch.Tensor) -> torch.Tensor:
+    def __get_bootstrapped_vote_q_values(self, q_heads: torch.Tensor) -> torch.Tensor:
         if q_heads.shape[0] == 0:
             return q_heads.new_empty((0, q_heads.shape[-1]))
 
@@ -74,7 +74,7 @@ class TrainMixin:
         )
         return votes
 
-    def __resample_terminated_ensemble_heads(
+    def __resample_terminated_bootstrap_heads(
         self,
         *,
         active_heads: Optional[torch.Tensor],
@@ -91,7 +91,7 @@ class TrainMixin:
         done_count = int(done_mask.sum().item())
         if done_count == 0:
             return
-        active_heads[done_mask] = self.__sample_ensemble_heads(done_count)
+        active_heads[done_mask] = self.__sample_bootstrap_heads(done_count)
 
     def __initialize_training(self, environment: str, seed: int):
         self.flush_results()
@@ -135,8 +135,8 @@ class TrainMixin:
     def __allocate_buffers(self, *, observation_shape: tuple):
         rollout_shape = (self.steps_per_update, self.train_environments)
         state_q_shape = rollout_shape
-        if self.__ensemble_enabled():
-            state_q_shape = rollout_shape + (self.__get_ensemble_heads(),)
+        if self.__bootstrapped_enabled():
+            state_q_shape = rollout_shape + (self.__get_bootstrap_heads(),)
 
         batch_observations = torch.empty(
             rollout_shape + observation_shape,
@@ -171,7 +171,7 @@ class TrainMixin:
                 device=self.device,
             )
         batch_bootstrap_masks = None
-        if self.__ensemble_enabled():
+        if self.__bootstrapped_enabled():
             batch_bootstrap_masks = torch.empty(
                 state_q_shape,
                 dtype=torch.float32,
@@ -241,16 +241,16 @@ class TrainMixin:
             )
 
             with self.__autocast_float16():
-                if self.__ensemble_enabled():
+                if self.__bootstrapped_enabled():
                     if active_heads is None:
-                        raise RuntimeError("Expected active ensemble heads.")
+                        raise RuntimeError("Expected active bootstrapped heads.")
                     q_heads_all = self._network.get_q_heads(float_observations)
                     q_heads_train = q_heads_all[: self.train_environments]
                     q_values_train = self._network.gather_q_heads(
                         q_heads=q_heads_train,
                         head_indices=active_heads[: self.train_environments],
                     )
-                    q_values_test = self.__get_ensemble_vote_q_values(
+                    q_values_test = self.__get_bootstrapped_vote_q_values(
                         q_heads_all[self.train_environments :]
                     )
                 else:
@@ -261,7 +261,7 @@ class TrainMixin:
                     q_values_train = q_values_all[: self.train_environments]
                     q_values_test = q_values_all[self.train_environments :]
 
-            if self.__ensemble_enabled():
+            if self.__bootstrapped_enabled():
                 batch_state_q_values[step] = q_heads_train.float().max(dim=-1).values
             else:
                 batch_state_q_values[step] = q_values_train.float().max(dim=-1).values
@@ -318,7 +318,7 @@ class TrainMixin:
                 episode_returns=episode_returns,
                 terminations=terminations,
             )
-            self.__resample_terminated_ensemble_heads(
+            self.__resample_terminated_bootstrap_heads(
                 active_heads=active_heads,
                 terminations=terminations,
             )
@@ -358,7 +358,7 @@ class TrainMixin:
     ):
         last_train_observation = observation[: self.train_environments]
 
-        if self.__ensemble_enabled():
+        if self.__bootstrapped_enabled():
             with self.__autocast_float16():
                 last_next_q_heads = self._network.get_q_heads(
                     last_train_observation.float()
@@ -407,11 +407,11 @@ class TrainMixin:
         if batch_bootstrap_masks is None:
             flattened_targets = targets.reshape(-1)
         else:
-            ensemble_heads = self.__get_ensemble_heads()
-            flattened_targets = targets.reshape(-1, ensemble_heads)
+            bootstrap_heads = self.__get_bootstrap_heads()
+            flattened_targets = targets.reshape(-1, bootstrap_heads)
             flattened_bootstrap_masks = batch_bootstrap_masks.reshape(
                 -1,
-                ensemble_heads,
+                bootstrap_heads,
             )
         return (
             flattened_observations,
@@ -421,7 +421,7 @@ class TrainMixin:
             flattened_bootstrap_masks,
         )
 
-    def __get_ensemble_loss(
+    def __get_bootstrapped_loss(
         self,
         *,
         mini_batch_observations: torch.Tensor,
@@ -433,7 +433,7 @@ class TrainMixin:
         q_heads = self._network.get_q_heads(mini_batch_observations)
         action_indices = mini_batch_actions.reshape(-1, 1, 1).expand(
             -1,
-            self.__get_ensemble_heads(),
+            self.__get_bootstrap_heads(),
             1,
         )
         q_taken = q_heads.gather(2, action_indices).squeeze(2).float()
@@ -486,7 +486,7 @@ class TrainMixin:
                             mini_batch_target_probs=mini_batch_target_probs,
                         )
                     else:
-                        loss = self.__get_ensemble_loss(
+                        loss = self.__get_bootstrapped_loss(
                             mini_batch_observations=mini_batch_observations,
                             mini_batch_targets=mini_batch_targets,
                             mini_batch_actions=mini_batch_actions,
@@ -543,7 +543,7 @@ class TrainMixin:
         ) = self.__allocate_buffers(
             observation_shape=observation_shape,
         )
-        active_heads = self.__sample_ensemble_heads(self.total_environments)
+        active_heads = self.__sample_bootstrap_heads(self.total_environments)
 
         training_start_time = time.time()
 
