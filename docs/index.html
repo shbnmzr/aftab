@@ -3,8 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aftab (آفتاب) – Combining Advancements in Discrete Deep Reinforcement Learning</title>
+    <meta name="description" content="Aftab is a benchmarking framework for evaluating CNN encoders in PQN across Atari environments.">
+    <title>Aftab (آفتاب) - Benchmarking CNN Encoders in PQN</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
-<body></body>
+<body class="bg-slate-50 text-slate-900 antialiased" x-data="{ menuOpen: false }">
+    <div class="bg-cyan-700 px-6 py-3 text-center text-sm font-semibold text-white">
+        Aftab benchmarks CNN encoders in PQN across 57 Atari environments.
+        <a class="ml-1 underline underline-offset-4" href="https://github.com/tahashieenavaz/aftab" target="_blank" rel="noreferrer">View repository</a>
+    </div>
+
+    <header class="relative z-20">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+            <a href="#top" class="inline-flex items-center gap-3 font-bold" aria-label="Aftab home">
+                <span class="grid h-10 w-10 place-items-center rounded-lg bg-cyan-600 text-sm font-black text-white">آ</span>
+                <span>Aftab</span>
+            </a>
+
+            <div class="hidden items-center gap-8 text-sm font-semibold text-slate-700 md:flex">
+                <a class="hover:text-slate-950" href="#benchmark">Benchmark</a>
+                <a class="hover:text-slate-950" href="#results">Results</a>
+                <a class="hover:text-slate-950" href="#workflow">Workflow</a>
+                <a class="hover:text-slate-950" href="#citation">Citation</a>
+                <a class="rounded-md border border-cyan-600 px-5 py-3 text-cyan-700 hover:bg-cyan-50" href="https://pypi.org/project/aftab/" target="_blank" rel="noreferrer">PyPI</a>
+            </div>
+
+            <button class="rounded-md border border-slate-300 px-3 py-2 text-sm font-semibold md:hidden" type="button" x-on:click="menuOpen = !menuOpen" x-bind:aria-expanded="menuOpen.toString()" aria-controls="mobile-menu">
+                Menu
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="mx-6 rounded-lg border border-slate-200 bg-white p-4 shadow-sm md:hidden" x-cloak x-show="menuOpen" x-on:click.outside="menuOpen = false">
+            <div class="grid gap-3 text-sm font-semibold text-slate-700">
+                <a class="py-1 hover:text-slate-950" href="#benchmark" x-on:click="menuOpen = false">Benchmark</a>
+                <a class="py-1 hover:text-slate-950" href="#results" x-on:click="menuOpen = false">Results</a>
+                <a class="py-1 hover:text-slate-950" href="#workflow" x-on:click="menuOpen = false">Workflow</a>
+                <a class="py-1 hover:text-slate-950" href="#citation" x-on:click="menuOpen = false">Citation</a>
+                <a class="py-1 hover:text-slate-950" href="https://github.com/tahashieenavaz/aftab" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-x-0 top-0 h-full bg-white"></div>
+            <img class="absolute inset-0 h-full w-full object-cover opacity-10" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global.png" alt="">
+            <div class="absolute inset-0 bg-white/80"></div>
+
+            <div class="relative mx-auto max-w-7xl px-6 pb-14 pt-12 sm:pb-20 lg:pb-28 lg:pt-20">
+                <div class="max-w-4xl">
+                    <p class="font-bold text-cyan-700">Aftab / آفتاب</p>
+                    <h1 class="mt-4 max-w-4xl text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
+                        A research benchmark for encoder design in deep RL.
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-700 sm:text-xl">
+                        Standardized training, evaluation, and reproducibility tools for comparing CNN-based encoders in PQN across Atari.
+                    </p>
+
+                    <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                        <a class="inline-flex justify-center rounded-md bg-cyan-600 px-8 py-4 text-base font-bold text-white hover:bg-cyan-700" href="#results">Explore results</a>
+                        <a class="inline-flex justify-center rounded-md border border-cyan-200 bg-white px-8 py-4 text-base font-bold text-cyan-800 hover:bg-cyan-50" href="#workflow">Get started</a>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="rounded-lg bg-white/90 p-6 shadow-sm ring-1 ring-slate-200">
+                        <p class="text-sm font-semibold text-slate-500">Atari tasks</p>
+                        <p class="mt-2 text-4xl font-bold">57</p>
+                    </div>
+                    <div class="rounded-lg bg-white/90 p-6 shadow-sm ring-1 ring-slate-200">
+                        <p class="text-sm font-semibold text-slate-500">Training budget</p>
+                        <p class="mt-2 text-4xl font-bold">200M</p>
+                    </div>
+                    <div class="rounded-lg bg-white/90 p-6 shadow-sm ring-1 ring-slate-200">
+                        <p class="text-sm font-semibold text-slate-500">Published seeds</p>
+                        <p class="mt-2 text-4xl font-bold">4</p>
+                    </div>
+                    <div class="rounded-lg bg-white/90 p-6 shadow-sm ring-1 ring-slate-200">
+                        <p class="text-sm font-semibold text-slate-500">Backend</p>
+                        <p class="mt-2 text-4xl font-bold">PyTorch</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="benchmark" class="mx-auto max-w-7xl px-6 py-16 sm:py-24">
+            <div class="max-w-3xl">
+                <h2 class="text-4xl font-bold leading-tight sm:text-5xl">
+                    Controlled protocol.<br>
+                    Comparable encoders.<br>
+                    <span class="text-cyan-700">Reproducible reports.</span>
+                </h2>
+                <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
+                    Aftab keeps the training machinery fixed so architecture changes can be evaluated under the same Atari setup.
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-5 md:grid-cols-2">
+                <article class="overflow-hidden rounded-lg bg-cyan-50 p-6 md:p-8">
+                    <div class="grid gap-6 lg:grid-cols-[0.7fr_1fr] lg:items-start">
+                        <div class="rounded-lg bg-white p-4 shadow-sm">
+                            <img class="w-full" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header.svg" alt="Aftab project header">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Base encoder experiments</h3>
+                            <p class="mt-3 leading-7 text-slate-700">Compare PQN, Alpha, Beta, Gamma, Delta, Epsilon, Zeta, Eta, and Theta with shared hyperparameters and reporting.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="overflow-hidden rounded-lg bg-violet-50 p-6 md:p-8">
+                    <div class="grid gap-6 lg:grid-cols-[0.7fr_1fr] lg:items-start">
+                        <div class="rounded-lg bg-white p-4 shadow-sm">
+                            <img class="w-full" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/statistical_significance.png" alt="Hadamax statistical significance chart">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Hadamax variants</h3>
+                            <p class="mt-3 leading-7 text-slate-700">Evaluate Gamma Hadamax variants and Hadamax Nature DQN encoders using the same benchmarking framework.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-12 grid gap-8 md:grid-cols-3">
+                <div>
+                    <div class="grid h-12 w-12 place-items-center rounded-lg bg-cyan-100 text-cyan-700">
+                        <span class="text-xl font-black">1</span>
+                    </div>
+                    <h3 class="mt-4 text-2xl font-bold">Shared training</h3>
+                    <p class="mt-3 leading-7 text-slate-700">Rectified Adam, 2.5e-4 learning rate, 4096 batch size, and a 200M-frame budget.</p>
+                </div>
+                <div>
+                    <div class="grid h-12 w-12 place-items-center rounded-lg bg-amber-100 text-amber-700">
+                        <span class="text-xl font-black">2</span>
+                    </div>
+                    <h3 class="mt-4 text-2xl font-bold">Fixed Atari suite</h3>
+                    <p class="mt-3 leading-7 text-slate-700">Run the same environment list and seed set through the same agent API.</p>
+                </div>
+                <div>
+                    <div class="grid h-12 w-12 place-items-center rounded-lg bg-rose-100 text-rose-700">
+                        <span class="text-xl font-black">3</span>
+                    </div>
+                    <h3 class="mt-4 text-2xl font-bold">Published tables</h3>
+                    <p class="mt-3 leading-7 text-slate-700">Review human-normalized scores, raw scores, statistical significance, and parameter counts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="overflow-hidden py-12 sm:py-20" x-data="{ experiment: 'base' }">
+            <div class="mx-auto max-w-7xl px-6">
+                <div class="rounded-lg bg-cyan-600 px-5 pt-5 shadow-xl shadow-cyan-900/10 md:px-10 md:pt-10">
+                    <div class="rounded-lg bg-white p-3 shadow-lg">
+                        <div class="grid gap-3 lg:grid-cols-2" x-show="experiment === 'base'">
+                            <img class="w-full rounded-lg" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global.png" alt="Global IQM HNS results for base encoder experiments">
+                            <img class="w-full rounded-lg" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_zoomed.png" alt="Final 50M-frame IQM HNS results for base encoder experiments">
+                        </div>
+                        <div class="grid gap-3 lg:grid-cols-2" x-cloak x-show="experiment === 'hadamax'">
+                            <img class="w-full rounded-lg" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/global.png" alt="Global IQM HNS results for Hadamax encoder experiments">
+                            <img class="w-full rounded-lg" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/global_zoomed.png" alt="Final 50M-frame IQM HNS results for Hadamax encoder experiments">
+                        </div>
+                    </div>
+
+                    <div class="grid gap-8 px-1 py-8 text-white md:grid-cols-[1fr_auto] md:items-end md:px-0 md:py-10">
+                        <div>
+                            <h2 class="text-4xl font-bold leading-tight sm:text-5xl">Performance curves for every experiment family.</h2>
+                            <p class="mt-4 max-w-2xl text-lg leading-8 text-cyan-50">Switch between the base and Hadamax studies to inspect global IQM HNS and final 50M-frame behavior.</p>
+                        </div>
+                        <div class="inline-flex w-fit rounded-lg bg-white/15 p-1 text-sm font-bold">
+                            <button class="rounded-md px-4 py-2" type="button" x-on:click="experiment = 'base'" x-bind:aria-pressed="(experiment === 'base').toString()" x-bind:class="experiment === 'base' ? 'bg-white text-cyan-800' : 'text-white hover:bg-white/10'">Base</button>
+                            <button class="rounded-md px-4 py-2" type="button" x-on:click="experiment = 'hadamax'" x-bind:aria-pressed="(experiment === 'hadamax').toString()" x-bind:class="experiment === 'hadamax' ? 'bg-white text-cyan-800' : 'text-white hover:bg-white/10'">Hadamax</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <a class="rounded-lg bg-white p-6 font-bold shadow-sm ring-1 ring-slate-200 hover:ring-cyan-300" href="https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md" target="_blank" rel="noreferrer">Base HNS table</a>
+                    <a class="rounded-lg bg-white p-6 font-bold shadow-sm ring-1 ring-slate-200 hover:ring-cyan-300" href="https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md" target="_blank" rel="noreferrer">Base scores</a>
+                    <a class="rounded-lg bg-white p-6 font-bold shadow-sm ring-1 ring-slate-200 hover:ring-cyan-300" href="https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md" target="_blank" rel="noreferrer">Hadamax HNS</a>
+                    <a class="rounded-lg bg-white p-6 font-bold shadow-sm ring-1 ring-slate-200 hover:ring-cyan-300" href="https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md" target="_blank" rel="noreferrer">Hadamax scores</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="mx-auto max-w-7xl px-6 py-16 sm:py-24">
+            <div class="grid gap-12 lg:grid-cols-2">
+                <div>
+                    <h2 class="max-w-xl text-4xl font-bold leading-tight sm:text-5xl">Run a study with a small, direct API.</h2>
+                    <p class="mt-5 max-w-xl text-lg leading-8 text-slate-700">
+                        Install the package, choose an encoder, and let Aftab handle the common training and logging workflow.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a class="rounded-md bg-cyan-600 px-8 py-4 font-bold text-white hover:bg-cyan-700" href="https://pypi.org/project/aftab/" target="_blank" rel="noreferrer">Install from PyPI</a>
+                        <a class="rounded-md bg-violet-50 px-8 py-4 font-bold text-violet-800 ring-1 ring-violet-200 hover:bg-violet-100" href="https://github.com/tahashieenavaz/aftab#readme" target="_blank" rel="noreferrer">Read docs</a>
+                    </div>
+                </div>
+
+                <div class="rounded-lg bg-slate-900 p-6 text-slate-100 shadow-xl">
+                    <pre class="overflow-x-auto text-sm leading-7"><code>pip install aftab
+
+from aftab import Aftab
+from aftab import aftab_environments
+
+for environment in aftab_environments:
+    agent = Aftab(encoder="gamma", frames="pilot")
+    agent.train(environment=environment, seed=1)
+    agent.log()</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-6 pb-16 sm:pb-24" id="citation">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl font-bold leading-tight sm:text-5xl">
+                    Research-ready references.<br>
+                    <span class="text-cyan-700">Reproducible by default.</span>
+                </h2>
+                <p class="mt-5 text-lg leading-8 text-slate-700">
+                    Use the published seed list for replication and the README BibTeX entry for citation.
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-5 lg:grid-cols-3">
+                <div class="rounded-lg bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-2xl font-bold">Install</h3>
+                    <p class="mt-3 text-slate-700">Package install for local experiments and scripts.</p>
+                    <p class="mt-10 text-3xl font-bold text-cyan-700">pip</p>
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-100 p-4 text-sm"><code>pip install aftab</code></pre>
+                </div>
+
+                <div class="rounded-lg bg-white p-8 shadow-sm ring-1 ring-slate-200">
+                    <h3 class="text-2xl font-bold">Replicate</h3>
+                    <p class="mt-3 text-slate-700">Run all environments with the published seeds.</p>
+                    <p class="mt-10 text-3xl font-bold text-cyan-700">4 seeds</p>
+                    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-100 p-4 text-sm"><code>from aftab import aftab_seeds</code></pre>
+                </div>
+
+                <div class="relative rounded-lg bg-cyan-600 p-8 text-white shadow-xl shadow-cyan-900/10">
+                    <h3 class="text-2xl font-bold">Cite</h3>
+                    <p class="mt-3 text-cyan-50">Reference the benchmark in related encoder studies.</p>
+                    <pre class="mt-10 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100"><code>@article{aftab2026benchmarking,
+  title={Aftab: Benchmarking {CNN} Encoders in {PQN}},
+  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
+  journal={arXiv preprint arXiv:YYMM.NNNNN},
+  year={2026}
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-8 border-t border-slate-200 bg-white">
+        <div class="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+                <div class="inline-flex items-center gap-3 font-bold">
+                    <span class="grid h-10 w-10 place-items-center rounded-lg bg-cyan-600 text-sm font-black text-white">آ</span>
+                    <span>Aftab</span>
+                </div>
+                <p class="mt-4 max-w-xs text-sm leading-6 text-slate-600">Benchmarking CNN encoders in PQN for Atari reinforcement learning research.</p>
+            </div>
+            <div>
+                <h4 class="font-bold">Project</h4>
+                <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                    <li><a class="hover:text-slate-950" href="#benchmark">Benchmark</a></li>
+                    <li><a class="hover:text-slate-950" href="#results">Results</a></li>
+                    <li><a class="hover:text-slate-950" href="#workflow">Workflow</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold">Resources</h4>
+                <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                    <li><a class="hover:text-slate-950" href="https://github.com/tahashieenavaz/aftab" target="_blank" rel="noreferrer">GitHub</a></li>
+                    <li><a class="hover:text-slate-950" href="https://pypi.org/project/aftab/" target="_blank" rel="noreferrer">PyPI</a></li>
+                    <li><a class="hover:text-slate-950" href="https://github.com/tahashieenavaz/aftab#readme" target="_blank" rel="noreferrer">README</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold">License</h4>
+                <p class="mt-4 text-sm leading-6 text-slate-600">© 2025 Taha Shieenavaz. Licensed under CC BY-NC 4.0.</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

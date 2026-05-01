@@ -27,11 +27,11 @@ class TrainingResultsMixin:
     def __build_log_payload(self) -> dict:
         duration = self.results.duration or 0
         data = {
-            "lambda": self.return_lambda,
             "encoder": self.encoder.__name__,
+            "optimizer": self.optimizer.__name__,
+            "lambda": self.return_lambda,
             "network": self.network,
             "frames": self.frames,
-            "optimizer": self.optimizer,
             "frame_skip": self.frame_skip,
             "training_reward": self.results.rewards.train,
             "test_reward": self.results.rewards.test,
