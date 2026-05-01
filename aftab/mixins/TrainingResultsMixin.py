@@ -27,6 +27,8 @@ class TrainingResultsMixin:
     def __build_log_payload(self) -> dict:
         duration = self.results.duration or 0
         data = {
+            "environment": self.buffer.environment,
+            "seed": self.buffer.seed,
             "encoder": self.encoder.__name__,
             "optimizer": self.optimizer.__name__,
             "lambda": self.return_lambda,
