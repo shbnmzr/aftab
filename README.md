@@ -85,7 +85,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-We highly recommend using Micromamba for creating virtual environments with instructions detailed [here](./scripts/README.md).
+We highly recommend using [Micromamba](https://github.com/mamba-org/micromamba-releases) for creating virtual environments with instructions detailed [here](./scripts/README.md).
 
 ## Usage
 
