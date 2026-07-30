@@ -85,6 +85,8 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
+We highly recommend using Micromamba for creating virtual environments with instructions detailed [here](./scripts/README.md).
+
 ## Usage
 
 > Note that the JAX API is under development, but using current PyTorch version you need to expect training of your agents to take up to 13 hours for the best configuration. We hope we are going to get much faster results using JAX. 
