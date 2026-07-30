@@ -38,7 +38,7 @@ We have compiled a few videos comparing PQN and Aftab agents. Watch them [here](
 
 </div>
 
-### Hadamard Product Experiments
+### Hadamax Experiments
 
 <div align="center">
 
