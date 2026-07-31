@@ -8,8 +8,8 @@ from .ZetaEncoder import ZetaEncoder
 from .EtaEncoder import EtaEncoder
 from .ThetaEncoder import ThetaEncoder
 from .HadamaxNatureDQNEncoder import HadamaxNatureDQNEncoder
-from .HadamaxGammaEncoderV1 import HadamaxGammaEncoderV1
-from .HadamaxGammaEncoderV2 import HadamaxGammaEncoderV2
+from .HadamaxGammaEncoderValid import HadamaxGammaEncoderValid
+from .HadamaxGammaEncoderSame import HadamaxGammaEncoderSame
 from .HadamaxEpsilonEncoder import HadamaxEpsilonEncoder
 from .HadamaxZetaEncoder import HadamaxZetaEncoder
 from .HadamaxDeltaEncoder import HadamaxDeltaEncoder

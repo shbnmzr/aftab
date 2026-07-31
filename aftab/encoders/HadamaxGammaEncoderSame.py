@@ -3,7 +3,7 @@ from aftab.modules import HadamaxBlock
 from aftab.typing import ModuleType
 
 
-class HadamaxGammaEncoderV1(torch.nn.Module):
+class HadamaxGammaEncoderSame(torch.nn.Module):
     def __init__(self, *, activation: ModuleType = torch.nn.GELU, in_channels: int = 4):
         super().__init__()
         self.stream = torch.nn.Sequential(
@@ -37,7 +37,7 @@ class HadamaxGammaEncoderV1(torch.nn.Module):
                 padding=1,
                 pool_kernel=3,
                 pool_stride=1,
-                pool_padding=0,
+                pool_padding=1,
                 chi=activation,
                 psi=activation,
             ),
@@ -60,7 +60,7 @@ class HadamaxGammaEncoderV1(torch.nn.Module):
                 padding=1,
                 pool_kernel=3,
                 pool_stride=1,
-                pool_padding=0,
+                pool_padding=1,
                 chi=activation,
                 psi=activation,
             ),
