@@ -8,8 +8,8 @@ from aftab.encoders import EtaEncoder
 from aftab.encoders import ZetaEncoder
 from aftab.encoders import ThetaEncoder
 from aftab.encoders import HadamaxNatureDQNEncoder
-from aftab.encoders import HadamaxGammaEncoderV1
-from aftab.encoders import HadamaxGammaEncoderV2
+from aftab.encoders import HadamaxGammaEncoderSame
+from aftab.encoders import HadamaxGammaEncoderValid
 from aftab.encoders import HadamaxEpsilonEncoder
 from aftab.encoders import HadamaxZetaEncoder
 from aftab.encoders import HadamaxDeltaEncoder
@@ -28,10 +28,10 @@ encoder_map = {
     "hadamax": HadamaxNatureDQNEncoder,
     "dqnhadamax": HadamaxNatureDQNEncoder,
     "pqnhadamax": HadamaxNatureDQNEncoder,
-    "hadamaxgammav1": HadamaxGammaEncoderV1,
-    "gammahadamaxv1": HadamaxGammaEncoderV1,
-    "hadamaxgammav2": HadamaxGammaEncoderV2,
-    "gammahadamaxv2": HadamaxGammaEncoderV2,
+    "hadamaxgammav1": HadamaxGammaEncoderValid,
+    "gammahadamaxv1": HadamaxGammaEncoderValid,
+    "hadamaxgammav2": HadamaxGammaEncoderSame,
+    "gammahadamaxv2": HadamaxGammaEncoderSame,
     "hadamaxepsilon": HadamaxEpsilonEncoder,
     "epsilonhadamax": HadamaxEpsilonEncoder,
     "hadamaxzeta": HadamaxZetaEncoder,
