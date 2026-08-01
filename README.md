@@ -21,7 +21,8 @@
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
 
-<div align="center">
+## Supported Languages
+
 <table>
   <thead>
     <tr>
@@ -72,7 +73,6 @@
     </tr>
   </tbody>
 </table>
-</div>
 
 
 ## Overview
