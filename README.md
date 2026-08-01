@@ -89,7 +89,7 @@ We highly recommend using [Micromamba](https://github.com/mamba-org/micromamba-r
 
 ## Training Agents
 
-Note that the JAX API is under development, but using current PyTorch version you need to expect training of your agents to take up to 13 hours for the best configuration. We hope we are going to get much faster results using JAX. 
+**Currently JAX API is under development** and is planned to be finished by the end of 2026. Contributions are highly encouraged.
 
 ```python
 from aftab import Aftab
