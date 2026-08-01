@@ -87,7 +87,7 @@ pip install -e aftab_source
 
 We highly recommend using [Micromamba](https://github.com/mamba-org/micromamba-releases) for creating virtual environments with instructions detailed [here](./scripts/README.md).
 
-## Usage
+## Training Agents
 
 Note that the JAX API is under development, but using current PyTorch version you need to expect training of your agents to take up to 13 hours for the best configuration. We hope we are going to get much faster results using JAX. 
 
