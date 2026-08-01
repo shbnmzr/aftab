@@ -2,6 +2,12 @@
   <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header.svg" />
 </div>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/header-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="figures/header-light.svg">
+  <img alt="Aftab paper" src="figures/header-light.svg">
+</picture>
+
 <p align="center">
   <img src="https://img.shields.io/pypi/v/aftab" />
   <img src="https://img.shields.io/github/stars/tahashieenavaz/aftab?style=social" />
