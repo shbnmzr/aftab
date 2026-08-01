@@ -23,9 +23,9 @@
 
 <div align="center">
   <a href="i18n/farsi.md">Farsi/Persian</a> 🇮🇷 | 
-  <a href="i18n/italian.md">Italian</a> 🇮🇹 | 
-  <a href="i18n/french.md">French</a> 🇫🇷 | 
-  <a href="i18n/chinese.md">Chinese</a> 🇨🇳 | 
+  <a href="i18n/italian.md">Italian</a> 🇮🇹 🇨🇭 🇸🇲 🇻🇦 | 
+  <a href="i18n/french.md">French</a> 🇧🇪 🇧🇯 🇧🇫 🇧🇮 🇨🇲 🇨🇦 🇨🇫 🇹🇩 🇰🇲 🇨🇩 🇨🇬 🇨🇮 🇩🇯 🇫🇷 🇬🇦 🇬🇶 🇭🇹 🇱🇺 🇲🇬 🇲🇱 🇲🇨 🇳🇪 🇷🇼 🇸🇳 🇸🇨 🇨🇭 🇹🇬 🇻🇺 | 
+  <a href="i18n/chinese.md">Chinese</a> 🇨🇳 🇸🇬 | 
   <a href="i18n/vietnamese.md">Vietnamese</a> 🇻🇳 | 
   <a href="i18n/korean.md">Korean</a> 🇰🇷 | 
   <a href="i18n/japanese.md">Japanese</a> 🇯🇵 | 
