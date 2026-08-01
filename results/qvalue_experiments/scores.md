@@ -1,4 +1,4 @@
-|                     | PQN            | Distributional Duelling   | Bootstrapped Duelling   | Distributional Bootstrapped Duelling   |
+|                     | PQN            | Distributional Duelling   | Bootstrapped Duelling   | Aftab   |
 |:--------------------|:---------------|:--------------------------|:------------------------|:---------------------------------------|
 | Alien               | 3966.508       | 20487.885                 | **28339.249**           | 21757.435                              |
 | Amidar              | 1103.266       | 2685.032                  | **3023.103**            | 2963.572                               |
