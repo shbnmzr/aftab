@@ -3,7 +3,7 @@ import numpy
 import time
 from typing import Optional
 from aftab.common import RolloutBuffer
-from .AftabBaseMixin import AftabBaseMixin
+from .aftab_base_mixin import AftabBaseMixin
 
 _TORCH_TO_NUMPY_DTYPE = {
     torch.bool: numpy.bool_,

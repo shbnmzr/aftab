@@ -2,7 +2,7 @@ from collections.abc import Mapping
 
 import envpool
 
-from .AftabBaseMixin import AftabBaseMixin
+from .aftab_base_mixin import AftabBaseMixin
 
 
 class AftabEnvironmentMixin(AftabBaseMixin):

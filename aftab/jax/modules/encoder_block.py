@@ -1,7 +1,7 @@
 import jax
 import flax.linen as nn
 from typing import Callable
-from .LayerNorm2d import LayerNorm2d
+from .layer_norm2d import LayerNorm2d
 
 
 class EncoderBlock(nn.Module):

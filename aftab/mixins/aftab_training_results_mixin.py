@@ -1,6 +1,6 @@
 from baloot import funnel
 from aftab.common import _make_sure_directory_exists
-from .AftabBaseMixin import AftabBaseMixin
+from .aftab_base_mixin import AftabBaseMixin
 
 
 class AftabTrainingResultsMixin(AftabBaseMixin):

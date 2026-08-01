@@ -1,6 +1,6 @@
 import torch
 from aftab.functions import lambda_returns
-from .AftabBaseMixin import AftabBaseMixin
+from .aftab_base_mixin import AftabBaseMixin
 
 
 class AftabReturnsMixin(AftabBaseMixin):
