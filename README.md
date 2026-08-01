@@ -59,7 +59,7 @@ References:
 
 | IQM HNS |
 | :---: |
-| ![Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/global.png) |
+| ![Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global.png) |
 | IQM HNS (Last 50M Frames) |
 | ![Last 50M Frames](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/global_zoomed.png) |
 
@@ -208,17 +208,12 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ### Encoder Experiments
 
-|         |   PQN |   Alpha |   Beta |   Gamma |   Delta |   Epsilon |   Zeta |   Eta |   Theta |
-|:--------|------:|--------:|-------:|--------:|--------:|----------:|-------:|------:|--------:|
-| PQN     | -     |   -     |  -     |   -     |   -     |     -     |  -     | -     |   -     |
-| Alpha   | 0     |   -     |  -     |   -     |   -     |     -     |  -     | -     |   -     |
-| Beta    | 0     |   0.847 |  -     |   -     |   -     |     -     |  -     | -     |   -     |
-| Gamma   | 0     |   0.295 |  0.802 |   -     |   -     |     -     |  -     | -     |   -     |
-| Delta   | 0     |   0     |  0     |   0     |   -     |     -     |  -     | -     |   -     |
-| Epsilon | 0     |   0.104 |  0.068 |   0.01  |   0     |     -     |  -     | -     |   -     |
-| Zeta    | 0     |   0.145 |  0.293 |   0.024 |   0     |     0.552 |  -     | -     |   -     | 
-| Eta     | 0.001 |   0.337 |  0.757 |   0.221 |   0     |     0.819 |  0.967 | -     |   -     | 
-| Theta   | 0.431 |   0     |  0.004 |   0     |   0.046 |     0.001 |  0.001 | 0.002 |   -     |
+| Wilcoxon Signed Rank Test |
+| :---: |
+| ![Encoder Experiments Wilcoxon Signed Rank Test](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon.png) |
+| Wilcoxon Signed Rank Test (Corrected) |
+| ![Encoder Experiments Wilcoxon Signed Rank Test Corrected](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon_bonferroni.png) |
+
 
 ### Hadamax Experiments
 
