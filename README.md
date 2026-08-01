@@ -1,7 +1,3 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header.svg" />
-</div>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="figures/header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="figures/header-light.svg">
