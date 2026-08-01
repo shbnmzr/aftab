@@ -148,6 +148,11 @@ agent = Aftab(encoder=CustomImageEncoder)
   - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
   - [Loss Evolution](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
 
+**Procgen Experiments**:
+- Tables:
+  - [PHS](results/procgen_experiments/procgen_normalized_scores.md)
+  - [Scores](results/procgen_experiments/scores.md)
+
 
 ## Model Complexity
 
