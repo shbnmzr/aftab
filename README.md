@@ -105,7 +105,7 @@ for environment in aftab_environments:
 ```
 
 
-## Defining a Custom Encoder
+## Custom Encoder Injection
 
 You can define your own encoder as a PyTorch module and pass it to the agent:
 
