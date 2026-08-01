@@ -21,6 +21,16 @@
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
 
+<div align="center">
+  <a href="i18n/farsi.md">Farsi/Persian 🇮🇷</a> | 
+  <a href="i18n/italian.md">Italian 🇮🇹</a> | 
+  <a href="i18n/french.md">French 🇫🇷</a> | 
+  <a href="i18n/vietnamese.md">Chinese 🇨🇳</a> | 
+  <a href="i18n/vietnamese.md">Vietnamese 🇻🇳</a> | 
+  <a href="i18n/korean.md">Korean 🇰🇷</a> | 
+  <a href="i18n/japanese.md">Japanese 🇯🇵</a> | 
+</div>
+
 
 ## Overview
 
