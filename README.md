@@ -29,6 +29,8 @@
   <a href="i18n/vietnamese.md">Vietnamese 🇻🇳</a> | 
   <a href="i18n/korean.md">Korean 🇰🇷</a> | 
   <a href="i18n/japanese.md">Japanese 🇯🇵</a> | 
+  <a href="i18n/hindi.md">Hindi 🇮🇳</a> | 
+  <a href="i18n/portuguese.md">Portuguese 🇵🇹🇧🇷</a> | 
 </div>
 
 
