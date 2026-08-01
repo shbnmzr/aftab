@@ -22,16 +22,56 @@
 </div>
 
 <div align="center">
-  <a href="i18n/farsi.md">Farsi/Persian</a> 🇮🇷 🇦🇫 🇹🇯 | 
-  <a href="i18n/italian.md">Italian</a> 🇮🇹 🇨🇭 🇸🇲 🇻🇦 | 
-  <a href="i18n/french.md">French</a> 🇧🇪 🇧🇯 🇧🇫 🇧🇮 🇨🇲 🇨🇦 🇨🇫 🇹🇩 🇰🇲 🇨🇩 🇨🇬 🇨🇮 🇩🇯 🇫🇷 🇬🇦 🇬🇶 🇭🇹 🇱🇺 🇲🇬 🇲🇱 🇲🇨 🇳🇪 🇷🇼 🇸🇳 🇸🇨 🇨🇭 🇹🇬 🇻🇺 | 
-  <a href="i18n/chinese.md">Chinese</a> 🇨🇳 🇸🇬 | 
-  <a href="i18n/vietnamese.md">Vietnamese</a> 🇻🇳 | 
-  <a href="i18n/korean.md">Korean</a> 🇰🇷 🇰🇵 | 
-  <a href="i18n/japanese.md">Japanese</a> 🇯🇵 | 
-  <a href="i18n/hindi.md">Hindi</a> 🇮🇳 | 
-  <a href="i18n/portuguese.md">Portuguese</a> 🇵🇹 🇦🇴 🇧🇷 🇨🇻 🇬🇼 🇲🇿  🇸🇹 🇹🇱 🇬🇶 | 
-  <a href="i18n/arabic.md">Arabic</a> 🇱🇧 🇩🇿 🇧🇭 🇰🇲 🇩🇯 🇪🇬 🇮🇶 🇯🇴 🇰🇼 🇱🇾 🇲🇷 🇲🇦 🇴🇲 🇵🇸 🇶🇦 🇸🇦 🇸🇴 🇸🇩 🇸🇾 🇹🇳 🇦🇪 🇾🇪  
+<table>
+  <thead>
+    <tr>
+      <th>Language</th>
+      <th>Countries</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="i18n/farsi.md">🇮🇷 Farsi / Persian</a></td>
+      <td>🇮🇷 🇦🇫 🇹🇯</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/italian.md">🇮🇹 Italian</a></td>
+      <td>🇮🇹 🇨🇭 🇸🇲 🇻🇦</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/french.md">🇫🇷 French</a></td>
+      <td>🇧🇪 🇧🇯 🇧🇫 🇧🇮 🇨🇲 🇨🇦 🇨🇫 🇹🇩 🇰🇲 🇨🇩 🇨🇬 🇨🇮 🇩🇯 🇫🇷 🇬🇦 🇬🇶 🇭🇹 🇱🇺 🇲🇬 🇲🇱 🇲🇨 🇳🇪 🇷🇼 🇸🇳 🇸🇨 🇨🇭 🇹🇬 🇻🇺</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/chinese.md">🇨🇳 Chinese</a></td>
+      <td>🇨🇳 🇸🇬</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/vietnamese.md">🇻🇳 Vietnamese</a></td>
+      <td>🇻🇳</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/korean.md">🇰🇷 Korean</a></td>
+      <td>🇰🇷 🇰🇵</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/japanese.md">🇯🇵 Japanese</a></td>
+      <td>🇯🇵</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/hindi.md">🇮🇳 Hindi</a></td>
+      <td>🇮🇳</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/portuguese.md">🇵🇹 Portuguese</a></td>
+      <td>🇵🇹 🇦🇴 🇧🇷 🇨🇻 🇬🇼 🇲🇿 🇸🇹 🇹🇱 🇬🇶</td>
+    </tr>
+    <tr>
+      <td><a href="i18n/arabic.md">🇸🇦 Arabic</a></td>
+      <td>🇩🇿 🇧🇭 🇰🇲 🇩🇯 🇪🇬 🇮🇶 🇯🇴 🇰🇼 🇱🇧 🇱🇾 🇲🇷 🇲🇦 🇴🇲 🇵🇸 🇶🇦 🇸🇦 🇸🇴 🇸🇩 🇸🇾 🇹🇳 🇦🇪 🇾🇪</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 
