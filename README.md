@@ -59,7 +59,7 @@ References:
 
 | IQM HNS |
 | :---: |
-| ![Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global.png) |
+| ![Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/global.png) |
 | IQM HNS (Last 50M Frames) |
 | ![Last 50M Frames](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/global_zoomed.png) |
 
