@@ -208,12 +208,18 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ### Encoder Experiments
 
-| Wilcoxon Signed Rank Test |
-| :---: |
-| ![Encoder Experiments Wilcoxon Signed Rank Test](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon.png) |
-| Wilcoxon Signed Rank Test (Corrected) |
-| ![Encoder Experiments Wilcoxon Signed Rank Test Corrected](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon_bonferroni.png) |
-
+<table>
+  <tr>
+    <td align="center">
+      <b>Wilcoxon Signed Rank Test</b><br>
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon.png" width="400">
+    </td>
+    <td align="center">
+      <b>Wilcoxon Signed Rank Test (Corrected)</b><br>
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon_bonferroni.png" width="400">
+    </td>
+  </tr>
+</table>
 
 ### Hadamax Experiments
 
