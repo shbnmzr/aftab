@@ -276,7 +276,7 @@ agent = Aftab(encoder=CustomImageEncoder)
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/poi.png" />
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/poi.png" />
     </td>
   </tr>
 </table>
