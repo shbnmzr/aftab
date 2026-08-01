@@ -1,5 +1,5 @@
 from typing import Callable
-from .BaseEncoder import BaseEncoder
+from .base_encoder import BaseEncoder
 
 
 def AlphaEncoder(activation: Callable):

@@ -1,6 +1,6 @@
 import flax.linen as nn
 from typing import Callable
-from .BaseEncoder import BaseEncoder
+from .base_encoder import BaseEncoder
 
 
 def BetaEncoder(activation: Callable = nn.relu):
