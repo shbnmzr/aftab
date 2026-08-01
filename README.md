@@ -233,13 +233,28 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ### Hadamax Experiments
 
-|                    |   Gamma |   Hadamax Gamma V1 |   Hadamax Gamma V2 |   Hadamax |
-|:-------------------|--------:|-------------------:|-------------------:|----------:|
-| Gamma              |       - |              -     |              -     |     -     |
-| Hadamax Gamma V1   |       0 |              -     |              -     |     -     |
-| Hadamax Gamma V2   |       0 |              0.72  |              -     |     -     |
-| Hadamax Nature DQN |       0 |              0.078 |              0.151 |     -     |
-
+<table>
+  <tr>
+    <th align="center">Wilcoxon Signed Rank Test</th>
+    <th align="center">Wilcoxon Signed Rank Test (Corrected)</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/wilcoxon.png" width="400">
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/wilcoxon_bonferroni.png" width="400">
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2" align="center">Probability of Improvement</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/poi.png" />
+    </td>
+  </tr>
+</table>
 
 ### Q-Value Experiments
 
