@@ -258,12 +258,28 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ### Q-Value Experiments
 
-|                                      |   PQN |   Distributional Duelling |   Bootstrapped Duelling |   Distributional Bootstrapped Duelling |
-|:-------------------------------------|------:|--------------------------:|------------------------:|---------------------------------------:|
-| PQN                                  |     - |                     -     |                   -     |                                    -   |
-| Distributional Duelling              |     0 |                     -     |                   - |                                    -   |
-| Bootstrapped Duelling                |     0 |                     0.115 |                   -     |                                    - |
-| Distributional Bootstrapped Duelling |     0 |                     0     |                   0.3   |                                    -   |
+<table>
+  <tr>
+    <th align="center">Wilcoxon Signed Rank Test</th>
+    <th align="center">Wilcoxon Signed Rank Test (Corrected)</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/wilcoxon.png" width="400">
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/wilcoxon_bonferroni.png" width="400">
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2" align="center">Probability of Improvement</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/poi.png" />
+    </td>
+  </tr>
+</table>
 
 ## Reproducibility
 
