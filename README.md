@@ -221,6 +221,14 @@ agent = Aftab(encoder=CustomImageEncoder)
       <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon_bonferroni.png" width="400">
     </td>
   </tr>
+  <tr>
+    <th colspan="2" align="center">Probability of Improvement</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/poi.png" />
+    </td>
+  </tr>
 </table>
 
 ### Hadamax Experiments
