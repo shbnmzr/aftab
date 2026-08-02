@@ -225,36 +225,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## Results
 
-**Encoder Experiments**:
+All experimental results are organized by experiment category. Each section contains:
+- **Tables**: numerical results (HNS/PHS and raw scores)
+- **Charts**: IQM normalized scores and training curves
 
-- Tables: 
-  - [HNS](results/encoder_experiments/human_normalized_scores.md)
-  - [Scores](results/encoder_experiments/scores.md)
-- Charts:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [Loss Evolution](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### Encoder Experiments
 
-**Hadamax Experiments**:
+**Tables**
+- [Human Normalized Scores](results/encoder_experiments/human_normalized_scores.md)
+- [Scores](results/encoder_experiments/scores.md)
 
-- Tables:
-  - [HNS](results/hadamax_experiments/human_normalized_scores.md)
-  - [Scores](results/hadamax_experiments/scores.md)
-- Charts:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [Loss Evolution](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**Charts**
+- [IQM HNS](figures/encoder_experiments/human_normalized_score)
+- [Loss Evolution](figures/encoder_experiments/loss)
 
-**Q-Value Experiments**:
-- Tables:
-  - [HNS](results/qvalue_experiments/human_normalized_scores.md)
-  - [Scores](results/qvalue_experiments/scores.md)
-- Charts:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [Loss Evolution](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Procgen Experiments**:
-- Tables:
-  - [PHS](results/procgen_experiments/procgen_normalized_scores.md)
-  - [Scores](results/procgen_experiments/scores.md)
+### Hadamax Experiments
+
+**Tables**
+- [Human Normalized Scores](results/hadamax_experiments/human_normalized_scores.md)
+- [Scores](results/hadamax_experiments/scores.md)
+
+**Charts**
+- [IQM HNS](figures/hadamax_experiments/human_normalized_score)
+- [Loss Evolution](figures/hadamax_experiments/loss)
+
+---
+
+### Q-Value Experiments
+
+**Tables**
+- [Human Normalized Scores](results/qvalue_experiments/human_normalized_scores.md)
+- [Scores](results/qvalue_experiments/scores.md)
+
+**Charts**
+- [IQM HNS](figures/qvalue_experiments/human_normalized_score)
+- [Loss Evolution](figures/qvalue_experiments/loss)
+
+---
+
+### Procgen Experiments
+
+**Tables**
+- [Procgen Normalized Scores](results/procgen_experiments/procgen_normalized_scores.md)
+- [Scores](results/procgen_experiments/scores.md)
 
 
 ## Model Complexity
