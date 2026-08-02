@@ -84,13 +84,26 @@ We have compiled a few videos comparing PQN and Aftab agents. Watch them [here](
 ### Encoder Experiments
 
 <div align="center">
-
-| IQM HNS |
-| :---: |
-| ![Global Performance](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global.png) |
-| IQM HNS (Last 50M Frames) |
-| ![Last 50M Frames](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_zoomed.png) |
-
+  <table>
+    <tr>
+      <th>IQM HNS</th>
+    </tr>
+    <tr>
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_dark.png" />
+        <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_light.png" />
+      </picture>    
+    </tr>
+    <tr>
+      <th>IQM HNS (Last 50M Frames)</th>
+    </tr>
+    <tr>
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_zoomed_dark.png" />
+        <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/global_zoomed_light.png" />
+      </picture>   
+    </tr>
+  </table>
 </div>
 
 ### Hadamax Experiments
