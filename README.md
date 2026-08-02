@@ -111,8 +111,6 @@ References:
 ### Q-Values Experiments
 
 <div align="center">
-
-<div align="center">
   <table>
     <tr>
       <th>IQM HNS</th>
@@ -139,12 +137,39 @@ References:
   </table>
 </div>
 
-</div>
-
 References:
 - [Stop Regressing](https://arxiv.org/abs/2403.03950)
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
+
+### Procgen (Overfitting Prevention) Experiments
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>    
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (Last 50M Frames)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## Installation
 
