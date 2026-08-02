@@ -275,10 +275,10 @@ agent = Aftab(encoder=CustomImageEncoder)
   </tr>
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon.png" width="400">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon.png" />
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon_bonferroni.png" width="400">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/wilcoxon_bonferroni.png" />
     </td>
   </tr>
   <tr>
@@ -300,10 +300,10 @@ agent = Aftab(encoder=CustomImageEncoder)
   </tr>
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/wilcoxon.png" width="400">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/wilcoxon.png" />
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/wilcoxon_bonferroni.png" width="400">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/wilcoxon_bonferroni.png" />
     </td>
   </tr>
   <tr>
@@ -325,10 +325,10 @@ agent = Aftab(encoder=CustomImageEncoder)
   </tr>
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/wilcoxon.png" width="400">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/wilcoxon.png" />
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/wilcoxon_bonferroni.png" width="400">
+      <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/wilcoxon_bonferroni.png" />
     </td>
   </tr>
   <tr>
