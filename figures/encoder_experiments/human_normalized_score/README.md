@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="../legend_dark.png">
-    <img src="../legend_light.png" width="300" />
+    <img src="../legend_light.png" />
   </picture>
 </div>
 
