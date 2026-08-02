@@ -22,7 +22,15 @@
 </div>
 
 <div align="center">
-  [فارسی](./i18n/farsi.md) | [Italiana](./i18n/italian.md) | [Française](./i18n/french.md) | [tiếng Việt](./i18n/vietnamese.md) | [中国人](./i18n/chinese.md) | [한국인](./i18n/korean.md) | [日本語](./i18n/japanese.md)
+  <a href="./i18n/farsi.md">فارسی</a> |
+  <a href="./i18n/italian.md">Italiano</a> |
+  <a href="./i18n/french.md">Français</a> |
+  <a href="./i18n/vietnamese.md">Tiếng Việt</a> |
+  <a href="./i18n/chinese.md">中文</a> |
+  <a href="./i18n/korean.md">한국어</a> |
+  <a href="./i18n/japanese.md">日本語</a> |
+  <a href="./i18n/turkish.md">Türkçe</a> |
+  <a href="./i18n/hindi.md">हिन्दी</a>
 </div>
 
 ## Overview
