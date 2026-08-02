@@ -21,59 +21,9 @@
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
 
-<!-- ## Supported Languages
-
-<table>
-  <thead>
-    <tr>
-      <th>Language</th>
-      <th>Countries</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="i18n/farsi.md">Farsi / Persian</a></td>
-      <td>🇮🇷 🇦🇫 🇹🇯</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/italian.md">Italian</a></td>
-      <td>🇮🇹 🇨🇭 🇸🇲 🇻🇦</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/french.md">French</a></td>
-      <td>🇧🇪 🇧🇯 🇧🇫 🇧🇮 🇨🇲 🇨🇦 🇨🇫 🇹🇩 🇰🇲 🇨🇩 🇨🇬 🇨🇮 🇩🇯 🇫🇷 🇬🇦 🇬🇶 🇭🇹 🇱🇺 🇲🇬 🇲🇱 🇲🇨 🇳🇪 🇷🇼 🇸🇳 🇸🇨 🇨🇭 🇹🇬 🇻🇺</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/chinese.md">Chinese</a></td>
-      <td>🇨🇳 🇸🇬</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/vietnamese.md">Vietnamese</a></td>
-      <td>🇻🇳</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/korean.md">Korean</a></td>
-      <td>🇰🇷 🇰🇵</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/japanese.md">Japanese</a></td>
-      <td>🇯🇵</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/hindi.md">Hindi</a></td>
-      <td>🇮🇳</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/portuguese.md">Portuguese</a></td>
-      <td>🇵🇹 🇦🇴 🇧🇷 🇨🇻 🇬🇼 🇲🇿 🇸🇹 🇹🇱 🇬🇶</td>
-    </tr>
-    <tr>
-      <td><a href="i18n/arabic.md">Arabic</a></td>
-      <td>🇩🇿 🇧🇭 🇰🇲 🇩🇯 🇪🇬 🇮🇶 🇯🇴 🇰🇼 🇱🇧 🇱🇾 🇲🇷 🇲🇦 🇴🇲 🇵🇸 🇶🇦 🇸🇦 🇸🇴 🇸🇩 🇸🇾 🇹🇳 🇦🇪 🇾🇪</td>
-    </tr>
-  </tbody>
-</table> -->
-
+<div align="center">
+  [فارسی](./i18n/farsi.md) | [Italiana](./i18n/italian.md) | [Française](./i18n/french.md) | [tiếng Việt](./i18n/vietnamese.md) | [中国人](./i18n/chinese.md) | [한국인](./i18n/korean.md) | [日本語](./i18n/japanese.md)
+</div>
 
 ## Overview
 
