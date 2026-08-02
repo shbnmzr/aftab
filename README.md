@@ -22,15 +22,23 @@
 </div>
 
 <div align="center">
-  <a href="./i18n/farsi.md">فارسی</a> |
-  <a href="./i18n/italian.md">Italiano</a> |
-  <a href="./i18n/french.md">Français</a> |
-  <a href="./i18n/vietnamese.md">Tiếng Việt</a> |
-  <a href="./i18n/chinese.md">中文</a> |
-  <a href="./i18n/korean.md">한국어</a> |
-  <a href="./i18n/japanese.md">日本語</a> |
-  <a href="./i18n/turkish.md">Türkçe</a> |
-  <a href="./i18n/hindi.md">हिन्दी</a>
+  🇪🇸🇲🇽🇨🇺 <a href="./i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="./i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="./i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="./i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="./i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="./i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="./i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="./i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="./i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="./i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="./i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="./i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="./i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="./i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="./i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="./i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="./i18n/turkish.md">Türkçe</a>
 </div>
 
 ## Overview
