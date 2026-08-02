@@ -1,5 +1,8 @@
 <div align="center">
-    <img src="../legend.png" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../legend_dark.png">
+    <img src="../legend_light.png" />
+  </picture>
 </div>
 
 <table>
