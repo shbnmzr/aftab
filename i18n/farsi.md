@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## معرفی
 
 **آفتاب** (واژه‌ای <a href="https://en.wikipedia.org/wiki/Aftab">فارسی</a> به معنای «خورشید» یا «پرتو خورشید») چارچوبی برای بنچمارک‌کردن رمزگذارهای مبتنی بر CNN در PQN و در مجموعه‌ای از <a href="https://en.wikipedia.org/wiki/Atari_Games">بازی‌های آتاری</a> است. این چارچوب ابزارهای استانداردی برای آموزش، ارزیابی و بازتولیدپذیری پژوهش‌های یادگیری تقویتی عمیق فراهم می‌کند.
@@ -146,6 +148,35 @@
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### آزمایش‌های Procgen (پیشگیری از بیش‌برازش)
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (۵۰ میلیون فریم پایانی)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## نصب
 
 نصب با pip:
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## نتایج
 
-**آزمایش‌های رمزگذار**:
+تمام نتایج آزمایش‌ها بر اساس دستهٔ آزمایش مرتب شده‌اند. هر بخش شامل موارد زیر است:
+- **جدول‌ها**: نتایج عددی (HNS/PHS و امتیازهای خام)
+- **نمودارها**: امتیازهای نرمال‌شدهٔ IQM و منحنی‌های آموزش
 
-- جدول‌ها:
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [امتیازها](../results/encoder_experiments/scores.md)
-- نمودارها:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [روند تغییر خطا](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### آزمایش‌های رمزگذار
 
-**آزمایش‌های Hadamax**:
+**جدول‌ها**
+- [امتیازهای نرمال‌شده نسبت به انسان](../results/encoder_experiments/human_normalized_scores.md)
+- [امتیازها](../results/encoder_experiments/scores.md)
 
-- جدول‌ها:
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [امتیازها](../results/hadamax_experiments/scores.md)
-- نمودارها:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [روند تغییر خطا](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**نمودارها**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [روند تغییر خطا](../figures/encoder_experiments/loss)
 
-**آزمایش‌های مقدار Q**:
-- جدول‌ها:
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [امتیازها](../results/qvalue_experiments/scores.md)
-- نمودارها:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [روند تغییر خطا](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**آزمایش‌های Procgen**:
-- جدول‌ها:
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [امتیازها](../results/procgen_experiments/scores.md)
+### آزمایش‌های Hadamax
+
+**جدول‌ها**
+- [امتیازهای نرمال‌شده نسبت به انسان](../results/hadamax_experiments/human_normalized_scores.md)
+- [امتیازها](../results/hadamax_experiments/scores.md)
+
+**نمودارها**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [روند تغییر خطا](../figures/hadamax_experiments/loss)
+
+---
+
+### آزمایش‌های مقدار Q
+
+**جدول‌ها**
+- [امتیازهای نرمال‌شده نسبت به انسان](../results/qvalue_experiments/human_normalized_scores.md)
+- [امتیازها](../results/qvalue_experiments/scores.md)
+
+**نمودارها**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [روند تغییر خطا](../figures/qvalue_experiments/loss)
+
+---
+
+### آزمایش‌های Procgen
+
+**جدول‌ها**
+- [امتیازهای نرمال‌شدهٔ Procgen](../results/procgen_experiments/procgen_normalized_scores.md)
+- [امتیازها](../results/procgen_experiments/scores.md)
 
 
 ## پیچیدگی مدل

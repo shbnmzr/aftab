@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## 概述
 
 **Aftab**（<a href="https://en.wikipedia.org/wiki/Aftab">波斯语</a>：آفتاب，意为“太阳”或“阳光”）是一个基准测试框架，用于评估 PQN 在多款 <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari 游戏</a>中采用的 CNN 编码器。它为深度强化学习研究提供标准化的训练、评估与复现工具。
@@ -146,6 +148,35 @@
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### Procgen（防止过拟合）实验
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (最后 5000 万帧)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## 安装
 
 使用 pip 安装：
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## 实验结果
 
-**编码器实验**：
+所有实验结果均按实验类别整理。每一节包含：
+- **表格**: 数值结果（HNS/PHS 和原始得分）
+- **图表**: IQM 归一化得分与训练曲线
 
-- 表格：
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [原始得分](../results/encoder_experiments/scores.md)
-- 图表：
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [损失变化曲线](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### 编码器实验
 
-**Hadamax 实验**：
+**表格**
+- [人类归一化得分](../results/encoder_experiments/human_normalized_scores.md)
+- [原始得分](../results/encoder_experiments/scores.md)
 
-- 表格：
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [原始得分](../results/hadamax_experiments/scores.md)
-- 图表：
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [损失变化曲线](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**图表**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [损失变化曲线](../figures/encoder_experiments/loss)
 
-**Q 值实验**：
-- 表格：
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [原始得分](../results/qvalue_experiments/scores.md)
-- 图表：
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [损失变化曲线](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Procgen 实验**：
-- 表格：
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [原始得分](../results/procgen_experiments/scores.md)
+### Hadamax 实验
+
+**表格**
+- [人类归一化得分](../results/hadamax_experiments/human_normalized_scores.md)
+- [原始得分](../results/hadamax_experiments/scores.md)
+
+**图表**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [损失变化曲线](../figures/hadamax_experiments/loss)
+
+---
+
+### Q 值实验
+
+**表格**
+- [人类归一化得分](../results/qvalue_experiments/human_normalized_scores.md)
+- [原始得分](../results/qvalue_experiments/scores.md)
+
+**图表**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [损失变化曲线](../figures/qvalue_experiments/loss)
+
+---
+
+### Procgen 实验
+
+**表格**
+- [Procgen 归一化得分](../results/procgen_experiments/procgen_normalized_scores.md)
+- [原始得分](../results/procgen_experiments/scores.md)
 
 
 ## 模型复杂度

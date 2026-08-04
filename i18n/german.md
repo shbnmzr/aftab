@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Articolo Aftab" src="../figures/header-light.svg">
+  <img alt="Aftab-Publikation" src="../figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -20,6 +20,8 @@
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
+
+<br />
 
 <div align="center">
   🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
@@ -41,15 +43,13 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
-<br />
+## Überblick
 
-## Panoramica
+**Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">Persisch</a>: آفتاب, „Sonne“ oder „Sonnenstrahlen“) ist ein Benchmarking-Framework zur Bewertung CNN-basierter Encoder in PQN über verschiedene <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari-Spiele</a> hinweg. Es stellt standardisierte Werkzeuge für Training, Evaluation und Reproduzierbarkeit in der Forschung zum tiefen bestärkenden Lernen bereit.
 
-**Aftab** (dal <a href="https://en.wikipedia.org/wiki/Aftab">persiano</a> آفتاب, “sole” o “raggi del sole”) è un framework di benchmarking per valutare gli encoder basati su CNN impiegati da PQN in diversi <a href="https://en.wikipedia.org/wiki/Atari_Games">giochi Atari</a>. Offre strumenti standardizzati per l’addestramento, la valutazione e la riproducibilità della ricerca sull’apprendimento per rinforzo profondo.
+Wir haben einige Videos zusammengestellt, die PQN- und Aftab-Agenten vergleichen. Sie sind [hier](../videos.md) verfügbar.
 
-Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guardarli [qui](../videos.md).
-
-### Esperimenti sugli encoder
+### Encoder-Experimente
 
 <div align="center">
   <table>
@@ -65,7 +65,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (letzte 50 Millionen Frames)</th>
     </tr>
     <tr>
       <td>
@@ -78,7 +78,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-### Esperimenti Hadamax
+### Hadamax-Experimente
 
 <div align="center">
   <table>
@@ -94,7 +94,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (letzte 50 Millionen Frames)</th>
     </tr>
     <tr>
       <td>
@@ -107,12 +107,10 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-Riferimenti:
+Referenzen:
 - [Hadamax Encoding: Elevating Performance in Model-Free Atari](https://arxiv.org/abs/2505.15345)
 
-### Esperimenti sui valori Q
-
-<div align="center">
+### Q-Wert-Experimente
 
 <div align="center">
   <table>
@@ -128,7 +126,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (letzte 50 Millionen Frames)</th>
     </tr>
     <tr>
       <td>
@@ -141,14 +139,12 @@ Riferimenti:
   </table>
 </div>
 
-</div>
-
-Riferimenti:
+Referenzen:
 - [Stop Regressing](https://arxiv.org/abs/2403.03950)
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
-### Esperimenti Procgen (prevenzione dell’overfitting)
+### Procgen-Experimente (Vermeidung von Overfitting)
 
 <div align="center">
   <table>
@@ -164,7 +160,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM PNS (ultimi 50 milioni di frame)</th>
+      <th>IQM PNS (letzte 50 Millionen Frames)</th>
     </tr>
     <tr>
       <td>
@@ -177,26 +173,26 @@ Riferimenti:
   </table>
 </div>
 
-## Installazione
+## Installation
 
-Installazione con pip:
+Installation über pip:
 
 ```bash
 pip install aftab
 ```
 
-In alternativa, puoi clonare il repository e installarlo in modalità `editable`.
+Alternativ kann das Repository geklont und im `editable`-Modus installiert werden.
 
 ```bash
 git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Consigliamo vivamente di usare [Micromamba](https://github.com/mamba-org/micromamba-releases) per creare gli ambienti virtuali. Le istruzioni dettagliate sono disponibili [qui](../scripts/README.md).
+Zum Erstellen virtueller Umgebungen empfehlen wir ausdrücklich [Micromamba](https://github.com/mamba-org/micromamba-releases). Eine ausführliche Anleitung ist [hier](../scripts/README.md) verfügbar.
 
-## Addestramento degli agenti
+## Agenten trainieren
 
-**L’API JAX è attualmente in fase di sviluppo** e dovrebbe essere completata entro la fine del 2026. I contributi sono particolarmente graditi.
+**Die JAX-API befindet sich derzeit in Entwicklung** und soll bis Ende 2026 fertiggestellt werden. Beiträge sind ausdrücklich willkommen.
 
 ```python
 from aftab import Aftab
@@ -212,9 +208,9 @@ for environment in aftab_environments:
 ```
 
 
-## Inserimento di un encoder personalizzato
+## Benutzerdefinierten Encoder einbinden
 
-Puoi definire un encoder personalizzato come modulo PyTorch e passarlo all’agente:
+Ein eigener Encoder kann als PyTorch-Modul definiert und an den Agenten übergeben werden:
 
 ```python
 import torch
@@ -227,60 +223,60 @@ agent = Aftab(encoder=CustomImageEncoder)
 ```
 
 
-## Risultati
+## Ergebnisse
 
-Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione contiene:
-- **Tabelle**: risultati numerici (HNS/PHS e punteggi grezzi)
-- **Grafici**: punteggi normalizzati IQM e curve di addestramento
+Alle Versuchsergebnisse sind nach Experimentkategorie gegliedert. Jeder Abschnitt enthält:
+- **Tabellen**: numerische Ergebnisse (HNS/PHS und Rohwerte)
+- **Diagramme**: IQM-normalisierte Ergebnisse und Trainingskurven
 
-### Esperimenti sugli encoder
+### Encoder-Experimente
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/encoder_experiments/human_normalized_scores.md)
-- [Punteggi](../results/encoder_experiments/scores.md)
+**Tabellen**
+- [Nach menschlicher Leistung normalisierte Ergebnisse](../results/encoder_experiments/human_normalized_scores.md)
+- [Ergebnisse](../results/encoder_experiments/scores.md)
 
-**Grafici**
+**Diagramme**
 - [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Andamento della loss](../figures/encoder_experiments/loss)
+- [Verlauf des Loss](../figures/encoder_experiments/loss)
 
 ---
 
-### Esperimenti Hadamax
+### Hadamax-Experimente
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/hadamax_experiments/human_normalized_scores.md)
-- [Punteggi](../results/hadamax_experiments/scores.md)
+**Tabellen**
+- [Nach menschlicher Leistung normalisierte Ergebnisse](../results/hadamax_experiments/human_normalized_scores.md)
+- [Ergebnisse](../results/hadamax_experiments/scores.md)
 
-**Grafici**
+**Diagramme**
 - [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Andamento della loss](../figures/hadamax_experiments/loss)
+- [Verlauf des Loss](../figures/hadamax_experiments/loss)
 
 ---
 
-### Esperimenti sui valori Q
+### Q-Wert-Experimente
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/qvalue_experiments/human_normalized_scores.md)
-- [Punteggi](../results/qvalue_experiments/scores.md)
+**Tabellen**
+- [Nach menschlicher Leistung normalisierte Ergebnisse](../results/qvalue_experiments/human_normalized_scores.md)
+- [Ergebnisse](../results/qvalue_experiments/scores.md)
 
-**Grafici**
+**Diagramme**
 - [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Andamento della loss](../figures/qvalue_experiments/loss)
+- [Verlauf des Loss](../figures/qvalue_experiments/loss)
 
 ---
 
-### Esperimenti Procgen
+### Procgen-Experimente
 
-**Tabelle**
-- [Punteggi Procgen normalizzati](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Punteggi](../results/procgen_experiments/scores.md)
+**Tabellen**
+- [Normalisierte Procgen-Ergebnisse](../results/procgen_experiments/procgen_normalized_scores.md)
+- [Ergebnisse](../results/procgen_experiments/scores.md)
 
 
-## Complessità dei modelli
+## Modellkomplexität
 
-### Varianti di base
+### Basisvarianten
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| Variante | Encoder-Parameter | Parameter des Regressionskopfs | Gesamtparameter | Encoder-FLOPs | FLOPs des Regressionskopfs | Gesamt-FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PQN** | 78,304 | 1,686,500 | 1,764,804 | 7.734 | 1.610 | 9.347 |
 | **Alpha** | 174,752 | 1,782,948 | 1,957,700 | 27.541 | 1.610 | 29.151 |
@@ -292,53 +288,53 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
 | **Eta** | 78,400 | 23,739,460 | 23,817,860 | 28.422 | 23.663 | 52.085 |
 | **Theta** | 76,288 | 1,127,428 | 1,203,716 | 9.065 | 1.053 | 10.118 |
 
-> **Nota:** la variante Eta ha molti più parametri delle altre, soprattutto perché il suo encoder produce un numero elevato di feature.
+> **Hinweis:** Die Eta-Variante besitzt deutlich mehr Parameter als die übrigen Varianten. Hauptgrund dafür ist die große Anzahl an Merkmalen, die ihr Encoder erzeugt.
 
 ---
 
-### Varianti Hadamax
+### Hadamax-Varianten
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| Variante | Encoder-Parameter | Parameter des Regressionskopfs | Gesamtparameter | Encoder-FLOPs | FLOPs des Regressionskopfs | Gesamt-FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Hadamax** | 156,608 | 3,968,516 | 4,125,124 | 159.014 | 3.969 | 162.984 |
 | **Gamma-Hadamax-Valid** | 234,336 | 1,609,220 | 1,843,556 | 122.001 | 1.610 | 123.611 |
 | **Gamma-Hadamax-Same** | 234,336 | 3,280,388 | 3,514,724 | 129.300 | 3.281 | 132.581 |
 
-## Iperparametri
+## Hyperparameter
 
 <div align="center">
 
-| Iperparametro | Valore |
+| Hyperparameter | Wert |
 | :--- | :--- |
-| Tasso di apprendimento | $2.5 \times 10^{-4}$ |
-| Ambienti di addestramento | 128 |
-| Ambienti di test | 8 |
-| Ottimizzatore | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Decadimento dei pesi | 0 |
+| Lernrate | $2.5 \times 10^{-4}$ |
+| Trainingsumgebungen | 128 |
+| Testumgebungen | 8 |
+| Optimierer | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
+| Gewichtszerfall | 0 |
 | $\epsilon$ | $1 \times 10^{-5}$ |
 | $\beta_{1}$ | 0.9 |
 | $\beta_{2}$ | 0.999 |
-| Frame totali | 200,000,000 |
-| Funzione di loss | Errore quadratico medio |
-| Scheduler | Decadimento lineare |
-| Esplorazione $\epsilon$-greedy | 10% of total frames |
-| Fattore di sconto ($\gamma$) | 0.99 |
+| Frames insgesamt | 200,000,000 |
+| Verlustfunktion | Mittlerer quadratischer Fehler |
+| Scheduler | Lineares Annealing |
+| $\epsilon$-greedy-Exploration | 10% of total frames |
+| Diskontierungsfaktor ($\gamma$) | 0.99 |
 | GAE ($\lambda$) | 0.65 |
-| Epoche | 2 |
-| Dimensione del batch | 4096 |
+| Epochen | 2 |
+| Batchgröße | 4096 |
 
 </div>
 
-<p align="center"><em>Utilizzati negli esperimenti sugli encoder e Hadamax.</em></p>
+<p align="center"><em>Wird in den Encoder- und Hadamax-Experimenten verwendet.</em></p>
 
-## Significatività statistica
+## Statistische Signifikanz
 
-### Esperimenti sugli encoder
+### Encoder-Experimente
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon-Vorzeichen-Rang-Test</th>
+    <th align="center">Wilcoxon-Vorzeichen-Rang-Test (korrigiert)</th>
   </tr>
   <tr>
     <td align="center">
@@ -355,7 +351,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">Verbesserungswahrscheinlichkeit</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -367,12 +363,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti Hadamax
+### Hadamax-Experimente
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon-Vorzeichen-Rang-Test</th>
+    <th align="center">Wilcoxon-Vorzeichen-Rang-Test (korrigiert)</th>
   </tr>
   <tr>
     <td align="center">
@@ -389,7 +385,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">Verbesserungswahrscheinlichkeit</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -401,12 +397,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti sui valori Q
+### Q-Wert-Experimente
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon-Vorzeichen-Rang-Test</th>
+    <th align="center">Wilcoxon-Vorzeichen-Rang-Test (korrigiert)</th>
   </tr>
   <tr>
     <td align="center">
@@ -423,7 +419,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">Verbesserungswahrscheinlichkeit</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -435,10 +431,10 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-## Riproducibilità
+## Reproduzierbarkeit
 
-A causa della natura stocastica dell’apprendimento per rinforzo profondo, non è possibile ottenere una riproduzione esatta usando dataset fissi.
-Forniamo quindi l’insieme dei seed casuali utilizzati nei nostri esperimenti.
+Aufgrund der stochastischen Natur des tiefen bestärkenden Lernens lassen sich die Ergebnisse mit festen Datensätzen nicht exakt reproduzieren.
+Stattdessen stellen wir die in unseren Experimenten verwendeten Zufalls-Seeds bereit.
 
 ```python
 from aftab import aftab_seeds
@@ -446,7 +442,7 @@ from aftab import aftab_seeds
 print(aftab_seeds)
 ```
 
-Riproduzione completa degli esperimenti:
+Vollständige Reproduktion der Experimente:
 
 ```python
 from aftab import Aftab
@@ -460,41 +456,41 @@ for environment in aftab_environments:
         agent.log()
 ```
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Atari:
+EnvPool stellt eine umfassende Auswahl an Atari-Umgebungen bereit:
 https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 
-Gli ambienti Procgen usano le proprie osservazioni RGB native con forma `(3, 64, 64)`.
-Aftab legge la configurazione EnvPool di ogni task e applica soltanto le opzioni supportate.
-Le opzioni specifiche per Atari, come `noop`, `frame_skip`, `frame_stack` e
-`train_episodic_life`, e il clipping delle ricompense di EnvPool non vengono quindi passati a
-Procgen.
+Procgen-Umgebungen verwenden ihre nativen RGB-Beobachtungen mit der Form `(3, 64, 64)`.
+Aftab liest die EnvPool-Konfiguration jeder Aufgabe und wendet ausschließlich unterstützte Optionen an.
+Atari-spezifische Optionen wie `noop`, `frame_skip`, `frame_stack` und
+`train_episodic_life` sowie das Reward-Clipping von EnvPool werden daher nicht an
+Procgen übergeben.
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Procgen:
+EnvPool stellt eine umfassende Auswahl an Procgen-Umgebungen bereit:
 
 https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## Hardware
 
-Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
+Alle Experimente dieses Projekts wurden auf [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40)-GPUs ausgeführt.
 
-| Specifica | Dettagli |
+| Spezifikation | Details |
 |--------------|----------|
-| Memoria GPU | 48 GB GDDR6 con codice di correzione degli errori (ECC) |
-| Larghezza di banda della memoria GPU | 696 GB/s |
-| Interconnessione | NVIDIA NVLink 112,5 GB/s (bidirezionale); PCIe Gen4: 64 GB/s |
-| NVLink | Bidirezionale, a basso profilo (2 slot) |
-| Porte video | 3x DisplayPort 1.4* |
-| Consumo massimo | 300 W |
-| Formato | 4,4" (A) × 10,5" (L), doppio slot |
-| Raffreddamento | Passivo |
-| Software vGPU supportato | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
-| Profili vGPU supportati | Consultare la guida alle licenze Virtual GPU |
-| NVENC / NVDEC | 1x / 2x (decodifica AV1 inclusa) |
-| Avvio sicuro | Avvio sicuro e misurato con radice hardware di attendibilità (opzionale) |
-| Conformità NEBS | Livello 3 |
-| Connettore di alimentazione | CPU a 8 pin |
+| GPU-Speicher | 48 GB GDDR6 mit Fehlerkorrekturcode (ECC) |
+| GPU-Speicherbandbreite | 696 GB/s |
+| Interconnect | NVIDIA NVLink 112,5 GB/s (bidirektional); PCIe Gen4: 64 GB/s |
+| NVLink | Bidirektional, Low Profile (2 Slots) |
+| Display-Anschlüsse | 3x DisplayPort 1.4* |
+| Maximale Leistungsaufnahme | 300 W |
+| Abmessungen | 4,4" (H) × 10,5" (L), Dual-Slot |
+| Kühlung | Passiv |
+| Unterstützte vGPU-Software | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
+| Unterstützte vGPU-Profile | Siehe Lizenzierungsleitfaden für virtuelle GPUs |
+| NVENC / NVDEC | 1x / 2x (einschließlich AV1-Decodierung) |
+| Sicherer Start | Sicherer und gemessener Start mit Hardware-Vertrauensanker (optional) |
+| NEBS-konform | Stufe 3 |
+| Stromanschluss | 8-poliger CPU-Anschluss |
 
-## Citazione
+## Zitieren
 
 ```bibtex
 @article{aftab2026drl,
@@ -505,7 +501,7 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-### Lavori correlati
+### Verwandte Arbeiten
 
 ```bibtex
 @misc{2407.04811,
@@ -552,17 +548,17 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-## Link utili
+## Nützliche Links
 
-- [Wikipedia: apprendimento per rinforzo (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [Wikipedia: apprendimento per rinforzo profondo (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
-- [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
+- [Wikipedia: Bestärkendes Lernen (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [Wikipedia: Tiefes bestärkendes Lernen (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
+- [Wikipedia: Q-Lernen](https://en.wikipedia.org/wiki/Q-learning)
 - [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: test d’ipotesi statistica](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: test dei ranghi con segno di Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [Wikipedia: Statistischer Hypothesentest](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [Wikipedia: Wilcoxon-Vorzeichen-Rang-Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
 
-## Licenza
+## Lizenz
 
 © 2025 Taha Shieenavaz.
-Distribuito con licenza CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+Lizenziert unter CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/

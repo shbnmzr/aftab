@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## परिचय
 
 **आफ़ताब** (<a href="https://en.wikipedia.org/wiki/Aftab">फ़ारसी</a>: آفتاب, जिसका अर्थ “सूर्य” या “सूर्य की किरणें” है) विभिन्न <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari गेमों</a> में PQN के CNN-आधारित एनकोडरों के मूल्यांकन के लिए एक बेंचमार्किंग फ्रेमवर्क है। यह डीप रीइन्फोर्समेंट लर्निंग अनुसंधान के लिए प्रशिक्षण, मूल्यांकन और पुनरुत्पादकता के मानकीकृत टूल उपलब्ध कराता है।
@@ -146,6 +148,35 @@
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### Procgen (ओवरफ़िटिंग रोकथाम) प्रयोग
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (अंतिम 5 करोड़ फ़्रेम)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## इंस्टॉलेशन
 
 pip से इंस्टॉल करें:
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## परिणाम
 
-**एनकोडर प्रयोग**:
+सभी प्रयोगात्मक परिणाम प्रयोग की श्रेणी के अनुसार व्यवस्थित हैं। हर अनुभाग में ये शामिल हैं:
+- **तालिकाएँ**: संख्यात्मक परिणाम (HNS/PHS और मूल स्कोर)
+- **चार्ट**: IQM सामान्यीकृत स्कोर और प्रशिक्षण कर्व
 
-- तालिकाएँ:
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [स्कोर](../results/encoder_experiments/scores.md)
-- चार्ट:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [लॉस में बदलाव](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### एनकोडर प्रयोग
 
-**Hadamax प्रयोग**:
+**तालिकाएँ**
+- [मानव-सामान्यीकृत स्कोर](../results/encoder_experiments/human_normalized_scores.md)
+- [स्कोर](../results/encoder_experiments/scores.md)
 
-- तालिकाएँ:
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [स्कोर](../results/hadamax_experiments/scores.md)
-- चार्ट:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [लॉस में बदलाव](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**चार्ट**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [लॉस में बदलाव](../figures/encoder_experiments/loss)
 
-**Q-वैल्यू प्रयोग**:
-- तालिकाएँ:
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [स्कोर](../results/qvalue_experiments/scores.md)
-- चार्ट:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [लॉस में बदलाव](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Procgen प्रयोग**:
-- तालिकाएँ:
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [स्कोर](../results/procgen_experiments/scores.md)
+### Hadamax प्रयोग
+
+**तालिकाएँ**
+- [मानव-सामान्यीकृत स्कोर](../results/hadamax_experiments/human_normalized_scores.md)
+- [स्कोर](../results/hadamax_experiments/scores.md)
+
+**चार्ट**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [लॉस में बदलाव](../figures/hadamax_experiments/loss)
+
+---
+
+### Q-वैल्यू प्रयोग
+
+**तालिकाएँ**
+- [मानव-सामान्यीकृत स्कोर](../results/qvalue_experiments/human_normalized_scores.md)
+- [स्कोर](../results/qvalue_experiments/scores.md)
+
+**चार्ट**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [लॉस में बदलाव](../figures/qvalue_experiments/loss)
+
+---
+
+### Procgen प्रयोग
+
+**तालिकाएँ**
+- [Procgen सामान्यीकृत स्कोर](../results/procgen_experiments/procgen_normalized_scores.md)
+- [स्कोर](../results/procgen_experiments/scores.md)
 
 
 ## मॉडल की जटिलता

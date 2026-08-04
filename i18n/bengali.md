@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Articolo Aftab" src="../figures/header-light.svg">
+  <img alt="Aftab গবেষণাপত্র" src="../figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -20,6 +20,8 @@
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
+
+<br />
 
 <div align="center">
   🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
@@ -41,15 +43,13 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
-<br />
+## সংক্ষিপ্ত পরিচিতি
 
-## Panoramica
+**Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">ফারসি</a>: آفتاب, অর্থ “সূর্য” বা “সূর্যের রশ্মি”) হলো বিভিন্ন <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari গেমে</a> PQN-এর CNN-ভিত্তিক এনকোডার মূল্যায়নের একটি বেঞ্চমার্কিং ফ্রেমওয়ার্ক। এটি গভীর রিইনফোর্সমেন্ট লার্নিং গবেষণার জন্য প্রশিক্ষণ, মূল্যায়ন ও পুনরুৎপাদনযোগ্যতার প্রমিত টুল সরবরাহ করে।
 
-**Aftab** (dal <a href="https://en.wikipedia.org/wiki/Aftab">persiano</a> آفتاب, “sole” o “raggi del sole”) è un framework di benchmarking per valutare gli encoder basati su CNN impiegati da PQN in diversi <a href="https://en.wikipedia.org/wiki/Atari_Games">giochi Atari</a>. Offre strumenti standardizzati per l’addestramento, la valutazione e la riproducibilità della ricerca sull’apprendimento per rinforzo profondo.
+PQN ও Aftab এজেন্টের তুলনামূলক কয়েকটি ভিডিও আমরা তৈরি করেছি। সেগুলো [এখানে](../videos.md) দেখুন।
 
-Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guardarli [qui](../videos.md).
-
-### Esperimenti sugli encoder
+### এনকোডার পরীক্ষা
 
 <div align="center">
   <table>
@@ -65,7 +65,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (শেষ ৫ কোটি ফ্রেম)</th>
     </tr>
     <tr>
       <td>
@@ -78,7 +78,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-### Esperimenti Hadamax
+### Hadamax পরীক্ষা
 
 <div align="center">
   <table>
@@ -94,7 +94,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (শেষ ৫ কোটি ফ্রেম)</th>
     </tr>
     <tr>
       <td>
@@ -107,12 +107,10 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-Riferimenti:
+তথ্যসূত্র:
 - [Hadamax Encoding: Elevating Performance in Model-Free Atari](https://arxiv.org/abs/2505.15345)
 
-### Esperimenti sui valori Q
-
-<div align="center">
+### Q-মান পরীক্ষা
 
 <div align="center">
   <table>
@@ -128,7 +126,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (শেষ ৫ কোটি ফ্রেম)</th>
     </tr>
     <tr>
       <td>
@@ -141,14 +139,12 @@ Riferimenti:
   </table>
 </div>
 
-</div>
-
-Riferimenti:
+তথ্যসূত্র:
 - [Stop Regressing](https://arxiv.org/abs/2403.03950)
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
-### Esperimenti Procgen (prevenzione dell’overfitting)
+### Procgen পরীক্ষা (ওভারফিটিং প্রতিরোধ)
 
 <div align="center">
   <table>
@@ -164,7 +160,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM PNS (ultimi 50 milioni di frame)</th>
+      <th>IQM PNS (শেষ ৫ কোটি ফ্রেম)</th>
     </tr>
     <tr>
       <td>
@@ -177,26 +173,26 @@ Riferimenti:
   </table>
 </div>
 
-## Installazione
+## ইনস্টলেশন
 
-Installazione con pip:
+pip দিয়ে ইনস্টল করুন:
 
 ```bash
 pip install aftab
 ```
 
-In alternativa, puoi clonare il repository e installarlo in modalità `editable`.
+বিকল্পভাবে, রিপোজিটরি ক্লোন করে `editable` মোডে ইনস্টল করতে পারেন।
 
 ```bash
 git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Consigliamo vivamente di usare [Micromamba](https://github.com/mamba-org/micromamba-releases) per creare gli ambienti virtuali. Le istruzioni dettagliate sono disponibili [qui](../scripts/README.md).
+ভার্চুয়াল এনভায়রনমেন্ট তৈরির জন্য আমরা [Micromamba](https://github.com/mamba-org/micromamba-releases) ব্যবহারের জোরালো পরামর্শ দিই। বিস্তারিত নির্দেশনা [এখানে](../scripts/README.md) রয়েছে।
 
-## Addestramento degli agenti
+## এজেন্ট প্রশিক্ষণ
 
-**L’API JAX è attualmente in fase di sviluppo** e dovrebbe essere completata entro la fine del 2026. I contributi sono particolarmente graditi.
+**JAX API বর্তমানে উন্নয়নাধীন** এবং ২০২৬ সালের শেষ নাগাদ এটি সম্পন্ন করার পরিকল্পনা রয়েছে। অবদানকে আন্তরিকভাবে স্বাগত জানাই।
 
 ```python
 from aftab import Aftab
@@ -212,9 +208,9 @@ for environment in aftab_environments:
 ```
 
 
-## Inserimento di un encoder personalizzato
+## কাস্টম এনকোডার যুক্ত করা
 
-Puoi definire un encoder personalizzato come modulo PyTorch e passarlo all’agente:
+নিজস্ব এনকোডারকে PyTorch মডিউল হিসেবে সংজ্ঞায়িত করে এজেন্টে পাঠাতে পারেন:
 
 ```python
 import torch
@@ -227,60 +223,60 @@ agent = Aftab(encoder=CustomImageEncoder)
 ```
 
 
-## Risultati
+## ফলাফল
 
-Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione contiene:
-- **Tabelle**: risultati numerici (HNS/PHS e punteggi grezzi)
-- **Grafici**: punteggi normalizzati IQM e curve di addestramento
+সব পরীক্ষার ফলাফল পরীক্ষার ধরন অনুযায়ী সাজানো হয়েছে। প্রতিটি অংশে রয়েছে:
+- **টেবিল**: সংখ্যাগত ফলাফল (HNS/PHS এবং অপরিশোধিত স্কোর)
+- **চার্ট**: IQM-স্বাভাবিকীকৃত স্কোর ও প্রশিক্ষণ কার্ভ
 
-### Esperimenti sugli encoder
+### এনকোডার পরীক্ষা
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/encoder_experiments/human_normalized_scores.md)
-- [Punteggi](../results/encoder_experiments/scores.md)
+**টেবিল**
+- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](../results/encoder_experiments/human_normalized_scores.md)
+- [স্কোর](../results/encoder_experiments/scores.md)
 
-**Grafici**
+**চার্ট**
 - [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Andamento della loss](../figures/encoder_experiments/loss)
+- [লসের পরিবর্তন](../figures/encoder_experiments/loss)
 
 ---
 
-### Esperimenti Hadamax
+### Hadamax পরীক্ষা
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/hadamax_experiments/human_normalized_scores.md)
-- [Punteggi](../results/hadamax_experiments/scores.md)
+**টেবিল**
+- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](../results/hadamax_experiments/human_normalized_scores.md)
+- [স্কোর](../results/hadamax_experiments/scores.md)
 
-**Grafici**
+**চার্ট**
 - [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Andamento della loss](../figures/hadamax_experiments/loss)
+- [লসের পরিবর্তন](../figures/hadamax_experiments/loss)
 
 ---
 
-### Esperimenti sui valori Q
+### Q-মান পরীক্ষা
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/qvalue_experiments/human_normalized_scores.md)
-- [Punteggi](../results/qvalue_experiments/scores.md)
+**টেবিল**
+- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](../results/qvalue_experiments/human_normalized_scores.md)
+- [স্কোর](../results/qvalue_experiments/scores.md)
 
-**Grafici**
+**চার্ট**
 - [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Andamento della loss](../figures/qvalue_experiments/loss)
+- [লসের পরিবর্তন](../figures/qvalue_experiments/loss)
 
 ---
 
-### Esperimenti Procgen
+### Procgen পরীক্ষা
 
-**Tabelle**
-- [Punteggi Procgen normalizzati](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Punteggi](../results/procgen_experiments/scores.md)
+**টেবিল**
+- [Procgen স্বাভাবিকীকৃত স্কোর](../results/procgen_experiments/procgen_normalized_scores.md)
+- [স্কোর](../results/procgen_experiments/scores.md)
 
 
-## Complessità dei modelli
+## মডেলের জটিলতা
 
-### Varianti di base
+### ভিত্তি ভ্যারিয়েন্ট
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| ভ্যারিয়েন্ট | এনকোডার প্যারামিটার | রিগ্রেশন হেড প্যারামিটার | মোট প্যারামিটার | এনকোডার FLOPs | রিগ্রেশন হেড FLOPs | মোট FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PQN** | 78,304 | 1,686,500 | 1,764,804 | 7.734 | 1.610 | 9.347 |
 | **Alpha** | 174,752 | 1,782,948 | 1,957,700 | 27.541 | 1.610 | 29.151 |
@@ -292,53 +288,53 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
 | **Eta** | 78,400 | 23,739,460 | 23,817,860 | 28.422 | 23.663 | 52.085 |
 | **Theta** | 76,288 | 1,127,428 | 1,203,716 | 9.065 | 1.053 | 10.118 |
 
-> **Nota:** la variante Eta ha molti più parametri delle altre, soprattutto perché il suo encoder produce un numero elevato di feature.
+> **দ্রষ্টব্য:** Eta ভ্যারিয়েন্টে অন্যগুলোর তুলনায় উল্লেখযোগ্যভাবে বেশি প্যারামিটার রয়েছে। এর প্রধান কারণ হলো এনকোডারটি বিপুল সংখ্যক ফিচার তৈরি করে।
 
 ---
 
-### Varianti Hadamax
+### Hadamax ভ্যারিয়েন্ট
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| ভ্যারিয়েন্ট | এনকোডার প্যারামিটার | রিগ্রেশন হেড প্যারামিটার | মোট প্যারামিটার | এনকোডার FLOPs | রিগ্রেশন হেড FLOPs | মোট FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Hadamax** | 156,608 | 3,968,516 | 4,125,124 | 159.014 | 3.969 | 162.984 |
 | **Gamma-Hadamax-Valid** | 234,336 | 1,609,220 | 1,843,556 | 122.001 | 1.610 | 123.611 |
 | **Gamma-Hadamax-Same** | 234,336 | 3,280,388 | 3,514,724 | 129.300 | 3.281 | 132.581 |
 
-## Iperparametri
+## হাইপারপ্যারামিটার
 
 <div align="center">
 
-| Iperparametro | Valore |
+| হাইপারপ্যারামিটার | মান |
 | :--- | :--- |
-| Tasso di apprendimento | $2.5 \times 10^{-4}$ |
-| Ambienti di addestramento | 128 |
-| Ambienti di test | 8 |
-| Ottimizzatore | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Decadimento dei pesi | 0 |
+| লার্নিং রেট | $2.5 \times 10^{-4}$ |
+| প্রশিক্ষণ এনভায়রনমেন্ট | 128 |
+| পরীক্ষণ এনভায়রনমেন্ট | 8 |
+| অপটিমাইজার | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
+| ওয়েট ডিকে | 0 |
 | $\epsilon$ | $1 \times 10^{-5}$ |
 | $\beta_{1}$ | 0.9 |
 | $\beta_{2}$ | 0.999 |
-| Frame totali | 200,000,000 |
-| Funzione di loss | Errore quadratico medio |
-| Scheduler | Decadimento lineare |
-| Esplorazione $\epsilon$-greedy | 10% of total frames |
-| Fattore di sconto ($\gamma$) | 0.99 |
+| মোট ফ্রেম | 200,000,000 |
+| লস ফাংশন | গড় বর্গ ত্রুটি |
+| শিডিউলার | রৈখিক অ্যানিলিং |
+| $\epsilon$-greedy অনুসন্ধান | 10% of total frames |
+| ডিসকাউন্ট ফ্যাক্টর ($\gamma$) | 0.99 |
 | GAE ($\lambda$) | 0.65 |
-| Epoche | 2 |
-| Dimensione del batch | 4096 |
+| এপক | 2 |
+| ব্যাচের আকার | 4096 |
 
 </div>
 
-<p align="center"><em>Utilizzati negli esperimenti sugli encoder e Hadamax.</em></p>
+<p align="center"><em>এনকোডার ও Hadamax পরীক্ষায় ব্যবহৃত হয়েছে।</em></p>
 
-## Significatività statistica
+## পরিসংখ্যানগত তাৎপর্য
 
-### Esperimenti sugli encoder
+### এনকোডার পরীক্ষা
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon signed-rank পরীক্ষা</th>
+    <th align="center">Wilcoxon signed-rank পরীক্ষা (সংশোধিত)</th>
   </tr>
   <tr>
     <td align="center">
@@ -355,7 +351,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">উন্নতির সম্ভাবনা</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -367,12 +363,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti Hadamax
+### Hadamax পরীক্ষা
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon signed-rank পরীক্ষা</th>
+    <th align="center">Wilcoxon signed-rank পরীক্ষা (সংশোধিত)</th>
   </tr>
   <tr>
     <td align="center">
@@ -389,7 +385,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">উন্নতির সম্ভাবনা</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -401,12 +397,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti sui valori Q
+### Q-মান পরীক্ষা
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon signed-rank পরীক্ষা</th>
+    <th align="center">Wilcoxon signed-rank পরীক্ষা (সংশোধিত)</th>
   </tr>
   <tr>
     <td align="center">
@@ -423,7 +419,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">উন্নতির সম্ভাবনা</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -435,10 +431,10 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-## Riproducibilità
+## পুনরুৎপাদনযোগ্যতা
 
-A causa della natura stocastica dell’apprendimento per rinforzo profondo, non è possibile ottenere una riproduzione esatta usando dataset fissi.
-Forniamo quindi l’insieme dei seed casuali utilizzati nei nostri esperimenti.
+গভীর রিইনফোর্সমেন্ট লার্নিংয়ের দৈব প্রকৃতির কারণে নির্দিষ্ট ডেটাসেট ব্যবহার করে ফলাফল হুবহু পুনরুৎপাদন করা সম্ভব নয়।
+তাই আমাদের পরীক্ষায় ব্যবহৃত র‍্যান্ডম সিডের সেটটি আমরা সরবরাহ করছি।
 
 ```python
 from aftab import aftab_seeds
@@ -446,7 +442,7 @@ from aftab import aftab_seeds
 print(aftab_seeds)
 ```
 
-Riproduzione completa degli esperimenti:
+সম্পূর্ণ পরীক্ষা পুনরুৎপাদন:
 
 ```python
 from aftab import Aftab
@@ -460,41 +456,40 @@ for environment in aftab_environments:
         agent.log()
 ```
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Atari:
+EnvPool-এ Atari এনভায়রনমেন্টের একটি বিস্তৃত সংগ্রহ পাওয়া যায়:
 https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 
-Gli ambienti Procgen usano le proprie osservazioni RGB native con forma `(3, 64, 64)`.
-Aftab legge la configurazione EnvPool di ogni task e applica soltanto le opzioni supportate.
-Le opzioni specifiche per Atari, come `noop`, `frame_skip`, `frame_stack` e
-`train_episodic_life`, e il clipping delle ricompense di EnvPool non vengono quindi passati a
-Procgen.
+Procgen এনভায়রনমেন্ট নিজস্ব `(3, 64, 64)` আকৃতির RGB অবজারভেশন ব্যবহার করে।
+Aftab প্রতিটি টাস্কের EnvPool কনফিগারেশন পড়ে এবং কেবল সমর্থিত অপশন প্রয়োগ করে।
+তাই `noop`, `frame_skip`, `frame_stack` ও `train_episodic_life`-এর মতো
+শুধু Atari-র জন্য প্রযোজ্য অপশন এবং EnvPool-এর রিওয়ার্ড ক্লিপিং Procgen-এ পাঠানো হয় না।
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Procgen:
+EnvPool-এ Procgen এনভায়রনমেন্টের একটি বিস্তৃত সংগ্রহ পাওয়া যায়:
 
 https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
-## Hardware
+## হার্ডওয়্যার
 
-Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
+এই প্রকল্পের সব পরীক্ষা [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40) GPU-তে চালানো হয়েছে।
 
-| Specifica | Dettagli |
+| স্পেসিফিকেশন | বিস্তারিত |
 |--------------|----------|
-| Memoria GPU | 48 GB GDDR6 con codice di correzione degli errori (ECC) |
-| Larghezza di banda della memoria GPU | 696 GB/s |
-| Interconnessione | NVIDIA NVLink 112,5 GB/s (bidirezionale); PCIe Gen4: 64 GB/s |
-| NVLink | Bidirezionale, a basso profilo (2 slot) |
-| Porte video | 3x DisplayPort 1.4* |
-| Consumo massimo | 300 W |
-| Formato | 4,4" (A) × 10,5" (L), doppio slot |
-| Raffreddamento | Passivo |
-| Software vGPU supportato | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
-| Profili vGPU supportati | Consultare la guida alle licenze Virtual GPU |
-| NVENC / NVDEC | 1x / 2x (decodifica AV1 inclusa) |
-| Avvio sicuro | Avvio sicuro e misurato con radice hardware di attendibilità (opzionale) |
-| Conformità NEBS | Livello 3 |
-| Connettore di alimentazione | CPU a 8 pin |
+| GPU মেমরি | ত্রুটি-সংশোধন কোডসহ (ECC) 48 GB GDDR6 |
+| GPU মেমরি ব্যান্ডউইডথ | 696 GB/s |
+| আন্তঃসংযোগ | NVIDIA NVLink 112.5 GB/s (দ্বিমুখী); PCIe Gen4: 64 GB/s |
+| NVLink | দ্বিমুখী লো-প্রোফাইল (২ স্লট) |
+| ডিসপ্লে পোর্ট | 3x DisplayPort 1.4* |
+| সর্বোচ্চ বিদ্যুৎ খরচ | 300 W |
+| আকার | 4.4" (উচ্চতা) × 10.5" (দৈর্ঘ্য), দুই স্লট |
+| শীতলীকরণ | প্যাসিভ |
+| সমর্থিত vGPU সফটওয়্যার | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
+| সমর্থিত vGPU প্রোফাইল | Virtual GPU লাইসেন্সিং গাইড দেখুন |
+| NVENC / NVDEC | 1x / 2x (AV1 ডিকোডিংসহ) |
+| সিকিউর বুট | হার্ডওয়্যার রুট অব ট্রাস্টসহ সিকিউর ও মেজার্ড বুট (ঐচ্ছিক) |
+| NEBS প্রস্তুতি | স্তর ৩ |
+| পাওয়ার কানেক্টর | ৮-পিন CPU |
 
-## Citazione
+## উদ্ধৃতি
 
 ```bibtex
 @article{aftab2026drl,
@@ -505,7 +500,7 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-### Lavori correlati
+### সংশ্লিষ্ট কাজ
 
 ```bibtex
 @misc{2407.04811,
@@ -552,17 +547,17 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-## Link utili
+## দরকারি লিংক
 
-- [Wikipedia: apprendimento per rinforzo (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [Wikipedia: apprendimento per rinforzo profondo (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
-- [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
-- [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: test d’ipotesi statistica](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: test dei ranghi con segno di Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [উইকিপিডিয়া: রিইনফোর্সমেন্ট লার্নিং (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [উইকিপিডিয়া: গভীর রিইনফোর্সমেন্ট লার্নিং (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
+- [উইকিপিডিয়া: Q-লার্নিং](https://en.wikipedia.org/wiki/Q-learning)
+- [উইকিপিডিয়া: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
+- [উইকিপিডিয়া: পরিসংখ্যানগত হাইপোথিসিস পরীক্ষা](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [উইকিপিডিয়া: Wilcoxon signed-rank পরীক্ষা](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
 
-## Licenza
+## লাইসেন্স
 
 © 2025 Taha Shieenavaz.
-Distribuito con licenza CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+CC BY-NC 4.0 লাইসেন্সের অধীনে প্রকাশিত: https://creativecommons.org/licenses/by-nc/4.0/

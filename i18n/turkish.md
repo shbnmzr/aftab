@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## Genel Bakış
 
 **Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">Farsça</a>: آفتاب; “güneş” veya “güneş ışınları”), PQN’de kullanılan CNN tabanlı kodlayıcıları farklı <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari oyunlarında</a> değerlendirmeye yönelik bir kıyaslama çerçevesidir. Derin pekiştirmeli öğrenme araştırmaları için standartlaştırılmış eğitim, değerlendirme ve yeniden üretilebilirlik araçları sunar.
@@ -146,6 +148,35 @@ Kaynaklar:
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### Procgen (Aşırı Öğrenmeyi Önleme) Deneyleri
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (Son 50 Milyon Kare)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## Kurulum
 
 pip ile kurulum:
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## Sonuçlar
 
-**Kodlayıcı Deneyleri**:
+Tüm deney sonuçları deney kategorisine göre düzenlenmiştir. Her bölüm şunları içerir:
+- **Tablolar**: sayısal sonuçlar (HNS/PHS ve ham puanlar)
+- **Grafikler**: IQM ile normalleştirilmiş puanlar ve eğitim eğrileri
 
-- Tablolar:
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [Puanlar](../results/encoder_experiments/scores.md)
-- Grafikler:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [Kayıp Değişimi](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### Kodlayıcı Deneyleri
 
-**Hadamax Deneyleri**:
+**Tablolar**
+- [İnsan Performansına Göre Normalleştirilmiş Puanlar](../results/encoder_experiments/human_normalized_scores.md)
+- [Puanlar](../results/encoder_experiments/scores.md)
 
-- Tablolar:
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [Puanlar](../results/hadamax_experiments/scores.md)
-- Grafikler:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [Kayıp Değişimi](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**Grafikler**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [Kayıp Değişimi](../figures/encoder_experiments/loss)
 
-**Q Değeri Deneyleri**:
-- Tablolar:
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [Puanlar](../results/qvalue_experiments/scores.md)
-- Grafikler:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [Kayıp Değişimi](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Procgen Deneyleri**:
-- Tablolar:
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [Puanlar](../results/procgen_experiments/scores.md)
+### Hadamax Deneyleri
+
+**Tablolar**
+- [İnsan Performansına Göre Normalleştirilmiş Puanlar](../results/hadamax_experiments/human_normalized_scores.md)
+- [Puanlar](../results/hadamax_experiments/scores.md)
+
+**Grafikler**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [Kayıp Değişimi](../figures/hadamax_experiments/loss)
+
+---
+
+### Q Değeri Deneyleri
+
+**Tablolar**
+- [İnsan Performansına Göre Normalleştirilmiş Puanlar](../results/qvalue_experiments/human_normalized_scores.md)
+- [Puanlar](../results/qvalue_experiments/scores.md)
+
+**Grafikler**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [Kayıp Değişimi](../figures/qvalue_experiments/loss)
+
+---
+
+### Procgen Deneyleri
+
+**Tablolar**
+- [Procgen Normalleştirilmiş Puanları](../results/procgen_experiments/procgen_normalized_scores.md)
+- [Puanlar](../results/procgen_experiments/scores.md)
 
 
 ## Model Karmaşıklığı

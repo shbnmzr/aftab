@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## Présentation
 
 **Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">persan</a> : آفتاب, « soleil » ou « rayons du soleil ») est un cadre d’évaluation comparative des encodeurs basés sur des CNN employés par PQN dans différents <a href="https://en.wikipedia.org/wiki/Atari_Games">jeux Atari</a>. Il fournit des outils standardisés pour l’entraînement, l’évaluation et la reproductibilité des travaux de recherche en apprentissage par renforcement profond.
@@ -146,6 +148,35 @@ Références :
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### Expériences Procgen (prévention du surapprentissage)
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (50 derniers millions de trames)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## Installation
 
 Installation avec pip :
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## Résultats
 
-**Expériences sur les encodeurs** :
+Tous les résultats sont classés par catégorie d’expérience. Chaque section contient :
+- **Tableaux**: les résultats numériques (HNS/PHS et scores bruts)
+- **Graphiques**: les scores normalisés IQM et les courbes d’entraînement
 
-- Tableaux :
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [Scores bruts](../results/encoder_experiments/scores.md)
-- Graphiques :
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [Évolution de la perte](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### Expériences sur les encodeurs
 
-**Expériences Hadamax** :
+**Tableaux**
+- [Scores normalisés par rapport aux performances humaines](../results/encoder_experiments/human_normalized_scores.md)
+- [Scores bruts](../results/encoder_experiments/scores.md)
 
-- Tableaux :
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [Scores bruts](../results/hadamax_experiments/scores.md)
-- Graphiques :
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [Évolution de la perte](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**Graphiques**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [Évolution de la perte](../figures/encoder_experiments/loss)
 
-**Expériences sur les valeurs Q** :
-- Tableaux :
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [Scores bruts](../results/qvalue_experiments/scores.md)
-- Graphiques :
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [Évolution de la perte](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Expériences Procgen** :
-- Tableaux :
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [Scores bruts](../results/procgen_experiments/scores.md)
+### Expériences Hadamax
+
+**Tableaux**
+- [Scores normalisés par rapport aux performances humaines](../results/hadamax_experiments/human_normalized_scores.md)
+- [Scores bruts](../results/hadamax_experiments/scores.md)
+
+**Graphiques**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [Évolution de la perte](../figures/hadamax_experiments/loss)
+
+---
+
+### Expériences sur les valeurs Q
+
+**Tableaux**
+- [Scores normalisés par rapport aux performances humaines](../results/qvalue_experiments/human_normalized_scores.md)
+- [Scores bruts](../results/qvalue_experiments/scores.md)
+
+**Graphiques**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [Évolution de la perte](../figures/qvalue_experiments/loss)
+
+---
+
+### Expériences Procgen
+
+**Tableaux**
+- [Scores Procgen normalisés](../results/procgen_experiments/procgen_normalized_scores.md)
+- [Scores bruts](../results/procgen_experiments/scores.md)
 
 
 ## Complexité des modèles

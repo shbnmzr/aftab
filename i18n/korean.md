@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## 개요
 
 **Aftab**(<a href="https://en.wikipedia.org/wiki/Aftab">페르시아어</a>: آفتاب, “태양” 또는 “햇살”이라는 뜻)은 여러 <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari 게임</a>에서 PQN의 CNN 기반 인코더를 평가하기 위한 벤치마크 프레임워크입니다. 심층 강화학습 연구에 필요한 표준화된 학습·평가·재현성 도구를 제공합니다.
@@ -146,6 +148,35 @@ PQN과 Aftab 에이전트를 비교한 영상을 모았습니다. [여기](../vi
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### Procgen(과적합 방지) 실험
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (마지막 5천만 프레임)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## 설치
 
 pip로 설치합니다:
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## 결과
 
-**인코더 실험**:
+모든 실험 결과는 실험 범주별로 정리되어 있습니다. 각 섹션에는 다음이 포함됩니다:
+- **표**: 수치 결과(HNS/PHS 및 원점수)
+- **차트**: IQM 정규화 점수 및 학습 곡선
 
-- 표:
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [점수](../results/encoder_experiments/scores.md)
-- 차트:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [손실 추이](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### 인코더 실험
 
-**Hadamax 실험**:
+**표**
+- [인간 정규화 점수](../results/encoder_experiments/human_normalized_scores.md)
+- [점수](../results/encoder_experiments/scores.md)
 
-- 표:
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [점수](../results/hadamax_experiments/scores.md)
-- 차트:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [손실 추이](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**차트**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [손실 추이](../figures/encoder_experiments/loss)
 
-**Q 값 실험**:
-- 표:
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [점수](../results/qvalue_experiments/scores.md)
-- 차트:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [손실 추이](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Procgen 실험**:
-- 표:
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [점수](../results/procgen_experiments/scores.md)
+### Hadamax 실험
+
+**표**
+- [인간 정규화 점수](../results/hadamax_experiments/human_normalized_scores.md)
+- [점수](../results/hadamax_experiments/scores.md)
+
+**차트**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [손실 추이](../figures/hadamax_experiments/loss)
+
+---
+
+### Q 값 실험
+
+**표**
+- [인간 정규화 점수](../results/qvalue_experiments/human_normalized_scores.md)
+- [점수](../results/qvalue_experiments/scores.md)
+
+**차트**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [손실 추이](../figures/qvalue_experiments/loss)
+
+---
+
+### Procgen 실험
+
+**표**
+- [Procgen 정규화 점수](../results/procgen_experiments/procgen_normalized_scores.md)
+- [점수](../results/procgen_experiments/scores.md)
 
 
 ## 모델 복잡도

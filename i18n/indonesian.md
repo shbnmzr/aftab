@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Articolo Aftab" src="../figures/header-light.svg">
+  <img alt="Makalah Aftab" src="../figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -20,6 +20,8 @@
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
+
+<br />
 
 <div align="center">
   🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
@@ -41,15 +43,13 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
-<br />
+## Gambaran umum
 
-## Panoramica
+**Aftab** (dari <a href="https://en.wikipedia.org/wiki/Aftab">bahasa Persia</a> آفتاب, yang berarti “matahari” atau “sinar matahari”) adalah framework benchmark untuk mengevaluasi encoder berbasis CNN pada PQN di berbagai <a href="https://en.wikipedia.org/wiki/Atari_Games">gim Atari</a>. Framework ini menyediakan perangkat standar untuk pelatihan, evaluasi, dan reproduksibilitas dalam riset deep reinforcement learning.
 
-**Aftab** (dal <a href="https://en.wikipedia.org/wiki/Aftab">persiano</a> آفتاب, “sole” o “raggi del sole”) è un framework di benchmarking per valutare gli encoder basati su CNN impiegati da PQN in diversi <a href="https://en.wikipedia.org/wiki/Atari_Games">giochi Atari</a>. Offre strumenti standardizzati per l’addestramento, la valutazione e la riproducibilità della ricerca sull’apprendimento per rinforzo profondo.
+Kami telah menyiapkan beberapa video yang membandingkan agen PQN dan Aftab. Tonton [di sini](../videos.md).
 
-Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guardarli [qui](../videos.md).
-
-### Esperimenti sugli encoder
+### Eksperimen encoder
 
 <div align="center">
   <table>
@@ -65,7 +65,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (50 juta frame terakhir)</th>
     </tr>
     <tr>
       <td>
@@ -78,7 +78,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-### Esperimenti Hadamax
+### Eksperimen Hadamax
 
 <div align="center">
   <table>
@@ -94,7 +94,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (50 juta frame terakhir)</th>
     </tr>
     <tr>
       <td>
@@ -107,12 +107,10 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-Riferimenti:
+Referensi:
 - [Hadamax Encoding: Elevating Performance in Model-Free Atari](https://arxiv.org/abs/2505.15345)
 
-### Esperimenti sui valori Q
-
-<div align="center">
+### Eksperimen nilai Q
 
 <div align="center">
   <table>
@@ -128,7 +126,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (50 juta frame terakhir)</th>
     </tr>
     <tr>
       <td>
@@ -141,14 +139,12 @@ Riferimenti:
   </table>
 </div>
 
-</div>
-
-Riferimenti:
+Referensi:
 - [Stop Regressing](https://arxiv.org/abs/2403.03950)
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
-### Esperimenti Procgen (prevenzione dell’overfitting)
+### Eksperimen Procgen (pencegahan overfitting)
 
 <div align="center">
   <table>
@@ -164,7 +160,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM PNS (ultimi 50 milioni di frame)</th>
+      <th>IQM PNS (50 juta frame terakhir)</th>
     </tr>
     <tr>
       <td>
@@ -177,26 +173,26 @@ Riferimenti:
   </table>
 </div>
 
-## Installazione
+## Instalasi
 
-Installazione con pip:
+Instal dengan pip:
 
 ```bash
 pip install aftab
 ```
 
-In alternativa, puoi clonare il repository e installarlo in modalità `editable`.
+Sebagai alternatif, Anda dapat mengkloning repositori dan menginstalnya dalam mode `editable`.
 
 ```bash
 git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Consigliamo vivamente di usare [Micromamba](https://github.com/mamba-org/micromamba-releases) per creare gli ambienti virtuali. Le istruzioni dettagliate sono disponibili [qui](../scripts/README.md).
+Kami sangat menyarankan penggunaan [Micromamba](https://github.com/mamba-org/micromamba-releases) untuk membuat lingkungan virtual. Petunjuk lengkap tersedia [di sini](../scripts/README.md).
 
-## Addestramento degli agenti
+## Melatih agen
 
-**L’API JAX è attualmente in fase di sviluppo** e dovrebbe essere completata entro la fine del 2026. I contributi sono particolarmente graditi.
+**API JAX saat ini masih dalam tahap pengembangan** dan ditargetkan selesai pada akhir 2026. Kontribusi sangat kami harapkan.
 
 ```python
 from aftab import Aftab
@@ -212,9 +208,9 @@ for environment in aftab_environments:
 ```
 
 
-## Inserimento di un encoder personalizzato
+## Menambahkan encoder khusus
 
-Puoi definire un encoder personalizzato come modulo PyTorch e passarlo all’agente:
+Anda dapat mendefinisikan encoder sendiri sebagai modul PyTorch lalu meneruskannya ke agen:
 
 ```python
 import torch
@@ -227,60 +223,60 @@ agent = Aftab(encoder=CustomImageEncoder)
 ```
 
 
-## Risultati
+## Hasil
 
-Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione contiene:
-- **Tabelle**: risultati numerici (HNS/PHS e punteggi grezzi)
-- **Grafici**: punteggi normalizzati IQM e curve di addestramento
+Semua hasil eksperimen disusun berdasarkan kategori eksperimen. Setiap bagian memuat:
+- **Tabel**: hasil numerik (HNS/PHS dan skor mentah)
+- **Grafik**: skor yang dinormalisasi dengan IQM dan kurva pelatihan
 
-### Esperimenti sugli encoder
+### Eksperimen encoder
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/encoder_experiments/human_normalized_scores.md)
-- [Punteggi](../results/encoder_experiments/scores.md)
+**Tabel**
+- [Skor yang dinormalisasi terhadap performa manusia](../results/encoder_experiments/human_normalized_scores.md)
+- [Skor](../results/encoder_experiments/scores.md)
 
-**Grafici**
+**Grafik**
 - [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Andamento della loss](../figures/encoder_experiments/loss)
+- [Perkembangan loss](../figures/encoder_experiments/loss)
 
 ---
 
-### Esperimenti Hadamax
+### Eksperimen Hadamax
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/hadamax_experiments/human_normalized_scores.md)
-- [Punteggi](../results/hadamax_experiments/scores.md)
+**Tabel**
+- [Skor yang dinormalisasi terhadap performa manusia](../results/hadamax_experiments/human_normalized_scores.md)
+- [Skor](../results/hadamax_experiments/scores.md)
 
-**Grafici**
+**Grafik**
 - [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Andamento della loss](../figures/hadamax_experiments/loss)
+- [Perkembangan loss](../figures/hadamax_experiments/loss)
 
 ---
 
-### Esperimenti sui valori Q
+### Eksperimen nilai Q
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/qvalue_experiments/human_normalized_scores.md)
-- [Punteggi](../results/qvalue_experiments/scores.md)
+**Tabel**
+- [Skor yang dinormalisasi terhadap performa manusia](../results/qvalue_experiments/human_normalized_scores.md)
+- [Skor](../results/qvalue_experiments/scores.md)
 
-**Grafici**
+**Grafik**
 - [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Andamento della loss](../figures/qvalue_experiments/loss)
+- [Perkembangan loss](../figures/qvalue_experiments/loss)
 
 ---
 
-### Esperimenti Procgen
+### Eksperimen Procgen
 
-**Tabelle**
-- [Punteggi Procgen normalizzati](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Punteggi](../results/procgen_experiments/scores.md)
+**Tabel**
+- [Skor Procgen yang dinormalisasi](../results/procgen_experiments/procgen_normalized_scores.md)
+- [Skor](../results/procgen_experiments/scores.md)
 
 
-## Complessità dei modelli
+## Kompleksitas model
 
-### Varianti di base
+### Varian dasar
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| Varian | Parameter encoder | Parameter head regresi | Total parameter | FLOPs encoder | FLOPs head regresi | Total FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PQN** | 78,304 | 1,686,500 | 1,764,804 | 7.734 | 1.610 | 9.347 |
 | **Alpha** | 174,752 | 1,782,948 | 1,957,700 | 27.541 | 1.610 | 29.151 |
@@ -292,53 +288,53 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
 | **Eta** | 78,400 | 23,739,460 | 23,817,860 | 28.422 | 23.663 | 52.085 |
 | **Theta** | 76,288 | 1,127,428 | 1,203,716 | 9.065 | 1.053 | 10.118 |
 
-> **Nota:** la variante Eta ha molti più parametri delle altre, soprattutto perché il suo encoder produce un numero elevato di feature.
+> **Catatan:** varian Eta memiliki parameter jauh lebih banyak daripada varian lainnya, terutama karena encodernya menghasilkan fitur dalam jumlah besar.
 
 ---
 
-### Varianti Hadamax
+### Varian Hadamax
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| Varian | Parameter encoder | Parameter head regresi | Total parameter | FLOPs encoder | FLOPs head regresi | Total FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Hadamax** | 156,608 | 3,968,516 | 4,125,124 | 159.014 | 3.969 | 162.984 |
 | **Gamma-Hadamax-Valid** | 234,336 | 1,609,220 | 1,843,556 | 122.001 | 1.610 | 123.611 |
 | **Gamma-Hadamax-Same** | 234,336 | 3,280,388 | 3,514,724 | 129.300 | 3.281 | 132.581 |
 
-## Iperparametri
+## Hiperparameter
 
 <div align="center">
 
-| Iperparametro | Valore |
+| Hiperparameter | Nilai |
 | :--- | :--- |
-| Tasso di apprendimento | $2.5 \times 10^{-4}$ |
-| Ambienti di addestramento | 128 |
-| Ambienti di test | 8 |
-| Ottimizzatore | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Decadimento dei pesi | 0 |
+| Laju pembelajaran | $2.5 \times 10^{-4}$ |
+| Lingkungan pelatihan | 128 |
+| Lingkungan pengujian | 8 |
+| Pengoptimal | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
+| Peluruhan bobot | 0 |
 | $\epsilon$ | $1 \times 10^{-5}$ |
 | $\beta_{1}$ | 0.9 |
 | $\beta_{2}$ | 0.999 |
-| Frame totali | 200,000,000 |
-| Funzione di loss | Errore quadratico medio |
-| Scheduler | Decadimento lineare |
-| Esplorazione $\epsilon$-greedy | 10% of total frames |
-| Fattore di sconto ($\gamma$) | 0.99 |
+| Total frame | 200,000,000 |
+| Fungsi kerugian | Galat kuadrat rata-rata |
+| Penjadwal | Annealing linear |
+| Eksplorasi $\epsilon$-greedy | 10% of total frames |
+| Faktor diskonto ($\gamma$) | 0.99 |
 | GAE ($\lambda$) | 0.65 |
-| Epoche | 2 |
-| Dimensione del batch | 4096 |
+| Epoch | 2 |
+| Ukuran batch | 4096 |
 
 </div>
 
-<p align="center"><em>Utilizzati negli esperimenti sugli encoder e Hadamax.</em></p>
+<p align="center"><em>Digunakan dalam eksperimen encoder dan Hadamax.</em></p>
 
-## Significatività statistica
+## Signifikansi statistik
 
-### Esperimenti sugli encoder
+### Eksperimen encoder
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Uji peringkat bertanda Wilcoxon</th>
+    <th align="center">Uji peringkat bertanda Wilcoxon (dikoreksi)</th>
   </tr>
   <tr>
     <td align="center">
@@ -355,7 +351,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">Probabilitas peningkatan</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -367,12 +363,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti Hadamax
+### Eksperimen Hadamax
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Uji peringkat bertanda Wilcoxon</th>
+    <th align="center">Uji peringkat bertanda Wilcoxon (dikoreksi)</th>
   </tr>
   <tr>
     <td align="center">
@@ -389,7 +385,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">Probabilitas peningkatan</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -401,12 +397,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti sui valori Q
+### Eksperimen nilai Q
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Uji peringkat bertanda Wilcoxon</th>
+    <th align="center">Uji peringkat bertanda Wilcoxon (dikoreksi)</th>
   </tr>
   <tr>
     <td align="center">
@@ -423,7 +419,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">Probabilitas peningkatan</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -435,10 +431,10 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-## Riproducibilità
+## Reproduksibilitas
 
-A causa della natura stocastica dell’apprendimento per rinforzo profondo, non è possibile ottenere una riproduzione esatta usando dataset fissi.
-Forniamo quindi l’insieme dei seed casuali utilizzati nei nostri esperimenti.
+Karena sifat stokastik deep reinforcement learning, hasil tidak dapat direproduksi secara persis hanya dengan dataset tetap.
+Sebagai gantinya, kami menyediakan kumpulan seed acak yang digunakan dalam eksperimen.
 
 ```python
 from aftab import aftab_seeds
@@ -446,7 +442,7 @@ from aftab import aftab_seeds
 print(aftab_seeds)
 ```
 
-Riproduzione completa degli esperimenti:
+Replikasi eksperimen secara lengkap:
 
 ```python
 from aftab import Aftab
@@ -460,41 +456,41 @@ for environment in aftab_environments:
         agent.log()
 ```
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Atari:
+EnvPool menyediakan koleksi lingkungan Atari yang lengkap:
 https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 
-Gli ambienti Procgen usano le proprie osservazioni RGB native con forma `(3, 64, 64)`.
-Aftab legge la configurazione EnvPool di ogni task e applica soltanto le opzioni supportate.
-Le opzioni specifiche per Atari, come `noop`, `frame_skip`, `frame_stack` e
-`train_episodic_life`, e il clipping delle ricompense di EnvPool non vengono quindi passati a
+Lingkungan Procgen menggunakan observasi RGB native dengan bentuk `(3, 64, 64)`.
+Aftab membaca konfigurasi EnvPool setiap tugas dan hanya menerapkan opsi yang didukung.
+Karena itu, opsi khusus Atari seperti `noop`, `frame_skip`, `frame_stack`, dan
+`train_episodic_life`, serta reward clipping dari EnvPool, tidak diteruskan ke
 Procgen.
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Procgen:
+EnvPool menyediakan koleksi lingkungan Procgen yang lengkap:
 
 https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
-## Hardware
+## Perangkat keras
 
-Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
+Seluruh eksperimen dalam proyek ini dijalankan pada GPU [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
 
-| Specifica | Dettagli |
+| Spesifikasi | Detail |
 |--------------|----------|
-| Memoria GPU | 48 GB GDDR6 con codice di correzione degli errori (ECC) |
-| Larghezza di banda della memoria GPU | 696 GB/s |
-| Interconnessione | NVIDIA NVLink 112,5 GB/s (bidirezionale); PCIe Gen4: 64 GB/s |
-| NVLink | Bidirezionale, a basso profilo (2 slot) |
-| Porte video | 3x DisplayPort 1.4* |
-| Consumo massimo | 300 W |
-| Formato | 4,4" (A) × 10,5" (L), doppio slot |
-| Raffreddamento | Passivo |
-| Software vGPU supportato | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
-| Profili vGPU supportati | Consultare la guida alle licenze Virtual GPU |
-| NVENC / NVDEC | 1x / 2x (decodifica AV1 inclusa) |
-| Avvio sicuro | Avvio sicuro e misurato con radice hardware di attendibilità (opzionale) |
-| Conformità NEBS | Livello 3 |
-| Connettore di alimentazione | CPU a 8 pin |
+| Memori GPU | 48 GB GDDR6 dengan kode koreksi galat (ECC) |
+| Bandwidth memori GPU | 696 GB/s |
+| Interkoneksi | NVIDIA NVLink 112,5 GB/s (dua arah); PCIe Gen4: 64 GB/s |
+| NVLink | Dua arah, low-profile (2 slot) |
+| Port tampilan | 3x DisplayPort 1.4* |
+| Konsumsi daya maksimum | 300 W |
+| Dimensi | 4,4" (T) × 10,5" (P), dua slot |
+| Pendinginan | Pasif |
+| Dukungan perangkat lunak vGPU | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
+| Profil vGPU yang didukung | Lihat Panduan Lisensi Virtual GPU |
+| NVENC / NVDEC | 1x / 2x (termasuk decoding AV1) |
+| Boot aman | Boot aman dan terukur dengan root of trust berbasis perangkat keras (opsional) |
+| Kepatuhan NEBS | Tingkat 3 |
+| Konektor daya | CPU 8 pin |
 
-## Citazione
+## Sitasi
 
 ```bibtex
 @article{aftab2026drl,
@@ -505,7 +501,7 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-### Lavori correlati
+### Karya terkait
 
 ```bibtex
 @misc{2407.04811,
@@ -552,17 +548,17 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-## Link utili
+## Tautan berguna
 
-- [Wikipedia: apprendimento per rinforzo (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [Wikipedia: apprendimento per rinforzo profondo (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
-- [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
+- [Wikipedia: Pembelajaran penguatan (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [Wikipedia: Pembelajaran penguatan mendalam (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
+- [Wikipedia: Pembelajaran Q](https://en.wikipedia.org/wiki/Q-learning)
 - [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: test d’ipotesi statistica](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: test dei ranghi con segno di Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [Wikipedia: Uji Hipotesis Statistik](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [Wikipedia: Uji Peringkat Bertanda Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
 
-## Licenza
+## Lisensi
 
 © 2025 Taha Shieenavaz.
-Distribuito con licenza CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+Dilisensikan berdasarkan CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/

@@ -41,6 +41,8 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
+<br />
+
 ## Tổng quan
 
 **Aftab** (trong <a href="https://en.wikipedia.org/wiki/Aftab">tiếng Ba Tư</a>: آفتاب, nghĩa là “mặt trời” hoặc “tia nắng”) là một framework benchmark dùng để đánh giá các bộ mã hóa dựa trên CNN trong PQN trên nhiều <a href="https://en.wikipedia.org/wiki/Atari_Games">trò chơi Atari</a>. Framework cung cấp các công cụ chuẩn hóa cho việc huấn luyện, đánh giá và tái lập kết quả nghiên cứu học tăng cường sâu.
@@ -146,6 +148,35 @@ Tài liệu tham khảo:
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
+### Thí nghiệm Procgen (ngăn ngừa quá khớp)
+
+<div align="center">
+  <table>
+    <tr>
+      <th>IQM PNS</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_light.png" />
+        </picture>
+      </td>
+    </tr>
+    <tr>
+      <th>IQM PNS (50 triệu khung hình cuối)</th>
+    </tr>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_dark.png" />
+          <img src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/procgen_experiments/global_zoomed_light.png" />
+        </picture>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## Cài đặt
 
 Cài đặt bằng pip:
@@ -198,36 +229,51 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## Kết quả
 
-**Thí nghiệm về bộ mã hóa**:
+Tất cả kết quả thí nghiệm được sắp xếp theo từng nhóm. Mỗi phần bao gồm:
+- **Bảng**: kết quả dạng số (HNS/PHS và điểm thô)
+- **Biểu đồ**: điểm IQM đã chuẩn hóa và các đường cong huấn luyện
 
-- Bảng:
-  - [HNS](../results/encoder_experiments/human_normalized_scores.md)
-  - [Điểm số](../results/encoder_experiments/scores.md)
-- Biểu đồ:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/human_normalized_score)
-  - [Diễn biến hàm mất mát](https://github.com/tahashieenavaz/aftab/tree/main/figures/encoder_experiments/loss)
+### Thí nghiệm về bộ mã hóa
 
-**Thí nghiệm Hadamax**:
+**Bảng**
+- [Điểm chuẩn hóa theo hiệu suất con người](../results/encoder_experiments/human_normalized_scores.md)
+- [Điểm số](../results/encoder_experiments/scores.md)
 
-- Bảng:
-  - [HNS](../results/hadamax_experiments/human_normalized_scores.md)
-  - [Điểm số](../results/hadamax_experiments/scores.md)
-- Biểu đồ:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/human_normalized_score)
-  - [Diễn biến hàm mất mát](https://github.com/tahashieenavaz/aftab/tree/main/figures/hadamax_experiments/loss)
+**Biểu đồ**
+- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
+- [Diễn biến hàm mất mát](../figures/encoder_experiments/loss)
 
-**Thí nghiệm về giá trị Q**:
-- Bảng:
-  - [HNS](../results/qvalue_experiments/human_normalized_scores.md)
-  - [Điểm số](../results/qvalue_experiments/scores.md)
-- Biểu đồ:
-  - [IQM HNS](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/human_normalized_score)
-  - [Diễn biến hàm mất mát](https://github.com/tahashieenavaz/aftab/tree/main/figures/qvalue_experiments/loss)
+---
 
-**Thí nghiệm Procgen**:
-- Bảng:
-  - [PHS](../results/procgen_experiments/procgen_normalized_scores.md)
-  - [Điểm số](../results/procgen_experiments/scores.md)
+### Thí nghiệm Hadamax
+
+**Bảng**
+- [Điểm chuẩn hóa theo hiệu suất con người](../results/hadamax_experiments/human_normalized_scores.md)
+- [Điểm số](../results/hadamax_experiments/scores.md)
+
+**Biểu đồ**
+- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
+- [Diễn biến hàm mất mát](../figures/hadamax_experiments/loss)
+
+---
+
+### Thí nghiệm về giá trị Q
+
+**Bảng**
+- [Điểm chuẩn hóa theo hiệu suất con người](../results/qvalue_experiments/human_normalized_scores.md)
+- [Điểm số](../results/qvalue_experiments/scores.md)
+
+**Biểu đồ**
+- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
+- [Diễn biến hàm mất mát](../figures/qvalue_experiments/loss)
+
+---
+
+### Thí nghiệm Procgen
+
+**Bảng**
+- [Điểm Procgen đã chuẩn hóa](../results/procgen_experiments/procgen_normalized_scores.md)
+- [Điểm số](../results/procgen_experiments/scores.md)
 
 
 ## Độ phức tạp của mô hình

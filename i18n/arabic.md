@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Articolo Aftab" src="../figures/header-light.svg">
+  <img alt="ورقة Aftab البحثية" src="../figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -20,6 +20,8 @@
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
+
+<br />
 
 <div align="center">
   🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
@@ -41,15 +43,13 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
-<br />
+## نظرة عامة
 
-## Panoramica
+**Aftab** (بالفارسية <a href="https://en.wikipedia.org/wiki/Aftab">آفتاب</a>، وتعني «الشمس» أو «أشعة الشمس») هو إطار معياري لتقييم المُرمِّزات القائمة على الشبكات العصبية الالتفافية (CNN) في PQN عبر مجموعة من <a href="https://en.wikipedia.org/wiki/Atari_Games">ألعاب Atari</a>. ويوفر أدوات موحّدة للتدريب والتقييم وقابلية إعادة الإنتاج في أبحاث التعلم المعزز العميق.
 
-**Aftab** (dal <a href="https://en.wikipedia.org/wiki/Aftab">persiano</a> آفتاب, “sole” o “raggi del sole”) è un framework di benchmarking per valutare gli encoder basati su CNN impiegati da PQN in diversi <a href="https://en.wikipedia.org/wiki/Atari_Games">giochi Atari</a>. Offre strumenti standardizzati per l’addestramento, la valutazione e la riproducibilità della ricerca sull’apprendimento per rinforzo profondo.
+جمعنا بعض المقاطع التي تقارن بين وكلاء PQN وAftab. يمكن مشاهدتها [هنا](../videos.md).
 
-Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guardarli [qui](../videos.md).
-
-### Esperimenti sugli encoder
+### تجارب المُرمِّزات
 
 <div align="center">
   <table>
@@ -65,7 +65,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (آخر 50 مليون إطار)</th>
     </tr>
     <tr>
       <td>
@@ -78,7 +78,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-### Esperimenti Hadamax
+### تجارب Hadamax
 
 <div align="center">
   <table>
@@ -94,7 +94,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (آخر 50 مليون إطار)</th>
     </tr>
     <tr>
       <td>
@@ -107,12 +107,10 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-Riferimenti:
+المراجع:
 - [Hadamax Encoding: Elevating Performance in Model-Free Atari](https://arxiv.org/abs/2505.15345)
 
-### Esperimenti sui valori Q
-
-<div align="center">
+### تجارب قيم Q
 
 <div align="center">
   <table>
@@ -128,7 +126,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS (آخر 50 مليون إطار)</th>
     </tr>
     <tr>
       <td>
@@ -141,14 +139,12 @@ Riferimenti:
   </table>
 </div>
 
-</div>
-
-Riferimenti:
+المراجع:
 - [Stop Regressing](https://arxiv.org/abs/2403.03950)
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
-### Esperimenti Procgen (prevenzione dell’overfitting)
+### تجارب Procgen (الحد من فرط التخصيص)
 
 <div align="center">
   <table>
@@ -164,7 +160,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM PNS (ultimi 50 milioni di frame)</th>
+      <th>IQM PNS (آخر 50 مليون إطار)</th>
     </tr>
     <tr>
       <td>
@@ -177,26 +173,26 @@ Riferimenti:
   </table>
 </div>
 
-## Installazione
+## التثبيت
 
-Installazione con pip:
+التثبيت باستخدام pip:
 
 ```bash
 pip install aftab
 ```
 
-In alternativa, puoi clonare il repository e installarlo in modalità `editable`.
+يمكنك بدلاً من ذلك استنساخ المستودع وتثبيته في وضع `editable`.
 
 ```bash
 git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Consigliamo vivamente di usare [Micromamba](https://github.com/mamba-org/micromamba-releases) per creare gli ambienti virtuali. Le istruzioni dettagliate sono disponibili [qui](../scripts/README.md).
+نوصي بشدة باستخدام [Micromamba](https://github.com/mamba-org/micromamba-releases) لإنشاء البيئات الافتراضية. تتوفر التعليمات المفصلة [هنا](../scripts/README.md).
 
-## Addestramento degli agenti
+## تدريب الوكلاء
 
-**L’API JAX è attualmente in fase di sviluppo** e dovrebbe essere completata entro la fine del 2026. I contributi sono particolarmente graditi.
+**واجهة JAX البرمجية قيد التطوير حالياً**، ومن المخطط إكمالها بحلول نهاية عام 2026. نرحب كثيراً بالمساهمات.
 
 ```python
 from aftab import Aftab
@@ -212,9 +208,9 @@ for environment in aftab_environments:
 ```
 
 
-## Inserimento di un encoder personalizzato
+## إضافة مُرمِّز مخصص
 
-Puoi definire un encoder personalizzato come modulo PyTorch e passarlo all’agente:
+يمكنك تعريف مُرمِّزك الخاص بوصفه وحدة PyTorch وتمريره إلى الوكيل:
 
 ```python
 import torch
@@ -227,60 +223,60 @@ agent = Aftab(encoder=CustomImageEncoder)
 ```
 
 
-## Risultati
+## النتائج
 
-Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione contiene:
-- **Tabelle**: risultati numerici (HNS/PHS e punteggi grezzi)
-- **Grafici**: punteggi normalizzati IQM e curve di addestramento
+نُظمت جميع النتائج التجريبية بحسب فئة التجربة. يتضمن كل قسم ما يلي:
+- **الجداول**: النتائج العددية (HNS/PHS والدرجات الخام)
+- **المخططات**: الدرجات المطبّعة باستخدام IQM ومنحنيات التدريب
 
-### Esperimenti sugli encoder
+### تجارب المُرمِّزات
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/encoder_experiments/human_normalized_scores.md)
-- [Punteggi](../results/encoder_experiments/scores.md)
+**الجداول**
+- [الدرجات المطبّعة قياساً إلى أداء الإنسان](../results/encoder_experiments/human_normalized_scores.md)
+- [الدرجات](../results/encoder_experiments/scores.md)
 
-**Grafici**
+**المخططات**
 - [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Andamento della loss](../figures/encoder_experiments/loss)
+- [تطور دالة الخسارة](../figures/encoder_experiments/loss)
 
 ---
 
-### Esperimenti Hadamax
+### تجارب Hadamax
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/hadamax_experiments/human_normalized_scores.md)
-- [Punteggi](../results/hadamax_experiments/scores.md)
+**الجداول**
+- [الدرجات المطبّعة قياساً إلى أداء الإنسان](../results/hadamax_experiments/human_normalized_scores.md)
+- [الدرجات](../results/hadamax_experiments/scores.md)
 
-**Grafici**
+**المخططات**
 - [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Andamento della loss](../figures/hadamax_experiments/loss)
+- [تطور دالة الخسارة](../figures/hadamax_experiments/loss)
 
 ---
 
-### Esperimenti sui valori Q
+### تجارب قيم Q
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/qvalue_experiments/human_normalized_scores.md)
-- [Punteggi](../results/qvalue_experiments/scores.md)
+**الجداول**
+- [الدرجات المطبّعة قياساً إلى أداء الإنسان](../results/qvalue_experiments/human_normalized_scores.md)
+- [الدرجات](../results/qvalue_experiments/scores.md)
 
-**Grafici**
+**المخططات**
 - [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Andamento della loss](../figures/qvalue_experiments/loss)
+- [تطور دالة الخسارة](../figures/qvalue_experiments/loss)
 
 ---
 
-### Esperimenti Procgen
+### تجارب Procgen
 
-**Tabelle**
-- [Punteggi Procgen normalizzati](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Punteggi](../results/procgen_experiments/scores.md)
+**الجداول**
+- [درجات Procgen المطبّعة](../results/procgen_experiments/procgen_normalized_scores.md)
+- [الدرجات](../results/procgen_experiments/scores.md)
 
 
-## Complessità dei modelli
+## تعقيد النماذج
 
-### Varianti di base
+### المتغيرات الأساسية
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| المتغير | معاملات المُرمِّز | معاملات رأس الانحدار | إجمالي المعاملات | FLOPs المُرمِّز | FLOPs رأس الانحدار | إجمالي FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PQN** | 78,304 | 1,686,500 | 1,764,804 | 7.734 | 1.610 | 9.347 |
 | **Alpha** | 174,752 | 1,782,948 | 1,957,700 | 27.541 | 1.610 | 29.151 |
@@ -292,53 +288,53 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
 | **Eta** | 78,400 | 23,739,460 | 23,817,860 | 28.422 | 23.663 | 52.085 |
 | **Theta** | 76,288 | 1,127,428 | 1,203,716 | 9.065 | 1.053 | 10.118 |
 
-> **Nota:** la variante Eta ha molti più parametri delle altre, soprattutto perché il suo encoder produce un numero elevato di feature.
+> **ملاحظة:** يحتوي متغير Eta على معاملات أكثر بكثير من المتغيرات الأخرى، ويرجع ذلك أساساً إلى أن مُرمِّزه ينتج عدداً كبيراً من السمات.
 
 ---
 
-### Varianti Hadamax
+### متغيرات Hadamax
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| المتغير | معاملات المُرمِّز | معاملات رأس الانحدار | إجمالي المعاملات | FLOPs المُرمِّز | FLOPs رأس الانحدار | إجمالي FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Hadamax** | 156,608 | 3,968,516 | 4,125,124 | 159.014 | 3.969 | 162.984 |
 | **Gamma-Hadamax-Valid** | 234,336 | 1,609,220 | 1,843,556 | 122.001 | 1.610 | 123.611 |
 | **Gamma-Hadamax-Same** | 234,336 | 3,280,388 | 3,514,724 | 129.300 | 3.281 | 132.581 |
 
-## Iperparametri
+## المعاملات الفائقة
 
 <div align="center">
 
-| Iperparametro | Valore |
+| المعامل الفائق | القيمة |
 | :--- | :--- |
-| Tasso di apprendimento | $2.5 \times 10^{-4}$ |
-| Ambienti di addestramento | 128 |
-| Ambienti di test | 8 |
-| Ottimizzatore | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Decadimento dei pesi | 0 |
+| معدل التعلم | $2.5 \times 10^{-4}$ |
+| بيئات التدريب | 128 |
+| بيئات الاختبار | 8 |
+| خوارزمية التحسين | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
+| اضمحلال الأوزان | 0 |
 | $\epsilon$ | $1 \times 10^{-5}$ |
 | $\beta_{1}$ | 0.9 |
 | $\beta_{2}$ | 0.999 |
-| Frame totali | 200,000,000 |
-| Funzione di loss | Errore quadratico medio |
-| Scheduler | Decadimento lineare |
-| Esplorazione $\epsilon$-greedy | 10% of total frames |
-| Fattore di sconto ($\gamma$) | 0.99 |
+| إجمالي الإطارات | 200,000,000 |
+| دالة الخسارة | متوسط مربع الخطأ |
+| المجدول | خفض خطي |
+| استكشاف $\epsilon$-الجشع | 10% of total frames |
+| معامل الخصم ($\gamma$) | 0.99 |
 | GAE ($\lambda$) | 0.65 |
-| Epoche | 2 |
-| Dimensione del batch | 4096 |
+| الحقب | 2 |
+| حجم الدفعة | 4096 |
 
 </div>
 
-<p align="center"><em>Utilizzati negli esperimenti sugli encoder e Hadamax.</em></p>
+<p align="center"><em>مستخدمة في تجارب المُرمِّزات وHadamax.</em></p>
 
-## Significatività statistica
+## الدلالة الإحصائية
 
-### Esperimenti sugli encoder
+### تجارب المُرمِّزات
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">اختبار ويلكوكسون للرتب الموقعة</th>
+    <th align="center">اختبار ويلكوكسون للرتب الموقعة (بعد التصحيح)</th>
   </tr>
   <tr>
     <td align="center">
@@ -355,7 +351,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">احتمال التحسن</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -367,12 +363,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti Hadamax
+### تجارب Hadamax
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">اختبار ويلكوكسون للرتب الموقعة</th>
+    <th align="center">اختبار ويلكوكسون للرتب الموقعة (بعد التصحيح)</th>
   </tr>
   <tr>
     <td align="center">
@@ -389,7 +385,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">احتمال التحسن</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -401,12 +397,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti sui valori Q
+### تجارب قيم Q
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">اختبار ويلكوكسون للرتب الموقعة</th>
+    <th align="center">اختبار ويلكوكسون للرتب الموقعة (بعد التصحيح)</th>
   </tr>
   <tr>
     <td align="center">
@@ -423,7 +419,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">احتمال التحسن</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -435,10 +431,10 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-## Riproducibilità
+## قابلية إعادة الإنتاج
 
-A causa della natura stocastica dell’apprendimento per rinforzo profondo, non è possibile ottenere una riproduzione esatta usando dataset fissi.
-Forniamo quindi l’insieme dei seed casuali utilizzati nei nostri esperimenti.
+نظراً إلى الطبيعة العشوائية للتعلم المعزز العميق، لا يمكن إعادة إنتاج النتائج بدقة بالاعتماد على مجموعات بيانات ثابتة.
+لذلك نوفر مجموعة البذور العشوائية المستخدمة في تجاربنا.
 
 ```python
 from aftab import aftab_seeds
@@ -446,7 +442,7 @@ from aftab import aftab_seeds
 print(aftab_seeds)
 ```
 
-Riproduzione completa degli esperimenti:
+إعادة إنتاج التجارب بالكامل:
 
 ```python
 from aftab import Aftab
@@ -460,41 +456,40 @@ for environment in aftab_environments:
         agent.log()
 ```
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Atari:
+تتوفر عبر EnvPool مجموعة شاملة من بيئات Atari:
 https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 
-Gli ambienti Procgen usano le proprie osservazioni RGB native con forma `(3, 64, 64)`.
-Aftab legge la configurazione EnvPool di ogni task e applica soltanto le opzioni supportate.
-Le opzioni specifiche per Atari, come `noop`, `frame_skip`, `frame_stack` e
-`train_episodic_life`, e il clipping delle ricompense di EnvPool non vengono quindi passati a
-Procgen.
+تستخدم بيئات Procgen ملاحظاتها الأصلية بنظام RGB وبالشكل `(3, 64, 64)`.
+يقرأ Aftab إعدادات EnvPool لكل مهمة ولا يطبق إلا الخيارات المدعومة.
+لذلك لا تُمرر إلى Procgen الخيارات الخاصة بـAtari، مثل `noop` و`frame_skip` و`frame_stack`
+و`train_episodic_life`، ولا قص المكافآت في EnvPool.
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Procgen:
+تتوفر عبر EnvPool مجموعة شاملة من بيئات Procgen:
 
 https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
-## Hardware
+## العتاد
 
-Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
+شُغلت جميع تجارب هذا المشروع على وحدات معالجة رسومية [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
 
-| Specifica | Dettagli |
+| المواصفة | التفاصيل |
 |--------------|----------|
-| Memoria GPU | 48 GB GDDR6 con codice di correzione degli errori (ECC) |
-| Larghezza di banda della memoria GPU | 696 GB/s |
-| Interconnessione | NVIDIA NVLink 112,5 GB/s (bidirezionale); PCIe Gen4: 64 GB/s |
-| NVLink | Bidirezionale, a basso profilo (2 slot) |
-| Porte video | 3x DisplayPort 1.4* |
-| Consumo massimo | 300 W |
-| Formato | 4,4" (A) × 10,5" (L), doppio slot |
-| Raffreddamento | Passivo |
-| Software vGPU supportato | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
-| Profili vGPU supportati | Consultare la guida alle licenze Virtual GPU |
-| NVENC / NVDEC | 1x / 2x (decodifica AV1 inclusa) |
-| Avvio sicuro | Avvio sicuro e misurato con radice hardware di attendibilità (opzionale) |
-| Conformità NEBS | Livello 3 |
-| Connettore di alimentazione | CPU a 8 pin |
+| ذاكرة GPU | ‏48 GB من GDDR6 مع رمز تصحيح الأخطاء (ECC) |
+| عرض نطاق ذاكرة GPU | 696 GB/s |
+| الربط البيني | NVIDIA NVLink بسرعة 112.5 GB/s ثنائية الاتجاه؛ PCIe Gen4 بسرعة 64 GB/s |
+| NVLink | ثنائي الاتجاه، منخفض الارتفاع (فتحتان) |
+| منافذ العرض | 3x DisplayPort 1.4* |
+| الحد الأقصى لاستهلاك الطاقة | 300 W |
+| الأبعاد | ‏4.4 بوصة (ارتفاع) × 10.5 بوصة (طول)، بفتحتين |
+| التبريد | سلبي |
+| برمجيات vGPU المدعومة | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
+| ملفات تعريف vGPU المدعومة | راجع دليل ترخيص Virtual GPU |
+| NVENC / NVDEC | ‏1x / 2x (يشمل فك ترميز AV1) |
+| الإقلاع الآمن | إقلاع آمن ومقاس بجذر ثقة عتادي (اختياري) |
+| التوافق مع NEBS | المستوى 3 |
+| موصل الطاقة | CPU بثمانية سنون |
 
-## Citazione
+## الاستشهاد
 
 ```bibtex
 @article{aftab2026drl,
@@ -505,7 +500,7 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-### Lavori correlati
+### أعمال ذات صلة
 
 ```bibtex
 @misc{2407.04811,
@@ -552,17 +547,17 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-## Link utili
+## روابط مفيدة
 
-- [Wikipedia: apprendimento per rinforzo (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [Wikipedia: apprendimento per rinforzo profondo (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
-- [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
-- [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: test d’ipotesi statistica](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: test dei ranghi con segno di Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [ويكيبيديا: التعلم المعزز (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [ويكيبيديا: التعلم المعزز العميق (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
+- [ويكيبيديا: تعلم Q](https://en.wikipedia.org/wiki/Q-learning)
+- [ويكيبيديا: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
+- [ويكيبيديا: اختبار الفرضيات الإحصائية](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [ويكيبيديا: اختبار ويلكوكسون للرتب الموقعة](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
 
-## Licenza
+## الترخيص
 
 © 2025 Taha Shieenavaz.
-Distribuito con licenza CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+مرخّص بموجب CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/

@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Articolo Aftab" src="../figures/header-light.svg">
+  <img alt="Aftab 論文" src="../figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -20,6 +20,8 @@
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
+
+<br />
 
 <div align="center">
   🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
@@ -41,15 +43,13 @@
   🇹🇷 <a href="./turkish.md">Türkçe</a>
 </div>
 
-<br />
+## 概要
 
-## Panoramica
+**Aftab**（<a href="https://en.wikipedia.org/wiki/Aftab">ペルシア語</a>：آفتاب、「太陽」または「陽光」の意）は、複数の <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari ゲーム</a>において PQN の CNN ベースのエンコーダを評価するためのベンチマークフレームワークです。深層強化学習研究向けに、標準化された学習・評価・再現性確保のためのツールを提供します。
 
-**Aftab** (dal <a href="https://en.wikipedia.org/wiki/Aftab">persiano</a> آفتاب, “sole” o “raggi del sole”) è un framework di benchmarking per valutare gli encoder basati su CNN impiegati da PQN in diversi <a href="https://en.wikipedia.org/wiki/Atari_Games">giochi Atari</a>. Offre strumenti standardizzati per l’addestramento, la valutazione e la riproducibilità della ricerca sull’apprendimento per rinforzo profondo.
+PQN と Aftab のエージェントを比較する動画をいくつか用意しました。[こちら](../videos.md)からご覧いただけます。
 
-Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guardarli [qui](../videos.md).
-
-### Esperimenti sugli encoder
+### エンコーダ実験
 
 <div align="center">
   <table>
@@ -65,7 +65,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS（最後の 5,000 万フレーム）</th>
     </tr>
     <tr>
       <td>
@@ -78,7 +78,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-### Esperimenti Hadamax
+### Hadamax 実験
 
 <div align="center">
   <table>
@@ -94,7 +94,7 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS（最後の 5,000 万フレーム）</th>
     </tr>
     <tr>
       <td>
@@ -107,12 +107,10 @@ Abbiamo raccolto alcuni video che confrontano gli agenti PQN e Aftab. Puoi guard
   </table>
 </div>
 
-Riferimenti:
+参考文献：
 - [Hadamax Encoding: Elevating Performance in Model-Free Atari](https://arxiv.org/abs/2505.15345)
 
-### Esperimenti sui valori Q
-
-<div align="center">
+### Q 値実験
 
 <div align="center">
   <table>
@@ -128,7 +126,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM HNS (ultimi 50 milioni di frame)</th>
+      <th>IQM HNS（最後の 5,000 万フレーム）</th>
     </tr>
     <tr>
       <td>
@@ -141,14 +139,12 @@ Riferimenti:
   </table>
 </div>
 
-</div>
-
-Riferimenti:
+参考文献：
 - [Stop Regressing](https://arxiv.org/abs/2403.03950)
 - [Deep Exploration via Bootstrapped DQN](https://arxiv.org/abs/1602.04621)
 - [Improving Regression Performance with Distributional Losses](https://arxiv.org/abs/1806.04613)
 
-### Esperimenti Procgen (prevenzione dell’overfitting)
+### Procgen 実験（過学習の抑制）
 
 <div align="center">
   <table>
@@ -164,7 +160,7 @@ Riferimenti:
       </td>
     </tr>
     <tr>
-      <th>IQM PNS (ultimi 50 milioni di frame)</th>
+      <th>IQM PNS（最後の 5,000 万フレーム）</th>
     </tr>
     <tr>
       <td>
@@ -177,26 +173,26 @@ Riferimenti:
   </table>
 </div>
 
-## Installazione
+## インストール
 
-Installazione con pip:
+pip でインストールします：
 
 ```bash
 pip install aftab
 ```
 
-In alternativa, puoi clonare il repository e installarlo in modalità `editable`.
+または、リポジトリをクローンして `editable` モードでインストールできます。
 
 ```bash
 git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Consigliamo vivamente di usare [Micromamba](https://github.com/mamba-org/micromamba-releases) per creare gli ambienti virtuali. Le istruzioni dettagliate sono disponibili [qui](../scripts/README.md).
+仮想環境の作成には [Micromamba](https://github.com/mamba-org/micromamba-releases) を強く推奨します。詳しい手順は[こちら](../scripts/README.md)を参照してください。
 
-## Addestramento degli agenti
+## エージェントの学習
 
-**L’API JAX è attualmente in fase di sviluppo** e dovrebbe essere completata entro la fine del 2026. I contributi sono particolarmente graditi.
+**JAX API は現在開発中であり**、2026 年末までの完成を予定しています。コントリビューションを歓迎します。
 
 ```python
 from aftab import Aftab
@@ -212,9 +208,9 @@ for environment in aftab_environments:
 ```
 
 
-## Inserimento di un encoder personalizzato
+## カスタムエンコーダの組み込み
 
-Puoi definire un encoder personalizzato come modulo PyTorch e passarlo all’agente:
+独自のエンコーダを PyTorch モジュールとして定義し、エージェントに渡すことができます：
 
 ```python
 import torch
@@ -227,60 +223,60 @@ agent = Aftab(encoder=CustomImageEncoder)
 ```
 
 
-## Risultati
+## 結果
 
-Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione contiene:
-- **Tabelle**: risultati numerici (HNS/PHS e punteggi grezzi)
-- **Grafici**: punteggi normalizzati IQM e curve di addestramento
+すべての実験結果は実験カテゴリ別に整理されています。各セクションには次の内容が含まれます：
+- **表**：数値結果（HNS/PHS および生スコア）
+- **グラフ**：IQM 正規化スコアと学習曲線
 
-### Esperimenti sugli encoder
+### エンコーダ実験
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/encoder_experiments/human_normalized_scores.md)
-- [Punteggi](../results/encoder_experiments/scores.md)
+**表**
+- [人間の成績で正規化したスコア](../results/encoder_experiments/human_normalized_scores.md)
+- [スコア](../results/encoder_experiments/scores.md)
 
-**Grafici**
+**グラフ**
 - [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Andamento della loss](../figures/encoder_experiments/loss)
+- [損失の推移](../figures/encoder_experiments/loss)
 
 ---
 
-### Esperimenti Hadamax
+### Hadamax 実験
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/hadamax_experiments/human_normalized_scores.md)
-- [Punteggi](../results/hadamax_experiments/scores.md)
+**表**
+- [人間の成績で正規化したスコア](../results/hadamax_experiments/human_normalized_scores.md)
+- [スコア](../results/hadamax_experiments/scores.md)
 
-**Grafici**
+**グラフ**
 - [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Andamento della loss](../figures/hadamax_experiments/loss)
+- [損失の推移](../figures/hadamax_experiments/loss)
 
 ---
 
-### Esperimenti sui valori Q
+### Q 値実験
 
-**Tabelle**
-- [Punteggi normalizzati rispetto alle prestazioni umane](../results/qvalue_experiments/human_normalized_scores.md)
-- [Punteggi](../results/qvalue_experiments/scores.md)
+**表**
+- [人間の成績で正規化したスコア](../results/qvalue_experiments/human_normalized_scores.md)
+- [スコア](../results/qvalue_experiments/scores.md)
 
-**Grafici**
+**グラフ**
 - [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Andamento della loss](../figures/qvalue_experiments/loss)
+- [損失の推移](../figures/qvalue_experiments/loss)
 
 ---
 
-### Esperimenti Procgen
+### Procgen 実験
 
-**Tabelle**
-- [Punteggi Procgen normalizzati](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Punteggi](../results/procgen_experiments/scores.md)
+**表**
+- [Procgen 正規化スコア](../results/procgen_experiments/procgen_normalized_scores.md)
+- [スコア](../results/procgen_experiments/scores.md)
 
 
-## Complessità dei modelli
+## モデルの複雑度
 
-### Varianti di base
+### 基本バリアント
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| バリアント | エンコーダのパラメータ数 | 回帰ヘッドのパラメータ数 | 総パラメータ数 | エンコーダの FLOPs | 回帰ヘッドの FLOPs | 総 FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PQN** | 78,304 | 1,686,500 | 1,764,804 | 7.734 | 1.610 | 9.347 |
 | **Alpha** | 174,752 | 1,782,948 | 1,957,700 | 27.541 | 1.610 | 29.151 |
@@ -292,53 +288,53 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
 | **Eta** | 78,400 | 23,739,460 | 23,817,860 | 28.422 | 23.663 | 52.085 |
 | **Theta** | 76,288 | 1,127,428 | 1,203,716 | 9.065 | 1.053 | 10.118 |
 
-> **Nota:** la variante Eta ha molti più parametri delle altre, soprattutto perché il suo encoder produce un numero elevato di feature.
+> **注：** Eta バリアントは、ほかのバリアントよりもパラメータ数が大幅に多くなっています。主な理由は、エンコーダが多数の特徴量を生成するためです。
 
 ---
 
-### Varianti Hadamax
+### Hadamax バリアント
 
-| Variante | Parametri dell’encoder | Parametri della testa di regressione | Parametri totali | FLOPs dell’encoder | FLOPs della testa di regressione | FLOPs totali |
+| バリアント | エンコーダのパラメータ数 | 回帰ヘッドのパラメータ数 | 総パラメータ数 | エンコーダの FLOPs | 回帰ヘッドの FLOPs | 総 FLOPs |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Hadamax** | 156,608 | 3,968,516 | 4,125,124 | 159.014 | 3.969 | 162.984 |
 | **Gamma-Hadamax-Valid** | 234,336 | 1,609,220 | 1,843,556 | 122.001 | 1.610 | 123.611 |
 | **Gamma-Hadamax-Same** | 234,336 | 3,280,388 | 3,514,724 | 129.300 | 3.281 | 132.581 |
 
-## Iperparametri
+## ハイパーパラメータ
 
 <div align="center">
 
-| Iperparametro | Valore |
+| ハイパーパラメータ | 値 |
 | :--- | :--- |
-| Tasso di apprendimento | $2.5 \times 10^{-4}$ |
-| Ambienti di addestramento | 128 |
-| Ambienti di test | 8 |
-| Ottimizzatore | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Decadimento dei pesi | 0 |
+| 学習率 | $2.5 \times 10^{-4}$ |
+| 学習環境数 | 128 |
+| テスト環境数 | 8 |
+| オプティマイザ | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
+| 重み減衰 | 0 |
 | $\epsilon$ | $1 \times 10^{-5}$ |
 | $\beta_{1}$ | 0.9 |
 | $\beta_{2}$ | 0.999 |
-| Frame totali | 200,000,000 |
-| Funzione di loss | Errore quadratico medio |
-| Scheduler | Decadimento lineare |
-| Esplorazione $\epsilon$-greedy | 10% of total frames |
-| Fattore di sconto ($\gamma$) | 0.99 |
+| 総フレーム数 | 200,000,000 |
+| 損失関数 | 平均二乗誤差 |
+| スケジューラ | 線形アニーリング |
+| $\epsilon$-greedy 探索 | 10% of total frames |
+| 割引率（$\gamma$） | 0.99 |
 | GAE ($\lambda$) | 0.65 |
-| Epoche | 2 |
-| Dimensione del batch | 4096 |
+| エポック数 | 2 |
+| バッチサイズ | 4096 |
 
 </div>
 
-<p align="center"><em>Utilizzati negli esperimenti sugli encoder e Hadamax.</em></p>
+<p align="center"><em>エンコーダ実験および Hadamax 実験で使用しています。</em></p>
 
-## Significatività statistica
+## 統計的有意性
 
-### Esperimenti sugli encoder
+### エンコーダ実験
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon 符号順位検定</th>
+    <th align="center">Wilcoxon 符号順位検定（補正後）</th>
   </tr>
   <tr>
     <td align="center">
@@ -355,7 +351,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">改善確率</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -367,12 +363,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti Hadamax
+### Hadamax 実験
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon 符号順位検定</th>
+    <th align="center">Wilcoxon 符号順位検定（補正後）</th>
   </tr>
   <tr>
     <td align="center">
@@ -389,7 +385,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">改善確率</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -401,12 +397,12 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-### Esperimenti sui valori Q
+### Q 値実験
 
 <table>
   <tr>
-    <th align="center">Test dei ranghi con segno di Wilcoxon</th>
-    <th align="center">Test dei ranghi con segno di Wilcoxon (corretto)</th>
+    <th align="center">Wilcoxon 符号順位検定</th>
+    <th align="center">Wilcoxon 符号順位検定（補正後）</th>
   </tr>
   <tr>
     <td align="center">
@@ -423,7 +419,7 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
     </td>
   </tr>
   <tr>
-    <th colspan="2" align="center">Probabilità di miglioramento</th>
+    <th colspan="2" align="center">改善確率</th>
   </tr>
   <tr>
     <td colspan="2" align="center">
@@ -435,10 +431,10 @@ Tutti i risultati sono organizzati per categoria di esperimento. Ogni sezione co
   </tr>
 </table>
 
-## Riproducibilità
+## 再現性
 
-A causa della natura stocastica dell’apprendimento per rinforzo profondo, non è possibile ottenere una riproduzione esatta usando dataset fissi.
-Forniamo quindi l’insieme dei seed casuali utilizzati nei nostri esperimenti.
+深層強化学習には確率的な性質があるため、固定データセットだけで結果を完全に再現することはできません。
+その代わり、実験で使用した乱数シード一式を提供しています。
 
 ```python
 from aftab import aftab_seeds
@@ -446,7 +442,7 @@ from aftab import aftab_seeds
 print(aftab_seeds)
 ```
 
-Riproduzione completa degli esperimenti:
+実験全体の再現：
 
 ```python
 from aftab import Aftab
@@ -460,41 +456,40 @@ for environment in aftab_environments:
         agent.log()
 ```
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Atari:
+EnvPool では多様な Atari 環境を利用できます：
 https://envpool.readthedocs.io/en/latest/env/atari.html#available-tasks
 
-Gli ambienti Procgen usano le proprie osservazioni RGB native con forma `(3, 64, 64)`.
-Aftab legge la configurazione EnvPool di ogni task e applica soltanto le opzioni supportate.
-Le opzioni specifiche per Atari, come `noop`, `frame_skip`, `frame_stack` e
-`train_episodic_life`, e il clipping delle ricompense di EnvPool non vengono quindi passati a
-Procgen.
+Procgen 環境は、形状が `(3, 64, 64)` のネイティブ RGB 観測を使用します。
+Aftab は各タスクの EnvPool 設定を読み取り、サポートされているオプションだけを適用します。
+したがって、`noop`、`frame_skip`、`frame_stack`、`train_episodic_life` などの
+Atari 専用オプションと EnvPool の報酬クリッピングは Procgen に渡されません。
 
-EnvPool mette a disposizione un’ampia raccolta di ambienti Procgen:
+EnvPool では多様な Procgen 環境を利用できます：
 
 https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
-## Hardware
+## ハードウェア
 
-Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40).
+本プロジェクトのすべての実験は [Nvidia A40](https://www.nvidia.com/en-us/data-center/a40) GPU で実行しました。
 
-| Specifica | Dettagli |
+| 仕様 | 詳細 |
 |--------------|----------|
-| Memoria GPU | 48 GB GDDR6 con codice di correzione degli errori (ECC) |
-| Larghezza di banda della memoria GPU | 696 GB/s |
-| Interconnessione | NVIDIA NVLink 112,5 GB/s (bidirezionale); PCIe Gen4: 64 GB/s |
-| NVLink | Bidirezionale, a basso profilo (2 slot) |
-| Porte video | 3x DisplayPort 1.4* |
-| Consumo massimo | 300 W |
-| Formato | 4,4" (A) × 10,5" (L), doppio slot |
-| Raffreddamento | Passivo |
-| Software vGPU supportato | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
-| Profili vGPU supportati | Consultare la guida alle licenze Virtual GPU |
-| NVENC / NVDEC | 1x / 2x (decodifica AV1 inclusa) |
-| Avvio sicuro | Avvio sicuro e misurato con radice hardware di attendibilità (opzionale) |
-| Conformità NEBS | Livello 3 |
-| Connettore di alimentazione | CPU a 8 pin |
+| GPU メモリ | エラー訂正符号（ECC）対応 48 GB GDDR6 |
+| GPU メモリ帯域幅 | 696 GB/s |
+| インターコネクト | NVIDIA NVLink 112.5 GB/s（双方向）、PCIe Gen4：64 GB/s |
+| NVLink | 双方向ロープロファイル（2 スロット） |
+| ディスプレイポート | 3x DisplayPort 1.4* |
+| 最大消費電力 | 300 W |
+| 外形寸法 | 4.4"（高さ）× 10.5"（長さ）、デュアルスロット |
+| 冷却方式 | パッシブ |
+| 対応 vGPU ソフトウェア | NVIDIA Virtual PC, NVIDIA Virtual Applications, NVIDIA RTX Virtual Workstation, NVIDIA Virtual Compute Server, NVIDIA AI Enterprise |
+| 対応 vGPU プロファイル | Virtual GPU ライセンスガイドを参照 |
+| NVENC / NVDEC | 1x / 2x（AV1 デコードを含む） |
+| セキュアブート | ハードウェアの信頼の基点を用いたセキュアブートおよびメジャードブート（オプション） |
+| NEBS 対応 | レベル 3 |
+| 電源コネクタ | 8 ピン CPU |
 
-## Citazione
+## 引用
 
 ```bibtex
 @article{aftab2026drl,
@@ -505,7 +500,7 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-### Lavori correlati
+### 関連研究
 
 ```bibtex
 @misc{2407.04811,
@@ -552,17 +547,17 @@ Tutti gli esperimenti del progetto sono stati eseguiti su GPU [Nvidia A40](https
 }
 ```
 
-## Link utili
+## 参考リンク
 
-- [Wikipedia: apprendimento per rinforzo (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [Wikipedia: apprendimento per rinforzo profondo (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
-- [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
-- [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: test d’ipotesi statistica](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: test dei ranghi con segno di Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [Wikipedia：強化学習（RL）](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [Wikipedia：深層強化学習（DRL）](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
+- [Wikipedia：Q 学習](https://en.wikipedia.org/wiki/Q-learning)
+- [Wikipedia：PyTorch](https://en.wikipedia.org/wiki/PyTorch)
+- [Wikipedia：統計的仮説検定](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [Wikipedia：Wilcoxon 符号順位検定](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
 
-## Licenza
+## ライセンス
 
 © 2025 Taha Shieenavaz.
-Distribuito con licenza CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+CC BY-NC 4.0 ライセンスに基づいて提供されています： https://creativecommons.org/licenses/by-nc/4.0/
