@@ -25,30 +25,30 @@
 <br />
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./i18n/spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./i18n/farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./i18n/italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./i18n/french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./i18n/german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./i18n/dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./i18n/portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./i18n/arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./i18n/russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./i18n/chinese.md">中文</a> |
-  🇯🇵 <a href="./i18n/japanese.md">日本語</a> |
-  🇰🇷 <a href="./i18n/korean.md">한국어</a> |
-  🇮🇳 <a href="./i18n/hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./i18n/indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./i18n/bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./i18n/vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./i18n/turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 ## Overview
 
 **Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">Persian</a>: آفتاب, meaning "sun" or "sun rays") is a benchmarking framework for evaluating CNN-based encoders in PQN across <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari games</a>. It provides standardized training, evaluation, and reproducibility tools for deep reinforcement learning research.
 
-We have compiled a few videos comparing PQN and Aftab agents. Watch them [here](./videos.md).
+We have compiled a few videos comparing PQN and Aftab agents. Watch them [here](https://github.com/tahashieenavaz/aftab/blob/main/videos.md).
 
 ### Encoder Experiments
 
@@ -189,7 +189,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-We highly recommend using [Micromamba](https://github.com/mamba-org/micromamba-releases) for creating virtual environments with instructions detailed [here](./scripts/README.md).
+We highly recommend using [Micromamba](https://github.com/mamba-org/micromamba-releases) for creating virtual environments with instructions detailed [here](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md).
 
 ## Training Agents
 
