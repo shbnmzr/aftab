@@ -14,4 +14,7 @@ from .constants import environments as aftab_environments
 
 from importlib.metadata import version
 
-__version__ = version("aftab")
+try:
+    __version__ = version("aftab")
+except:
+    __version__ = "development"
