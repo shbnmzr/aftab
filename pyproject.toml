@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aftab"
-version = "0.1.61"
+dynamic = ["version"]
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
@@ -22,7 +22,11 @@ classifiers = [
 dependencies = ["numpy", "envpool", "baloot", "torch", "hl_gauss_pytorch"]
 keywords = ["reinforcement learning", "dqn", "aftab", "drl", "pqn", "deep reinforcement learning", "cnn"]
 license = { file = "LICENSE" }
-urls = { Homepage="https://github.com/tahashieenavaz/aftab", Repository="https://github.com/tahashieenavaz/aftab", Documentation="https://github.com/tahashieenavaz/aftab#readme" }
+
+[project.urls]
+Homepage = "https://github.com/tahashieenavaz/aftab"
+Repository = "https://github.com/tahashieenavaz/aftab"
+Documentation = "https://github.com/tahashieenavaz/aftab#readme"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -30,3 +34,5 @@ exclude = ["tests*", "docs*", "figures*", "mermaid*", "scripts*"]
 
 [tool.setuptools.package-data]
 aftab = ["*.md", "*.txt", "*.png"]
+
+[tool.setuptools_scm]
