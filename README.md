@@ -147,6 +147,8 @@ References:
 
 ### Procgen (Overfitting Prevention) Experiments
 
+Since there are no public benchmarks comparing human-normalized-scores of Procgen environments, we created PNS (Procgen Normalized Score) that is a minimal min-max normalization of scores across seeds. 
+
 <div align="center">
   <table>
     <tr>
