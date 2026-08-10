@@ -14,7 +14,9 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
 
 <div align="center">
