@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="figures/header-light.svg">
-  <img alt="Aftab paper" src="figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="Aftab Header" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
