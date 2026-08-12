@@ -235,36 +235,36 @@ All experimental results are organized by experiment category. Each section cont
 ### Encoder Experiments
 
 **Tables**
-- [Human Normalized Scores](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/results/encoder_experiments/human_normalized_scores.md)
-- [Scores](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/results/encoder_experiments/scores.md)
+- [Human Normalized Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **Charts**
-- [IQM HNS](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/human_normalized_score)
-- [Loss Evolution](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [Loss Evolution](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Hadamax Experiments
 
 **Tables**
-- [Human Normalized Scores](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/results/hadamax_experiments/human_normalized_scores.md)
-- [Scores](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/results/hadamax_experiments/scores.md)
+- [Human Normalized Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **Charts**
-- [IQM HNS](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/human_normalized_score)
-- [Loss Evolution](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [Loss Evolution](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Q-Value Experiments
 
 **Tables**
-- [Human Normalized Scores](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/results/qvalue_experiments/human_normalized_scores.md)
-- [Scores](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/results/qvalue_experiments/scores.md)
+- [Human Normalized Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **Charts**
-- [IQM HNS](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/human_normalized_score)
-- [Loss Evolution](https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [Loss Evolution](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
