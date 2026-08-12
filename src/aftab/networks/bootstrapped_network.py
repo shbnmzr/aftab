@@ -1,10 +1,10 @@
 import torch
 from typing import Optional
 from aftab.modules import Stream
-from .BaseNetwork import BaseNetwork
+from .base_network import BaseNetwork
 
 
-class BootstrappedDuellingNetwork(BaseNetwork):
+class BootstrappedNetwork(BaseNetwork):
     def __init__(self, *, bootstrap_heads: int = 10, **kwargs):
         super().__init__(**kwargs)
         if bootstrap_heads <= 0:
@@ -12,44 +12,20 @@ class BootstrappedDuellingNetwork(BaseNetwork):
 
         self.bootstrapped = True
         self.bootstrap_heads = bootstrap_heads
-        self.advantage_heads = torch.nn.ModuleList(
+        self.q_heads = torch.nn.ModuleList(
             [
                 Stream(
                     input_dimension=self.feature_dimension,
                     hidden_dimension=self.embedding_dimension,
                     output_dimension=self.action_dimension,
-                    normalization=True,
                 )
                 for _ in range(self.bootstrap_heads)
             ]
         )
-        self.value_heads = torch.nn.ModuleList(
-            [
-                Stream(
-                    input_dimension=self.feature_dimension,
-                    hidden_dimension=self.embedding_dimension,
-                    output_dimension=1,
-                    normalization=True,
-                )
-                for _ in range(self.bootstrap_heads)
-            ]
-        )
-
-    def get_value_heads(self, features: torch.Tensor) -> torch.Tensor:
-        return torch.stack([head(features) for head in self.value_heads], dim=1)
-
-    def get_advantage_heads(self, features: torch.Tensor) -> torch.Tensor:
-        advantages = torch.stack(
-            [head(features) for head in self.advantage_heads],
-            dim=1,
-        )
-        return advantages - advantages.mean(dim=2, keepdim=True)
 
     def get_q_heads(self, states: torch.Tensor) -> torch.Tensor:
         features = self.get_features(states)
-        value = self.get_value_heads(features=features)
-        advantage = self.get_advantage_heads(features=features)
-        return value + advantage
+        return torch.stack([head(features) for head in self.q_heads], dim=1)
 
     def gather_q_heads(
         self,

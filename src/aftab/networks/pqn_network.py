@@ -1,6 +1,6 @@
 import torch
 from aftab.modules import Stream
-from .BaseNetwork import BaseNetwork
+from .base_network import BaseNetwork
 
 
 class PQNNetwork(BaseNetwork):

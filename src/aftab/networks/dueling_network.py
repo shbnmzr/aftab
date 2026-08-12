@@ -1,9 +1,9 @@
 import torch
 from aftab.modules import Stream
-from .BaseNetwork import BaseNetwork
+from .base_network import BaseNetwork
 
 
-class DuellingNetwork(BaseNetwork):
+class DuelingNetwork(BaseNetwork):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.advantage = Stream(

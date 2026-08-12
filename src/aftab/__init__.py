@@ -18,3 +18,17 @@ try:
     __version__ = version("aftab")
 except:
     __version__ = "development"
+
+__all__ = [
+    "Aftab",
+    "seeds",
+    "aftab_seeds",
+    "aftab_environments",
+    "environments",
+    "atari_environments",
+    "procgen_environments",
+    "SEEDS",
+    "ENVS",
+    "ATARI_ENVS",
+    "PROCGEN_ENVS",
+]
