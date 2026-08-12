@@ -271,12 +271,12 @@ All experimental results are organized by experiment category. Each section cont
 ### Procgen Experiments
 
 **Tables**
-- [Procgen Normalized Scores](https://github.com/tahashieenavaz/aftab/blobl/main/results/procgen_experiments/procgen_normalized_scores.md)
-- [Scores](https://github.com/tahashieenavaz/aftab/blobl/main/results/procgen_experiments/scores.md)
+- [Procgen Normalized Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
 
 **AUC**
-- [Per Seed](https://github.com/tahashieenavaz/aftab/blobl/main/results/procgen_experiments/procgen_normalized_scores.md)
-- [Per Game](https://github.com/tahashieenavaz/aftab/blobl/main/results/procgen_experiments/scores.md)
+- [Per Seed](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [Per Game](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
 
 
