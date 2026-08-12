@@ -310,30 +310,85 @@ All experimental results are organized by experiment category. Each section cont
 
 ## Hyperparameters
 
+The following tables reflect the defaults defined by `Aftab`. The
+`experiment_name` argument is required and has no default.
+
+### Training and Environment
+
 <div align="center">
 
-| Hyperparameter | Value |
+| Hyperparameter (`Aftab` argument) | Default |
 | :--- | :--- |
-| Learning rate | $2.5 \times 10^{-4}$ |
-| Training environments | 128 |
-| Test environments | 8 |
-| Optimizer | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Weight decay | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| Total Frames | 200,000,000 |
-| Loss function | Mean Squared Error |
-| Scheduler | Linear Annealing |
-| $\epsilon$-greedy exploration | 10% of total frames |
+| Encoder (`encoder`) | `"gammahadamaxv1"` |
+| Network (`network`) | `"distributional-bootstrapped-duelling"` |
+| Total frames (`frames`) | `"full"` (200,000,000) |
+| Frame skip (`frame_skip`) | 4 |
+| Frame stack (`frame_stack`) | 4 |
+| No-op maximum (`noop`) | 30 |
+| Learning rate (`lr`) | $2.5 \times 10^{-4}$ |
+| Training environments (`train_environments`) | 128 |
+| Test environments (`test_environments`) | 8 |
+| Steps per update (`steps_per_update`) | 32 |
+| Batch size (derived) | 4,096 |
+| Mini-batches (`mini_batches`) | 32 |
+| Mini-batch size (derived) | 128 |
 | Discount factor ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| Epochs | 2 |
-| Batch size | 4096 |
+| Return $\lambda$ (`return_lambda`) | 0.65 |
+| Epochs (`epochs`) | 2 |
+| Gradient norm (`gradient_norm`) | 10.0 |
+| Embedding dimension (`embedding_dimension`) | 512 |
+| Training episodic life (`train_episodic_life`) | `True` |
+| Test episodic life (`test_episodic_life`) | `False` |
+| Training reward clipping (`train_reward_clip`) | `True` |
+| Test reward clipping (`test_reward_clip`) | `True` |
 
 </div>
 
-<p align="center"><em>Used in encoder and Hadamax experiments.</em></p>
+### Optimizer
+
+<div align="center">
+
+| Hyperparameter (`Aftab` argument) | Default |
+| :--- | :--- |
+| Optimizer (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| Epsilon (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| Weight decay (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+</div>
+
+### Distributional and Bootstrapped Q-Values
+
+<div align="center">
+
+| Hyperparameter (`Aftab` argument) | Default |
+| :--- | :--- |
+| Distributional bins (`distributional_bins`) | 51 |
+| Distributional minimum (`distributional_min_value`) | -10.0 |
+| Distributional maximum (`distributional_max_value`) | 10.0 |
+| Distributional sigma (`distributional_sigma`) | `None` (derived from the sigma ratio) |
+| Distributional sigma ratio (`distributional_sigma_ratio`) | 0.75 |
+| Distributional value clip (`distributional_value_clip`) | 0.0 |
+| Bootstrap heads (`bootstrap_heads`) | 10 |
+| Bootstrap probability (`bootstrap_probability`) | 1.0 |
+
+</div>
+
+### Procgen Overrides
+
+<div align="center">
+
+| Hyperparameter | Default | Procgen |
+| :--- | :--- | :--- |
+| Training environments | 128 | 64 (`procgen_train_environments`) |
+| Steps per update | 32 | 256 (`procgen_steps_per_update`) |
+| Batch size (derived) | 4,096 | 16,384 |
+| Mini-batch size (derived) | 128 | 512 |
+
+</div>
+
+<p align="center"><em>For Procgen environments, Aftab automatically applies the two overrides above; other defaults remain unchanged.</em></p>
 
 ## Statistical Significance
 
