@@ -10,10 +10,10 @@ OptimizerStringType: TypeAlias = Literal["adam", "adamw" "radam", "nadam"]
 
 NetworkStringType: TypeAlias = Literal[
     "q",
-    "duelling",
+    "dueling",
     "bootstrapped",
-    "bootstrapped-duelling",
+    "bootstrapped-dueling",
     "distributional",
-    "distributional-duelling",
-    "distributional-bootstrapped-duelling",
+    "distributional-dueling",
+    "distributional-bootstrapped-dueling",
 ]

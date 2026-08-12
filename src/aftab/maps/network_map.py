@@ -8,13 +8,13 @@ from aftab.networks import DistributionalBootstrappedDuelingNetwork
 
 network_map = {
     "q": PQNNetwork,
-    "duelling": DuelingNetwork,
+    "dueling": DuelingNetwork,
     "bootstrapped": BootstrappedNetwork,
-    "bootstrapped-duelling": BootstrappedDuelingNetwork,
+    "bootstrapped-dueling": BootstrappedDuelingNetwork,
     "distributional": DistributionalNetwork,
-    "distributional-duelling": DistributionalDuelingNetwork,
-    "distributional-bootstrapped-duelling": DistributionalBootstrappedDuelingNetwork,
-    "bootstrapped-distributional-duelling": DistributionalBootstrappedDuelingNetwork,
+    "distributional-dueling": DistributionalDuelingNetwork,
+    "distributional-bootstrapped-dueling": DistributionalBootstrappedDuelingNetwork,
+    "bootstrapped-distributional-dueling": DistributionalBootstrappedDuelingNetwork,
     "d": DuelingNetwork,
     "bdd": DistributionalBootstrappedDuelingNetwork,
     "bd": BootstrappedDuelingNetwork,

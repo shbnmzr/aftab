@@ -37,8 +37,8 @@ class AftabTrainingResultsMixin(AftabBaseMixin):
 
         if self.network in [
             "distributional",
-            "distributional-duelling",
-            "distributional-bootstrapped-duelling",
+            "distributional-dueling",
+            "distributional-bootstrapped-dueling",
         ]:
             data.update(
                 {
@@ -53,8 +53,8 @@ class AftabTrainingResultsMixin(AftabBaseMixin):
 
         if self.network in [
             "bootstrapped",
-            "bootstrapped-duelling",
-            "distributional-bootstrapped-duelling",
+            "bootstrapped-dueling",
+            "distributional-bootstrapped-dueling",
         ]:
             data.update(
                 {

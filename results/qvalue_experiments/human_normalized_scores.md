@@ -1,6 +1,6 @@
 <div align="center">
 
-|                     | PQN            | Distributional Duelling   | Bootstrapped Duelling   | Aftab           |
+|                     | PQN            | Distributional Dueling   | Bootstrapped Dueling   | Aftab           |
 |:--------------------|:---------------|:--------------------------|:------------------------|:----------------|
 | Median              | 1.894          | 4.261                     | 3.636               | **4.374**       |
 | IQM                 | 2.715          | 6.093                     | 5.625               | **6.592**       |
@@ -10,7 +10,7 @@
 
 <div align="center">
 
-|                     | PQN            | Distributional Duelling   | Ensemble Duelling   | Aftab           |
+|                     | PQN            | Distributional Dueling   | Ensemble Dueling   | Aftab           |
 |:--------------------|:---------------|:--------------------------|:--------------------|:----------------|
 | Alien               | 0.551          | 2.948                     | **4.079**           | 3.201           |
 | Amidar              | 0.640          | 1.565                     | **1.839**           | 1.717           |

@@ -1,6 +1,6 @@
 from .base_network import BaseNetwork
 from .pqn_network import PQNNetwork
-from .dueling_network import DuellingNetwork
+from .dueling_network import DuelingNetwork
 from .bootstrapped_network import BootstrappedNetwork
 from .bootstrapped_dueling_network import BootstrappedDuelingNetwork
 from .distributional_network import DistributionalNetwork

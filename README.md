@@ -318,7 +318,7 @@ The following tables reflect the defaults defined by `Aftab`. The
 | Hyperparameter (`Aftab` argument) | Default |
 | :--- | :--- |
 | Encoder (`encoder`) | Gamma-Hadamax-Valid  |
-| Network (`network`) | Distributional Bootstrapped (Ensemble) Duelling |
+| Network (`network`) | Distributional Bootstrapped (Ensemble) Dueling |
 | Total frames (`frames`) | 200,000,000 |
 | Frame skip (`frame_skip`) | 4 |
 | Frame stack (`frame_stack`) | 4 |

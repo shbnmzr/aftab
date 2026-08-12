@@ -1,6 +1,6 @@
 <div align="center">
 
-|                     | PQN                   | Distributional Duelling   | Ensemble Duelling      | Aftab                  |
+|                     | PQN                   | Distributional Dueling   | Ensemble Dueling      | Aftab                  |
 |:--------------------|:----------------------|:--------------------------|:-----------------------|:-----------------------|
 | Alien               | 4688.197              | 20386.327                 | **24329.320**          | 22953.912              |
 | Amidar              | 1082.500              | 2634.789                  | **3378.616**           | 2926.568               |
