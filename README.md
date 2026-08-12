@@ -339,6 +339,8 @@ The following tables reflect the defaults defined by `Aftab`. The
 | Test episodic life (`test_episodic_life`) | `False` |
 | Training reward clipping (`train_reward_clip`) | `True` |
 | Test reward clipping (`test_reward_clip`) | `True` |
+| Epsilon Schedule | Linear |
+| Epsilon Annealing Ratio | 10% |
 
 ### Optimizer
 
