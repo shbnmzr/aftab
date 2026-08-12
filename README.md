@@ -315,13 +315,11 @@ The following tables reflect the defaults defined by `Aftab`. The
 
 ### Training and Environment
 
-<div align="center">
-
 | Hyperparameter (`Aftab` argument) | Default |
 | :--- | :--- |
-| Encoder (`encoder`) | `"gammahadamaxv1"` |
-| Network (`network`) | `"distributional-bootstrapped-duelling"` |
-| Total frames (`frames`) | `"full"` (200,000,000) |
+| Encoder (`encoder`) | Gamma-Hadamax-Valid  |
+| Network (`network`) | Distributional Bootstrapped (Ensemble) Duelling |
+| Total frames (`frames`) | 200,000,000 |
 | Frame skip (`frame_skip`) | 4 |
 | Frame stack (`frame_stack`) | 4 |
 | No-op maximum (`noop`) | 30 |
@@ -342,11 +340,7 @@ The following tables reflect the defaults defined by `Aftab`. The
 | Training reward clipping (`train_reward_clip`) | `True` |
 | Test reward clipping (`test_reward_clip`) | `True` |
 
-</div>
-
 ### Optimizer
-
-<div align="center">
 
 | Hyperparameter (`Aftab` argument) | Default |
 | :--- | :--- |
@@ -356,11 +350,7 @@ The following tables reflect the defaults defined by `Aftab`. The
 | $\beta_1$ (`optimizer_first_beta`) | 0.9 |
 | $\beta_2$ (`optimizer_second_beta`) | 0.999 |
 
-</div>
-
-### Distributional and Bootstrapped Q-Values
-
-<div align="center">
+### Distributional and Bootstrapped (Ensemble) Q-Values
 
 | Hyperparameter (`Aftab` argument) | Default |
 | :--- | :--- |
@@ -373,22 +363,16 @@ The following tables reflect the defaults defined by `Aftab`. The
 | Bootstrap heads (`bootstrap_heads`) | 10 |
 | Bootstrap probability (`bootstrap_probability`) | 1.0 |
 
-</div>
-
 ### Procgen Overrides
 
-<div align="center">
+| Hyperparameter        | Default | Procgen                           |
+| :-------------------- | :------ | :-------------------------------- |
+| Training environments | 128     | 64 (`procgen_train_environments`) |
+| Steps per update      | 32      | 256 (`procgen_steps_per_update`)  |
+| Batch size            | 4,096   | 16,384                            |
+| Mini-batch size       | 128     | 512                               |
 
-| Hyperparameter | Default | Procgen |
-| :--- | :--- | :--- |
-| Training environments | 128 | 64 (`procgen_train_environments`) |
-| Steps per update | 32 | 256 (`procgen_steps_per_update`) |
-| Batch size (derived) | 4,096 | 16,384 |
-| Mini-batch size (derived) | 128 | 512 |
-
-</div>
-
-<p align="center"><em>For Procgen environments, Aftab automatically applies the two overrides above; other defaults remain unchanged.</em></p>
+<em>For Procgen environments, Aftab automatically applies the two overrides above; other defaults remain unchanged.</em>
 
 ## Statistical Significance
 
