@@ -34,7 +34,7 @@ class Aftab(
         self,
         *,
         experiment_name: str,
-        encoder: ModuleType | EncoderStringType = "gammahadamaxv1",
+        encoder: ModuleType | EncoderStringType = "gamma-hadamax-valid",
         network: NetworkStringType = "distributional-bootstrapped-duelling",
         frames: int | Literal["pilot", "full", "ablation"] = "full",
         frame_skip: int = 4,
