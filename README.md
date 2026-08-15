@@ -50,6 +50,8 @@
 
 We have compiled a few videos comparing PQN and Aftab agents. Watch them [here](https://github.com/tahashieenavaz/aftab/blob/main/videos.md).
 
+This research was done without receiving any funds; therefore, if you found our work useful, please consider [sponsoring on GitHub](https://github.com/sponsors/tahashieenavaz). 
+
 ### Encoder Experiments
 
 <div align="center">
