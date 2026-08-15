@@ -50,7 +50,7 @@
 
 See how the Aftab architecture compares to standard PQN baselines in these [video demonstrations](https://github.com/tahashieenavaz/aftab/blob/main/videos.md).
 
-This research was done without receiving any funds; therefore, if you found our work useful, please consider [sponsoring on GitHub](https://github.com/sponsors/tahashieenavaz). 
+This research was done without receiving any funds; therefore, if you found our work useful, please consider [sponsoring on GitHub 💛](https://github.com/sponsors/tahashieenavaz). 
 
 ### Encoder Experiments
 
