@@ -3,6 +3,14 @@ from aftab import Aftab
 
 
 def main():
+    parser = parser_factory()
+    args = parser.parse_args()
+    agent = Aftab(experiment_name=args.name, verbose=args.verbose)
+    agent.train(environment=args.environment, seed=args.seed)
+    agent.log(directory="results")
+
+
+def parser_factory():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--verbose",
@@ -29,10 +37,7 @@ def main():
         required=True,
         help="Required experiment name that will eventually be used to store results on the disk drive.",
     )
-    args = parser.parse_args()
-    agent = Aftab(experiment_name=args.name, verbose=args.verbose)
-    agent.train(environment=args.environment, seed=args.seed)
-    agent.log(directory="results")
+    return parser
 
 
 if __name__ == "__main__":
