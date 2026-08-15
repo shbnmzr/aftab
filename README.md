@@ -611,7 +611,7 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 Vazirmatn font is used in both Persian and English text inside the GitHub Repository's header and in the landing page of this project.
 
-Vazirmatn: [GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## License
 
