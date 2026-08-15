@@ -273,12 +273,12 @@ All experimental results are organized by experiment category. Each section cont
 **Tables**
 - [Procgen Normalized Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
 - [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
-
-**AUC**
-- [Per Seed](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
-- [Per Game](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
+- [PNS AUC by Seed](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [PNS AUC by Game](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
 
+**Charts**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## Model Complexity
 
