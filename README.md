@@ -543,12 +543,27 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## Citation
 
+Repository:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+Preprint: 
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
