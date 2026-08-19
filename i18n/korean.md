@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Aftab 논문" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="Aftab 헤더" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,31 +13,35 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 <br />
@@ -47,7 +50,9 @@
 
 **Aftab**(<a href="https://en.wikipedia.org/wiki/Aftab">페르시아어</a>: آفتاب, “태양” 또는 “햇살”이라는 뜻)은 여러 <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari 게임</a>에서 PQN의 CNN 기반 인코더를 평가하기 위한 벤치마크 프레임워크입니다. 심층 강화학습 연구에 필요한 표준화된 학습·평가·재현성 도구를 제공합니다.
 
-PQN과 Aftab 에이전트를 비교한 영상을 모았습니다. [여기](../videos.md)에서 확인할 수 있습니다.
+이 [영상 데모](https://github.com/tahashieenavaz/aftab/blob/main/videos.md)에서 Aftab 아키텍처와 표준 PQN 베이스라인을 비교해 보세요.
+
+이 연구는 어떠한 자금 지원도 받지 않고 수행되었습니다. 저희 연구가 유용했다면 [GitHub에서 후원](https://github.com/sponsors/tahashieenavaz)을 고려해 주세요 💛.
 
 ### 인코더 실험
 
@@ -150,6 +155,8 @@ PQN과 Aftab 에이전트를 비교한 영상을 모았습니다. [여기](../vi
 
 ### Procgen(과적합 방지) 실험
 
+Procgen 환경의 인간 정규화 점수를 비교하는 공개 벤치마크가 없으므로, 여러 시드의 점수를 단순 최소-최대 정규화한 PNS(Procgen Normalized Score)를 만들었습니다.
+
 <div align="center">
   <table>
     <tr>
@@ -192,7 +199,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-가상 환경을 만들 때는 [Micromamba](https://github.com/mamba-org/micromamba-releases)를 적극 권장합니다. 자세한 방법은 [여기](../scripts/README.md)를 참고하세요.
+가상 환경을 만들 때는 [Micromamba](https://github.com/mamba-org/micromamba-releases)를 적극 권장합니다. 자세한 방법은 [여기](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md)를 참고하세요.
 
 ## 에이전트 학습
 
@@ -236,45 +243,49 @@ agent = Aftab(encoder=CustomImageEncoder)
 ### 인코더 실험
 
 **표**
-- [인간 정규화 점수](../results/encoder_experiments/human_normalized_scores.md)
-- [점수](../results/encoder_experiments/scores.md)
+- [인간 정규화 점수](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [점수](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **차트**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [손실 추이](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [손실 추이](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Hadamax 실험
 
 **표**
-- [인간 정규화 점수](../results/hadamax_experiments/human_normalized_scores.md)
-- [점수](../results/hadamax_experiments/scores.md)
+- [인간 정규화 점수](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [점수](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **차트**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [손실 추이](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [손실 추이](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Q 값 실험
 
 **표**
-- [인간 정규화 점수](../results/qvalue_experiments/human_normalized_scores.md)
-- [점수](../results/qvalue_experiments/scores.md)
+- [인간 정규화 점수](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [점수](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **차트**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [손실 추이](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [손실 추이](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### Procgen 실험
 
 **표**
-- [Procgen 정규화 점수](../results/procgen_experiments/procgen_normalized_scores.md)
-- [점수](../results/procgen_experiments/scores.md)
+- [Procgen 정규화 점수](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [점수](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [시드별 PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [게임별 PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**차트**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## 모델 복잡도
 
@@ -306,30 +317,70 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## 하이퍼파라미터
 
-<div align="center">
+다음 표는 `Aftab`에 정의된 기본값을 보여 줍니다. `experiment_name` 인수는 필수이며 기본값이 없습니다.
 
-| 하이퍼파라미터 | 값 |
+### 학습 및 환경
+
+| 하이퍼파라미터(`Aftab` 인수) | 기본값 |
 | :--- | :--- |
-| 학습률 | $2.5 \times 10^{-4}$ |
-| 학습 환경 수 | 128 |
-| 테스트 환경 수 | 8 |
-| 옵티마이저 | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| 가중치 감쇠 | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| 전체 프레임 | 200,000,000 |
-| 손실 함수 | 평균 제곱 오차 |
-| 스케줄러 | 선형 감쇠 |
-| $\epsilon$-탐욕 탐색 | 10% of total frames |
+| 인코더(`encoder`) | Gamma-Hadamax-Valid |
+| 네트워크(`network`) | Distributional Bootstrapped(Ensemble) Dueling |
+| 전체 프레임(`frames`) | 200,000,000 |
+| 프레임 건너뛰기(`frame_skip`) | 4 |
+| 프레임 스택(`frame_stack`) | 4 |
+| 최대 no-op(`noop`) | 30 |
+| 학습률(`lr`) | $2.5 \times 10^{-4}$ |
+| 학습 환경 수(`train_environments`) | 128 |
+| 테스트 환경 수(`test_environments`) | 8 |
+| 업데이트당 스텝(`steps_per_update`) | 32 |
+| 배치 크기(파생값) | 4,096 |
+| 미니배치 수(`mini_batches`) | 32 |
+| 미니배치 크기(파생값) | 128 |
 | 할인율($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| 에포크 | 2 |
-| 배치 크기 | 4096 |
+| 리턴 $\lambda$(`return_lambda`) | 0.65 |
+| 에포크(`epochs`) | 2 |
+| 그래디언트 노름(`gradient_norm`) | 10.0 |
+| 임베딩 차원(`embedding_dimension`) | 512 |
+| 학습 에피소드 라이프(`train_episodic_life`) | `True` |
+| 테스트 에피소드 라이프(`test_episodic_life`) | `False` |
+| 학습 보상 클리핑(`train_reward_clip`) | `True` |
+| 테스트 보상 클리핑(`test_reward_clip`) | `True` |
+| Epsilon 스케줄 | 선형 |
+| Epsilon 어닐링 비율 | 10% |
 
-</div>
+### 옵티마이저
 
-<p align="center"><em>인코더 및 Hadamax 실험에 사용했습니다.</em></p>
+| 하이퍼파라미터(`Aftab` 인수) | 기본값 |
+| :--- | :--- |
+| 옵티마이저(`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| Epsilon(`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| 가중치 감쇠(`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$(`optimizer_first_beta`) | 0.9 |
+| $\beta_2$(`optimizer_second_beta`) | 0.999 |
+
+### Distributional 및 Bootstrapped(Ensemble) Q 값
+
+| 하이퍼파라미터(`Aftab` 인수) | 기본값 |
+| :--- | :--- |
+| 분포 구간 수(`distributional_bins`) | 51 |
+| 분포 최솟값(`distributional_min_value`) | -10.0 |
+| 분포 최댓값(`distributional_max_value`) | 10.0 |
+| 분포 Sigma(`distributional_sigma`) | `None`(Sigma 비율에서 파생) |
+| 분포 Sigma 비율(`distributional_sigma_ratio`) | 0.75 |
+| 분포 값 클리핑(`distributional_value_clip`) | 0.0 |
+| Bootstrap 헤드 수(`bootstrap_heads`) | 10 |
+| Bootstrap 확률(`bootstrap_probability`) | 1.0 |
+
+### Procgen 재정의
+
+| 하이퍼파라미터 | 기본값 | Procgen |
+| :--- | :--- | :--- |
+| 학습 환경 수 | 128 | 64(`procgen_train_environments`) |
+| 업데이트당 스텝 | 32 | 256(`procgen_steps_per_update`) |
+| 배치 크기 | 4,096 | 16,384 |
+| 미니배치 크기 | 128 | 512 |
+
+<em>Procgen 환경에서는 Aftab이 위 두 재정의를 자동으로 적용하며, 나머지 기본값은 변경되지 않습니다.</em>
 
 ## 통계적 유의성
 
@@ -495,12 +546,27 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## 인용
 
+저장소:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+프리프린트:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -553,13 +619,19 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## 유용한 링크
 
-- [위키백과: 강화학습(RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [위키백과: 심층 강화학습(DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
-- [위키백과: Q-러닝](https://en.wikipedia.org/wiki/Q-learning)
-- [위키백과: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [위키백과: 통계적 가설 검정](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [위키백과: Wilcoxon 부호 순위 검정](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [위키백과: 강화학습(RL)](https://ko.wikipedia.org/wiki/강화_학습)
+- [위키백과: 심층 강화학습(DRL)](https://ko.wikipedia.org/wiki/심층_강화_학습)
+- [위키백과: Q-러닝](https://ko.wikipedia.org/wiki/Q_러닝)
+- [위키백과: PyTorch](https://ko.wikipedia.org/wiki/PyTorch)
+- [위키백과: 통계적 가설 검정](https://ko.wikipedia.org/wiki/통계적_가설_검정)
+- [위키백과: Wilcoxon 부호 순위 검정](https://ko.wikipedia.org/wiki/윌콕슨_부호-순위_검정)
 - [PyTorch](https://pytorch.org/)
+
+## 글꼴
+
+GitHub 저장소 헤더와 프로젝트 랜딩 페이지의 페르시아어 및 영어 텍스트에는 Vazirmatn 글꼴을 사용합니다.
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## 라이선스
 

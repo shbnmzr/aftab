@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="आफ़ताब शोधपत्र" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="आफ़ताब हेडर" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,40 +13,46 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 <br />
 
 ## परिचय
 
-**आफ़ताब** (<a href="https://en.wikipedia.org/wiki/Aftab">फ़ारसी</a>: آفتاب, जिसका अर्थ “सूर्य” या “सूर्य की किरणें” है) विभिन्न <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari गेमों</a> में PQN के CNN-आधारित एनकोडरों के मूल्यांकन के लिए एक बेंचमार्किंग फ्रेमवर्क है। यह डीप रीइन्फोर्समेंट लर्निंग अनुसंधान के लिए प्रशिक्षण, मूल्यांकन और पुनरुत्पादकता के मानकीकृत टूल उपलब्ध कराता है।
+**आफ़ताब** (<a href="https://hi.wikipedia.org/wiki/आफ़ताब">फ़ारसी</a>: آفتاب, जिसका अर्थ “सूर्य” या “सूर्य की किरणें” है) विभिन्न <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari गेमों</a> में PQN के CNN-आधारित एनकोडरों के मूल्यांकन के लिए एक बेंचमार्किंग फ्रेमवर्क है। यह डीप रीइन्फोर्समेंट लर्निंग अनुसंधान के लिए प्रशिक्षण, मूल्यांकन और पुनरुत्पादकता के मानकीकृत टूल उपलब्ध कराता है।
 
-हमने PQN और आफ़ताब एजेंटों की तुलना करने वाले कुछ वीडियो तैयार किए हैं। उन्हें [यहाँ](../videos.md) देखें।
+इन [वीडियो प्रदर्शनों](https://github.com/tahashieenavaz/aftab/blob/main/videos.md) में देखें कि आफ़ताब आर्किटेक्चर मानक PQN बेसलाइन की तुलना में कैसा प्रदर्शन करता है।
+
+यह शोध बिना किसी वित्तपोषण के किया गया है; यदि हमारा काम आपके लिए उपयोगी रहा हो, तो कृपया [GitHub पर प्रायोजित करने](https://github.com/sponsors/tahashieenavaz) पर विचार करें 💛।
 
 ### एनकोडर प्रयोग
 
@@ -150,6 +155,8 @@
 
 ### Procgen (ओवरफ़िटिंग रोकथाम) प्रयोग
 
+चूँकि Procgen एनवायरनमेंट के ह्यूमन-नॉर्मलाइज़्ड स्कोर की तुलना करने वाला कोई सार्वजनिक बेंचमार्क नहीं है, हमने PNS (Procgen Normalized Score) बनाया है, जो विभिन्न सीड के स्कोर का सरल मिन-मॅक्स नॉर्मलाइज़ेशन है।
+
 <div align="center">
   <table>
     <tr>
@@ -192,7 +199,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-वर्चुअल एनवायरनमेंट बनाने के लिए हम [Micromamba](https://github.com/mamba-org/micromamba-releases) के उपयोग की पुरज़ोर सलाह देते हैं। विस्तृत निर्देश [यहाँ](../scripts/README.md) उपलब्ध हैं।
+वर्चुअल एनवायरनमेंट बनाने के लिए हम [Micromamba](https://github.com/mamba-org/micromamba-releases) के उपयोग की पुरज़ोर सलाह देते हैं। विस्तृत निर्देश [यहाँ](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md) उपलब्ध हैं।
 
 ## एजेंटों को प्रशिक्षित करना
 
@@ -236,45 +243,49 @@ agent = Aftab(encoder=CustomImageEncoder)
 ### एनकोडर प्रयोग
 
 **तालिकाएँ**
-- [मानव-सामान्यीकृत स्कोर](../results/encoder_experiments/human_normalized_scores.md)
-- [स्कोर](../results/encoder_experiments/scores.md)
+- [मानव-सामान्यीकृत स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **चार्ट**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [लॉस में बदलाव](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [लॉस में बदलाव](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Hadamax प्रयोग
 
 **तालिकाएँ**
-- [मानव-सामान्यीकृत स्कोर](../results/hadamax_experiments/human_normalized_scores.md)
-- [स्कोर](../results/hadamax_experiments/scores.md)
+- [मानव-सामान्यीकृत स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **चार्ट**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [लॉस में बदलाव](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [लॉस में बदलाव](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Q-वैल्यू प्रयोग
 
 **तालिकाएँ**
-- [मानव-सामान्यीकृत स्कोर](../results/qvalue_experiments/human_normalized_scores.md)
-- [स्कोर](../results/qvalue_experiments/scores.md)
+- [मानव-सामान्यीकृत स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **चार्ट**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [लॉस में बदलाव](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [लॉस में बदलाव](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### Procgen प्रयोग
 
 **तालिकाएँ**
-- [Procgen सामान्यीकृत स्कोर](../results/procgen_experiments/procgen_normalized_scores.md)
-- [स्कोर](../results/procgen_experiments/scores.md)
+- [Procgen सामान्यीकृत स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [स्कोर](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [सीड के अनुसार PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [गेम के अनुसार PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**चार्ट**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## मॉडल की जटिलता
 
@@ -306,30 +317,70 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## हाइपरपैरामीटर
 
-<div align="center">
+निम्न तालिकाएँ `Aftab` द्वारा निर्धारित डिफ़ॉल्ट मान दिखाती हैं। `experiment_name` आर्ग्युमेंट आवश्यक है और इसका कोई डिफ़ॉल्ट मान नहीं है।
 
-| हाइपरपैरामीटर | मान |
+### प्रशिक्षण और एनवायरनमेंट
+
+| हाइपरपैरामीटर (`Aftab` आर्ग्युमेंट) | डिफ़ॉल्ट |
 | :--- | :--- |
-| लर्निंग रेट | $2.5 \times 10^{-4}$ |
-| प्रशिक्षण एनवायरनमेंट | 128 |
-| परीक्षण एनवायरनमेंट | 8 |
-| ऑप्टिमाइज़र | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| वेट डिके | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| कुल फ़्रेम | 200,000,000 |
-| लॉस फ़ंक्शन | माध्य वर्ग त्रुटि |
-| शेड्यूलर | रैखिक एनीलिंग |
-| $\epsilon$-ग्रीडी एक्सप्लोरेशन | 10% of total frames |
+| एनकोडर (`encoder`) | Gamma-Hadamax-Valid |
+| नेटवर्क (`network`) | Distributional Bootstrapped (Ensemble) Dueling |
+| कुल फ़्रेम (`frames`) | 200,000,000 |
+| फ़्रेम स्किप (`frame_skip`) | 4 |
+| फ़्रेम स्टैक (`frame_stack`) | 4 |
+| अधिकतम no-op (`noop`) | 30 |
+| लर्निंग रेट (`lr`) | $2.5 \times 10^{-4}$ |
+| प्रशिक्षण एनवायरनमेंट (`train_environments`) | 128 |
+| परीक्षण एनवायरनमेंट (`test_environments`) | 8 |
+| प्रति अपडेट स्टेप (`steps_per_update`) | 32 |
+| बैच आकार (व्युत्पन्न) | 4,096 |
+| मिनी-बैच (`mini_batches`) | 32 |
+| मिनी-बैच आकार (व्युत्पन्न) | 128 |
 | डिस्काउंट फ़ैक्टर ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| एपोक | 2 |
-| बैच आकार | 4096 |
+| रिटर्न $\lambda$ (`return_lambda`) | 0.65 |
+| एपोक (`epochs`) | 2 |
+| ग्रेडिएंट नॉर्म (`gradient_norm`) | 10.0 |
+| एम्बेडिंग आयाम (`embedding_dimension`) | 512 |
+| प्रशिक्षण एपिसोडिक लाइफ़ (`train_episodic_life`) | `True` |
+| परीक्षण एपिसोडिक लाइफ़ (`test_episodic_life`) | `False` |
+| प्रशिक्षण रिवार्ड क्लिपिंग (`train_reward_clip`) | `True` |
+| परीक्षण रिवार्ड क्लिपिंग (`test_reward_clip`) | `True` |
+| एप्सिलॉन शेड्यूल | रैखिक |
+| एप्सिलॉन एनीलिंग अनुपात | 10% |
 
-</div>
+### ऑप्टिमाइज़र
 
-<p align="center"><em>एनकोडर और Hadamax प्रयोगों में उपयोग किया गया।</em></p>
+| हाइपरपैरामीटर (`Aftab` आर्ग्युमेंट) | डिफ़ॉल्ट |
+| :--- | :--- |
+| ऑप्टिमाइज़र (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| एप्सिलॉन (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| वेट डिके (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+### डिस्ट्रीब्यूशनल और बूटस्ट्रैप्ड (एन्सेम्बल) Q-वैल्यू
+
+| हाइपरपैरामीटर (`Aftab` आर्ग्युमेंट) | डिफ़ॉल्ट |
+| :--- | :--- |
+| डिस्ट्रीब्यूशनल बिन (`distributional_bins`) | 51 |
+| डिस्ट्रीब्यूशनल न्यूनतम (`distributional_min_value`) | -10.0 |
+| डिस्ट्रीब्यूशनल अधिकतम (`distributional_max_value`) | 10.0 |
+| डिस्ट्रीब्यूशनल सिग्मा (`distributional_sigma`) | `None` (सिग्मा अनुपात से व्युत्पन्न) |
+| डिस्ट्रीब्यूशनल सिग्मा अनुपात (`distributional_sigma_ratio`) | 0.75 |
+| डिस्ट्रीब्यूशनल वैल्यू क्लिप (`distributional_value_clip`) | 0.0 |
+| बूटस्ट्रैप हेड (`bootstrap_heads`) | 10 |
+| बूटस्ट्रैप प्रायिकता (`bootstrap_probability`) | 1.0 |
+
+### Procgen ओवरराइड
+
+| हाइपरपैरामीटर | डिफ़ॉल्ट | Procgen |
+| :--- | :--- | :--- |
+| प्रशिक्षण एनवायरनमेंट | 128 | 64 (`procgen_train_environments`) |
+| प्रति अपडेट स्टेप | 32 | 256 (`procgen_steps_per_update`) |
+| बैच आकार | 4,096 | 16,384 |
+| मिनी-बैच आकार | 128 | 512 |
+
+<em>Procgen एनवायरनमेंट के लिए Aftab ऊपर दिए गए दो ओवरराइड स्वतः लागू करता है; अन्य डिफ़ॉल्ट अपरिवर्तित रहते हैं।</em>
 
 ## सांख्यिकीय सार्थकता
 
@@ -495,12 +546,27 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## उद्धरण
 
+रिपॉजिटरी:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+प्रीप्रिंट:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -556,10 +622,16 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 - [विकिपीडिया: रीइन्फोर्समेंट लर्निंग (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
 - [विकिपीडिया: डीप रीइन्फोर्समेंट लर्निंग (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
 - [विकिपीडिया: Q-लर्निंग](https://en.wikipedia.org/wiki/Q-learning)
-- [विकिपीडिया: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [विकिपीडिया: सांख्यिकीय परिकल्पना परीक्षण](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [विकिपीडिया: PyTorch](https://hi.wikipedia.org/wiki/पाइटौर्च)
+- [विकिपीडिया: सांख्यिकीय परिकल्पना परीक्षण](https://hi.wikipedia.org/wiki/सांख्यिकीय_परिकल्पना_परीक्षण)
 - [विकिपीडिया: Wilcoxon साइन्ड-रैंक परीक्षण](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
+
+## फ़ॉन्ट
+
+GitHub रिपॉजिटरी हेडर और प्रोजेक्ट के लैंडिंग पेज पर फ़ारसी और अंग्रेज़ी दोनों पाठ के लिए Vazirmatn फ़ॉन्ट का उपयोग किया गया है।
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## लाइसेंस
 
