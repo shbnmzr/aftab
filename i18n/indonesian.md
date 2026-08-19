@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Makalah Aftab" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="Header Aftab" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,8 +13,12 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
@@ -24,30 +27,32 @@
 <br />
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 ## Gambaran umum
 
 **Aftab** (dari <a href="https://en.wikipedia.org/wiki/Aftab">bahasa Persia</a> آفتاب, yang berarti “matahari” atau “sinar matahari”) adalah framework benchmark untuk mengevaluasi encoder berbasis CNN pada PQN di berbagai <a href="https://en.wikipedia.org/wiki/Atari_Games">gim Atari</a>. Framework ini menyediakan perangkat standar untuk pelatihan, evaluasi, dan reproduksibilitas dalam riset deep reinforcement learning.
 
-Kami telah menyiapkan beberapa video yang membandingkan agen PQN dan Aftab. Tonton [di sini](../videos.md).
+Lihat perbandingan arsitektur Aftab dengan baseline PQN standar dalam [demonstrasi video](https://github.com/tahashieenavaz/aftab/blob/main/videos.md) ini.
+
+Riset ini dilakukan tanpa menerima pendanaan apa pun; jika karya kami bermanfaat, pertimbangkan untuk [mensponsori melalui GitHub](https://github.com/sponsors/tahashieenavaz) 💛.
 
 ### Eksperimen encoder
 
@@ -146,6 +151,8 @@ Referensi:
 
 ### Eksperimen Procgen (pencegahan overfitting)
 
+Karena belum ada benchmark publik yang membandingkan skor ternormalisasi manusia pada lingkungan Procgen, kami membuat PNS (Procgen Normalized Score), yaitu normalisasi min-maks sederhana atas skor lintas seed.
+
 <div align="center">
   <table>
     <tr>
@@ -188,7 +195,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Kami sangat menyarankan penggunaan [Micromamba](https://github.com/mamba-org/micromamba-releases) untuk membuat lingkungan virtual. Petunjuk lengkap tersedia [di sini](../scripts/README.md).
+Kami sangat menyarankan penggunaan [Micromamba](https://github.com/mamba-org/micromamba-releases) untuk membuat lingkungan virtual. Petunjuk lengkap tersedia [di sini](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md).
 
 ## Melatih agen
 
@@ -232,45 +239,49 @@ Semua hasil eksperimen disusun berdasarkan kategori eksperimen. Setiap bagian me
 ### Eksperimen encoder
 
 **Tabel**
-- [Skor yang dinormalisasi terhadap performa manusia](../results/encoder_experiments/human_normalized_scores.md)
-- [Skor](../results/encoder_experiments/scores.md)
+- [Skor yang dinormalisasi terhadap performa manusia](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [Skor](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **Grafik**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Perkembangan loss](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [Perkembangan loss](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Eksperimen Hadamax
 
 **Tabel**
-- [Skor yang dinormalisasi terhadap performa manusia](../results/hadamax_experiments/human_normalized_scores.md)
-- [Skor](../results/hadamax_experiments/scores.md)
+- [Skor yang dinormalisasi terhadap performa manusia](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [Skor](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **Grafik**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Perkembangan loss](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [Perkembangan loss](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Eksperimen nilai Q
 
 **Tabel**
-- [Skor yang dinormalisasi terhadap performa manusia](../results/qvalue_experiments/human_normalized_scores.md)
-- [Skor](../results/qvalue_experiments/scores.md)
+- [Skor yang dinormalisasi terhadap performa manusia](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [Skor](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **Grafik**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Perkembangan loss](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [Perkembangan loss](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### Eksperimen Procgen
 
 **Tabel**
-- [Skor Procgen yang dinormalisasi](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Skor](../results/procgen_experiments/scores.md)
+- [Skor Procgen yang dinormalisasi](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [Skor](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [AUC PNS per seed](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [AUC PNS per gim](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**Grafik**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## Kompleksitas model
 
@@ -302,30 +313,70 @@ Semua hasil eksperimen disusun berdasarkan kategori eksperimen. Setiap bagian me
 
 ## Hiperparameter
 
-<div align="center">
+Tabel berikut menampilkan nilai default yang ditentukan oleh `Aftab`. Argumen `experiment_name` wajib diisi dan tidak memiliki nilai default.
 
-| Hiperparameter | Nilai |
+### Pelatihan dan lingkungan
+
+| Hiperparameter (argumen `Aftab`) | Default |
 | :--- | :--- |
-| Laju pembelajaran | $2.5 \times 10^{-4}$ |
-| Lingkungan pelatihan | 128 |
-| Lingkungan pengujian | 8 |
-| Pengoptimal | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Peluruhan bobot | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| Total frame | 200,000,000 |
-| Fungsi kerugian | Galat kuadrat rata-rata |
-| Penjadwal | Annealing linear |
-| Eksplorasi $\epsilon$-greedy | 10% of total frames |
+| Encoder (`encoder`) | Gamma-Hadamax-Valid |
+| Jaringan (`network`) | Distributional Bootstrapped (Ensemble) Dueling |
+| Total frame (`frames`) | 200,000,000 |
+| Lompatan frame (`frame_skip`) | 4 |
+| Tumpukan frame (`frame_stack`) | 4 |
+| No-op maksimum (`noop`) | 30 |
+| Laju pembelajaran (`lr`) | $2.5 \times 10^{-4}$ |
+| Lingkungan pelatihan (`train_environments`) | 128 |
+| Lingkungan pengujian (`test_environments`) | 8 |
+| Langkah per pembaruan (`steps_per_update`) | 32 |
+| Ukuran batch (turunan) | 4,096 |
+| Mini-batch (`mini_batches`) | 32 |
+| Ukuran mini-batch (turunan) | 128 |
 | Faktor diskonto ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| Epoch | 2 |
-| Ukuran batch | 4096 |
+| $\lambda$ return (`return_lambda`) | 0.65 |
+| Epoch (`epochs`) | 2 |
+| Norma gradien (`gradient_norm`) | 10.0 |
+| Dimensi embedding (`embedding_dimension`) | 512 |
+| Episodic life pelatihan (`train_episodic_life`) | `True` |
+| Episodic life pengujian (`test_episodic_life`) | `False` |
+| Kliping reward pelatihan (`train_reward_clip`) | `True` |
+| Kliping reward pengujian (`test_reward_clip`) | `True` |
+| Jadwal epsilon | Linear |
+| Rasio annealing epsilon | 10% |
 
-</div>
+### Pengoptimal
 
-<p align="center"><em>Digunakan dalam eksperimen encoder dan Hadamax.</em></p>
+| Hiperparameter (argumen `Aftab`) | Default |
+| :--- | :--- |
+| Pengoptimal (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| Epsilon (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| Peluruhan bobot (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+### Nilai Q distributional dan bootstrapped (ensemble)
+
+| Hiperparameter (argumen `Aftab`) | Default |
+| :--- | :--- |
+| Bin distributional (`distributional_bins`) | 51 |
+| Minimum distributional (`distributional_min_value`) | -10.0 |
+| Maksimum distributional (`distributional_max_value`) | 10.0 |
+| Sigma distributional (`distributional_sigma`) | `None` (diturunkan dari rasio sigma) |
+| Rasio sigma distributional (`distributional_sigma_ratio`) | 0.75 |
+| Kliping nilai distributional (`distributional_value_clip`) | 0.0 |
+| Head bootstrap (`bootstrap_heads`) | 10 |
+| Probabilitas bootstrap (`bootstrap_probability`) | 1.0 |
+
+### Penggantian Procgen
+
+| Hiperparameter | Default | Procgen |
+| :--- | :--- | :--- |
+| Lingkungan pelatihan | 128 | 64 (`procgen_train_environments`) |
+| Langkah per pembaruan | 32 | 256 (`procgen_steps_per_update`) |
+| Ukuran batch | 4,096 | 16,384 |
+| Ukuran mini-batch | 128 | 512 |
+
+<em>Untuk lingkungan Procgen, Aftab secara otomatis menerapkan dua penggantian di atas; default lainnya tidak berubah.</em>
 
 ## Signifikansi statistik
 
@@ -492,12 +543,27 @@ Seluruh eksperimen dalam proyek ini dijalankan pada GPU [Nvidia A40](https://www
 
 ## Sitasi
 
+Repositori:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+Pracetak:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -550,13 +616,19 @@ Seluruh eksperimen dalam proyek ini dijalankan pada GPU [Nvidia A40](https://www
 
 ## Tautan berguna
 
-- [Wikipedia: Pembelajaran penguatan (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [Wikipedia: Pembelajaran penguatan (RL)](https://id.wikipedia.org/wiki/Pemelajaran_pengukuhan)
 - [Wikipedia: Pembelajaran penguatan mendalam (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
 - [Wikipedia: Pembelajaran Q](https://en.wikipedia.org/wiki/Q-learning)
-- [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: Uji Hipotesis Statistik](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: Uji Peringkat Bertanda Wilcoxon](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [Wikipedia: PyTorch](https://id.wikipedia.org/wiki/PyTorch)
+- [Wikipedia: Uji Hipotesis Statistik](https://id.wikipedia.org/wiki/Uji_hipotesis)
+- [Wikipedia: Uji Peringkat Bertanda Wilcoxon](https://id.wikipedia.org/wiki/Uji_peringkat_bertanda_Wilcoxon)
 - [PyTorch](https://pytorch.org/)
+
+## Font
+
+Font Vazirmatn digunakan untuk teks Persia dan Inggris pada header repositori GitHub serta halaman landing proyek.
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## Lisensi
 

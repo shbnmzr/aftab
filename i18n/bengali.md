@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Aftab গবেষণাপত্র" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="Aftab হেডার" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,8 +13,12 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
@@ -24,30 +27,32 @@
 <br />
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 ## সংক্ষিপ্ত পরিচিতি
 
-**Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">ফারসি</a>: آفتاب, অর্থ “সূর্য” বা “সূর্যের রশ্মি”) হলো বিভিন্ন <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari গেমে</a> PQN-এর CNN-ভিত্তিক এনকোডার মূল্যায়নের একটি বেঞ্চমার্কিং ফ্রেমওয়ার্ক। এটি গভীর রিইনফোর্সমেন্ট লার্নিং গবেষণার জন্য প্রশিক্ষণ, মূল্যায়ন ও পুনরুৎপাদনযোগ্যতার প্রমিত টুল সরবরাহ করে।
+**Aftab** (<a href="https://bn.wikipedia.org/wiki/আফতাব">ফারসি</a>: آفتاب, অর্থ “সূর্য” বা “সূর্যের রশ্মি”) হলো বিভিন্ন <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari গেমে</a> PQN-এর CNN-ভিত্তিক এনকোডার মূল্যায়নের একটি বেঞ্চমার্কিং ফ্রেমওয়ার্ক। এটি গভীর রিইনফোর্সমেন্ট লার্নিং গবেষণার জন্য প্রশিক্ষণ, মূল্যায়ন ও পুনরুৎপাদনযোগ্যতার প্রমিত টুল সরবরাহ করে।
 
-PQN ও Aftab এজেন্টের তুলনামূলক কয়েকটি ভিডিও আমরা তৈরি করেছি। সেগুলো [এখানে](../videos.md) দেখুন।
+এই [ভিডিও প্রদর্শনগুলোতে](https://github.com/tahashieenavaz/aftab/blob/main/videos.md) দেখুন Aftab আর্কিটেকচারটি স্ট্যান্ডার্ড PQN বেসলাইনের তুলনায় কেমন।
+
+এই গবেষণাটি কোনো অর্থায়ন ছাড়াই করা হয়েছে; আমাদের কাজ উপকারী মনে হলে [GitHub-এ স্পনসর করার](https://github.com/sponsors/tahashieenavaz) কথা বিবেচনা করুন 💛।
 
 ### এনকোডার পরীক্ষা
 
@@ -146,6 +151,8 @@ PQN ও Aftab এজেন্টের তুলনামূলক কয়ে�
 
 ### Procgen পরীক্ষা (ওভারফিটিং প্রতিরোধ)
 
+Procgen এনভায়রনমেন্টের মানব-স্বাভাবিকীকৃত স্কোর তুলনা করার কোনো প্রকাশ্য বেঞ্চমার্ক না থাকায় আমরা PNS (Procgen Normalized Score) তৈরি করেছি, যা বিভিন্ন সিডের স্কোরের একটি সরল মিন-ম্যাক্স স্বাভাবিকীকরণ।
+
 <div align="center">
   <table>
     <tr>
@@ -188,7 +195,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-ভার্চুয়াল এনভায়রনমেন্ট তৈরির জন্য আমরা [Micromamba](https://github.com/mamba-org/micromamba-releases) ব্যবহারের জোরালো পরামর্শ দিই। বিস্তারিত নির্দেশনা [এখানে](../scripts/README.md) রয়েছে।
+ভার্চুয়াল এনভায়রনমেন্ট তৈরির জন্য আমরা [Micromamba](https://github.com/mamba-org/micromamba-releases) ব্যবহারের জোরালো পরামর্শ দিই। বিস্তারিত নির্দেশনা [এখানে](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md) রয়েছে।
 
 ## এজেন্ট প্রশিক্ষণ
 
@@ -232,45 +239,49 @@ agent = Aftab(encoder=CustomImageEncoder)
 ### এনকোডার পরীক্ষা
 
 **টেবিল**
-- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](../results/encoder_experiments/human_normalized_scores.md)
-- [স্কোর](../results/encoder_experiments/scores.md)
+- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **চার্ট**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [লসের পরিবর্তন](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [লসের পরিবর্তন](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Hadamax পরীক্ষা
 
 **টেবিল**
-- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](../results/hadamax_experiments/human_normalized_scores.md)
-- [স্কোর](../results/hadamax_experiments/scores.md)
+- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **চার্ট**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [লসের পরিবর্তন](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [লসের পরিবর্তন](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Q-মান পরীক্ষা
 
 **টেবিল**
-- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](../results/qvalue_experiments/human_normalized_scores.md)
-- [স্কোর](../results/qvalue_experiments/scores.md)
+- [মানবীয় পারফরম্যান্সের তুলনায় স্বাভাবিকীকৃত স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **চার্ট**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [লসের পরিবর্তন](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [লসের পরিবর্তন](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### Procgen পরীক্ষা
 
 **টেবিল**
-- [Procgen স্বাভাবিকীকৃত স্কোর](../results/procgen_experiments/procgen_normalized_scores.md)
-- [স্কোর](../results/procgen_experiments/scores.md)
+- [Procgen স্বাভাবিকীকৃত স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [স্কোর](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [সিড অনুযায়ী PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [গেম অনুযায়ী PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**চার্ট**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## মডেলের জটিলতা
 
@@ -302,30 +313,70 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## হাইপারপ্যারামিটার
 
-<div align="center">
+নিচের টেবিলগুলো `Aftab`-এ নির্ধারিত ডিফল্ট মান দেখায়। `experiment_name` আর্গুমেন্টটি আবশ্যক এবং এর কোনো ডিফল্ট মান নেই।
 
-| হাইপারপ্যারামিটার | মান |
+### প্রশিক্ষণ ও এনভায়রনমেন্ট
+
+| হাইপারপ্যারামিটার (`Aftab` আর্গুমেন্ট) | ডিফল্ট |
 | :--- | :--- |
-| লার্নিং রেট | $2.5 \times 10^{-4}$ |
-| প্রশিক্ষণ এনভায়রনমেন্ট | 128 |
-| পরীক্ষণ এনভায়রনমেন্ট | 8 |
-| অপটিমাইজার | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| ওয়েট ডিকে | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| মোট ফ্রেম | 200,000,000 |
-| লস ফাংশন | গড় বর্গ ত্রুটি |
-| শিডিউলার | রৈখিক অ্যানিলিং |
-| $\epsilon$-greedy অনুসন্ধান | 10% of total frames |
+| এনকোডার (`encoder`) | Gamma-Hadamax-Valid |
+| নেটওয়ার্ক (`network`) | Distributional Bootstrapped (Ensemble) Dueling |
+| মোট ফ্রেম (`frames`) | 200,000,000 |
+| ফ্রেম স্কিপ (`frame_skip`) | 4 |
+| ফ্রেম স্ট্যাক (`frame_stack`) | 4 |
+| সর্বোচ্চ no-op (`noop`) | 30 |
+| লার্নিং রেট (`lr`) | $2.5 \times 10^{-4}$ |
+| প্রশিক্ষণ এনভায়রনমেন্ট (`train_environments`) | 128 |
+| পরীক্ষণ এনভায়রনমেন্ট (`test_environments`) | 8 |
+| প্রতি আপডেটে স্টেপ (`steps_per_update`) | 32 |
+| ব্যাচের আকার (উদ্ভূত) | 4,096 |
+| মিনি-ব্যাচ (`mini_batches`) | 32 |
+| মিনি-ব্যাচের আকার (উদ্ভূত) | 128 |
 | ডিসকাউন্ট ফ্যাক্টর ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| এপক | 2 |
-| ব্যাচের আকার | 4096 |
+| রিটার্ন $\lambda$ (`return_lambda`) | 0.65 |
+| এপক (`epochs`) | 2 |
+| গ্রেডিয়েন্ট নর্ম (`gradient_norm`) | 10.0 |
+| এমবেডিং মাত্রা (`embedding_dimension`) | 512 |
+| প্রশিক্ষণ episodic life (`train_episodic_life`) | `True` |
+| পরীক্ষণ episodic life (`test_episodic_life`) | `False` |
+| প্রশিক্ষণ reward clipping (`train_reward_clip`) | `True` |
+| পরীক্ষণ reward clipping (`test_reward_clip`) | `True` |
+| Epsilon শিডিউল | রৈখিক |
+| Epsilon অ্যানিলিং অনুপাত | 10% |
 
-</div>
+### অপটিমাইজার
 
-<p align="center"><em>এনকোডার ও Hadamax পরীক্ষায় ব্যবহৃত হয়েছে।</em></p>
+| হাইপারপ্যারামিটার (`Aftab` আর্গুমেন্ট) | ডিফল্ট |
+| :--- | :--- |
+| অপটিমাইজার (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| Epsilon (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| ওয়েট ডিকে (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+### Distributional ও Bootstrapped (Ensemble) Q-মান
+
+| হাইপারপ্যারামিটার (`Aftab` আর্গুমেন্ট) | ডিফল্ট |
+| :--- | :--- |
+| Distributional bin (`distributional_bins`) | 51 |
+| Distributional সর্বনিম্ন (`distributional_min_value`) | -10.0 |
+| Distributional সর্বোচ্চ (`distributional_max_value`) | 10.0 |
+| Distributional sigma (`distributional_sigma`) | `None` (sigma অনুপাত থেকে উদ্ভূত) |
+| Distributional sigma অনুপাত (`distributional_sigma_ratio`) | 0.75 |
+| Distributional মান clipping (`distributional_value_clip`) | 0.0 |
+| Bootstrap head (`bootstrap_heads`) | 10 |
+| Bootstrap সম্ভাবনা (`bootstrap_probability`) | 1.0 |
+
+### Procgen ওভাররাইড
+
+| হাইপারপ্যারামিটার | ডিফল্ট | Procgen |
+| :--- | :--- | :--- |
+| প্রশিক্ষণ এনভায়রনমেন্ট | 128 | 64 (`procgen_train_environments`) |
+| প্রতি আপডেটে স্টেপ | 32 | 256 (`procgen_steps_per_update`) |
+| ব্যাচের আকার | 4,096 | 16,384 |
+| মিনি-ব্যাচের আকার | 128 | 512 |
+
+<em>Procgen এনভায়রনমেন্টে Aftab ওপরের দুটি ওভাররাইড স্বয়ংক্রিয়ভাবে প্রয়োগ করে; অন্য ডিফল্টগুলো অপরিবর্তিত থাকে।</em>
 
 ## পরিসংখ্যানগত তাৎপর্য
 
@@ -491,12 +542,27 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## উদ্ধৃতি
 
+রিপোজিটরি:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+প্রিপ্রিন্ট:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -549,13 +615,19 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## দরকারি লিংক
 
-- [উইকিপিডিয়া: রিইনফোর্সমেন্ট লার্নিং (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [উইকিপিডিয়া: রিইনফোর্সমেন্ট লার্নিং (RL)](https://bn.wikipedia.org/wiki/বলবর্ধনমূলক_শিখন)
 - [উইকিপিডিয়া: গভীর রিইনফোর্সমেন্ট লার্নিং (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
 - [উইকিপিডিয়া: Q-লার্নিং](https://en.wikipedia.org/wiki/Q-learning)
-- [উইকিপিডিয়া: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
+- [উইকিপিডিয়া: PyTorch](https://bn.wikipedia.org/wiki/পাইটর্চ)
 - [উইকিপিডিয়া: পরিসংখ্যানগত হাইপোথিসিস পরীক্ষা](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
 - [উইকিপিডিয়া: Wilcoxon signed-rank পরীক্ষা](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
+
+## ফন্ট
+
+GitHub রিপোজিটরির হেডার ও প্রকল্পের ল্যান্ডিং পেজে ফারসি ও ইংরেজি লেখার জন্য Vazirmatn ফন্ট ব্যবহার করা হয়েছে।
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## লাইসেন্স
 

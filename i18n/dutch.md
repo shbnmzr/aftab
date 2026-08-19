@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Aftab-paper" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="Aftab-header" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,8 +13,12 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
@@ -24,30 +27,32 @@
 <br />
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 ## Overzicht
 
-**Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">Perzisch</a>: آفتاب, met de betekenis ‘zon’ of ‘zonnestralen’) is een benchmarkframework voor het evalueren van CNN-gebaseerde encoders in PQN voor verschillende <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari-games</a>. Het biedt gestandaardiseerde hulpmiddelen voor training, evaluatie en reproduceerbaarheid binnen onderzoek naar deep reinforcement learning.
+**Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">Perzisch</a>: آفتاب, met de betekenis ‘zon’ of ‘zonnestralen’) is een benchmarkframework voor het evalueren van CNN-gebaseerde encoders in PQN voor verschillende <a href="https://nl.wikipedia.org/wiki/Atari_Games">Atari-games</a>. Het biedt gestandaardiseerde hulpmiddelen voor training, evaluatie en reproduceerbaarheid binnen onderzoek naar deep reinforcement learning.
 
-We hebben enkele video’s samengesteld waarin PQN- en Aftab-agents worden vergeleken. Bekijk ze [hier](../videos.md).
+Bekijk in deze [videodemonstraties](https://github.com/tahashieenavaz/aftab/blob/main/videos.md) hoe de Aftab-architectuur zich verhoudt tot standaard PQN-baselines.
+
+Dit onderzoek is zonder financiering uitgevoerd. Als ons werk nuttig voor je is geweest, overweeg dan om ons [via GitHub te sponsoren](https://github.com/sponsors/tahashieenavaz) 💛.
 
 ### Encoderexperimenten
 
@@ -146,6 +151,8 @@ Referenties:
 
 ### Procgen-experimenten (overfitting voorkomen)
 
+Omdat er geen openbare benchmarks zijn die mensgenormaliseerde scores van Procgen-omgevingen vergelijken, hebben we PNS (Procgen Normalized Score) ontwikkeld: een eenvoudige min-maxnormalisatie van scores over verschillende seeds.
+
 <div align="center">
   <table>
     <tr>
@@ -188,7 +195,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Voor het maken van virtuele omgevingen raden we [Micromamba](https://github.com/mamba-org/micromamba-releases) sterk aan. Uitgebreide instructies staan [hier](../scripts/README.md).
+Voor het maken van virtuele omgevingen raden we [Micromamba](https://github.com/mamba-org/micromamba-releases) sterk aan. Uitgebreide instructies staan [hier](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md).
 
 ## Agents trainen
 
@@ -232,45 +239,49 @@ Alle experimentele resultaten zijn per experimentcategorie ingedeeld. Elke secti
 ### Encoderexperimenten
 
 **Tabellen**
-- [Naar menselijke prestaties genormaliseerde scores](../results/encoder_experiments/human_normalized_scores.md)
-- [Scores](../results/encoder_experiments/scores.md)
+- [Naar menselijke prestaties genormaliseerde scores](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **Grafieken**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Verloop van de loss](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [Verloop van de loss](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Hadamax-experimenten
 
 **Tabellen**
-- [Naar menselijke prestaties genormaliseerde scores](../results/hadamax_experiments/human_normalized_scores.md)
-- [Scores](../results/hadamax_experiments/scores.md)
+- [Naar menselijke prestaties genormaliseerde scores](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **Grafieken**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Verloop van de loss](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [Verloop van de loss](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Experimenten met Q-waarden
 
 **Tabellen**
-- [Naar menselijke prestaties genormaliseerde scores](../results/qvalue_experiments/human_normalized_scores.md)
-- [Scores](../results/qvalue_experiments/scores.md)
+- [Naar menselijke prestaties genormaliseerde scores](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **Grafieken**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Verloop van de loss](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [Verloop van de loss](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### Procgen-experimenten
 
 **Tabellen**
-- [Genormaliseerde Procgen-scores](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Scores](../results/procgen_experiments/scores.md)
+- [Genormaliseerde Procgen-scores](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [Scores](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [PNS-AUC per seed](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [PNS-AUC per game](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**Grafieken**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## Modelcomplexiteit
 
@@ -302,30 +313,70 @@ Alle experimentele resultaten zijn per experimentcategorie ingedeeld. Elke secti
 
 ## Hyperparameters
 
-<div align="center">
+De volgende tabellen geven de standaardwaarden weer die door `Aftab` zijn gedefinieerd. Het argument `experiment_name` is verplicht en heeft geen standaardwaarde.
 
-| Hyperparameter | Waarde |
+### Training en omgeving
+
+| Hyperparameter (`Aftab`-argument) | Standaardwaarde |
 | :--- | :--- |
-| Leersnelheid | $2.5 \times 10^{-4}$ |
-| Trainingsomgevingen | 128 |
-| Testomgevingen | 8 |
-| Optimalisator | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Gewichtsverval | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| Totaal aantal frames | 200,000,000 |
-| Lossfunctie | Gemiddelde kwadratische fout |
-| Scheduler | Lineaire annealing |
-| $\epsilon$-greedy-exploratie | 10% of total frames |
+| Encoder (`encoder`) | Gamma-Hadamax-Valid |
+| Netwerk (`network`) | Distributional Bootstrapped (Ensemble) Dueling |
+| Totaal aantal frames (`frames`) | 200,000,000 |
+| Frame-skip (`frame_skip`) | 4 |
+| Frame-stack (`frame_stack`) | 4 |
+| Maximum aantal no-ops (`noop`) | 30 |
+| Leersnelheid (`lr`) | $2.5 \times 10^{-4}$ |
+| Trainingsomgevingen (`train_environments`) | 128 |
+| Testomgevingen (`test_environments`) | 8 |
+| Stappen per update (`steps_per_update`) | 32 |
+| Batchgrootte (afgeleid) | 4,096 |
+| Mini-batches (`mini_batches`) | 32 |
+| Mini-batchgrootte (afgeleid) | 128 |
 | Kortingsfactor ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| Epochs | 2 |
-| Batchgrootte | 4096 |
+| Return-$\lambda$ (`return_lambda`) | 0.65 |
+| Epochs (`epochs`) | 2 |
+| Gradiëntnorm (`gradient_norm`) | 10.0 |
+| Embeddingdimensie (`embedding_dimension`) | 512 |
+| Episodisch leven tijdens training (`train_episodic_life`) | `True` |
+| Episodisch leven tijdens tests (`test_episodic_life`) | `False` |
+| Beloningsclipping tijdens training (`train_reward_clip`) | `True` |
+| Beloningsclipping tijdens tests (`test_reward_clip`) | `True` |
+| Epsilon-schema | Lineair |
+| Epsilon-annealingverhouding | 10% |
 
-</div>
+### Optimalisator
 
-<p align="center"><em>Gebruikt in de encoder- en Hadamax-experimenten.</em></p>
+| Hyperparameter (`Aftab`-argument) | Standaardwaarde |
+| :--- | :--- |
+| Optimalisator (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| Epsilon (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| Gewichtsverval (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+### Distributionele en bootstrapped (ensemble) Q-waarden
+
+| Hyperparameter (`Aftab`-argument) | Standaardwaarde |
+| :--- | :--- |
+| Distributionele bins (`distributional_bins`) | 51 |
+| Distributioneel minimum (`distributional_min_value`) | -10.0 |
+| Distributioneel maximum (`distributional_max_value`) | 10.0 |
+| Distributionele sigma (`distributional_sigma`) | `None` (afgeleid van de sigmaverhouding) |
+| Distributionele sigmaverhouding (`distributional_sigma_ratio`) | 0.75 |
+| Distributionele waardeclipping (`distributional_value_clip`) | 0.0 |
+| Bootstrap-heads (`bootstrap_heads`) | 10 |
+| Bootstrapwaarschijnlijkheid (`bootstrap_probability`) | 1.0 |
+
+### Procgen-overschrijvingen
+
+| Hyperparameter | Standaardwaarde | Procgen |
+| :--- | :--- | :--- |
+| Trainingsomgevingen | 128 | 64 (`procgen_train_environments`) |
+| Stappen per update | 32 | 256 (`procgen_steps_per_update`) |
+| Batchgrootte | 4,096 | 16,384 |
+| Mini-batchgrootte | 128 | 512 |
+
+<em>Voor Procgen-omgevingen past Aftab automatisch de twee bovenstaande overschrijvingen toe; de overige standaardwaarden blijven ongewijzigd.</em>
 
 ## Statistische significantie
 
@@ -492,12 +543,27 @@ Alle experimenten in dit project zijn uitgevoerd op [Nvidia A40](https://www.nvi
 
 ## Citeren
 
+Repository:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+Preprint:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -550,13 +616,19 @@ Alle experimenten in dit project zijn uitgevoerd op [Nvidia A40](https://www.nvi
 
 ## Nuttige links
 
-- [Wikipedia: Reinforcement learning (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [Wikipedia: Reinforcement learning (RL)](https://nl.wikipedia.org/wiki/Reinforcement_learning)
 - [Wikipedia: Deep reinforcement learning (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
 - [Wikipedia: Q-learning](https://en.wikipedia.org/wiki/Q-learning)
 - [Wikipedia: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Wikipedia: Statistische hypothesetoets](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
-- [Wikipedia: Wilcoxon-rangtekentoets](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+- [Wikipedia: Statistische hypothesetoets](https://nl.wikipedia.org/wiki/Statistische_toets)
+- [Wikipedia: Wilcoxon-rangtekentoets](https://nl.wikipedia.org/wiki/Rangtekentoets)
 - [PyTorch](https://pytorch.org/)
+
+## Lettertype
+
+Het lettertype Vazirmatn wordt gebruikt voor zowel Perzische als Engelse tekst in de header van de GitHub-repository en op de landingspagina van het project.
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## Licentie
 

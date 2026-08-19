@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="Aftab makalesi" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="Aftab başlığı" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,31 +13,35 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
 </div>
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 <br />
@@ -47,7 +50,9 @@
 
 **Aftab** (<a href="https://en.wikipedia.org/wiki/Aftab">Farsça</a>: آفتاب; “güneş” veya “güneş ışınları”), PQN’de kullanılan CNN tabanlı kodlayıcıları farklı <a href="https://en.wikipedia.org/wiki/Atari_Games">Atari oyunlarında</a> değerlendirmeye yönelik bir kıyaslama çerçevesidir. Derin pekiştirmeli öğrenme araştırmaları için standartlaştırılmış eğitim, değerlendirme ve yeniden üretilebilirlik araçları sunar.
 
-PQN ve Aftab ajanlarını karşılaştıran birkaç video hazırladık. Videoları [buradan](../videos.md) izleyebilirsiniz.
+Aftab mimarisinin standart PQN temel modelleriyle karşılaştırmasını bu [video gösterimlerinde](https://github.com/tahashieenavaz/aftab/blob/main/videos.md) izleyin.
+
+Bu araştırma herhangi bir fon alınmadan gerçekleştirildi; çalışmamızı yararlı bulduysanız [GitHub üzerinden sponsor olmayı](https://github.com/sponsors/tahashieenavaz) değerlendirebilirsiniz 💛.
 
 ### Kodlayıcı Deneyleri
 
@@ -150,6 +155,8 @@ Kaynaklar:
 
 ### Procgen (Aşırı Öğrenmeyi Önleme) Deneyleri
 
+Procgen ortamlarının insan-normalleştirilmiş puanlarını karşılaştıran herkese açık bir kıyaslama bulunmadığından, farklı seed’lerdeki puanlara basit bir min-maks normalleştirmesi uygulayan PNS’yi (Procgen Normalized Score) oluşturduk.
+
 <div align="center">
   <table>
     <tr>
@@ -192,7 +199,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-Sanal ortam oluşturmak için [Micromamba](https://github.com/mamba-org/micromamba-releases) kullanmanızı özellikle öneriyoruz. Ayrıntılı yönergeleri [burada](../scripts/README.md) bulabilirsiniz.
+Sanal ortam oluşturmak için [Micromamba](https://github.com/mamba-org/micromamba-releases) kullanmanızı özellikle öneriyoruz. Ayrıntılı yönergeleri [burada](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md) bulabilirsiniz.
 
 ## Ajanları Eğitme
 
@@ -236,45 +243,49 @@ Tüm deney sonuçları deney kategorisine göre düzenlenmiştir. Her bölüm ş
 ### Kodlayıcı Deneyleri
 
 **Tablolar**
-- [İnsan Performansına Göre Normalleştirilmiş Puanlar](../results/encoder_experiments/human_normalized_scores.md)
-- [Puanlar](../results/encoder_experiments/scores.md)
+- [İnsan Performansına Göre Normalleştirilmiş Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **Grafikler**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [Kayıp Değişimi](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [Kayıp Değişimi](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### Hadamax Deneyleri
 
 **Tablolar**
-- [İnsan Performansına Göre Normalleştirilmiş Puanlar](../results/hadamax_experiments/human_normalized_scores.md)
-- [Puanlar](../results/hadamax_experiments/scores.md)
+- [İnsan Performansına Göre Normalleştirilmiş Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **Grafikler**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [Kayıp Değişimi](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [Kayıp Değişimi](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### Q Değeri Deneyleri
 
 **Tablolar**
-- [İnsan Performansına Göre Normalleştirilmiş Puanlar](../results/qvalue_experiments/human_normalized_scores.md)
-- [Puanlar](../results/qvalue_experiments/scores.md)
+- [İnsan Performansına Göre Normalleştirilmiş Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **Grafikler**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [Kayıp Değişimi](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [Kayıp Değişimi](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### Procgen Deneyleri
 
 **Tablolar**
-- [Procgen Normalleştirilmiş Puanları](../results/procgen_experiments/procgen_normalized_scores.md)
-- [Puanlar](../results/procgen_experiments/scores.md)
+- [Procgen Normalleştirilmiş Puanları](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [Puanlar](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [Seed’e göre PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [Oyuna göre PNS AUC](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**Grafikler**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## Model Karmaşıklığı
 
@@ -306,30 +317,70 @@ Tüm deney sonuçları deney kategorisine göre düzenlenmiştir. Her bölüm ş
 
 ## Hiperparametreler
 
-<div align="center">
+Aşağıdaki tablolar `Aftab` tarafından tanımlanan varsayılan değerleri gösterir. `experiment_name` argümanı zorunludur ve varsayılan değeri yoktur.
 
-| Hiperparametre | Değer |
+### Eğitim ve Ortam
+
+| Hiperparametre (`Aftab` argümanı) | Varsayılan |
 | :--- | :--- |
-| Öğrenme oranı | $2.5 \times 10^{-4}$ |
-| Eğitim ortamları | 128 |
-| Test ortamları | 8 |
-| Optimizasyon algoritması | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| Ağırlık azalması | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| Toplam kare | 200,000,000 |
-| Kayıp fonksiyonu | Ortalama Kare Hatası |
-| Zamanlayıcı | Doğrusal azaltma |
-| $\epsilon$-açgözlü keşif | 10% of total frames |
+| Kodlayıcı (`encoder`) | Gamma-Hadamax-Valid |
+| Ağ (`network`) | Distributional Bootstrapped (Ensemble) Dueling |
+| Toplam kare (`frames`) | 200,000,000 |
+| Kare atlama (`frame_skip`) | 4 |
+| Kare yığını (`frame_stack`) | 4 |
+| Azami no-op (`noop`) | 30 |
+| Öğrenme oranı (`lr`) | $2.5 \times 10^{-4}$ |
+| Eğitim ortamları (`train_environments`) | 128 |
+| Test ortamları (`test_environments`) | 8 |
+| Güncelleme başına adım (`steps_per_update`) | 32 |
+| Yığın boyutu (türetilmiş) | 4,096 |
+| Mini yığınlar (`mini_batches`) | 32 |
+| Mini yığın boyutu (türetilmiş) | 128 |
 | İndirim faktörü ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| Dönem sayısı | 2 |
-| Yığın boyutu | 4096 |
+| Dönüş $\lambda$’sı (`return_lambda`) | 0.65 |
+| Dönem sayısı (`epochs`) | 2 |
+| Gradyan normu (`gradient_norm`) | 10.0 |
+| Gömme boyutu (`embedding_dimension`) | 512 |
+| Eğitim bölüm ömrü (`train_episodic_life`) | `True` |
+| Test bölüm ömrü (`test_episodic_life`) | `False` |
+| Eğitim ödülü kırpma (`train_reward_clip`) | `True` |
+| Test ödülü kırpma (`test_reward_clip`) | `True` |
+| Epsilon zamanlaması | Doğrusal |
+| Epsilon azaltma oranı | 10% |
 
-</div>
+### Optimizasyon Algoritması
 
-<p align="center"><em>Kodlayıcı ve Hadamax deneylerinde kullanılmıştır.</em></p>
+| Hiperparametre (`Aftab` argümanı) | Varsayılan |
+| :--- | :--- |
+| Optimizasyon algoritması (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| Epsilon (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| Ağırlık azalması (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+### Dağılımsal ve Bootstrapped (Ensemble) Q Değerleri
+
+| Hiperparametre (`Aftab` argümanı) | Varsayılan |
+| :--- | :--- |
+| Dağılımsal kutular (`distributional_bins`) | 51 |
+| Dağılımsal en küçük değer (`distributional_min_value`) | -10.0 |
+| Dağılımsal en büyük değer (`distributional_max_value`) | 10.0 |
+| Dağılımsal sigma (`distributional_sigma`) | `None` (sigma oranından türetilir) |
+| Dağılımsal sigma oranı (`distributional_sigma_ratio`) | 0.75 |
+| Dağılımsal değer kırpma (`distributional_value_clip`) | 0.0 |
+| Bootstrap başlıkları (`bootstrap_heads`) | 10 |
+| Bootstrap olasılığı (`bootstrap_probability`) | 1.0 |
+
+### Procgen Geçersiz Kılmaları
+
+| Hiperparametre | Varsayılan | Procgen |
+| :--- | :--- | :--- |
+| Eğitim ortamları | 128 | 64 (`procgen_train_environments`) |
+| Güncelleme başına adım | 32 | 256 (`procgen_steps_per_update`) |
+| Yığın boyutu | 4,096 | 16,384 |
+| Mini yığın boyutu | 128 | 512 |
+
+<em>Procgen ortamlarında Aftab yukarıdaki iki geçersiz kılmayı otomatik olarak uygular; diğer varsayılanlar değişmez.</em>
 
 ## İstatistiksel Anlamlılık
 
@@ -495,12 +546,27 @@ Bu projedeki tüm deneyler [Nvidia A40](https://www.nvidia.com/en-us/data-center
 
 ## Atıf
 
+Depo:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+Ön baskı:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -553,13 +619,19 @@ Bu projedeki tüm deneyler [Nvidia A40](https://www.nvidia.com/en-us/data-center
 
 ## Yararlı Bağlantılar
 
-- [Vikipedi: Pekiştirmeli Öğrenme (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
+- [Vikipedi: Pekiştirmeli Öğrenme (RL)](https://tr.wikipedia.org/wiki/Pekiştirmeli_öğrenme)
 - [Vikipedi: Derin Pekiştirmeli Öğrenme (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
 - [Vikipedi: Q-Öğrenme](https://en.wikipedia.org/wiki/Q-learning)
-- [Vikipedi: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [Vikipedi: İstatistiksel Hipotez Testi](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [Vikipedi: PyTorch](https://tr.wikipedia.org/wiki/PyTorch)
+- [Vikipedi: İstatistiksel Hipotez Testi](https://tr.wikipedia.org/wiki/Hipotez_testi)
 - [Vikipedi: Wilcoxon İşaretli Sıralar Testi](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
+
+## Yazı Tipi
+
+Vazirmatn yazı tipi, GitHub deposunun başlığında ve projenin açılış sayfasında hem Farsça hem de İngilizce metinler için kullanılır.
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## Lisans
 

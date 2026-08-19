@@ -1,7 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../figures/header-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="../figures/header-light.svg">
-  <img alt="ورقة Aftab البحثية" src="../figures/header-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-dark.svg">
+  <img alt="ترويسة Aftab" src="https://raw.githubusercontent.com/tahashieenavaz/aftab/main/figures/header-light.svg">
 </picture>
 
 <p align="center">
@@ -14,8 +13,12 @@
 <p align="center">
   <img src="https://img.shields.io/badge/backend-PyTorch-ee4c2c" />
   <img src="https://img.shields.io/badge/citable-yes-success" />
-  <img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b" />
+  <a href="https://arxiv.org/abs/2608.07335">
+    <img src="https://img.shields.io/badge/arXiv-2608.07335-b31b1b" />
+  </a>
 </p>
+
+<br />
 
 <div align="center">
   <a href="https://underdash.pro">Taha Shieenavaz</a> | <a href="https://shbnmzr.github.io">Shabnam Zareshahraki</a> | <a href="https://scholar.google.com/citations?user=5NSGzcQAAAAJ&hl=en">Loris Nanni</a>
@@ -24,30 +27,32 @@
 <br />
 
 <div align="center">
-  🇪🇸🇲🇽🇨🇺 <a href="./spanish.md">Español</a> |
-  🇮🇷🇦🇫🇹🇯 <a href="./farsi.md">فارسی</a> |
-  🇮🇹🇨🇭 <a href="./italian.md">Italiano</a> |
-  🇫🇷🇧🇪🇨🇭 <a href="./french.md">Français</a> |
-  🇩🇪🇦🇹🇨🇭 <a href="./german.md">Deutsch</a> |
-  🇳🇱🇧🇪🇸🇷 <a href="./dutch.md">Nederlands</a> |
-  🇵🇹🇧🇷🇦🇴 <a href="./portuguese.md">Português</a> |
-  🇸🇦🇱🇧🇮🇶 <a href="./arabic.md">العربية</a> |
-  🇷🇺🇧🇾🇰🇿 <a href="./russian.md">Русский</a> |
-  🇨🇳🇸🇬🇹🇼 <a href="./chinese.md">中文</a> |
-  🇯🇵 <a href="./japanese.md">日本語</a> |
-  🇰🇷 <a href="./korean.md">한국어</a> |
-  🇮🇳 <a href="./hindi.md">हिन्दी</a> |
-  🇮🇩 <a href="./indonesian.md">Bahasa Indonesia</a> |
-  🇧🇩🇮🇳 <a href="./bengali.md">বাংলা</a> |
-  🇻🇳 <a href="./vietnamese.md">Tiếng Việt</a> |
-  🇹🇷 <a href="./turkish.md">Türkçe</a>
+  🇪🇸🇲🇽🇨🇺 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/spanish.md">Español</a> |
+  🇮🇷🇦🇫🇹🇯 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/farsi.md">فارسی</a> |
+  🇮🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/italian.md">Italiano</a> |
+  🇫🇷🇧🇪🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/french.md">Français</a> |
+  🇩🇪🇦🇹🇨🇭 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/german.md">Deutsch</a> |
+  🇳🇱🇧🇪🇸🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/dutch.md">Nederlands</a> |
+  🇵🇹🇧🇷🇦🇴 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/portuguese.md">Português</a> |
+  🇸🇦🇱🇧🇮🇶 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/arabic.md">العربية</a> |
+  🇷🇺🇧🇾🇰🇿 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/russian.md">Русский</a> |
+  🇨🇳🇸🇬🇹🇼 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/chinese.md">中文</a> |
+  🇯🇵 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/japanese.md">日本語</a> |
+  🇰🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/korean.md">한국어</a> |
+  🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/hindi.md">हिन्दी</a> |
+  🇮🇩 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/indonesian.md">Bahasa Indonesia</a> |
+  🇧🇩🇮🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/bengali.md">বাংলা</a> |
+  🇻🇳 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/vietnamese.md">Tiếng Việt</a> |
+  🇹🇷 <a href="https://github.com/tahashieenavaz/aftab/blob/main/i18n/turkish.md">Türkçe</a>
 </div>
 
 ## نظرة عامة
 
 **Aftab** (بالفارسية <a href="https://en.wikipedia.org/wiki/Aftab">آفتاب</a>، وتعني «الشمس» أو «أشعة الشمس») هو إطار معياري لتقييم المُرمِّزات القائمة على الشبكات العصبية الالتفافية (CNN) في PQN عبر مجموعة من <a href="https://en.wikipedia.org/wiki/Atari_Games">ألعاب Atari</a>. ويوفر أدوات موحّدة للتدريب والتقييم وقابلية إعادة الإنتاج في أبحاث التعلم المعزز العميق.
 
-جمعنا بعض المقاطع التي تقارن بين وكلاء PQN وAftab. يمكن مشاهدتها [هنا](../videos.md).
+شاهدوا كيف تقارن بنية Aftab بخطوط أساس PQN القياسية في هذه [العروض التوضيحية المصورة](https://github.com/tahashieenavaz/aftab/blob/main/videos.md).
+
+أُجري هذا البحث دون تلقي أي تمويل؛ لذلك، إذا وجدتم عملنا مفيدًا، فنرجو النظر في [رعايته على GitHub](https://github.com/sponsors/tahashieenavaz) 💛.
 
 ### تجارب المُرمِّزات
 
@@ -146,6 +151,8 @@
 
 ### تجارب Procgen (الحد من فرط التخصيص)
 
+نظرًا لعدم وجود معايير عامة تقارن الدرجات المطبّعة بالنسبة إلى أداء الإنسان في بيئات Procgen، أنشأنا PNS (درجة Procgen المطبّعة)، وهي تطبيع بسيط بالحدين الأدنى والأقصى للدرجات عبر البذور.
+
 <div align="center">
   <table>
     <tr>
@@ -188,7 +195,7 @@ git clone https://github.com/tahashieenavaz/aftab.git aftab_source
 pip install -e aftab_source
 ```
 
-نوصي بشدة باستخدام [Micromamba](https://github.com/mamba-org/micromamba-releases) لإنشاء البيئات الافتراضية. تتوفر التعليمات المفصلة [هنا](../scripts/README.md).
+نوصي بشدة باستخدام [Micromamba](https://github.com/mamba-org/micromamba-releases) لإنشاء البيئات الافتراضية. تتوفر التعليمات المفصلة [هنا](https://github.com/tahashieenavaz/aftab/blob/main/scripts/README.md).
 
 ## تدريب الوكلاء
 
@@ -232,45 +239,49 @@ agent = Aftab(encoder=CustomImageEncoder)
 ### تجارب المُرمِّزات
 
 **الجداول**
-- [الدرجات المطبّعة قياساً إلى أداء الإنسان](../results/encoder_experiments/human_normalized_scores.md)
-- [الدرجات](../results/encoder_experiments/scores.md)
+- [الدرجات المطبّعة قياساً إلى أداء الإنسان](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/human_normalized_scores.md)
+- [الدرجات](https://github.com/tahashieenavaz/aftab/blob/main/results/encoder_experiments/scores.md)
 
 **المخططات**
-- [IQM HNS](../figures/encoder_experiments/human_normalized_score)
-- [تطور دالة الخسارة](../figures/encoder_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/human_normalized_score)
+- [تطور دالة الخسارة](https://github.com/tahashieenavaz/aftab/blob/main/figures/encoder_experiments/loss)
 
 ---
 
 ### تجارب Hadamax
 
 **الجداول**
-- [الدرجات المطبّعة قياساً إلى أداء الإنسان](../results/hadamax_experiments/human_normalized_scores.md)
-- [الدرجات](../results/hadamax_experiments/scores.md)
+- [الدرجات المطبّعة قياساً إلى أداء الإنسان](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/human_normalized_scores.md)
+- [الدرجات](https://github.com/tahashieenavaz/aftab/blob/main/results/hadamax_experiments/scores.md)
 
 **المخططات**
-- [IQM HNS](../figures/hadamax_experiments/human_normalized_score)
-- [تطور دالة الخسارة](../figures/hadamax_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/human_normalized_score)
+- [تطور دالة الخسارة](https://github.com/tahashieenavaz/aftab/blob/main/figures/hadamax_experiments/loss)
 
 ---
 
 ### تجارب قيم Q
 
 **الجداول**
-- [الدرجات المطبّعة قياساً إلى أداء الإنسان](../results/qvalue_experiments/human_normalized_scores.md)
-- [الدرجات](../results/qvalue_experiments/scores.md)
+- [الدرجات المطبّعة قياساً إلى أداء الإنسان](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/human_normalized_scores.md)
+- [الدرجات](https://github.com/tahashieenavaz/aftab/blob/main/results/qvalue_experiments/scores.md)
 
 **المخططات**
-- [IQM HNS](../figures/qvalue_experiments/human_normalized_score)
-- [تطور دالة الخسارة](../figures/qvalue_experiments/loss)
+- [IQM HNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/human_normalized_score)
+- [تطور دالة الخسارة](https://github.com/tahashieenavaz/aftab/blob/main/figures/qvalue_experiments/loss)
 
 ---
 
 ### تجارب Procgen
 
 **الجداول**
-- [درجات Procgen المطبّعة](../results/procgen_experiments/procgen_normalized_scores.md)
-- [الدرجات](../results/procgen_experiments/scores.md)
+- [درجات Procgen المطبّعة](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/procgen_normalized_scores.md)
+- [الدرجات](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/scores.md)
+- [مساحة PNS تحت المنحنى حسب البذرة](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_seed.md)
+- [مساحة PNS تحت المنحنى حسب اللعبة](https://github.com/tahashieenavaz/aftab/blob/main/results/procgen_experiments/auc_game.md)
 
+**الرسوم البيانية**
+- [IQM PNS](https://github.com/tahashieenavaz/aftab/blob/main/figures/procgen_experiments/procgen_normalized_score)
 
 ## تعقيد النماذج
 
@@ -302,30 +313,70 @@ agent = Aftab(encoder=CustomImageEncoder)
 
 ## المعاملات الفائقة
 
-<div align="center">
+تعكس الجداول التالية القيم الافتراضية التي يحددها `Aftab`. الوسيط `experiment_name` مطلوب وليس له قيمة افتراضية.
 
-| المعامل الفائق | القيمة |
+### التدريب والبيئة
+
+| المعامل الفائق (وسيط `Aftab`) | القيمة الافتراضية |
 | :--- | :--- |
-| معدل التعلم | $2.5 \times 10^{-4}$ |
-| بيئات التدريب | 128 |
-| بيئات الاختبار | 8 |
-| خوارزمية التحسين | [Rectified Adam](https://arxiv.org/abs/1908.03265) |
-| اضمحلال الأوزان | 0 |
-| $\epsilon$ | $1 \times 10^{-5}$ |
-| $\beta_{1}$ | 0.9 |
-| $\beta_{2}$ | 0.999 |
-| إجمالي الإطارات | 200,000,000 |
-| دالة الخسارة | متوسط مربع الخطأ |
-| المجدول | خفض خطي |
-| استكشاف $\epsilon$-الجشع | 10% of total frames |
+| المُرمِّز (`encoder`) | Gamma-Hadamax-Valid |
+| الشبكة (`network`) | Dueling توزيعية ومُمهّدة (مجموعة) |
+| إجمالي الإطارات (`frames`) | 200,000,000 |
+| تخطي الإطارات (`frame_skip`) | 4 |
+| تكديس الإطارات (`frame_stack`) | 4 |
+| الحد الأقصى لعدم الفعل (`noop`) | 30 |
+| معدل التعلم (`lr`) | $2.5 \times 10^{-4}$ |
+| بيئات التدريب (`train_environments`) | 128 |
+| بيئات الاختبار (`test_environments`) | 8 |
+| الخطوات لكل تحديث (`steps_per_update`) | 32 |
+| حجم الدفعة (مشتق) | 4,096 |
+| الدفعات المصغرة (`mini_batches`) | 32 |
+| حجم الدفعة المصغرة (مشتق) | 128 |
 | معامل الخصم ($\gamma$) | 0.99 |
-| GAE ($\lambda$) | 0.65 |
-| الحقب | 2 |
-| حجم الدفعة | 4096 |
+| $\lambda$ للعائد (`return_lambda`) | 0.65 |
+| الحقب (`epochs`) | 2 |
+| معيار التدرج (`gradient_norm`) | 10.0 |
+| بُعد التضمين (`embedding_dimension`) | 512 |
+| الحياة العرضية في التدريب (`train_episodic_life`) | `True` |
+| الحياة العرضية في الاختبار (`test_episodic_life`) | `False` |
+| قص مكافآت التدريب (`train_reward_clip`) | `True` |
+| قص مكافآت الاختبار (`test_reward_clip`) | `True` |
+| جدول إبسيلون | خطي |
+| نسبة خفض إبسيلون | 10% |
 
-</div>
+### خوارزمية التحسين
 
-<p align="center"><em>مستخدمة في تجارب المُرمِّزات وHadamax.</em></p>
+| المعامل الفائق (وسيط `Aftab`) | القيمة الافتراضية |
+| :--- | :--- |
+| خوارزمية التحسين (`optimizer`) | [Rectified Adam](https://arxiv.org/abs/1908.03265) (`"radam"`) |
+| إبسيلون (`optimizer_epsilon`) | $1 \times 10^{-5}$ |
+| اضمحلال الأوزان (`optimizer_weight_decay`) | 0.0 |
+| $\beta_1$ (`optimizer_first_beta`) | 0.9 |
+| $\beta_2$ (`optimizer_second_beta`) | 0.999 |
+
+### قيم Q التوزيعية والمُمهّدة (المجموعة)
+
+| المعامل الفائق (وسيط `Aftab`) | القيمة الافتراضية |
+| :--- | :--- |
+| صناديق التوزيع (`distributional_bins`) | 51 |
+| الحد الأدنى للتوزيع (`distributional_min_value`) | -10.0 |
+| الحد الأقصى للتوزيع (`distributional_max_value`) | 10.0 |
+| سيغما التوزيع (`distributional_sigma`) | `None` (مشتقة من نسبة سيغما) |
+| نسبة سيغما للتوزيع (`distributional_sigma_ratio`) | 0.75 |
+| قص القيمة التوزيعية (`distributional_value_clip`) | 0.0 |
+| رؤوس bootstrap (`bootstrap_heads`) | 10 |
+| احتمال bootstrap (`bootstrap_probability`) | 1.0 |
+
+### تجاوزات Procgen
+
+| المعامل الفائق | الافتراضي | Procgen |
+| :--- | :--- | :--- |
+| بيئات التدريب | 128 | 64 (`procgen_train_environments`) |
+| الخطوات لكل تحديث | 32 | 256 (`procgen_steps_per_update`) |
+| حجم الدفعة | 4,096 | 16,384 |
+| حجم الدفعة المصغرة | 128 | 512 |
+
+<em>في بيئات Procgen، يطبّق Aftab التجاوزين أعلاه تلقائيًا؛ وتبقى القيم الافتراضية الأخرى دون تغيير.</em>
 
 ## الدلالة الإحصائية
 
@@ -491,12 +542,27 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## الاستشهاد
 
+المستودع:
+
 ```bibtex
-@article{aftab2026drl,
-  title={Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
-  author={Shieenavaz, Taha and Zareshahraki, Shabnam and Nanni, Loris},
-  journal={arXiv preprint arXiv:YYMM.NNNNN},
-  year={2026}
+@software{aftab2026,
+  author = {Taha Shieenavaz},
+  title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/tahashieenavaz/aftab}},
+}
+```
+
+المسودة الأولية:
+
+```bibtex
+@misc{2608.07335,
+  Author = {Taha Shieenavaz and Shabnam Zareshahraki and Loris Nanni},
+  Title = {Aftab: A Comprehensive Benchmark of CNN Encoders and Advanced Value Functions in Parallelized Q-Networks},
+  Year = {2026},
+  Eprint = {arXiv:2608.07335},
 }
 ```
 
@@ -549,13 +615,19 @@ https://envpool.readthedocs.io/en/latest/env/procgen.html#available-tasks
 
 ## روابط مفيدة
 
-- [ويكيبيديا: التعلم المعزز (RL)](https://en.wikipedia.org/wiki/Reinforcement_learning)
-- [ويكيبيديا: التعلم المعزز العميق (DRL)](https://en.wikipedia.org/wiki/Deep_reinforcement_learning)
+- [ويكيبيديا: التعلم المعزز (RL)](https://ar.wikipedia.org/wiki/تعلم_بالتقوية)
+- [ويكيبيديا: التعلم المعزز العميق (DRL)](https://ar.wikipedia.org/wiki/تعلم_عميق_بالتعزيز)
 - [ويكيبيديا: تعلم Q](https://en.wikipedia.org/wiki/Q-learning)
-- [ويكيبيديا: PyTorch](https://en.wikipedia.org/wiki/PyTorch)
-- [ويكيبيديا: اختبار الفرضيات الإحصائية](https://en.wikipedia.org/wiki/Statistical_hypothesis_test)
+- [ويكيبيديا: PyTorch](https://ar.wikipedia.org/wiki/باي_تورش)
+- [ويكيبيديا: اختبار الفرضيات الإحصائية](https://ar.wikipedia.org/wiki/اختبار_فرضية_إحصائية)
 - [ويكيبيديا: اختبار ويلكوكسون للرتب الموقعة](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 - [PyTorch](https://pytorch.org/)
+
+## الخط
+
+يُستخدم خط Vazirmatn للنصوص الفارسية والإنجليزية في ترويسة مستودع GitHub وصفحة المشروع الرئيسية.
+
+[GitHub](https://github.com/rastikerdar/vazirmatn) | [Google Fonts](https://fonts.google.com/specimen/Vazirmatn)
 
 ## الترخيص
 
